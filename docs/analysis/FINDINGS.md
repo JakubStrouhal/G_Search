@@ -485,6 +485,10 @@ earlier draft of this section got wrong (**§9 row 11**):
 | **Another city in the market** | 145 | 3.1% | Product/UX |
 | **Can't tell from this catalogue** | 1,016 | 21.5% | Not attributed |
 
+**Do not lift 43.2% out of this table on its own.** It is the *default* reading of one
+judgement call (`PLAUSIBLE_COUNTS_AS`, below). The honest figure is the band
+**[43.2%, 64.7%]**, and under one of the three readings same-city overtakes nowhere.
+
 VERIFIED — **the buckets and the F1–F6 classes nest exactly.** `nowhere` is
 precisely F4 (1,584) + F1 (455), asserted in `notebook.py` rather than claimed.
 `same_city` is BASELINE 929 + F5 236 + F2 197 + F3 158. A per-row assertion in
