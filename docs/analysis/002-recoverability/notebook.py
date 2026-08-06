@@ -150,7 +150,7 @@ print(by_class.assign(
 # | Class | Fix | Recoverable | Basis |
 # |---|---|---|---|
 # | **F2** lexical/language | multilingual matching, diacritic folding | **52%** (43–61%) | **Measured.** English phrasing dead-ends 81.2% vs 39.0% local — a 42.3pp gap on 81.2% of volume = 52% of that class's dead ends are language, not supply |
-# | **F5** ranking cutoff | ~~fix the threshold~~ | **0%** | **WITHDRAWN 2026-08-06 by live probe P4.** The 40% rested entirely on "no search returns exactly 3, so there must be a cutoff". Live Groupon returns exactly 3 routinely (`quadbike` 3, `trapeze` 3, GB/london, N=33, smooth low-count distribution 0,1,2,3,…). The supplied data's 0,1,2→4 gap across 8,997 searches is a **generator artifact**, so the inference is dead. `classify.py`'s F5 predicate is a **residual** — stocked, failing, and none of F2/F3 apply — so the 353 dead ends are a real population with no known cause, i.e. a second BASELINE. No fix claimed. See `003-live-validation/RESULT.md` |
+# | **F5** ranking cutoff | ~~fix the threshold~~ | **0%** | **WITHDRAWN 2026-08-06 — on this file's own evidence.** The 40% rested entirely on "no search returns exactly 3, so there must be a cutoff". That is an inference *from an absence*, and the absence has (at least) two explanations — a ranking cutoff, or the generator — which **this file cannot distinguish**. An unresolvable competing explanation does not license a 40% point estimate, so the estimate is withdrawn to zero rather than re-derived. `classify.py`'s F5 predicate is a **residual** — stocked, failing, and none of F2/F3 apply — so the 353 dead ends are a real population with no known cause, i.e. a second BASELINE. No fix claimed. *(The live catalogue independently corroborates the generator branch — `003-live-validation/RESULT.md` P4 — but the withdrawal above does not rest on it, and no live figure enters this notebook.)* |
 # | **F3** geographic | radius widening as an explicit choice | 25% (10–40%) | **Assumption.** Inventory exists in-market, just not in-city. Discount heavily: a user offered a deal 90 min away often declines |
 # | **F1** silent substitution | name the unmatched token, reframe as adjacency | **0%** (−10–0%) | **Deliberate zero.** The fix makes a false-confident page honest. It may *reduce* near-term clicks. The return is trust, which this dataset cannot measure |
 # | **F4** supply void | merchant acquisition | **0%** | **Zero by construction.** No inventory exists. Search cannot fix this at any quality — that is the finding |
@@ -159,7 +159,10 @@ print(by_class.assign(
 # %%
 RECOVERABLE = {  # class -> (low, point, high) share of that class's dead ends a fix returns
     "F2_language":               (0.43, 0.52, 0.61),   # measured anchor
-    "F5_ranking":                (0.00, 0.00, 0.00),   # WAS (0.10, 0.40, 0.70) -- killed by live P4
+    "F5_ranking":                (0.00, 0.00, 0.00),   # WAS (0.10, 0.40, 0.70) -- withdrawn: the
+                                                       # "cutoff" was inferred from an absence this
+                                                       # file cannot attribute. CSV-only reasoning;
+                                                       # live P4 corroborates but is not the basis.
     "F3_geographic":             (0.10, 0.25, 0.40),   # assumption
     "F1_silent_substitution":    (-0.10, 0.00, 0.00),  # honesty fix, not a recovery
     "F4_supply_void":            (0.00, 0.00, 0.00),   # search cannot fix supply

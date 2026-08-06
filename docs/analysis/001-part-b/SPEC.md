@@ -166,9 +166,12 @@ visible in the staff panel.
 
 ### F5 — Unexplained residual (73 pairs, 658 searches) · the second one
 
-**"Ranking cutoff" is dead.** It rested entirely on "no query returns exactly 3", and live Groupon
-returns exactly 3 routinely (`quadbike`, `trapeze`) — so the supplied 0,1,2→4 gap is a generation
-artifact (`FINDINGS.md` §1, §5e; `003-live-validation/RESULT.md` P4). `classify.py` assigns F5 as a
+**"Ranking cutoff" is dead, on the supplied data's own terms.** It rested entirely on "no query
+returns exactly 3" — an inference from an absence that the supplied data cannot attribute between a
+cutoff and the generator. Unattributable, so withdrawn rather than re-estimated (`FINDINGS.md` §1).
+*(Live corroborates the generator branch — Groupon returns exactly 3 routinely, `quadbike`,
+`trapeze`, `003-live-validation/RESULT.md` P4 — but the withdrawal does not depend on it.)*
+`classify.py` assigns F5 as a
 **residual** — stocked, failing, not F2, not F3 — so it is a second BASELINE, not a cause.
 Recoverability was withdrawn to **0**, not re-estimated: `002-recoverability`'s central estimate
 moved 59 → **36 purchases/month**, 17.9% → **11.8%**.
@@ -292,13 +295,36 @@ LOW <= max_sim <  HIGH   → labelled adjacency ("We don't have X, but…")
 max_similarity <  LOW    → honest empty state + intent capture
 ```
 
-**Calibrate against the labelled set Part A already emits, not against two anchor cases.** The 178
-F4 pairs (`coverage == 'absent'`, not the same set as always-zero — `INDEX.md` #6) plus the
-never-zero set are a few hundred labelled pairs sitting in
-`query_classes.csv`. Sweep HIGH/LOW against them and **report the error rate**. "Thresholds
-calibrated against N labelled pairs from Part A, X% disagreement, here are the failures" is
+**Calibrate against the labelled set Part A already emits, not against two anchor cases.**
+
+**The ground truth is `coverage`, and it is bigger and cleaner than this section previously said.**
+Checked against `query_classes.csv` (751 rows, 2026-08-06):
+
+| `coverage` | rows | what it means | correct system behaviour |
+|---|---|---|---|
+| `absent` | **437** | the market stocks nothing for this concept | **must fall below LOW** — abstain |
+| `plausible` / `stocked` | 314 | the market stocks something | must clear LOW |
+
+`absent` decomposes **exactly** into `F4_supply_void` **178** + `F1_silent_substitution` **259**,
+with no leakage in either direction (`F4 ⊂ absent`, `absent − F4 = F1`). That is the same partition
+as the spine's `nowhere` bucket, which `FINDINGS.md` §5f asserts in code as F1 ∪ F4.
+
+**This corrects an error in the previous wording of this paragraph,** which described the 178 F4
+pairs as "`coverage == 'absent'`". They are a *subset* of it. Calibrating on 178 would have trained
+the threshold to abstain on supply voids while **passing all 259 silent-substitution rows** — the
+single failure the whole prototype exists to fix. The correct target is all **437**.
+
+Sweep HIGH/LOW over the 437 / 314 split and **report the error rate, both directions separately**:
+false-confident (an `absent` row clearing LOW) is the expensive one and is the F1 failure mode;
+false-abstain (a `stocked` row falling below LOW) is the cheap one. "Thresholds calibrated against
+751 labelled pairs from Part A, X% false-confident, Y% false-abstain, here are the failures" is
 *evidence*; hand-tuning two scalars against two cases is fitting, and Part C would have to confess
 it. This sweep doubles as the verification that §2's ordering concern is real.
+
+**If the sweep cannot separate 437 from 314 at any (HIGH, LOW), stop and say so** — that result
+would mean §1's MUST ("failure classes behave visibly differently") is unreachable by threshold
+alone, and every screen built on it would be built on sand. Report it rather than tuning until it
+looks right.
 
 **Knowing when to return nothing is the product requirement, not an edge case.** Every abstention
 writes a demand row.
@@ -378,7 +404,8 @@ Build the demo so the panel is worth opening on every single query.
   live catalogue**, which returns 3 routinely (`FINDINGS.md` §1). Evidence about the generator, not
   about the supplied data. Still open: whether paintball's healthy conversion is substitution or
   artifact (`INDEX.md` #4).
-- **Two class names withdrawn, both populations kept** — F5 "ranking cutoff" (live probe P4) and F3
+- **Two class names withdrawn, both populations kept** — F5 "ranking cutoff" (unattributable on the
+  supplied data; live P4 corroborates) and F3
   "geographic thinness" (6 of 321). Both are residuals with no established cause, a smaller claim
   than each replaced. F3's 25% range is retained un-re-derived, with 7.8% / 5.7% published beside it.
 - **The `nowhere` share is a band, [43.2%, 64.7%]** — one judgement moves 1,016 dead ends and flips

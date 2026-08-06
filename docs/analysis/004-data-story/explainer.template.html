@@ -311,6 +311,57 @@ footer .mono{font-size:.72rem}
   color:var(--ink-2);cursor:pointer}
 @media print{.themed{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ============================ FIGURES ====================================
+   Every chart is inline SVG drawn from the same payload as the prose, at
+   runtime. No chart is an image: a baked PNG is a hand-typed number wearing a
+   picture, which is the one defect this page is built to prevent.
+   Marks are thin, grid is recessive, and text always wears an ink token --
+   never a series colour -- so identity is carried by the mark beside it.
+   ======================================================================== */
+figure{margin:1.6rem 0;display:flex;flex-direction:column;gap:.5rem}
+figure svg{display:block;width:100%;height:auto;overflow:visible}
+figcaption{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);letter-spacing:.04em;
+  line-height:1.5}
+.fig-t{font-size:.95rem;font-weight:640;color:var(--ink)}
+.fig-scroll{overflow-x:auto}
+.fig-scroll>svg{min-width:520px}
+.ax{stroke:var(--rule);stroke-width:1}
+.gl{stroke:var(--rule);stroke-width:1;opacity:.55;stroke-dasharray:2 3}
+.tk{font-family:var(--mono);font-size:9px;fill:var(--ink-3)}
+.tk-b{font-family:var(--mono);font-size:10px;fill:var(--ink-2)}
+.dl{font-family:var(--mono);font-size:10px;fill:var(--ink);font-weight:600}
+.mk-dead{fill:var(--oxide);stroke:var(--oxide)}
+.mk-ok{fill:var(--pine);stroke:var(--pine)}
+.mk-thin{fill:var(--ink-3);stroke:var(--ink-3)}
+figure .hit{fill:transparent;cursor:pointer}
+figure .hit:hover~.mkr,figure g.pt:hover .mkr{stroke:var(--paper);stroke-width:2}
+/* legend -- always present for >=2 series, so identity is never colour alone */
+.lg{display:flex;flex-wrap:wrap;gap:.35rem 1rem;font-family:var(--mono);font-size:.7rem;
+  color:var(--ink-2)}
+.lg i{display:inline-block;width:.62rem;height:.62rem;border-radius:2px;margin-right:.35rem;
+  vertical-align:-1px}
+/* tooltip -- one node, moved; charts are interactive by default */
+#tip{position:fixed;z-index:50;pointer-events:none;opacity:0;transition:opacity .1s;
+  background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:.7rem;
+  padding:.4rem .55rem;border-radius:4px;line-height:1.45;max-width:15rem;
+  box-shadow:0 2px 10px rgba(0,0,0,.22)}
+#tip.on{opacity:1}
+/* charts inside the fixed-dark chapter 2 console keep the console's palette,
+   because that device is what stops live and supplied data being confused */
+.live figure{margin:.4rem 0 0}
+.live .ax{stroke:#232a3d}.live .gl{stroke:#232a3d;opacity:.8}
+.live .tk{fill:#7f8db3}.live .tk-b{fill:#8d9ab8}.live .dl{fill:#f0f3fa}
+.live figcaption{color:#8d9ab8}
+.live .lg{color:#8d9ab8}
+/* slope chart */
+.sl-line{stroke-width:1.5;fill:none;opacity:.42}
+.sl-line.up{stroke:var(--blue);opacity:1;stroke-width:2.5}
+.sl-line.down{stroke:var(--oxide)}
+figure g.sl:hover .sl-line{opacity:1;stroke-width:2.5}
+/* range / whisker rows */
+.wh-line{stroke:var(--ink-3);stroke-width:2;stroke-linecap:round}
+.wh-cap{stroke:var(--ink-3);stroke-width:1.5}
 </style>
 
 <button class="themed" id="tt" aria-label="Toggle light or dark theme">theme</button>
@@ -354,6 +405,21 @@ footer .mono{font-size:.72rem}
     converts at 0%. One returning four or more converts at <strong id="s2p-high"></strong>. There is
     a <strong>cliff, not a gradient</strong> — so 1–2 belongs with zero, and the honest headline is
     <strong id="n-dead-2"></strong>.</p>
+
+  <p>Those three bands are the conclusion. This is the evidence for it — the same purchase rate
+    against the <em>exact</em> number of results returned, every count plotted:</p>
+
+  <figure>
+    <span class="fig-t">Purchase rate by exact number of results returned</span>
+    <div class="fig-scroll"><svg id="fig-cliff" role="img"
+      aria-label="Purchase rate against exact result count. It is near zero at 0, 1 and 2 results,
+      jumps above 20% at 4, and no search anywhere returns exactly 3."></svg></div>
+    <div class="lg" id="fig-cliff-lg"></div>
+    <figcaption id="fig-cliff-cap"></figcaption>
+  </figure>
+
+  <div class="note"><span class="t">Two things this plot shows that the bands cannot</span>
+    <span id="cliff-read"></span></div>
 
   <div class="note"><span class="t">The obvious objection, tested</span>
     Perhaps queries returning 1–2 results are simply <em>different</em> queries — rarer concepts,
@@ -425,6 +491,13 @@ footer .mono{font-size:.72rem}
     <h3>The system knows it has nothing nearby, and answers anyway</h3>
     <div class="live"><h3>Observed · cumulative results within each radius</h3>
       <div id="live-dist"></div>
+      <figure>
+        <div class="fig-scroll"><svg id="fig-dist" role="img"
+          aria-label="Cumulative results within each radius. The dense query climbs steadily with
+          distance; the thin query is flat at zero at every radius, yet still returned results."></svg></div>
+        <div class="lg" id="fig-dist-lg"></div>
+        <figcaption id="fig-dist-cap"></figcaption>
+      </figure>
       <p style="margin-top:.9rem;color:#8d9ab8" id="dist-claim"></p></div>
 
     <h3>One check that constrains what any of this can conclude</h3>
@@ -460,6 +533,15 @@ footer .mono{font-size:.72rem}
 
   <div class="note warn"><span class="t">The judgement call this rests on, and what it is worth</span>
     <span id="seam-note"></span></div>
+
+  <figure>
+    <span class="fig-t">The same <span id="seam-total"></span> dead ends under all three defensible readings</span>
+    <div class="fig-scroll"><svg id="fig-seam" role="img"
+      aria-label="The four buckets re-drawn under three coverage conventions. Under the third,
+      the user's own city overtakes nowhere in the market and the ordering flips."></svg></div>
+    <div class="lg" id="fig-seam-lg"></div>
+    <figcaption id="fig-seam-cap"></figcaption>
+  </figure>
 </div></section>
 
 <!-- ===================== CH 4 ===================== -->
@@ -476,6 +558,20 @@ footer .mono{font-size:.72rem}
 
   <div class="lang" id="lang"></div>
   <p class="legend" id="lang-cap"></p>
+
+  <p>That is the aggregate. Below is <em>every</em> matched pair — one line each, from how often it
+    dead-ends asked in English to how often the same concept dead-ends asked locally. The claim is
+    that they nearly all fall the same way; this is so you can count them rather than take it:</p>
+
+  <figure>
+    <span class="fig-t">Every matched pair, English phrasing → local phrasing</span>
+    <div class="fig-scroll"><svg id="fig-slope" role="img"
+      aria-label="Slope chart of every matched query pair. Almost all fall from a high dead-end
+      rate in English to a lower one in the local language; one rises."></svg></div>
+    <div class="lg" id="fig-slope-lg"></div>
+    <figcaption id="fig-slope-cap"></figcaption>
+  </figure>
+
   <div class="tablewrap"><table id="langtbl"></table></div>
 
   <p>Both obvious objections were ruled out, and that is what makes this a finding rather than an
@@ -493,6 +589,16 @@ footer .mono{font-size:.72rem}
 
   <p>Recoverability per class is an <strong>assumption</strong>, not a measurement — with one
     exception, which is stated as the exception. Every assumption is named and ranged:</p>
+
+  <figure>
+    <span class="fig-t">What fraction of each class's dead ends a fix recovers — range, not a point</span>
+    <div class="fig-scroll"><svg id="fig-assum" role="img"
+      aria-label="Recovery assumption per failure class, drawn as a range with its central estimate.
+      The supply void is pinned at zero with no range; the language class is the only measured one."></svg></div>
+    <div class="lg" id="fig-assum-lg"></div>
+    <figcaption id="fig-assum-cap"></figcaption>
+  </figure>
+
   <div class="assum" id="assum"></div>
 
   <div class="note"><span class="t">Every way of tightening this moves the same direction</span>
@@ -585,6 +691,42 @@ const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':
 const md = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>')
                       .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
+/* ---------- figures: shared plumbing ------------------------------------
+   Charts are drawn from D at runtime. These helpers exist so all five share one
+   visual system rather than looking like five separate additions. */
+const NS = 'http://www.w3.org/2000/svg';
+const svgEl = (id, w, h) => {
+  const s = el(id);
+  s.setAttribute('viewBox', `0 0 ${w} ${h}`);
+  s.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+  s.innerHTML = '';
+  return s;
+};
+const mk = (tag, attrs = {}, txt) => {
+  const n = document.createElementNS(NS, tag);
+  for (const k in attrs) n.setAttribute(k, attrs[k]);
+  if (txt != null) n.textContent = txt;
+  return n;
+};
+const legend = (id, items) => el(id).innerHTML = items.map(([c, t, extra]) =>
+  `<span><i style="background:${c};${extra || ''}"></i>${esc(t)}</span>`).join('');
+
+/* one tooltip node, moved -- an SVG chart on a page is interactive by default */
+const tip = document.createElement('div');
+tip.id = 'tip'; document.body.appendChild(tip);
+const bindTip = (node, html) => {
+  node.addEventListener('pointerenter', e => {
+    tip.innerHTML = html; tip.classList.add('on');
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - 250) + 'px';
+    tip.style.top = (e.clientY + 16) + 'px';
+  });
+  node.addEventListener('pointermove', e => {
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - 250) + 'px';
+    tip.style.top = (e.clientY + 16) + 'px';
+  });
+  node.addEventListener('pointerleave', () => tip.classList.remove('on'));
+};
+
 /* theme toggle -- must beat the media query in both directions */
 el('tt').onclick = () => {
   const cur = document.documentElement.getAttribute('data-theme')
@@ -612,6 +754,123 @@ el('bands').innerHTML = H.bands.map(b => `
       style="width:${(b.share * 100).toFixed(1)}%"></span></span>
     <span class="val">${pc(b.s2p, 2)}</span>
   </div>`).join('');
+
+/* --- FIGURE: purchase rate by EXACT result count -------------------------
+   The bands above are the conclusion; this is the evidence. Two claims ride on
+   one series: the cliff sits between 2 and 4 rather than sloping, and the count
+   3 is absent from the data -- so the data-quality flag draws itself as a gap in
+   the axis instead of being asserted in a footnote further down the page.
+   n per count is drawn as its own strip beneath, sharing the x scale. It is NOT
+   a second y-axis on the same plot: two scales on one frame is the one chart
+   mistake that reliably misleads. */
+(function cliff() {
+  const BC = H.by_count;
+  if (!BC || !BC.length) return;
+  const W = 720, HT = 300, mL = 42, mR = 16, mT = 14, plotH = 176, gapH = 16, stripH = 40;
+  const maxC = Math.max(...BC.map(d => d.count));
+  const maxY = Math.max(...BC.map(d => d.s2p));
+  const yTop = Math.ceil(maxY * 100 / 5) * 5 / 100;
+  const maxN = Math.max(...BC.map(d => d.searches));
+  const x = c => mL + (c / maxC) * (W - mL - mR);
+  const y = v => mT + plotH - (v / yTop) * plotH;
+  const sy = n => (n / maxN) * stripH;
+  const s = svgEl('fig-cliff', W, HT);
+  const stripTop = mT + plotH + gapH + 14;
+
+  /* recessive grid + y ticks */
+  for (let t = 0; t <= yTop * 100; t += 5) {
+    s.appendChild(mk('line', {class: 'gl', x1: mL, x2: W - mR, y1: y(t / 100), y2: y(t / 100)}));
+    s.appendChild(mk('text', {class: 'tk', x: mL - 7, y: y(t / 100) + 3, 'text-anchor': 'end'}, t + '%'));
+  }
+  s.appendChild(mk('line', {class: 'ax', x1: mL, x2: W - mR, y1: y(0), y2: y(0)}));
+
+  /* the DEAD side (0,1,2) and the LIVE side (4+) are drawn as two paths, so the
+     break at 3 is a real discontinuity rather than a line drawn through a value
+     that does not exist */
+  const dead = BC.filter(d => d.count <= 2), ok = BC.filter(d => d.count >= 4);
+  const path = pts => pts.map((d, i) => `${i ? 'L' : 'M'}${x(d.count)},${y(d.s2p)}`).join(' ');
+  s.appendChild(mk('path', {d: path(dead), fill: 'none', stroke: 'var(--oxide)', 'stroke-width': 2}));
+  s.appendChild(mk('path', {d: path(ok), fill: 'none', stroke: 'var(--pine)', 'stroke-width': 2}));
+
+  /* the gap at 3, named on the chart. Set vertically along its own rule: the
+     horizontal version collided with both the 4-result marker and its label. */
+  const gx = x(3);
+  s.appendChild(mk('line', {x1: gx, x2: gx, y1: mT, y2: y(0), stroke: 'var(--ink-3)',
+    'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: .8}));
+  /* anchored at the BASELINE and read upward -- anchored mid-plot it ran off the
+     top of the frame, which the collision audit missed because it skips rotated text */
+  const gy = y(0) - 6;
+  s.appendChild(mk('text', {class: 'tk-b', x: gx - 5, y: gy,
+    'text-anchor': 'start', transform: `rotate(-90 ${gx - 5} ${gy})`},
+    'no search returns exactly 3'));
+
+  /* markers + n strip + hit targets */
+  BC.forEach(d => {
+    const g = mk('g', {class: 'pt'});
+    const cls = d.count <= 2 ? 'mk-dead' : 'mk-ok';
+    g.appendChild(mk('circle', {class: `mkr ${cls}`, cx: x(d.count), cy: y(d.s2p),
+      r: d.count <= 6 ? 4.5 : 3, stroke: 'var(--paper)', 'stroke-width': 1.5}));
+    g.appendChild(mk('rect', {class: 'hit', x: x(d.count) - 7, y: mT, width: 14, height: plotH + gapH + stripH + 20}));
+    bindTip(g, `<b>${d.count} result${d.count === 1 ? '' : 's'}</b><br>purchase rate ${pc(d.s2p, 2)}`
+      + `<br>${d.searches.toLocaleString()} searches`);
+    s.appendChild(g);
+    s.appendChild(mk('rect', {class: cls, x: x(d.count) - 2.5, y: stripTop + stripH - sy(d.searches),
+      width: 5, height: Math.max(sy(d.searches), .8), rx: 1, opacity: .55}));
+  });
+
+  /* Direct labels only on the two points the argument turns on -- never a number
+     on every point. 0 is deliberately unlabelled: the axis already reads 0% there,
+     and a label at x(0) runs off the left edge of the frame. */
+  /* 2 is labelled to the LEFT of its point and 4 to the right, so neither runs
+     into the vertical annotation standing on the gap between them */
+  [[2, 'end', -11, -9], [4, 'start', -10, 9]].forEach(([c, anch, dy, dx]) => {
+    const d = BC.find(b => b.count === c); if (!d) return;
+    s.appendChild(mk('text', {class: 'dl', x: x(c) + dx,
+      y: y(d.s2p) + dy, 'text-anchor': anch}, pc(d.s2p, 1)));
+  });
+
+  /* x ticks + the strip's own label */
+  [0, 2, 4, 10, 20, 30, maxC].forEach(c => {
+    if (c > maxC) return;
+    s.appendChild(mk('text', {class: 'tk', x: x(c), y: y(0) + 14, 'text-anchor': 'middle'}, c));
+  });
+  s.appendChild(mk('text', {class: 'tk', x: mL, y: stripTop - 5}, 'searches at each count'));
+  s.appendChild(mk('line', {class: 'ax', x1: mL, x2: W - mR, y1: stripTop + stripH, y2: stripTop + stripH}));
+  s.appendChild(mk('text', {class: 'tk', x: (mL + W - mR) / 2, y: stripTop + stripH + 15,
+    'text-anchor': 'middle'}, 'results returned by the search'));
+
+  legend('fig-cliff-lg', [
+    ['var(--oxide)', 'dead end — 0, 1 or 2 results'],
+    ['var(--pine)', '4 or more results'],
+  ]);
+  el('fig-cliff-cap').textContent =
+    `search→purchase rate per exact result count · ${H.searches.toLocaleString()} searches · `
+    + `hover any point for its n · the lower strip is how many searches returned that many results`;
+
+  /* the reading, generated -- including the tail, which is stated rather than cropped */
+  const T = H.tail;
+  const tailN = T.searches, tailP = T.s2p, midP = T.s2p_mid;
+  el('cliff-read').innerHTML =
+    `<b>1 · The jump is a step, not a slope.</b> 2 results converts at `
+    + `${pc(BC.find(d => d.count === 2).s2p, 2)}; 4 converts at `
+    + `${pc(BC.find(d => d.count === 4).s2p, 1)}. Nothing in between softens it — there is no `
+    + `"partially useful" region, which is why 1–2 is grouped with zero rather than with success.`
+    + `<br><br><b>2 · The gap at 3 is real and it is in the supplied data.</b> `
+    + `${H.missing_counts.map(n => `<code>${n}</code>`).join(', ')} never appears. Live Groupon `
+    + `returns 3 routinely, so this is a property of how the file was generated, not of search.`
+    + `<br><br><b>3 · The right-hand tail is an artifact of the data, and it is on the chart `
+    + `because hiding it would be worse.</b> Above 25 results the rate falls to <b>${pc(tailP, 1)}</b> `
+    + `across ${tailN.toLocaleString()} searches (${pc(tailN / H.searches, 1)} of all), against `
+    + `${pc(midP, 1)} over 4–25. That looked like a finding. It was tested and it is not one: `
+    + `<b>which searches land above 25 is statistically indistinguishable from a coin flip</b> — `
+    + `flat across market, city, language, and whether the catalogue stocks the thing at all. `
+    + `Across the ${T.paired_pairs} market+query pairs seen in <em>both</em> bands, the same query `
+    + `converts at ${pc(T.paired_s2p_mid, 1)} when it lands in 4–25 and `
+    + `${pc(T.paired_s2p_hi, 1)} when it lands above ${T.lo - 1}. Nothing about the query changed, so the rate is a `
+    + `property of the drawn count, not of the search. <b>It is counted nowhere on this page.</b> `
+    + `The 1–2 band is different and that is the point of the contrast: landing there <em>is</em> `
+    + `predicted by the query — most sharply by what language it is asked in.`;
+})();
 
 const S = H.stratification;
 el('strat').innerHTML = `across <strong>${S.n_strata}</strong> strata covering
@@ -690,6 +949,67 @@ const drow = (o, cls) => `<div class="liveitem"><div><span class="q">${esc(o.q)}
   <span class="nil">→ ${o.total} total</span></div><div class="${cls}">`
   + o.curve.map(([km, n]) => `${n} within ${km}km`).join(' · ') + '</div></div>';
 el('live-dist').innerHTML = `<div class="livegrid">${drow(DI.dense, 'add')}${drow(DI.thin, 'sub')}</div>`;
+
+/* --- FIGURE: cumulative results by radius (console palette) ---------------
+   Stays inside the dark console on purpose. Chapter 2 is a different catalogue,
+   and the terminal device is what stops it being read as supplied-data evidence;
+   a chart styled like chapter 1's would quietly erase that line.
+   The two series are ~DE 6.8 apart under deuteranopia, which is legal only with
+   secondary encoding -- so both lines carry an end-of-line direct label. */
+(function dist() {
+  const W = 700, HT = 210, mL = 40, mR = 132, mT = 12, plotH = 140;
+  const series = [
+    {o: DI.dense, c: '#7ee2b8', k: 'dense'},
+    {o: DI.thin, c: '#ff9d85', k: 'thin'},
+  ];
+  const radii = DI.dense.curve.map(([km]) => km);
+  const maxY = Math.max(1, ...series.flatMap(s => s.o.curve.map(([, n]) => n)));
+  const yTop = Math.ceil(maxY / 100) * 100 || 1;
+  const x = i => mL + (i / (radii.length - 1)) * (W - mL - mR);
+  const y = v => mT + plotH - (v / yTop) * plotH;
+  const s = svgEl('fig-dist', W, HT);
+
+  for (let t = 0; t <= yTop; t += yTop / 4) {
+    s.appendChild(mk('line', {class: 'gl', x1: mL, x2: W - mR, y1: y(t), y2: y(t)}));
+    s.appendChild(mk('text', {class: 'tk', x: mL - 7, y: y(t) + 3, 'text-anchor': 'end'}, Math.round(t)));
+  }
+  s.appendChild(mk('line', {class: 'ax', x1: mL, x2: W - mR, y1: y(0), y2: y(0)}));
+
+  series.forEach(se => {
+    const pts = se.o.curve.map(([, n], i) => [x(i), y(n)]);
+    s.appendChild(mk('path', {d: pts.map((p, i) => `${i ? 'L' : 'M'}${p[0]},${p[1]}`).join(' '),
+      fill: 'none', stroke: se.c, 'stroke-width': 2, 'stroke-linejoin': 'round'}));
+    se.o.curve.forEach(([km, n], i) => {
+      const g = mk('g', {class: 'pt'});
+      g.appendChild(mk('circle', {class: 'mkr', cx: x(i), cy: y(n), r: 4, fill: se.c,
+        stroke: '#0e1119', 'stroke-width': 1.5}));
+      g.appendChild(mk('rect', {class: 'hit', x: x(i) - 12, y: mT, width: 24, height: plotH}));
+      bindTip(g, `<b>${esc(se.o.q)}</b><br>${n} result${n === 1 ? '' : 's'} within ${km} km`
+        + `<br>${se.o.total} returned in total`);
+      s.appendChild(g);
+    });
+    /* direct label -- the required secondary encoding, and the sharper reading anyway.
+       Lifted off the baseline so the flat-at-zero series does not sit on the axis. */
+    const last = se.o.curve[se.o.curve.length - 1];
+    s.appendChild(mk('text', {class: 'dl', x: W - mR + 8,
+      y: y(last[1]) + (se.k === 'thin' ? -7 : 4), fill: se.c},
+      `${se.o.q} · ${last[1]}/${se.o.total}`));
+  });
+
+  radii.forEach((km, i) => s.appendChild(
+    mk('text', {class: 'tk', x: x(i), y: y(0) + 14, 'text-anchor': 'middle'}, km + 'km')));
+  s.appendChild(mk('text', {class: 'tk', x: (mL + W - mR) / 2, y: y(0) + 30,
+    'text-anchor': 'middle'}, 'radius from the searcher'));
+
+  legend('fig-dist-lg', [
+    ['#7ee2b8', `${DI.dense.q} — a concept the catalogue stocks`],
+    ['#ff9d85', `${DI.thin.q} — a concept it does not`],
+  ]);
+  el('fig-dist-cap').textContent =
+    `cumulative deals within each radius, read from the platform's own distance histogram · `
+    + `${DI.thin.q} is flat at zero at every radius and still returned ${DI.thin.total} results`;
+})();
+
 el('dist-claim').textContent = DI.claim;
 
 /* supply -- a 3-city table, single-token queries only */
@@ -749,6 +1069,79 @@ el('seam-note').innerHTML =
         + `quote one end of it alone.`
       : '');
 
+/* --- FIGURE: the seam, drawn ---------------------------------------------
+   The three readings were previously three lines of prose at the bottom of a
+   note box. This is the page's largest caveat, and the ordering flip is a visual
+   event: prose makes the reader take it on trust, three bars make it self-evident.
+   Colours are the SAME four the bucket bar uses -- colour follows the entity, so
+   a reader who learned the palette one paragraph ago does not relearn it here. */
+(function seam() {
+  el('seam-total').textContent = B.total_dead.toLocaleString();
+  const ORDER = ['nowhere', 'same_city', 'another_city', 'cant_tell'];
+  const HUE = {nowhere: 'var(--oxide)', same_city: 'var(--blue)',
+               another_city: 'var(--amber)', cant_tell: 'var(--ink-3)'};
+  const LBL = Object.fromEntries(B.rows.map(r => [r.key, r.label]));
+  const W = 720, rowH = 46, gap = 30, mL = 208, mR = 14, mT = 22;
+  const HT = mT + SE.rows.length * (rowH + gap);
+  const s = svgEl('fig-seam', W, HT);
+  const bw = W - mL - mR;
+
+  SE.rows.forEach((r, i) => {
+    const yTop = mT + i * (rowH + gap);
+    let cx = mL;
+    /* the convention this row assumes */
+    s.appendChild(mk('text', {class: 'tk-b', x: 0, y: yTop + 17}, conv(r.convention)));
+    s.appendChild(mk('text', {class: 'tk', x: 0, y: yTop + 31},
+      r.is_default ? 'shown above — what this page publishes' : 'also defensible'));
+
+    ORDER.forEach(k => {
+      const n = r[k]; if (!n) return;
+      const w = (n / B.total_dead) * bw;
+      const g = mk('g', {class: 'pt'});
+      /* a 2px surface gap between segments, so adjacent fills never fuse */
+      g.appendChild(mk('rect', {x: cx, y: yTop, width: Math.max(w - 2, 1), height: rowH,
+        fill: HUE[k], rx: 2, opacity: k === 'cant_tell' ? .55 : 1}));
+      if (k === 'cant_tell') {
+        g.appendChild(mk('rect', {x: cx, y: yTop, width: Math.max(w - 2, 1), height: rowH,
+          fill: 'url(#hatch)', rx: 2}));
+      }
+      g.appendChild(bindLabel(cx, yTop, w, n, k));
+      bindTip(g, `<b>${esc(LBL[k])}</b><br>${n.toLocaleString()} dead ends`
+        + `<br>${pc(n / B.total_dead, 1)} of all ${B.total_dead.toLocaleString()}`
+        + `<br><span style="opacity:.75">reading: ${esc(conv(r.convention))}</span>`);
+      s.appendChild(g);
+      cx += w;
+    });
+  });
+
+  /* the hatch that already marks "can't tell" on the bucket bar, reused here */
+  const defs = mk('defs');
+  const p = mk('pattern', {id: 'hatch', width: 6, height: 6, patternUnits: 'userSpaceOnUse',
+    patternTransform: 'rotate(135)'});
+  p.appendChild(mk('rect', {width: 6, height: 6, fill: 'transparent'}));
+  p.appendChild(mk('line', {x1: 0, y1: 0, x2: 0, y2: 6, stroke: 'var(--ink-3)', 'stroke-width': 3}));
+  defs.appendChild(p); s.insertBefore(defs, s.firstChild);
+
+  /* The can't-tell segment is drawn light and hatched, so white numerals on it
+     fail contrast where they pass on the three solid fills. Ink there instead --
+     the mark carries identity, the text stays legible. */
+  function bindLabel(cx0, yTop, w, n, k) {
+    return mk('text', {class: 'dl', x: cx0 + w / 2, y: yTop + rowH / 2 + 4,
+      'text-anchor': 'middle', fill: k === 'cant_tell' ? 'var(--ink)' : '#fff',
+      'pointer-events': 'none'},
+      w > 46 ? pc(n / B.total_dead, 0) : '');
+  }
+
+  legend('fig-seam-lg', B.rows.map(r => [HUE[r.key], r.label,
+    r.key === 'cant_tell' ? 'opacity:.55' : '']));
+
+  const flip = SE.flips_under[0];
+  el('fig-seam-cap').textContent =
+    `all ${B.total_dead.toLocaleString()} dead ends, one denominator, three defensible readings of `
+    + `the same coverage tier · nowhere spans ${pc(SE.band_low, 1)}–${pc(SE.band_high, 1)}`
+    + (flip ? ` · under "${conv(flip)}" the first two swap places` : '');
+})();
+
 el('lim-seam').textContent = B.rows.find(r => r.key === 'cant_tell').n.toLocaleString();
 
 el('voidtbl').innerHTML = '<thead><tr><th>market</th><th>city</th><th>query</th>'
@@ -773,6 +1166,63 @@ el('lang-cap').textContent = `dead-end rate, same concept and market, ${LG.pairs
   + `gap ${LG.gap_pp.toFixed(1)} percentage points · the intervals are nowhere near overlapping · `
   + `${LG.same_direction} of ${LG.pairs} pairs point the same way`;
 
+/* --- FIGURE: every matched pair as a slope ------------------------------
+   "47 of 48 point the same way" was a number the reader had to trust, backed by
+   a six-row sample. Drawing all 48 turns it into something countable, and keeps
+   the single exception visibly on the page instead of rounded out of it. */
+(function slope() {
+  const P = LG.all_pairs;
+  if (!P || !P.length) return;
+  const W = 720, HT = 340, mT = 20, plotH = 250, xEn = 200, xLoc = 470;
+  const s = svgEl('fig-slope', W, HT);
+  const y = v => mT + plotH - v * plotH;
+
+  for (let t = 0; t <= 100; t += 25) {
+    s.appendChild(mk('line', {class: 'gl', x1: xEn - 30, x2: xLoc + 30, y1: y(t / 100), y2: y(t / 100)}));
+    s.appendChild(mk('text', {class: 'tk', x: xEn - 38, y: y(t / 100) + 3, 'text-anchor': 'end'}, t + '%'));
+  }
+  [[xEn, 'asked in English'], [xLoc, 'asked in the local language']].forEach(([xp, t]) => {
+    s.appendChild(mk('line', {class: 'ax', x1: xp, x2: xp, y1: mT, y2: mT + plotH}));
+    s.appendChild(mk('text', {class: 'tk-b', x: xp, y: mT + plotH + 18, 'text-anchor': 'middle'}, t));
+  });
+
+  let up = 0;
+  P.forEach(p => {
+    const rise = p.loc_dead > p.en_dead;
+    if (rise) up++;
+    const g = mk('g', {class: 'sl'});
+    g.appendChild(mk('line', {class: `sl-line ${rise ? 'up' : 'down'}`,
+      x1: xEn, y1: y(p.en_dead), x2: xLoc, y2: y(p.loc_dead)}));
+    [[xEn, p.en_dead], [xLoc, p.loc_dead]].forEach(([xp, v]) =>
+      g.appendChild(mk('circle', {cx: xp, cy: y(v), r: 3.2,
+        fill: rise ? 'var(--blue)' : 'var(--oxide)', stroke: 'var(--paper)', 'stroke-width': 1.2})));
+    bindTip(g, `<b>${esc(p.concept)}</b> · ${esc(p.market)}<br>`
+      + `<code>${esc(p.en_query)}</code> ${pc(p.en_dead, 0)} dead (n=${p.en_n})<br>`
+      + `<code>${esc(p.local_query)}</code> ${pc(p.loc_dead, 0)} dead (n=${p.loc_n})<br>`
+      + `<span style="opacity:.75">${rise ? 'the one that rises' : 'gap ' + p.gap_pp.toFixed(1) + 'pp'}</span>`);
+    s.appendChild(g);
+  });
+
+  /* the exception gets called out by name, because that is the honest move */
+  const ex = P.find(p => p.loc_dead > p.en_dead);
+  if (ex) {
+    /* two lines -- one line ran past the right edge of the frame */
+    s.appendChild(mk('text', {class: 'dl', x: xLoc + 12, y: y(ex.loc_dead) - 3,
+      fill: 'var(--blue)'}, `the ${up} that rise${up === 1 ? 's' : ''}:`));
+    s.appendChild(mk('text', {class: 'tk', x: xLoc + 12, y: y(ex.loc_dead) + 10,
+      fill: 'var(--blue)'}, `${ex.concept} · ${ex.market}`));
+  }
+  s.appendChild(mk('text', {class: 'tk', x: xEn - 38, y: mT - 6, 'text-anchor': 'end'}, 'dead-end rate'));
+
+  legend('fig-slope-lg', [
+    ['var(--oxide)', `${P.length - up} pairs fall — local phrasing dead-ends less`],
+    ['var(--blue)', `${up} pair${up === 1 ? '' : 's'} rise${up === 1 ? 's' : ''} — the exception`],
+  ]);
+  el('fig-slope-cap').textContent =
+    `every one of the ${LG.pairs} matched pairs · same concept, same market, same month — only the `
+    + `words change · hover a line for the two queries behind it`;
+})();
+
 el('langtbl').innerHTML = '<thead><tr><th>market</th><th>asked in English</th>'
   + '<th>asked locally</th><th class="num">English dead</th><th class="num">local dead</th></tr></thead><tbody>'
   + LG.top_pairs.map(p => `<tr><td>${esc(p.market)}</td><td>${esc(p.en_query)}</td>
@@ -795,6 +1245,82 @@ el('split-cap').textContent = `central estimate: search work returns ~${Math.rou
   + `Both are upper bounds. Range across all assumptions: `
   + `${pc(RC.shares.pessimistic.share, 1)} – ${pc(RC.shares.optimistic.share, 1)}.`;
 el('opt-share').textContent = pc(RC.shares.optimistic.share, 0);
+
+/* --- FIGURE: recovery assumption per class, as a range ------------------
+   The cards below print `mid (low-high)`, and a parenthesis is the easiest thing
+   on a page to read past -- while the governing rule for this whole section is
+   never to quote the midpoint alone. Drawn as ranges, the uncertainty becomes
+   structural: the measured class is visibly tight, two are visibly wide, and the
+   supply void is a dot at zero with no range at all, which is the argument. */
+(function assumptions() {
+  const A = RC.assumptions;
+  const W = 720, rowH = 30, mT = 26, mL = 176, mR = 96;
+  const HT = mT + A.length * rowH + 34;
+  const s = svgEl('fig-assum', W, HT);
+  const bw = W - mL - mR;
+  /* The domain has to reach below zero. Silent substitution's pessimistic case is
+     NEGATIVE by design: replacing a page of confident-but-wrong results with "we
+     don't have that" can cost near-term clicks, and the return is trust, which
+     this data cannot measure. Clamping the axis at 0 would have hidden the one
+     assumption on the page that admits a fix might lose money. */
+  const lo = Math.min(0, ...A.filter(a => !a.withdrawn).map(a => a.low));
+  const dom = 1 - lo;
+  const x = v => mL + ((v - lo) / dom) * bw;
+  const yBot = mT + A.length * rowH - 8;
+
+  for (let t = Math.ceil(lo * 4) * 25; t <= 100; t += 25) {
+    s.appendChild(mk('line', {class: 'gl', x1: x(t / 100), x2: x(t / 100), y1: mT - 12, y2: yBot}));
+    s.appendChild(mk('text', {class: 'tk', x: x(t / 100), y: mT - 17, 'text-anchor': 'middle'}, t + '%'));
+  }
+  /* zero is a reference here, not just a tick -- left of it, a fix costs purchases */
+  s.appendChild(mk('line', {class: 'ax', x1: x(0), x2: x(0), y1: mT - 12, y2: yBot}));
+  if (lo < 0) {
+    s.appendChild(mk('text', {class: 'tk', x: x(lo), y: yBot + 12, 'text-anchor': 'start'},
+      '← a fix that costs purchases'));
+  }
+
+  A.forEach((a, i) => {
+    const yc = mT + i * rowH + 6;
+    const withdrawn = a.withdrawn;
+    const hue = withdrawn ? 'var(--ink-3)' : a.measured ? 'var(--pine)' : 'var(--oxide)';
+    s.appendChild(mk('text', {class: 'tk-b', x: 0, y: yc + 4}, a.label));
+    const g = mk('g', {class: 'pt'});
+    if (withdrawn) {
+      g.appendChild(mk('text', {class: 'tk', x: mL, y: yc + 4, fill: 'var(--ink-3)'},
+        'withdrawn — no longer credited with any recovery'));
+    } else {
+      if (a.high > a.low) {
+        g.appendChild(mk('line', {class: 'wh-line', x1: x(a.low), x2: x(a.high), y1: yc, y2: yc,
+          stroke: hue, opacity: .45}));
+        [a.low, a.high].forEach(v => g.appendChild(mk('line', {class: 'wh-cap', x1: x(v), x2: x(v),
+          y1: yc - 5, y2: yc + 5, stroke: hue, opacity: .8})));
+      }
+      g.appendChild(mk('circle', {cx: x(a.mid), cy: yc, r: 5, fill: hue,
+        stroke: 'var(--paper)', 'stroke-width': 1.5}));
+      g.appendChild(mk('text', {class: 'tk', x: W - mR + 8, y: yc + 4},
+        a.high > a.low ? `${pc(a.mid, 0)} (${pc(a.low, 0)}–${pc(a.high, 0)})` : pc(a.mid, 0)));
+    }
+    g.appendChild(mk('rect', {class: 'hit', x: 0, y: yc - rowH / 2, width: W, height: rowH}));
+    bindTip(g, `<b>${esc(a.label)}</b><br>`
+      + (withdrawn ? 'withdrawn — credited with no recovery'
+        : a.measured ? `measured, not assumed — central ${pc(a.mid, 0)}`
+        : `assumption — central ${pc(a.mid, 0)}, range ${pc(a.low, 0)}–${pc(a.high, 0)}`));
+    s.appendChild(g);
+  });
+
+  s.appendChild(mk('text', {class: 'tk', x: (mL + W - mR) / 2, y: yBot + 26,
+    'text-anchor': 'middle'}, 'share of that class’s dead ends a fix recovers'));
+
+  legend('fig-assum-lg', [
+    ['var(--pine)', 'measured — the language test anchors this one'],
+    ['var(--oxide)', 'assumption, with a stated range'],
+    ['var(--ink-3)', 'withdrawn, or zero by construction'],
+  ]);
+  el('fig-assum-cap').textContent =
+    'dot = central estimate, bar = the range across every assumption set · the supply void is a '
+    + 'dot at zero with no range because no inventory exists — that is construction, not estimate '
+    + '· silent substitution is the only range that crosses zero, and it does so deliberately';
+})();
 
 el('assum').innerHTML = RC.assumptions.map(a => {
   const tag = a.measured ? '<span class="tag tag-m">measured</span>'

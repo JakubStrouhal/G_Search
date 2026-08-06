@@ -112,6 +112,62 @@ for b in ["0", "1-2", "4+"]:
 ZERO_RATE = band.loc["0", "share"]
 DEAD_RATE = searches.dead.mean()
 DEAD_TOTAL = int(searches.dead.sum())
+
+# Per EXACT result count, not the three bands. The bands are the argument's conclusion;
+# this is the evidence for it. Two things fall out of one series: the cliff is between
+# 2 and 4 rather than spread across the range, and 3 is absent -- so the data-quality
+# flag draws itself as a gap in the axis instead of being asserted in a footnote.
+by_count = (searches.groupby("results_shown")
+            .agg(searches=("dead", "size"), ctr=("clicked", "mean"), s2p=("purchased", "mean")))
+by_count["share"] = by_count.searches / len(searches)
+BY_COUNT = [dict(count=int(c), searches=int(r.searches), share=float(r.share),
+                 ctr=float(r.ctr), s2p=float(r.s2p))
+            for c, r in by_count.iterrows()]
+SEEN = {b["count"] for b in BY_COUNT}
+MISSING = [n for n in range(0, max(SEEN) + 1) if n not in SEEN]
+
+# THE RIGHT-HAND TAIL, resolved 2026-08-06 (INDEX 6.6). Plotting per exact count
+# exposed a second collapse above 25 results. It looked like the silent-mismatch
+# class. It is not: which searches land above 25 is flat across market, city,
+# language and coverage -- indistinguishable from a shared random draw -- while
+# landing in 1-2 IS predicted by the query. The discriminating evidence is the
+# paired comparison below: the SAME market+query converts one way when it lands
+# 4-25 and another when it lands 26+, with nothing about the query changed.
+# Computed here rather than typed into the page, like every other figure.
+TAIL_LO = 26
+_nz = searches[searches.results_shown > 0].copy()
+_nz["tailband"] = np.where(_nz.results_shown >= TAIL_LO, "hi", "mid")
+_paired = (_nz[_nz.results_shown >= 4].groupby(["market", "raw_query", "tailband"])
+           .agg(n=("purchased", "size"), buys=("purchased", "sum")).unstack("tailband").dropna())
+_pn, _pb = _paired["n"], _paired["buys"]
+TAIL = dict(
+    lo=TAIL_LO,
+    searches=int((searches.results_shown >= TAIL_LO).sum()),
+    share=float((searches.results_shown >= TAIL_LO).mean()),
+    s2p=float(searches[searches.results_shown >= TAIL_LO].purchased.mean()),
+    s2p_mid=float(searches[(searches.results_shown >= 4)
+                           & (searches.results_shown < TAIL_LO)].purchased.mean()),
+    # the paired test -- same market+query seen in both bands
+    paired_pairs=int(len(_paired)),
+    paired_s2p_mid=float(_pb["mid"].sum() / _pn["mid"].sum()),
+    paired_s2p_hi=float(_pb["hi"].sum() / _pn["hi"].sum()),
+    # flatness: the spread of P(land in the tail | non-zero) across each dimension
+    flat_dims={d: [float(v.min()), float(v.max())] for d, v in
+               {d: _nz.groupby(d).apply(lambda g: (g.results_shown >= TAIL_LO).mean(),
+                                        include_groups=False)
+                for d in ["market", "city"]}.items()},
+)
+print(f"\n  TAIL (INDEX 6.6): {TAIL['searches']} searches >= {TAIL_LO} results "
+      f"({TAIL['share']*100:.1f}%), s2p {TAIL['s2p']*100:.2f}% vs {TAIL['s2p_mid']*100:.2f}% at 4-25")
+print(f"    paired, same market+query in both bands ({TAIL['paired_pairs']} pairs): "
+      f"{TAIL['paired_s2p_mid']*100:.2f}% at 4-25 vs {TAIL['paired_s2p_hi']*100:.2f}% at {TAIL_LO}+")
+print(f"    P(tail | non-zero) by market {TAIL['flat_dims']['market'][0]*100:.1f}-"
+      f"{TAIL['flat_dims']['market'][1]*100:.1f}%, by city "
+      f"{TAIL['flat_dims']['city'][0]*100:.1f}-{TAIL['flat_dims']['city'][1]*100:.1f}% -> flat")
+print("\n  s2p by exact result count:")
+for b in BY_COUNT:
+    print(f"    {b['count']} results : {b['searches']:5,} searches   s2p {b['s2p']*100:5.2f}%")
+print(f"    absent from the data entirely: {MISSING}")
 print(f"\n  zero-result rate (what a dashboard shows) : {ZERO_RATE*100:.1f}%")
 print(f"  dead-end rate    (what users experience)  : {DEAD_RATE*100:.1f}%   <- {DEAD_TOTAL:,} searches")
 print(f"  understatement: {DEAD_RATE/ZERO_RATE:.2f}x")
@@ -160,6 +216,7 @@ STORY["headline"] = dict(
     understatement=DEAD_RATE / ZERO_RATE,
     bands=[dict(band=b, searches=int(band.loc[b, "searches"]), share=band.loc[b, "share"],
                 ctr=band.loc[b, "ctr"], s2p=band.loc[b, "s2p"]) for b in ["0", "1-2", "4+"]],
+    by_count=BY_COUNT, missing_counts=MISSING, tail=TAIL,
     stratification=STRAT,
 )
 
@@ -530,6 +587,13 @@ STORY["language"] = dict(
                for m, g in lang_pairs.groupby("market")],
     top_pairs=lang_pairs.nlargest(6, "gap_pp")[
         ["market", "en_query", "local_query", "en_n", "en_dead", "loc_n", "loc_dead"]
+    ].to_dict("records"),
+    # Every pair, not the top six. "47 of 48 point the same way" is a claim the reader
+    # currently has to take on trust; shipping all 48 lets the page draw them and lets
+    # the reader count the one exception instead of being told about it.
+    all_pairs=lang_pairs.sort_values("gap_pp", ascending=False)[
+        ["concept", "market", "en_query", "local_query", "en_n", "en_dead",
+         "loc_n", "loc_dead", "gap_pp"]
     ].to_dict("records"),
     controls=[
         dict(name="It is not simply “English words”",

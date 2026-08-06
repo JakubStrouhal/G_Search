@@ -29,6 +29,15 @@ VERIFIED:
 - Every market/city present in one file is present in the other.
 - 5 markets × 4 cities each.
 
+VERIFIED, added 2026-08-06 — **a second generation seam, above 25 results.**
+Given a search returned *anything*, whether it returns **26 or more** is
+statistically flat across market (6.8–8.2%), city (4.5–10.0%), coverage
+(6.5–8.1%) and language (7.3% vs 8.3%) — indistinguishable from one shared
+random draw (χ² p = 0.65). Landing in **1–2** is not: it is strongly predicted by
+the query (χ² p = 4×10⁻¹⁶). **Keep the claim this narrow.** It is *not* true that
+`results_shown` is random; it is true that the part of it above 25 carries no
+query information. Consequence in §8, working in `004-data-story/notebook.py`.
+
 INFERRED: this is synthetic or heavily cleaned data. Say so in Part C, and say
 what you would ask for in production: query→results mapping, session IDs,
 timestamps, and the ranker's relevance scores.
@@ -74,13 +83,22 @@ or a data-generation artifact. CANNOT VERIFY which from this file. State it
 openly — it is a flag on the data, and noticing it is worth more than
 pretending the distribution is smooth.
 
-**RESOLVED 2026-08-06 — it is a generation artifact.** Not resolvable from this
-file, so it was resolved against the live catalogue instead: live Groupon returns
-exactly 3 routinely (`quadbike` 3, `trapeze` 3; GB · london, N=33, smooth
-low-count distribution). A cut-off suppressing 3s would have to be a property of
-this generator alone. `live_probe.js histogram()`; `003-live-validation/RESULT.md`
-P4. This is what withdrew F5's "ranking cutoff" — **§9 row 7**; §5d has how to
-read the surviving population.
+**Two consequences, and they rest on different evidence — do not merge them.**
+
+1. **F5's "ranking cutoff" is withdrawn, on this file's evidence alone.** The
+   diagnosis, and the 40% recoverability hanging off it, were inferred *from an
+   absence* whose competing explanation this file cannot rule out. An inference
+   that cannot be attributed does not license a point estimate, so it is
+   withdrawn to zero rather than re-derived — **§9 row 7**; §5d has how to read
+   the surviving population. **No live figure is needed for this, and none is
+   used.**
+2. **The cause is a generation artifact** — **live catalogue, tagged as such.**
+   Not resolvable from this file, so it was resolved against production instead:
+   live Groupon returns exactly 3 routinely (`quadbike` 3, `trapeze` 3;
+   GB · london, N=33, smooth low-count distribution). A cut-off suppressing 3s
+   would have to be a property of this generator alone. `live_probe.js
+   histogram()`; `003-live-validation/RESULT.md` P4. This **corroborates** (1);
+   it is not its basis.
 
 ---
 
@@ -605,7 +623,7 @@ quoting those correctly is where Part C is most easily caught out.
 
 | Number | The rule | Where |
 |---|---|---|
-| **52.5%** combined dead-end (29.3% zero + 23.2% at 1–2) | Lead with this, **not** 29.3%. Stopping at zero-results understates it by nearly half | §1 |
+| **52.5%** combined dead-end (29.3% zero + 23.2% at 1–2) | Lead with this, **not** 29.3%. Stopping at zero-results understates it by nearly half. **Do not widen it to 57.7%** — the 26+ tail was tested and rejected, see below | §1 |
 | **81.2%** English vs **39.0%** local, gap **42.3pp** | Always as the matched pair with the gap. Loanwords for unstocked concepts fail at the ordinary 44.0% and are a *supply* story — never merge the two | §5b |
 | **~12%** search-fixable (central 11.8%, range 5.6–15.1%) · **36 purchases/mo** | **Quote ~12%, never ~18%**; the ~18% / 59 figures are withdrawn (§9 row 7). Pair the percentage with the absolute | §5e |
 | `nowhere` **43.2%** | **Never one end of the band [43.2%, 64.7%] alone** — the `plausible` seam moves 1,016 dead ends together and under one reading the ordering flips | §5f |
@@ -616,6 +634,37 @@ quoting those correctly is where Part C is most easily caught out.
 | corr(city deals, zero rate) **−0.379** | n=20 — report the **direction only**, and say n=20 | §3 |
 | F3 "geographic" | A **withdrawn diagnosis**. Say "uneven across cities, cause not established" | §5f, §9 row 10 |
 | `query_classes.csv` = **751** rows | — | §5d |
+
+**The right-hand tail was tested and rejected — `INDEX.md` 6.6, CLOSED
+2026-08-06. Do not widen the dead-end definition.** Plotting purchase rate
+against the **exact** result count exposed a second collapse: searches returning
+**26 or more** results convert at **2.3%** against **17.8%** at 4–25 (471
+searches, 5.2% of all). Adding them would move the headline to 57.7%. **It does
+not survive checking, and the reason is worth carrying into Part C**, because it
+is the same test that *validates* the ≤2 rule:
+
+| | lands in **1–2** results | lands in **26+** results |
+|---|---|---|
+| Predicted by the query? | **Yes** — χ² p = 4×10⁻¹⁶ | **No** — χ² p = 0.65 |
+| By language | English 64.6% vs local 30.9% | 8.3% vs 7.3% |
+| By market · city · coverage | varies | 6.8–8.2% · 4.5–10.0% · 6.5–8.1%, all flat |
+
+Landing above 25 is **indistinguishable from a shared random draw** on every
+dimension in the data. The paired test settles it: across the **123 market+query
+pairs observed in both bands**, the *same* query converts at **18.3%** when it
+lands 4–25 and **2.6%** when it lands 26+ (106 of 123 pairs lower, sign test
+p = 6×10⁻²³). Nothing about the query changed, so the rate is a property of the
+drawn count. Same status as the missing `3` in §0: a **generation artifact**,
+stated rather than smoothed over. **52.5% stands; nothing credits the tail.**
+
+**Mechanism note someone will re-derive, so state it first.** The language effect
+runs mostly through the **1–2 band, not the zero band**: English and local
+phrasings differ by only **8.1pp** on zero-rate but **42.3pp** on dead-end rate,
+because English queries land in 1–2 on 64.6% of their non-zero searches against
+30.9% for local. That is not a weakness in §5b — it is *consistent with F1*, a
+query that returns a thin page of the wrong things rather than nothing at all.
+Quote 42.3pp; if asked about zeros alone, the answer is 8.1pp **and this
+paragraph**.
 
 **Live-catalogue figures are a separate namespace — never mix them with the
 above.** Live Groupon returns exactly 3 routinely (so the dataset's 0,1,2→4 gap is
@@ -647,9 +696,10 @@ way, never by re-reading the first result.
 | 4 | 2026-08-05 | The DE Zittau session was **inconsistent**: it served Thai massage 75–79 km away yet returned zero for `fallschirmspringen`, implying a radius bug | It was an inference, not an observation. A finite maximum radius with **no German skydiving inside it** produces the identical result with no inconsistency at all — and whether skydiving supply exists near Zittau was never checked | Only what the screenshot shows plainly: **the zero state blames filters the user has not applied** ("Versuchen Sie, einen der angewendeten Filter zu entfernen", with no filters applied). `PLAN.md` §4 Finding 3 |
 | 5 | 2026-08-05 | Polish diacritics cost **4× recall** — read off the UI labels "40+" vs "10+" | Exact counts with `division` pinned to `warszawa`: **162 vs 95**. The UI buckets were coarse **and** the two runs had an unpinned location. Both the ratio and the framing were wrong | Single-token loss is small (`masaż` 272 / `masaz` 248, **−8.8%**); the penalty lands on **multi-word** queries (−41%, −48%). Sharper and more actionable, because it says *where* to fix it. `PLAN.md` §4 Finding 4. Later narrowed again live — the effect is specific to the `masaż` token family (§5e) |
 | 6 | 2026-08-06 | Upper bound of **~303 purchases** over 30 days, at "the observed 11.5%" s2p | The 11.5% was stale — it sat **eleven lines below the same section's own 11.4%**. A stale rate inside a *derived* figure, so the bound had to be recomputed rather than the digit edited | **299 purchases** at s2p **11.36%** (§5). It had already propagated into the Part B spec's acquisition-brief copy — which is how a drifted rate becomes a claim in the deliverable |
-| 7 | 2026-08-06 | **F5 = "ranking cutoff"**, and its recoverability, resting entirely on the dataset anomaly that no search ever returns exactly 3 results | The live catalogue. Groupon returns exactly 3 routinely — `quadbike` 3, `trapeze` 3 (GB · london, N=33), with a smooth low-count distribution 0(×6), 1(×4), 2(×2), **3(×2)**, 5, 6, 7, 8, 10, 17. The missing 3 is a property of **this generator alone** (§1) | The **population survives, the diagnosis does not**: 73 pairs / 658 searches still counted, relabelled a **second unexplained residual** alongside BASELINE. Recoverability withdrawn to **zero**, not re-estimated — which moved `002-recoverability` from **59 → 36 purchases/mo** and search's share from **17.9% → 11.8%**. Quote ~12%, never ~18% |
+| 7 | 2026-08-06 | **F5 = "ranking cutoff"**, and its recoverability, resting entirely on the dataset anomaly that no search ever returns exactly 3 results | **Self-caught, on the supplied data.** The diagnosis was an inference *from an absence* with a competing explanation — the generator — that this file cannot rule out. Unattributable, therefore not a basis for a 40% point estimate. *(The live catalogue then corroborated the generator branch: Groupon returns exactly 3 routinely — `quadbike` 3, `trapeze` 3, GB · london, N=33, smooth distribution 0(×6), 1(×4), 2(×2), **3(×2)**, 5, 6, 7, 8, 10, 17. §1. Corroboration, not basis — the withdrawal stands without it.)* | The **population survives, the diagnosis does not**: 73 pairs / 658 searches still counted, relabelled a **second unexplained residual** alongside BASELINE. Recoverability withdrawn to **zero**, not re-estimated — which moved `002-recoverability` from **59 → 36 purchases/mo** and search's share from **17.9% → 11.8%**. Quote ~12%, never ~18% |
 | 8 | 2026-08-06 | Live London **stocks adrenaline abundantly** — on the strength of `hot air balloon` **558** and `wing walking` **449** | Those are **multi-word** queries, and the same section establishes that multi-word counts are inflated by fragment matching. The evidence for "abundant" was an artifact of the very defect being described. Single-token probes in **Berlin and Paris** exposed it | **Thin in production too, but not absent** — skydiving 2/3/3, ballooning-paragliding 2/1/0, helicopter 11/10/18 (London/Berlin/Paris), §5e. Part C may say the pattern is not merely a synthetic artifact; it may **not** put a number on real Groupon's gap. **The sharpest tools-log entry in the package**: one probe contradicted another *in the same session*, and only a second and third city surfaced it |
 | 9 | 2026-08-06 | "Live GB stocks **300+** helicopter tours" — the caveat separating the live catalogue from the dataset in `PLAN.md` §4 | The single-token exact count is **11** (`helicopter`, division `london`, 2026-08-06; `003-live-validation/RESULT.md`). **300+ was a coarse UI bucket or a multi-word count** — the precise artifact class that `PLAN.md` §4's own method paragraph says the exact-count harness exists to catch. The file was caught by its own stated method | **`helicopter` 11 (London) / 10 (Berlin) / 18 (Paris)** — the same single-token figures as row 8. The live/synthetic separation the caveat was drawing still holds; the number it was drawn with did not |
 | 10 | 2026-08-06 | **F3 = "geographic thinness"** — and the user-facing copy it justified, *"We have this, just not in your city."*, **shipped and live in `explainer.html`** where a grader could click a chip and read it | A direct test of where the inventory actually sat: of F3's **321** dead ends, **only 6** have the answering deal in another city — 158 same-city, 157 can't-tell. `classify.py` assigns F3 from **city-to-city variance in dead rate** (`city_spread >= 0.25`), which is a *symptom*, not a location. The name was never earned, and the copy was **false for 315 of 321 rows** | Relabelled **"Uneven across cities"**; class key `F3_geographic` deliberately unchanged so `query_classes.csv`, `web/mock/build.py` and `002-recoverability` keep working. Copy fixed 2026-08-06. **Recoverability deliberately left at 25% (10–40%)** rather than re-derived — F3 is 12.9 of the 36.3 purchases, so §5f states the exposure instead of hiding it |
 | 11 | 2026-08-06 | §5f's first draft, which **mixed a mapped-only denominator with a total one** across its own bucket table | Recomputing every bucket over one denominator. The four buckets have to sum to the dead-end total, and they did not | **All 4,720 dead ends, one denominator throughout** (§5f). A per-row assertion in `classify.py` now fails the build if the four columns stop summing to `deads` |
+| 13 | 2026-08-06 | The **26+ result tail** (471 searches converting at 2.3% vs 17.8%) is the **silent-mismatch class showing up at the top of the distribution** — "the queries concentrated there are overwhelmingly concepts this catalogue stocks nowhere" — and therefore **52.5% is an understatement**. Written into `INDEX.md` 6.6, §8 here, and the built `explainer.html` before it was tested | Two independent checks, both of which the original inference had skipped. **(a)** The `sushi/brunch/paintball` concentration was an artifact of counting `raw_query` **without grouping by market**; grouped, the top pairs are `facial`, `sports massage`, `coloration`, `gym` — mainstream **stocked** concepts. Coverage mix in the tail (56.1/23.4/20.6 stocked/plausible/absent) is **indistinguishable** from 4–25 (54.7/26.7/18.6). **(b)** A first structure test said "random" for *both* bands — but it was restricted to pairs with n ≥ 10, which **excluded every English query**. Re-run without the cutoff, the two bands separate: 1–2 is **structured** (p = 4×10⁻¹⁶), 26+ is **not** (p = 0.65) | **A generation artifact — 6.6 CLOSED, the tail credited nowhere, 52.5% unchanged.** The paired test is the replacement claim: the same market+query converts at **18.3%** in 4–25 and **2.6%** in 26+ across 123 pairs (p = 6×10⁻²³), so the rate belongs to the drawn count, not the query. §8. The same test *validates* the ≤2 rule, which is the useful half |
 | 12 | 2026-08-06 | `outputs/query_classes.csv` holds **755** market+query pairs (§5d prose) | Counting the CSV: **751** data rows. §5d's own class table had always summed to 751 (178+161+259+73+15+65), and `001-part-b/SPEC.md` §2 had it right — only the prose drifted | **751**. Copying numbers into a quote-card is the channel that produced this drift, so §8 was rebuilt from a list of reproduced figures into a table of **quoting rules** that points at the owning section instead |

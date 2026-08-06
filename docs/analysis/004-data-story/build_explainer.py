@@ -31,8 +31,18 @@ if template.count("__STORY_DATA__") != 1:
 page = template.replace("__STORY_DATA__", blob)
 
 # The page must work from file:// with no network. Guard against a stray external reference.
+#
+# Two literals are exempt, and only these two. Neither is ever fetched:
+#   - the pinned live probe URLs quoted in chapter 2's prose, which are evidence, not resources;
+#   - the SVG/XHTML XML namespace, which `createElementNS` requires verbatim. It is an identifier
+#     string compared character by character, not an address -- the browser makes no request for it.
+# Everything else still fails the build, which is the point of this check.
+NOT_A_FETCH = ("https://www.groupon", "http://www.w3.org/2000/svg", "http://www.w3.org/1999/xhtml")
+scanned = page
+for exempt in NOT_A_FETCH:
+    scanned = scanned.replace(exempt, "«not-a-fetch»")
 for bad in ("http://", "https://", "cdn.", "<link "):
-    if bad in page.replace("https://www.groupon", "«pinned»"):  # pinned probe URLs in prose are fine
+    if bad in scanned:
         raise SystemExit(f"template references something external ({bad}) -- must be self-contained")
 
 # ---------------------------------------------------------------------------

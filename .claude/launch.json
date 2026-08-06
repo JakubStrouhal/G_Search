@@ -7,6 +7,12 @@
       "runtimeArgs": ["--prefix", "web/app", "run", "dev"],
       "port": 5173,
       "autoPort": true
+    },
+    {
+      "name": "explainer",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8765"],
+      "port": 8765
     }
   ]
 }

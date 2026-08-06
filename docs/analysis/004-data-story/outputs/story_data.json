@@ -33,6 +33,311 @@
     "s2p": 0.16086041617956512
    }
   ],
+  "by_count": [
+   {
+    "count": 0,
+    "searches": 2633,
+    "share": 0.2926531065910859,
+    "ctr": 0.0,
+    "s2p": 0.0
+   },
+   {
+    "count": 1,
+    "searches": 1042,
+    "share": 0.1158163832388574,
+    "ctr": 0.10268714011516315,
+    "s2p": 0.019193857965451054
+   },
+   {
+    "count": 2,
+    "searches": 1045,
+    "share": 0.11614982772035123,
+    "ctr": 0.10430622009569378,
+    "s2p": 0.014354066985645933
+   },
+   {
+    "count": 4,
+    "searches": 164,
+    "share": 0.018228298321662777,
+    "ctr": 0.6036585365853658,
+    "s2p": 0.21341463414634146
+   },
+   {
+    "count": 5,
+    "searches": 148,
+    "share": 0.016449927753695675,
+    "ctr": 0.5878378378378378,
+    "s2p": 0.19594594594594594
+   },
+   {
+    "count": 6,
+    "searches": 141,
+    "share": 0.01567189063021007,
+    "ctr": 0.6453900709219859,
+    "s2p": 0.24113475177304963
+   },
+   {
+    "count": 7,
+    "searches": 137,
+    "share": 0.015227297988218294,
+    "ctr": 0.7007299270072993,
+    "s2p": 0.24087591240875914
+   },
+   {
+    "count": 8,
+    "searches": 175,
+    "share": 0.01945092808714016,
+    "ctr": 0.5428571428571428,
+    "s2p": 0.18285714285714286
+   },
+   {
+    "count": 9,
+    "searches": 175,
+    "share": 0.01945092808714016,
+    "ctr": 0.48,
+    "s2p": 0.13142857142857142
+   },
+   {
+    "count": 10,
+    "searches": 167,
+    "share": 0.018561742803156606,
+    "ctr": 0.5808383233532934,
+    "s2p": 0.23952095808383234
+   },
+   {
+    "count": 11,
+    "searches": 179,
+    "share": 0.019895520729131932,
+    "ctr": 0.553072625698324,
+    "s2p": 0.1564245810055866
+   },
+   {
+    "count": 12,
+    "searches": 177,
+    "share": 0.019673224408136045,
+    "ctr": 0.5310734463276836,
+    "s2p": 0.15254237288135594
+   },
+   {
+    "count": 13,
+    "searches": 197,
+    "share": 0.02189618761809492,
+    "ctr": 0.5177664974619289,
+    "s2p": 0.18274111675126903
+   },
+   {
+    "count": 14,
+    "searches": 177,
+    "share": 0.019673224408136045,
+    "ctr": 0.5310734463276836,
+    "s2p": 0.11299435028248588
+   },
+   {
+    "count": 15,
+    "searches": 155,
+    "share": 0.017227964877181284,
+    "ctr": 0.6064516129032258,
+    "s2p": 0.1870967741935484
+   },
+   {
+    "count": 16,
+    "searches": 170,
+    "share": 0.01889518728465044,
+    "ctr": 0.5647058823529412,
+    "s2p": 0.18235294117647058
+   },
+   {
+    "count": 17,
+    "searches": 168,
+    "share": 0.018672890963654553,
+    "ctr": 0.5416666666666666,
+    "s2p": 0.14285714285714285
+   },
+   {
+    "count": 18,
+    "searches": 184,
+    "share": 0.02045126153162165,
+    "ctr": 0.5271739130434783,
+    "s2p": 0.1793478260869565
+   },
+   {
+    "count": 19,
+    "searches": 186,
+    "share": 0.020673557852617538,
+    "ctr": 0.5483870967741935,
+    "s2p": 0.1935483870967742
+   },
+   {
+    "count": 20,
+    "searches": 181,
+    "share": 0.02011781705012782,
+    "ctr": 0.5082872928176796,
+    "s2p": 0.14917127071823205
+   },
+   {
+    "count": 21,
+    "searches": 170,
+    "share": 0.01889518728465044,
+    "ctr": 0.48823529411764705,
+    "s2p": 0.14705882352941177
+   },
+   {
+    "count": 22,
+    "searches": 191,
+    "share": 0.021229298655107257,
+    "ctr": 0.5392670157068062,
+    "s2p": 0.20418848167539266
+   },
+   {
+    "count": 23,
+    "searches": 196,
+    "share": 0.021785039457596977,
+    "ctr": 0.5357142857142857,
+    "s2p": 0.14285714285714285
+   },
+   {
+    "count": 24,
+    "searches": 170,
+    "share": 0.01889518728465044,
+    "ctr": 0.49411764705882355,
+    "s2p": 0.1588235294117647
+   },
+   {
+    "count": 25,
+    "searches": 198,
+    "share": 0.022007335778592863,
+    "ctr": 0.5303030303030303,
+    "s2p": 0.20707070707070707
+   },
+   {
+    "count": 26,
+    "searches": 33,
+    "share": 0.003667889296432144,
+    "ctr": 0.21212121212121213,
+    "s2p": 0.030303030303030304
+   },
+   {
+    "count": 27,
+    "searches": 27,
+    "share": 0.0030010003334444814,
+    "ctr": 0.37037037037037035,
+    "s2p": 0.0
+   },
+   {
+    "count": 28,
+    "searches": 38,
+    "share": 0.004223630098921863,
+    "ctr": 0.47368421052631576,
+    "s2p": 0.05263157894736842
+   },
+   {
+    "count": 29,
+    "searches": 30,
+    "share": 0.003334444814938313,
+    "ctr": 0.3,
+    "s2p": 0.03333333333333333
+   },
+   {
+    "count": 30,
+    "searches": 43,
+    "share": 0.0047793709014115815,
+    "ctr": 0.3023255813953488,
+    "s2p": 0.023255813953488372
+   },
+   {
+    "count": 31,
+    "searches": 31,
+    "share": 0.0034455929754362564,
+    "ctr": 0.12903225806451613,
+    "s2p": 0.0
+   },
+   {
+    "count": 32,
+    "searches": 27,
+    "share": 0.0030010003334444814,
+    "ctr": 0.18518518518518517,
+    "s2p": 0.0
+   },
+   {
+    "count": 33,
+    "searches": 34,
+    "share": 0.003779037456930088,
+    "ctr": 0.3235294117647059,
+    "s2p": 0.029411764705882353
+   },
+   {
+    "count": 34,
+    "searches": 32,
+    "share": 0.0035567411359342,
+    "ctr": 0.28125,
+    "s2p": 0.03125
+   },
+   {
+    "count": 35,
+    "searches": 32,
+    "share": 0.0035567411359342,
+    "ctr": 0.1875,
+    "s2p": 0.0
+   },
+   {
+    "count": 36,
+    "searches": 31,
+    "share": 0.0034455929754362564,
+    "ctr": 0.3548387096774194,
+    "s2p": 0.03225806451612903
+   },
+   {
+    "count": 37,
+    "searches": 28,
+    "share": 0.003112148493942425,
+    "ctr": 0.14285714285714285,
+    "s2p": 0.0
+   },
+   {
+    "count": 38,
+    "searches": 32,
+    "share": 0.0035567411359342,
+    "ctr": 0.15625,
+    "s2p": 0.03125
+   },
+   {
+    "count": 39,
+    "searches": 29,
+    "share": 0.003223296654440369,
+    "ctr": 0.1724137931034483,
+    "s2p": 0.034482758620689655
+   },
+   {
+    "count": 40,
+    "searches": 24,
+    "share": 0.00266755585195065,
+    "ctr": 0.16666666666666666,
+    "s2p": 0.041666666666666664
+   }
+  ],
+  "missing_counts": [
+   3
+  ],
+  "tail": {
+   "lo": 26,
+   "searches": 471,
+   "share": 0.05235078359453151,
+   "s2p": 0.02335456475583864,
+   "s2p_mid": 0.17787703625853915,
+   "paired_pairs": 123,
+   "paired_s2p_mid": 0.1831275720164609,
+   "paired_s2p_hi": 0.02570093457943925,
+   "flat_dims": {
+    "market": [
+     0.06756756756756757,
+     0.08232445520581114
+    ],
+    "city": [
+     0.04504504504504504,
+     0.1
+    ]
+   }
+  },
   "stratification": {
    "n_strata": 138,
    "n_searches": 4707,
@@ -729,6 +1034,536 @@
     "en_dead": 0.875,
     "loc_n": 51,
     "loc_dead": 0.2549019607843137
+   }
+  ],
+  "all_pairs": [
+   {
+    "concept": "back massage",
+    "market": "DE",
+    "en_query": "back massage",
+    "local_query": "r\u00fcckenmassage",
+    "en_n": 2,
+    "en_dead": 1.0,
+    "loc_n": 43,
+    "loc_dead": 0.3023255813953488,
+    "gap_pp": 69.76744186046511
+   },
+   {
+    "concept": "facial",
+    "market": "PL",
+    "en_query": "facial",
+    "local_query": "oczyszczanie twarzy",
+    "en_n": 5,
+    "en_dead": 1.0,
+    "loc_n": 24,
+    "loc_dead": 0.3333333333333333,
+    "gap_pp": 66.66666666666667
+   },
+   {
+    "concept": "couples massage",
+    "market": "DE",
+    "en_query": "couples massage",
+    "local_query": "paarmassage",
+    "en_n": 1,
+    "en_dead": 1.0,
+    "loc_n": 39,
+    "loc_dead": 0.3333333333333333,
+    "gap_pp": 66.66666666666667
+   },
+   {
+    "concept": "yoga class",
+    "market": "ES",
+    "en_query": "yoga class",
+    "local_query": "clase de yoga",
+    "en_n": 5,
+    "en_dead": 1.0,
+    "loc_n": 69,
+    "loc_dead": 0.3623188405797101,
+    "gap_pp": 63.76811594202898
+   },
+   {
+    "concept": "haircut",
+    "market": "DE",
+    "en_query": "haircut",
+    "local_query": "friseur",
+    "en_n": 3,
+    "en_dead": 1.0,
+    "loc_n": 45,
+    "loc_dead": 0.3777777777777777,
+    "gap_pp": 62.22222222222222
+   },
+   {
+    "concept": "haircut",
+    "market": "FR",
+    "en_query": "haircut",
+    "local_query": "coiffeur",
+    "en_n": 8,
+    "en_dead": 0.875,
+    "loc_n": 51,
+    "loc_dead": 0.2549019607843137,
+    "gap_pp": 62.00980392156863
+   },
+   {
+    "concept": "gym",
+    "market": "ES",
+    "en_query": "gym",
+    "local_query": "gimnasio",
+    "en_n": 3,
+    "en_dead": 1.0,
+    "loc_n": 55,
+    "loc_dead": 0.3818181818181818,
+    "gap_pp": 61.81818181818181
+   },
+   {
+    "concept": "facial",
+    "market": "FR",
+    "en_query": "facial",
+    "local_query": "soin visage",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 57,
+    "loc_dead": 0.3859649122807017,
+    "gap_pp": 61.40350877192983
+   },
+   {
+    "concept": "gym",
+    "market": "PL",
+    "en_query": "gym",
+    "local_query": "si\u0142ownia",
+    "en_n": 1,
+    "en_dead": 1.0,
+    "loc_n": 23,
+    "loc_dead": 0.391304347826087,
+    "gap_pp": 60.86956521739131
+   },
+   {
+    "concept": "yoga class",
+    "market": "DE",
+    "en_query": "yoga class",
+    "local_query": "yoga kurs",
+    "en_n": 5,
+    "en_dead": 1.0,
+    "loc_n": 58,
+    "loc_dead": 0.396551724137931,
+    "gap_pp": 60.3448275862069
+   },
+   {
+    "concept": "hair colour",
+    "market": "ES",
+    "en_query": "hair colour",
+    "local_query": "tinte pelo",
+    "en_n": 3,
+    "en_dead": 1.0,
+    "loc_n": 59,
+    "loc_dead": 0.4067796610169492,
+    "gap_pp": 59.32203389830508
+   },
+   {
+    "concept": "facial",
+    "market": "DE",
+    "en_query": "facial",
+    "local_query": "gesichtsbehandlung",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 54,
+    "loc_dead": 0.4074074074074074,
+    "gap_pp": 59.25925925925925
+   },
+   {
+    "concept": "hair colour",
+    "market": "FR",
+    "en_query": "hair colour",
+    "local_query": "coloration",
+    "en_n": 3,
+    "en_dead": 1.0,
+    "loc_n": 53,
+    "loc_dead": 0.4150943396226415,
+    "gap_pp": 58.490566037735846
+   },
+   {
+    "concept": "go karting",
+    "market": "FR",
+    "en_query": "go karting",
+    "local_query": "karting",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 60,
+    "loc_dead": 0.4166666666666667,
+    "gap_pp": 58.33333333333333
+   },
+   {
+    "concept": "haircut",
+    "market": "ES",
+    "en_query": "haircut",
+    "local_query": "peluqueria",
+    "en_n": 7,
+    "en_dead": 1.0,
+    "loc_n": 62,
+    "loc_dead": 0.4193548387096774,
+    "gap_pp": 58.06451612903225
+   },
+   {
+    "concept": "eyelash ext.",
+    "market": "DE",
+    "en_query": "eyelash extensions",
+    "local_query": "wimpernverl\u00e4ngerung",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 44,
+    "loc_dead": 0.4545454545454545,
+    "gap_pp": 54.54545454545454
+   },
+   {
+    "concept": "go karting",
+    "market": "DE",
+    "en_query": "go karting",
+    "local_query": "kart fahren",
+    "en_n": 5,
+    "en_dead": 0.8,
+    "loc_n": 61,
+    "loc_dead": 0.2622950819672131,
+    "gap_pp": 53.77049180327869
+   },
+   {
+    "concept": "sports massage",
+    "market": "ES",
+    "en_query": "sports massage",
+    "local_query": "masaje descontracturante",
+    "en_n": 10,
+    "en_dead": 0.9,
+    "loc_n": 69,
+    "loc_dead": 0.3623188405797101,
+    "gap_pp": 53.76811594202899
+   },
+   {
+    "concept": "hair colour",
+    "market": "DE",
+    "en_query": "hair colour",
+    "local_query": "haare f\u00e4rben",
+    "en_n": 3,
+    "en_dead": 1.0,
+    "loc_n": 48,
+    "loc_dead": 0.4791666666666667,
+    "gap_pp": 52.08333333333333
+   },
+   {
+    "concept": "eyelash ext.",
+    "market": "ES",
+    "en_query": "eyelash extensions",
+    "local_query": "extensiones pesta\u00f1as",
+    "en_n": 5,
+    "en_dead": 1.0,
+    "loc_n": 52,
+    "loc_dead": 0.4807692307692308,
+    "gap_pp": 51.92307692307692
+   },
+   {
+    "concept": "hair colour",
+    "market": "PL",
+    "en_query": "hair colour",
+    "local_query": "koloryzacja",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 29,
+    "loc_dead": 0.4827586206896552,
+    "gap_pp": 51.72413793103448
+   },
+   {
+    "concept": "sports massage",
+    "market": "PL",
+    "en_query": "sports massage",
+    "local_query": "masa\u017c sportowy",
+    "en_n": 4,
+    "en_dead": 1.0,
+    "loc_n": 33,
+    "loc_dead": 0.4848484848484848,
+    "gap_pp": 51.51515151515152
+   },
+   {
+    "concept": "yoga class",
+    "market": "FR",
+    "en_query": "yoga class",
+    "local_query": "cours de yoga",
+    "en_n": 5,
+    "en_dead": 0.8,
+    "loc_n": 42,
+    "loc_dead": 0.2857142857142857,
+    "gap_pp": 51.42857142857144
+   },
+   {
+    "concept": "facial",
+    "market": "ES",
+    "en_query": "facial",
+    "local_query": "limpieza facial",
+    "en_n": 7,
+    "en_dead": 0.8571428571428571,
+    "loc_n": 67,
+    "loc_dead": 0.3432835820895522,
+    "gap_pp": 51.385927505330486
+   },
+   {
+    "concept": "back massage",
+    "market": "FR",
+    "en_query": "back massage",
+    "local_query": "massage dos",
+    "en_n": 7,
+    "en_dead": 1.0,
+    "loc_n": 50,
+    "loc_dead": 0.5,
+    "gap_pp": 50.0
+   },
+   {
+    "concept": "city tour",
+    "market": "PL",
+    "en_query": "city tour",
+    "local_query": "zwiedzanie miasta",
+    "en_n": 2,
+    "en_dead": 1.0,
+    "loc_n": 25,
+    "loc_dead": 0.52,
+    "gap_pp": 48.0
+   },
+   {
+    "concept": "city tour",
+    "market": "ES",
+    "en_query": "city tour",
+    "local_query": "tour ciudad",
+    "en_n": 5,
+    "en_dead": 0.8,
+    "loc_n": 54,
+    "loc_dead": 0.3333333333333333,
+    "gap_pp": 46.66666666666667
+   },
+   {
+    "concept": "haircut",
+    "market": "PL",
+    "en_query": "haircut",
+    "local_query": "fryzjer",
+    "en_n": 2,
+    "en_dead": 1.0,
+    "loc_n": 31,
+    "loc_dead": 0.5483870967741935,
+    "gap_pp": 45.16129032258065
+   },
+   {
+    "concept": "sports massage",
+    "market": "FR",
+    "en_query": "sports massage",
+    "local_query": "massage sportif",
+    "en_n": 4,
+    "en_dead": 0.75,
+    "loc_n": 63,
+    "loc_dead": 0.3015873015873015,
+    "gap_pp": 44.84126984126984
+   },
+   {
+    "concept": "gym",
+    "market": "FR",
+    "en_query": "gym",
+    "local_query": "salle de sport",
+    "en_n": 8,
+    "en_dead": 0.875,
+    "loc_n": 55,
+    "loc_dead": 0.4363636363636363,
+    "gap_pp": 43.86363636363637
+   },
+   {
+    "concept": "thai massage",
+    "market": "FR",
+    "en_query": "thai massage",
+    "local_query": "massage thai",
+    "en_n": 8,
+    "en_dead": 0.75,
+    "loc_n": 59,
+    "loc_dead": 0.3389830508474576,
+    "gap_pp": 41.10169491525424
+   },
+   {
+    "concept": "back massage",
+    "market": "ES",
+    "en_query": "back massage",
+    "local_query": "masaje espalda",
+    "en_n": 13,
+    "en_dead": 0.6923076923076923,
+    "loc_n": 67,
+    "loc_dead": 0.2835820895522388,
+    "gap_pp": 40.87256027554535
+   },
+   {
+    "concept": "go karting",
+    "market": "PL",
+    "en_query": "go karting",
+    "local_query": "gokarty",
+    "en_n": 4,
+    "en_dead": 0.75,
+    "loc_n": 29,
+    "loc_dead": 0.3448275862068966,
+    "gap_pp": 40.51724137931034
+   },
+   {
+    "concept": "personal trainer",
+    "market": "ES",
+    "en_query": "personal trainer",
+    "local_query": "entrenador personal",
+    "en_n": 6,
+    "en_dead": 0.6666666666666666,
+    "loc_n": 56,
+    "loc_dead": 0.2857142857142857,
+    "gap_pp": 38.095238095238095
+   },
+   {
+    "concept": "thai massage",
+    "market": "ES",
+    "en_query": "thai massage",
+    "local_query": "masaje tailandes",
+    "en_n": 6,
+    "en_dead": 0.8333333333333334,
+    "loc_n": 73,
+    "loc_dead": 0.4794520547945205,
+    "gap_pp": 35.38812785388129
+   },
+   {
+    "concept": "personal trainer",
+    "market": "PL",
+    "en_query": "personal trainer",
+    "local_query": "trener personalny",
+    "en_n": 4,
+    "en_dead": 0.75,
+    "loc_n": 25,
+    "loc_dead": 0.4,
+    "gap_pp": 35.0
+   },
+   {
+    "concept": "couples massage",
+    "market": "ES",
+    "en_query": "couples massage",
+    "local_query": "masaje en pareja",
+    "en_n": 8,
+    "en_dead": 0.75,
+    "loc_n": 64,
+    "loc_dead": 0.40625,
+    "gap_pp": 34.375
+   },
+   {
+    "concept": "city tour",
+    "market": "FR",
+    "en_query": "city tour",
+    "local_query": "visite guidee",
+    "en_n": 4,
+    "en_dead": 0.75,
+    "loc_n": 53,
+    "loc_dead": 0.4528301886792453,
+    "gap_pp": 29.71698113207547
+   },
+   {
+    "concept": "go karting",
+    "market": "ES",
+    "en_query": "go karting",
+    "local_query": "karting",
+    "en_n": 5,
+    "en_dead": 0.6,
+    "loc_n": 53,
+    "loc_dead": 0.3584905660377358,
+    "gap_pp": 24.150943396226417
+   },
+   {
+    "concept": "personal trainer",
+    "market": "FR",
+    "en_query": "personal trainer",
+    "local_query": "coach sportif",
+    "en_n": 10,
+    "en_dead": 0.7,
+    "loc_n": 37,
+    "loc_dead": 0.4864864864864865,
+    "gap_pp": 21.351351351351344
+   },
+   {
+    "concept": "thai massage",
+    "market": "PL",
+    "en_query": "thai massage",
+    "local_query": "masa\u017c tajski",
+    "en_n": 4,
+    "en_dead": 0.75,
+    "loc_n": 35,
+    "loc_dead": 0.5428571428571428,
+    "gap_pp": 20.71428571428572
+   },
+   {
+    "concept": "sports massage",
+    "market": "DE",
+    "en_query": "sports massage",
+    "local_query": "sportmassage",
+    "en_n": 5,
+    "en_dead": 0.6,
+    "loc_n": 53,
+    "loc_dead": 0.4150943396226415,
+    "gap_pp": 18.49056603773585
+   },
+   {
+    "concept": "gym",
+    "market": "DE",
+    "en_query": "gym",
+    "local_query": "fitnessstudio",
+    "en_n": 9,
+    "en_dead": 0.6666666666666666,
+    "loc_n": 46,
+    "loc_dead": 0.5,
+    "gap_pp": 16.666666666666664
+   },
+   {
+    "concept": "couples massage",
+    "market": "PL",
+    "en_query": "couples massage",
+    "local_query": "masa\u017c dla par",
+    "en_n": 2,
+    "en_dead": 0.5,
+    "loc_n": 38,
+    "loc_dead": 0.3421052631578947,
+    "gap_pp": 15.789473684210526
+   },
+   {
+    "concept": "couples massage",
+    "market": "FR",
+    "en_query": "couples massage",
+    "local_query": "massage duo",
+    "en_n": 8,
+    "en_dead": 0.5,
+    "loc_n": 66,
+    "loc_dead": 0.3636363636363636,
+    "gap_pp": 13.636363636363637
+   },
+   {
+    "concept": "yoga class",
+    "market": "PL",
+    "en_query": "yoga class",
+    "local_query": "joga",
+    "en_n": 2,
+    "en_dead": 0.5,
+    "loc_n": 23,
+    "loc_dead": 0.391304347826087,
+    "gap_pp": 10.869565217391305
+   },
+   {
+    "concept": "city tour",
+    "market": "DE",
+    "en_query": "city tour",
+    "local_query": "stadtrundfahrt",
+    "en_n": 4,
+    "en_dead": 0.5,
+    "loc_n": 35,
+    "loc_dead": 0.4,
+    "gap_pp": 9.999999999999998
+   },
+   {
+    "concept": "eyelash ext.",
+    "market": "FR",
+    "en_query": "eyelash extensions",
+    "local_query": "extension de cils",
+    "en_n": 5,
+    "en_dead": 0.2,
+    "loc_n": 58,
+    "loc_dead": 0.3448275862068966,
+    "gap_pp": -14.482758620689657
    }
   ],
   "controls": [
