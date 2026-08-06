@@ -1,0 +1,49 @@
+concept,market,en_query,local_query,en_n,en_dead,loc_n,loc_dead,gap_pp
+back massage,DE,back massage,rückenmassage,2,1.0,43,0.3023255813953488,69.76744186046511
+facial,PL,facial,oczyszczanie twarzy,5,1.0,24,0.3333333333333333,66.66666666666667
+couples massage,DE,couples massage,paarmassage,1,1.0,39,0.3333333333333333,66.66666666666667
+yoga class,ES,yoga class,clase de yoga,5,1.0,69,0.36231884057971014,63.76811594202898
+haircut,DE,haircut,friseur,3,1.0,45,0.37777777777777777,62.22222222222222
+haircut,FR,haircut,coiffeur,8,0.875,51,0.2549019607843137,62.00980392156863
+gym,ES,gym,gimnasio,3,1.0,55,0.38181818181818183,61.81818181818181
+facial,FR,facial,soin visage,4,1.0,57,0.38596491228070173,61.40350877192983
+gym,PL,gym,siłownia,1,1.0,23,0.391304347826087,60.86956521739131
+yoga class,DE,yoga class,yoga kurs,5,1.0,58,0.39655172413793105,60.3448275862069
+hair colour,ES,hair colour,tinte pelo,3,1.0,59,0.4067796610169492,59.32203389830508
+facial,DE,facial,gesichtsbehandlung,4,1.0,54,0.4074074074074074,59.25925925925925
+hair colour,FR,hair colour,coloration,3,1.0,53,0.41509433962264153,58.490566037735846
+go karting,FR,go karting,karting,4,1.0,60,0.4166666666666667,58.33333333333333
+haircut,ES,haircut,peluqueria,7,1.0,62,0.41935483870967744,58.06451612903225
+eyelash ext.,DE,eyelash extensions,wimpernverlängerung,4,1.0,44,0.45454545454545453,54.54545454545454
+go karting,DE,go karting,kart fahren,5,0.8,61,0.26229508196721313,53.77049180327869
+sports massage,ES,sports massage,masaje descontracturante,10,0.9,69,0.36231884057971014,53.76811594202899
+hair colour,DE,hair colour,haare färben,3,1.0,48,0.4791666666666667,52.08333333333333
+eyelash ext.,ES,eyelash extensions,extensiones pestañas,5,1.0,52,0.4807692307692308,51.92307692307692
+hair colour,PL,hair colour,koloryzacja,4,1.0,29,0.4827586206896552,51.72413793103448
+sports massage,PL,sports massage,masaż sportowy,4,1.0,33,0.48484848484848486,51.515151515151516
+yoga class,FR,yoga class,cours de yoga,5,0.8,42,0.2857142857142857,51.42857142857144
+facial,ES,facial,limpieza facial,7,0.8571428571428571,67,0.34328358208955223,51.385927505330486
+back massage,FR,back massage,massage dos,7,1.0,50,0.5,50.0
+city tour,PL,city tour,zwiedzanie miasta,2,1.0,25,0.52,48.0
+city tour,ES,city tour,tour ciudad,5,0.8,54,0.3333333333333333,46.66666666666667
+haircut,PL,haircut,fryzjer,2,1.0,31,0.5483870967741935,45.16129032258065
+sports massage,FR,sports massage,massage sportif,4,0.75,63,0.30158730158730157,44.84126984126984
+gym,FR,gym,salle de sport,8,0.875,55,0.43636363636363634,43.86363636363637
+thai massage,FR,thai massage,massage thai,8,0.75,59,0.3389830508474576,41.10169491525424
+back massage,ES,back massage,masaje espalda,13,0.6923076923076923,67,0.2835820895522388,40.87256027554535
+go karting,PL,go karting,gokarty,4,0.75,29,0.3448275862068966,40.51724137931034
+personal trainer,ES,personal trainer,entrenador personal,6,0.6666666666666666,56,0.2857142857142857,38.095238095238095
+thai massage,ES,thai massage,masaje tailandes,6,0.8333333333333334,73,0.4794520547945205,35.38812785388129
+personal trainer,PL,personal trainer,trener personalny,4,0.75,25,0.4,35.0
+couples massage,ES,couples massage,masaje en pareja,8,0.75,64,0.40625,34.375
+city tour,FR,city tour,visite guidee,4,0.75,53,0.4528301886792453,29.71698113207547
+go karting,ES,go karting,karting,5,0.6,53,0.3584905660377358,24.150943396226417
+personal trainer,FR,personal trainer,coach sportif,10,0.7,37,0.4864864864864865,21.351351351351344
+thai massage,PL,thai massage,masaż tajski,4,0.75,35,0.5428571428571428,20.71428571428572
+sports massage,DE,sports massage,sportmassage,5,0.6,53,0.41509433962264153,18.490566037735846
+gym,DE,gym,fitnessstudio,9,0.6666666666666666,46,0.5,16.666666666666664
+couples massage,PL,couples massage,masaż dla par,2,0.5,38,0.34210526315789475,15.789473684210526
+couples massage,FR,couples massage,massage duo,8,0.5,66,0.36363636363636365,13.636363636363635
+yoga class,PL,yoga class,joga,2,0.5,23,0.391304347826087,10.869565217391303
+city tour,DE,city tour,stadtrundfahrt,4,0.5,35,0.4,9.999999999999998
+eyelash ext.,FR,eyelash extensions,extension de cils,5,0.2,58,0.3448275862068966,-14.482758620689657

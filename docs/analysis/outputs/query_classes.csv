@@ -1,0 +1,752 @@
+market,q,searches,zeros,deads,clicks,buys,concept,zero_rate,dead_rate,city_spread,coverage,deals_stocking,is_english,failure_class,thin_n,dead_nowhere,dead_same_city,dead_another_city,dead_cant_tell
+GB,helicopter tour,100,100,100,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,100,0,0,0
+GB,hot air balloon ride,94,94,94,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,94,0,0,0
+GB,skydiving,91,91,91,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,91,0,0,0
+ES,rafting,88,88,88,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,88,0,0,0
+ES,paracaidismo,86,86,86,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,86,0,0,0
+GB,supercar track day,85,85,85,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,85,0,0,0
+FR,saut en parachute,81,81,81,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,81,0,0,0
+GB,shark diving,79,79,79,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,79,0,0,0
+FR,tour en helicoptere,77,77,77,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,77,0,0,0
+DE,wildwasser rafting,75,75,75,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,75,0,0,0
+FR,rafting,73,73,73,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,73,0,0,0
+ES,vuelo en helicoptero,72,72,72,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,72,0,0,0
+ES,paseo en globo,72,72,72,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,72,0,0,0
+FR,vol en montgolfiere,65,65,65,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,65,0,0,0
+DE,hubschrauber rundflug,65,65,65,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,65,0,0,0
+DE,fallschirmspringen,64,64,64,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,64,0,0,0
+DE,heißluftballon fahrt,59,59,59,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,59,0,0,0
+PL,lot balonem,57,57,57,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,57,0,0,0
+PL,rafting,46,46,46,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,46,0,0,0
+PL,skoki spadochronowe,44,44,44,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,44,0,0,0
+PL,lot helikopterem,39,39,39,0,0,adrenaline,1.0,1.0,0.0,absent,0,False,F4_supply_void,False,39,0,0,0
+GB,eyelash extensions,87,12,38,30,13,lashes,0.13793103448275862,0.4367816091954023,0.2153163152053274,absent,0,False,F1_silent_substitution,False,38,0,0,0
+GB,paintball,102,7,37,45,13,paintball,0.06862745098039216,0.3627450980392157,0.09890109890109894,absent,0,False,F1_silent_substitution,False,37,0,0,0
+ES,masaje tailandes,73,10,35,26,10,massage,0.136986301369863,0.4794520547945205,0.24038461538461542,stocked,22,False,F5_ranking,False,0,35,0,0
+GB,facial,86,11,35,30,10,facial,0.12790697674418605,0.4069767441860465,0.4375,stocked,11,False,BASELINE_still_40pct_dead,False,0,35,0,0
+GB,steak dinner,85,14,35,28,5,dining_specific,0.16470588235294117,0.4117647058823529,0.4,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,35
+GB,personal trainer,72,13,34,16,6,personaltrain,0.18055555555555555,0.4722222222222222,0.1833333333333333,stocked,8,False,F5_ranking,False,0,25,9,0
+GB,hair colour,85,13,34,31,7,hair,0.15294117647058825,0.4,0.3083333333333333,stocked,11,False,BASELINE_still_40pct_dead,False,0,27,7,0
+GB,pizza deal,86,14,34,34,13,dining_specific,0.16279069767441862,0.3953488372093023,0.21159420289855074,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,34
+ES,pilates,70,10,32,15,11,pilates,0.14285714285714285,0.45714285714285713,0.125,plausible,0,False,F5_ranking,False,0,0,0,32
+ES,brunch,64,11,32,21,8,dining_specific,0.171875,0.5,0.3055555555555556,plausible,0,False,F3_geographic,False,0,0,0,32
+GB,indian restaurant,85,10,32,30,8,dining_specific,0.11764705882352941,0.3764705882352941,0.38888888888888895,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,32
+ES,crossfit,72,16,31,24,10,crossfit,0.2222222222222222,0.4305555555555556,0.41964285714285715,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,31
+GB,bowling,73,9,31,29,10,bowling,0.1232876712328767,0.4246575342465753,0.2834224598930481,absent,0,False,F1_silent_substitution,False,31,0,0,0
+GB,deep tissue massage,77,13,31,30,7,massage,0.16883116883116883,0.4025974025974026,0.3028846153846154,stocked,27,False,BASELINE_still_40pct_dead,False,0,31,0,0
+GB,brunch,76,11,31,21,7,dining_specific,0.14473684210526316,0.40789473684210525,0.31136363636363634,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,31
+DE,brunch,59,8,31,18,6,dining_specific,0.13559322033898305,0.5254237288135594,0.5454545454545454,plausible,0,False,F3_geographic,False,0,0,0,31
+GB,city tour,72,7,31,17,6,citytour,0.09722222222222222,0.4305555555555556,0.25,stocked,12,False,BASELINE_still_40pct_dead,False,0,31,0,0
+GB,crossfit,84,7,30,39,8,crossfit,0.08333333333333333,0.35714285714285715,0.2777777777777778,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,30
+GB,gym,88,9,30,28,6,gym,0.10227272727272728,0.3409090909090909,0.11546840958605664,stocked,24,False,BASELINE_still_40pct_dead,False,0,30,0,0
+ES,sushi,77,12,30,22,4,sushi,0.15584415584415584,0.38961038961038963,0.38095238095238093,absent,0,False,F1_silent_substitution,False,30,0,0,0
+GB,couples massage,70,12,29,22,4,massage,0.17142857142857143,0.4142857142857143,0.3333333333333333,stocked,27,False,BASELINE_still_40pct_dead,False,0,29,0,0
+GB,thai massage,76,10,28,26,7,massage,0.13157894736842105,0.3684210526315789,0.35714285714285715,stocked,27,False,BASELINE_still_40pct_dead,False,0,28,0,0
+FR,bowling,57,12,28,18,5,bowling,0.21052631578947367,0.49122807017543857,0.393939393939394,absent,0,False,F1_silent_substitution,False,28,0,0,0
+GB,manicure,74,8,28,31,6,nails,0.10810810810810811,0.3783783783783784,0.425,stocked,11,False,BASELINE_still_40pct_dead,False,0,26,2,0
+DE,escape room,56,8,28,20,5,escaperoom,0.14285714285714285,0.5,0.3030303030303031,stocked,12,False,F3_geographic,False,0,28,0,0
+GB,escape room,87,11,28,34,11,escaperoom,0.12643678160919541,0.3218390804597701,0.2952380952380952,stocked,7,False,BASELINE_still_40pct_dead,False,0,28,0,0
+DE,crossfit,62,13,28,13,3,crossfit,0.20967741935483872,0.45161290322580644,0.20476190476190476,plausible,0,False,F5_ranking,False,0,0,0,28
+GB,yoga class,74,9,28,26,8,yoga,0.12162162162162163,0.3783783783783784,0.134453781512605,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,28
+GB,sushi,71,10,27,26,10,sushi,0.14084507042253522,0.38028169014084506,0.2692307692307692,absent,0,False,F1_silent_substitution,False,27,0,0,0
+GB,pilates,72,3,27,25,5,pilates,0.041666666666666664,0.375,0.25,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,27
+GB,back massage,78,8,27,31,9,massage,0.10256410256410256,0.34615384615384615,0.5,stocked,27,False,BASELINE_still_40pct_dead,False,0,27,0,0
+FR,escape game,52,11,27,14,6,escaperoom,0.21153846153846154,0.5192307692307693,0.3333333333333333,stocked,13,False,F3_geographic,False,0,27,0,0
+FR,crossfit,59,10,27,23,5,crossfit,0.1694915254237288,0.4576271186440678,0.4920634920634921,plausible,0,False,F3_geographic,False,0,0,0,27
+ES,masaje en pareja,64,12,26,28,12,massage,0.1875,0.40625,0.2833333333333333,stocked,22,False,BASELINE_still_40pct_dead,False,0,26,0,0
+DE,personal trainer,64,6,26,24,6,personaltrain,0.09375,0.40625,0.24705882352941172,stocked,6,True,BASELINE_still_40pct_dead,False,0,20,6,0
+ES,peluqueria,62,11,26,18,3,hair,0.1774193548387097,0.41935483870967744,0.6923076923076923,stocked,3,False,BASELINE_still_40pct_dead,False,0,18,8,0
+FR,karting,60,11,25,24,5,karting,0.18333333333333332,0.4166666666666667,0.28846153846153844,stocked,6,False,BASELINE_still_40pct_dead,False,0,18,7,0
+FR,massage dos,50,7,25,11,3,massage,0.14,0.5,0.21538461538461534,stocked,24,False,F5_ranking,False,0,25,0,0
+ES,clase de yoga,69,5,25,21,7,yoga,0.07246376811594203,0.36231884057971014,0.3454545454545454,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,25
+ES,extensiones pestañas,52,5,25,16,5,lashes,0.09615384615384616,0.4807692307692308,0.12237762237762234,absent,0,False,F1_silent_substitution,False,25,0,0,0
+ES,masaje descontracturante,69,7,25,25,3,massage,0.10144927536231885,0.36231884057971014,0.17058823529411765,stocked,22,False,BASELINE_still_40pct_dead,False,0,25,0,0
+DE,nackenmassage,60,10,24,23,8,massage,0.16666666666666666,0.4,0.36666666666666664,stocked,21,False,BASELINE_still_40pct_dead,False,0,24,0,0
+GB,sports massage,74,12,24,31,13,massage,0.16216216216216217,0.32432432432432434,0.1647058823529412,stocked,27,False,BASELINE_still_40pct_dead,False,0,24,0,0
+FR,salle de sport,55,8,24,17,3,gym,0.14545454545454545,0.43636363636363634,0.4051724137931034,stocked,5,False,BASELINE_still_40pct_dead,False,0,21,3,0
+FR,massage duo,66,7,24,22,8,massage,0.10606060606060606,0.36363636363636365,0.4204545454545454,stocked,24,False,BASELINE_still_40pct_dead,False,0,24,0,0
+GB,go karting,73,7,24,25,9,karting,0.0958904109589041,0.3287671232876712,0.42857142857142855,stocked,3,False,BASELINE_still_40pct_dead,False,0,15,9,0
+FR,visite guidee,53,7,24,14,4,citytour,0.1320754716981132,0.4528301886792453,0.4772727272727273,stocked,14,False,F3_geographic,False,0,24,0,0
+ES,tinte pelo,59,9,24,24,11,hair,0.15254237288135594,0.4067796610169492,0.24884792626728108,stocked,3,False,BASELINE_still_40pct_dead,False,0,15,9,0
+ES,paintball,52,5,23,23,6,paintball,0.09615384615384616,0.4423076923076923,0.4444444444444445,absent,0,False,F1_silent_substitution,False,23,0,0,0
+DE,sushi,39,10,23,10,1,sushi,0.2564102564102564,0.5897435897435898,0.3571428571428571,absent,0,False,F1_silent_substitution,False,23,0,0,0
+GB,haircut,79,9,23,32,13,hair,0.11392405063291139,0.2911392405063291,0.19047619047619047,stocked,11,False,BASELINE_still_40pct_dead,False,0,16,7,0
+ES,arroceria,54,10,23,16,7,dining_specific,0.18518518518518517,0.42592592592592593,0.16666666666666669,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,23
+ES,limpieza facial,67,9,23,26,12,facial,0.13432835820895522,0.34328358208955223,0.2777777777777778,stocked,7,False,BASELINE_still_40pct_dead,False,0,16,7,0
+DE,pilates,51,5,23,14,4,pilates,0.09803921568627451,0.45098039215686275,0.025454545454545452,plausible,0,False,F5_ranking,False,0,0,0,23
+DE,fitnessstudio,46,7,23,12,4,gym,0.15217391304347827,0.5,0.1607142857142857,stocked,10,False,F5_ranking,False,0,23,0,0
+DE,haare färben,48,11,23,10,2,hair,0.22916666666666666,0.4791666666666667,0.2528735632183908,stocked,8,False,F3_geographic,False,0,20,3,0
+DE,yoga kurs,58,7,23,26,9,yoga,0.1206896551724138,0.39655172413793105,0.16666666666666669,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,23
+FR,coloration,53,7,22,16,6,hair,0.1320754716981132,0.41509433962264153,0.14666666666666667,stocked,5,False,BASELINE_still_40pct_dead,False,0,13,9,0
+FR,soin visage,57,9,22,22,5,facial,0.15789473684210525,0.38596491228070173,0.3214285714285714,stocked,6,False,BASELINE_still_40pct_dead,False,0,22,0,0
+DE,gesichtsbehandlung,54,8,22,19,5,facial,0.14814814814814814,0.4074074074074074,0.42857142857142855,stocked,12,False,BASELINE_still_40pct_dead,False,0,20,2,0
+DE,sportmassage,53,5,22,16,5,massage,0.09433962264150944,0.41509433962264153,0.3714285714285714,stocked,21,False,BASELINE_still_40pct_dead,False,0,22,0,0
+FR,brunch,57,7,21,14,4,dining_specific,0.12280701754385964,0.3684210526315789,0.47252747252747257,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,21
+DE,thai massage,45,6,21,12,3,massage,0.13333333333333333,0.4666666666666667,0.5,stocked,21,True,F2_language,False,0,21,0,0
+ES,gimnasio,55,6,21,18,6,gym,0.10909090909090909,0.38181818181818183,0.3181818181818182,stocked,4,False,BASELINE_still_40pct_dead,False,0,9,12,0
+FR,paintball,55,6,21,19,3,paintball,0.10909090909090909,0.38181818181818183,0.3214285714285714,absent,0,False,F1_silent_substitution,False,21,0,0,0
+DE,bowling,57,4,21,14,6,bowling,0.07017543859649122,0.3684210526315789,0.20634920634920634,absent,0,False,F1_silent_substitution,False,21,0,0,0
+ES,manicura,45,8,21,17,9,nails,0.17777777777777778,0.4666666666666667,0.32692307692307687,stocked,6,False,F3_geographic,False,0,21,0,0
+ES,bolera,48,9,21,14,2,bowling,0.1875,0.4375,0.2142857142857143,absent,0,False,F1_silent_substitution,False,21,0,0,0
+ES,tapas,40,6,20,13,4,dining_specific,0.15,0.5,0.30303030303030304,plausible,0,False,F3_geographic,False,0,0,0,20
+DE,wimpernverlängerung,44,6,20,12,3,lashes,0.13636363636363635,0.45454545454545453,0.09999999999999998,absent,0,False,F1_silent_substitution,False,20,0,0,0
+ES,hamburguesa,52,4,20,18,6,dining_specific,0.07692307692307693,0.38461538461538464,0.1774193548387097,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,20
+PL,brunch,35,5,20,10,3,dining_specific,0.14285714285714285,0.5714285714285714,0.3666666666666667,plausible,0,False,F3_geographic,False,0,0,0,20
+FR,extension de cils,58,10,20,17,4,lashes,0.1724137931034483,0.3448275862068966,0.3888888888888889,absent,0,False,F1_silent_substitution,False,20,0,0,0
+FR,massage thai,59,5,20,22,8,massage,0.0847457627118644,0.3389830508474576,0.22857142857142854,stocked,24,False,BASELINE_still_40pct_dead,False,0,20,0,0
+DE,steakhaus,45,5,20,14,4,dining_specific,0.1111111111111111,0.4444444444444444,0.303030303030303,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,20
+ES,karting,53,6,19,19,7,karting,0.11320754716981132,0.3584905660377358,0.3939393939393939,stocked,6,False,BASELINE_still_40pct_dead,False,0,19,0,0
+FR,massage sportif,63,8,19,19,6,massage,0.12698412698412698,0.30158730158730157,0.047619047619047616,stocked,24,False,BASELINE_still_40pct_dead,False,0,19,0,0
+ES,masaje espalda,67,7,19,27,10,massage,0.1044776119402985,0.2835820895522388,0.8571428571428572,stocked,22,False,BASELINE_still_40pct_dead,False,0,19,0,0
+FR,pilates,56,7,19,22,9,pilates,0.125,0.3392857142857143,0.11607142857142855,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,19
+PL,masaż tajski,35,5,19,15,8,massage,0.14285714285714285,0.5428571428571428,0.125,stocked,14,False,F5_ranking,False,0,19,0,0
+FR,burger,39,5,19,14,4,dining_specific,0.1282051282051282,0.48717948717948717,0.625,plausible,0,False,F3_geographic,False,0,0,0,19
+ES,escape room,60,4,18,27,8,escaperoom,0.06666666666666667,0.3,0.5,stocked,14,False,BASELINE_still_40pct_dead,False,0,18,0,0
+ES,tour ciudad,54,5,18,26,6,citytour,0.09259259259259259,0.3333333333333333,0.2444444444444444,stocked,13,False,BASELINE_still_40pct_dead,False,0,18,0,0
+FR,coach sportif,37,5,18,11,5,personaltrain,0.13513513513513514,0.4864864864864865,0.07142857142857145,stocked,13,False,F5_ranking,False,0,18,0,0
+DE,italiener,53,4,18,24,8,dining_specific,0.07547169811320754,0.33962264150943394,0.3571428571428571,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,18
+PL,fryzjer,31,4,17,5,1,hair,0.12903225806451613,0.5483870967741935,0.2222222222222222,stocked,7,False,F5_ranking,False,0,17,0,0
+FR,sushi,48,3,17,18,8,sushi,0.0625,0.3541666666666667,0.20634920634920634,absent,0,False,F1_silent_substitution,False,17,0,0,0
+DE,friseur,45,3,17,11,5,hair,0.06666666666666667,0.37777777777777777,0.2597402597402597,stocked,8,False,BASELINE_still_40pct_dead,False,0,11,6,0
+FR,crêperie,41,10,16,16,5,dining_specific,0.24390243902439024,0.3902439024390244,0.35,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,16
+PL,masaż sportowy,33,8,16,11,2,massage,0.24242424242424243,0.48484848484848486,0.2916666666666667,stocked,14,False,F3_geographic,False,0,16,0,0
+DE,kart fahren,61,6,16,17,7,karting,0.09836065573770492,0.26229508196721313,0.30000000000000004,stocked,8,False,BASELINE_still_40pct_dead,False,0,16,0,0
+ES,entrenador personal,56,6,16,24,7,personaltrain,0.10714285714285714,0.2857142857142857,0.24615384615384617,stocked,9,False,BASELINE_still_40pct_dead,False,0,16,0,0
+FR,manucure,42,8,15,7,1,nails,0.19047619047619047,0.35714285714285715,0.18181818181818182,stocked,10,False,BASELINE_still_40pct_dead,False,0,10,5,0
+DE,maniküre,47,6,15,18,7,nails,0.1276595744680851,0.3191489361702128,0.2777777777777778,stocked,6,False,BASELINE_still_40pct_dead,False,0,15,0,0
+DE,burger,53,3,15,25,7,dining_specific,0.05660377358490566,0.2830188679245283,0.08333333333333331,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,15
+PL,pilates,34,7,14,7,2,pilates,0.20588235294117646,0.4117647058823529,0.375,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,14
+DE,stadtrundfahrt,35,1,14,17,5,citytour,0.02857142857142857,0.4,0.16666666666666669,stocked,7,False,BASELINE_still_40pct_dead,False,0,13,1,0
+PL,koloryzacja,29,2,14,9,3,hair,0.06896551724137931,0.4827586206896552,0.18823529411764706,stocked,7,False,F5_ranking,False,0,14,0,0
+PL,masaż dla par,38,3,13,17,4,massage,0.07894736842105263,0.34210526315789475,0.35555555555555557,stocked,14,False,BASELINE_still_40pct_dead,False,0,13,0,0
+DE,paarmassage,39,3,13,17,3,massage,0.07692307692307693,0.3333333333333333,0.2090909090909091,stocked,21,False,BASELINE_still_40pct_dead,False,0,13,0,0
+DE,rückenmassage,43,3,13,17,2,massage,0.06976744186046512,0.3023255813953488,0.29166666666666663,stocked,21,False,BASELINE_still_40pct_dead,False,0,13,0,0
+PL,crossfit,22,5,13,6,1,crossfit,0.22727272727272727,0.5909090909090909,0.15000000000000002,plausible,0,False,F5_ranking,False,0,0,0,13
+FR,restaurant italien,34,3,13,13,1,dining_specific,0.08823529411764706,0.38235294117647056,0.19444444444444442,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,13
+FR,coiffeur,51,4,13,16,4,hair,0.0784313725490196,0.2549019607843137,0.3333333333333333,stocked,5,False,BASELINE_still_40pct_dead,False,0,8,5,0
+PL,sushi,30,5,13,11,4,sushi,0.16666666666666666,0.43333333333333335,0.12820512820512825,absent,0,False,F1_silent_substitution,False,13,0,0,0
+PL,zwiedzanie miasta,25,2,13,10,0,citytour,0.08,0.52,0.2916666666666667,stocked,10,False,F3_geographic,False,0,13,0,0
+FR,cours de yoga,42,2,12,15,3,yoga,0.047619047619047616,0.2857142857142857,0.15000000000000002,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,12
+DE,paintball,39,3,12,17,4,paintball,0.07692307692307693,0.3076923076923077,0.2444444444444444,absent,0,False,F1_silent_substitution,False,12,0,0,0
+PL,escape room,21,2,12,4,1,escaperoom,0.09523809523809523,0.5714285714285714,0.5,stocked,5,False,F3_geographic,False,0,9,3,0
+PL,paintball,27,3,12,9,4,paintball,0.1111111111111111,0.4444444444444444,0.3,absent,0,False,F1_silent_substitution,False,12,0,0,0
+PL,burger,25,4,11,9,2,dining_specific,0.16,0.44,0.4666666666666666,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,11
+PL,trener personalny,25,3,10,9,3,personaltrain,0.12,0.4,0.9090909090909091,stocked,3,False,BASELINE_still_40pct_dead,False,0,9,1,0
+PL,gokarty,29,4,10,13,4,karting,0.13793103448275862,0.3448275862068966,0.33333333333333337,stocked,2,False,BASELINE_still_40pct_dead,False,0,8,2,0
+PL,masaż pleców,27,5,10,9,3,massage,0.18518518518518517,0.37037037037037035,0.5,stocked,14,False,BASELINE_still_40pct_dead,False,0,10,0,0
+ES,sports massage,10,1,9,1,0,massage,0.1,0.9,0.0,stocked,22,True,F2_language,False,0,9,0,0
+ES,back massage,13,4,9,2,0,massage,0.3076923076923077,0.6923076923076923,0.0,stocked,22,True,F2_language,False,0,9,0,0
+PL,joga,23,3,9,9,2,yoga,0.13043478260869565,0.391304347826087,0.3,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,9
+PL,siłownia,23,3,9,8,4,gym,0.13043478260869565,0.391304347826087,0.16666666666666669,stocked,3,False,BASELINE_still_40pct_dead,False,0,8,1,0
+PL,oczyszczanie twarzy,24,3,8,9,5,facial,0.125,0.3333333333333333,0.4,stocked,3,False,BASELINE_still_40pct_dead,False,0,7,1,0
+PL,restauracja włoska,16,1,8,2,2,dining_specific,0.0625,0.5,0.303030303030303,plausible,0,False,F3_geographic,False,0,0,0,8
+PL,manicure,22,3,8,10,2,nails,0.13636363636363635,0.36363636363636365,0.33333333333333337,stocked,2,False,BASELINE_still_40pct_dead,False,0,6,2,0
+FR,steak dinner,8,4,7,0,0,dining_specific,0.5,0.875,0.0,plausible,0,True,F2_language,True,0,0,0,7
+DE,deep tissue massage,11,2,7,2,0,massage,0.18181818181818182,0.6363636363636364,0.0,stocked,21,True,F2_language,False,0,7,0,0
+FR,back massage,7,2,7,1,0,massage,0.2857142857142857,1.0,0.0,stocked,24,True,F2_language,True,0,7,0,0
+ES,deep tissue massage,8,4,7,0,0,massage,0.5,0.875,0.0,stocked,22,True,F2_language,True,0,7,0,0
+FR,gym,8,4,7,0,0,gym,0.5,0.875,0.0,stocked,5,True,F2_language,True,0,7,0,0
+ES,haircut,7,2,7,0,0,hair,0.2857142857142857,1.0,0.0,stocked,3,True,F2_language,True,0,5,2,0
+FR,haircut,8,1,7,0,0,hair,0.125,0.875,0.25,stocked,5,True,F2_language,True,0,4,3,0
+FR,personal trainer,10,2,7,2,0,personaltrain,0.2,0.7,0.0,stocked,13,True,F2_language,False,0,7,0,0
+PL,przedłużanie rzęs,22,2,7,9,3,lashes,0.09090909090909091,0.3181818181818182,0.4,absent,0,False,F1_silent_substitution,False,7,0,0,0
+PL,pizzeria,22,2,7,8,5,dining_specific,0.09090909090909091,0.3181818181818182,0.4117647058823529,plausible,0,False,BASELINE_still_40pct_dead,False,0,0,0,7
+DE,indian restaurant,6,2,6,1,0,dining_specific,0.3333333333333333,1.0,0.0,plausible,0,True,F2_language,True,0,0,0,6
+FR,pizza deal,6,2,6,0,0,dining_specific,0.3333333333333333,1.0,0.0,plausible,0,True,F2_language,True,0,0,0,6
+FR,thai massage,8,2,6,1,0,massage,0.25,0.75,0.0,stocked,24,True,F2_language,True,0,6,0,0
+ES,couples massage,8,3,6,0,0,massage,0.375,0.75,0.33333333333333337,stocked,22,True,F2_language,True,0,6,0,0
+DE,gym,9,0,6,1,0,gym,0.0,0.6666666666666666,0.0,stocked,10,True,F2_language,True,0,6,0,0
+ES,facial,7,3,6,0,0,facial,0.42857142857142855,0.8571428571428571,0.0,stocked,7,True,F2_language,True,0,5,1,0
+PL,kręgle,15,0,5,6,0,bowling,0.0,0.3333333333333333,0.3,absent,0,False,F1_silent_substitution,False,5,0,0,0
+ES,indian restaurant,6,2,5,1,0,dining_specific,0.3333333333333333,0.8333333333333334,0.0,plausible,0,True,F2_language,True,0,0,0,5
+DE,yoga class,5,1,5,0,0,yoga,0.2,1.0,0.0,plausible,0,True,F2_language,True,0,0,0,5
+ES,thai massage,6,2,5,2,0,massage,0.3333333333333333,0.8333333333333334,0.0,stocked,22,True,F2_language,True,0,5,0,0
+PL,facial,5,1,5,0,0,facial,0.2,1.0,0.0,stocked,3,True,F2_language,True,0,3,2,0
+ES,yoga class,5,1,5,1,0,yoga,0.2,1.0,,plausible,0,True,F2_language,True,0,0,0,5
+FR,deep tissue massage,6,3,5,0,0,massage,0.5,0.8333333333333334,0.0,stocked,24,True,F2_language,True,0,5,0,0
+FR,escape room,5,0,5,0,0,escaperoom,0.0,1.0,0.0,stocked,13,False,F5_ranking,True,0,5,0,0
+ES,eyelash extensions,5,0,5,0,0,lashes,0.0,1.0,0.0,absent,0,True,F1_silent_substitution,True,5,0,0,0
+DE,facial,4,0,4,0,0,facial,0.0,1.0,0.0,stocked,12,True,F2_language,True,0,4,0,0
+FR,go karting,4,1,4,1,0,karting,0.25,1.0,,stocked,6,True,F2_language,True,0,2,2,0
+FR,yoga class,5,1,4,1,0,yoga,0.2,0.8,0.0,plausible,0,True,F2_language,True,0,0,0,4
+DE,eyelash extensions,4,1,4,1,0,lashes,0.25,1.0,,absent,0,True,F1_silent_substitution,True,4,0,0,0
+PL,pizza deal,5,1,4,0,0,dining_specific,0.2,0.8,0.0,plausible,0,True,F2_language,True,0,0,0,4
+ES,city tour,5,0,4,1,0,citytour,0.0,0.8,,stocked,13,True,F2_language,True,0,4,0,0
+ES,personal trainer,6,1,4,1,0,personaltrain,0.16666666666666666,0.6666666666666666,0.0,stocked,9,True,F2_language,True,0,4,0,0
+ES,pizza deal,4,1,4,0,0,dining_specific,0.25,1.0,,plausible,0,True,F2_language,True,0,0,0,4
+PL,hair colour,4,1,4,1,0,hair,0.25,1.0,0.0,stocked,7,True,F2_language,True,0,4,0,0
+ES,bowling,5,1,4,1,1,bowling,0.2,0.8,0.0,absent,0,False,F1_silent_substitution,True,4,0,0,0
+FR,facial,4,1,4,0,0,facial,0.25,1.0,0.0,stocked,6,True,F2_language,True,0,4,0,0
+PL,sports massage,4,1,4,0,0,massage,0.25,1.0,0.0,stocked,14,True,F2_language,True,0,4,0,0
+PL,steak dinner,4,2,4,0,0,dining_specific,0.5,1.0,,plausible,0,True,F2_language,True,0,0,0,4
+ES,steak dinner,5,2,4,1,0,dining_specific,0.4,0.8,0.0,plausible,0,True,F2_language,True,0,0,0,4
+DE,go karting,5,1,4,0,0,karting,0.2,0.8,0.0,stocked,8,True,F2_language,True,0,4,0,0
+FR,couples massage,8,1,4,1,1,massage,0.125,0.5,0.0,stocked,24,True,F2_language,True,0,4,0,0
+FR,hair colour,3,2,3,0,0,hair,0.6666666666666666,1.0,,stocked,5,True,F2_language,True,0,2,1,0
+FR,indian restaurant,3,1,3,0,0,dining_specific,0.3333333333333333,1.0,,plausible,0,True,F2_language,True,0,0,0,3
+FR,sports massage,4,1,3,1,0,massage,0.25,0.75,0.0,stocked,24,True,F2_language,True,0,3,0,0
+ES,hair colour,3,2,3,0,0,hair,0.6666666666666666,1.0,,stocked,3,True,F2_language,True,0,3,0,0
+ES,gym,3,0,3,0,0,gym,0.0,1.0,,stocked,4,True,F2_language,True,0,2,1,0
+ES,go karting,5,0,3,0,0,karting,0.0,0.6,,stocked,6,True,F2_language,True,0,3,0,0
+ES,manicure,5,1,3,1,0,nails,0.2,0.6,,stocked,6,False,F5_ranking,True,0,3,0,0
+PL,thai massage,4,1,3,0,0,massage,0.25,0.75,,stocked,14,True,F2_language,True,0,3,0,0
+PL,personal trainer,4,1,3,1,0,personaltrain,0.25,0.75,,stocked,3,True,F2_language,True,0,2,1,0
+DE,steak dinner,3,0,3,0,0,dining_specific,0.0,1.0,,plausible,0,True,F2_language,True,0,0,0,3
+DE,sports massage,5,0,3,0,0,massage,0.0,0.6,,stocked,21,True,F2_language,True,0,3,0,0
+GB,susshi,4,2,3,0,0,sushi,0.5,0.75,,absent,0,False,F4_supply_void,True,3,0,0,0
+FR,manicure,4,2,3,0,0,nails,0.5,0.75,,stocked,10,False,F5_ranking,True,0,2,1,0
+DE,haircut,3,0,3,0,0,hair,0.0,1.0,,stocked,8,True,F2_language,True,0,1,2,0
+PL,deep tissue massage,5,0,3,0,0,massage,0.0,0.6,,stocked,14,True,F2_language,True,0,3,0,0
+ES,raffting,3,3,3,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,3,0,0,0
+DE,hair colour,3,0,3,0,0,hair,0.0,1.0,,stocked,8,True,F2_language,True,0,3,0,0
+FR,city tour,4,1,3,0,0,citytour,0.25,0.75,,stocked,14,True,F2_language,True,0,3,0,0
+PL,go karting,4,1,3,1,0,karting,0.25,0.75,0.0,stocked,2,True,F2_language,True,0,2,1,0
+ES,raftng,3,3,3,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,3,0,0,0
+PL,city tour,2,0,2,0,0,citytour,0.0,1.0,,stocked,10,True,F2_language,True,0,2,0,0
+FR,brrunch,2,1,2,0,0,unmapped,0.5,1.0,,absent,0,False,F4_supply_void,True,0,0,0,2
+FR,massage do,2,1,2,0,0,massage,0.5,1.0,,stocked,24,False,F5_ranking,True,0,2,0,0
+FR,coloation,2,0,2,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,2
+GB,hot air bballoon ride,2,2,2,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,2,0,0,0
+GB,supercar track dy,2,2,2,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,2,0,0,0
+PL,haircut,2,2,2,0,0,hair,1.0,1.0,,stocked,7,True,F2_language,True,0,2,0,0
+GB,sharkk diving,2,2,2,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,2,0,0,0
+FR,coach sportiif,2,0,2,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,2
+PL,bowling,2,2,2,0,0,bowling,1.0,1.0,,absent,0,False,F4_supply_void,True,2,0,0,0
+ES,raftinng,2,2,2,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,2
+DE,back massage,2,0,2,0,0,massage,0.0,1.0,,stocked,21,True,F2_language,True,0,2,0,0
+DE,italiner,2,1,2,1,1,unmapped,0.5,1.0,,absent,0,False,F4_supply_void,True,0,0,0,2
+DE,manicure,3,0,2,0,0,nails,0.0,0.6666666666666666,,stocked,6,False,F5_ranking,True,0,2,0,0
+DE,bowlng,2,1,2,1,0,unmapped,0.5,1.0,,absent,0,False,F4_supply_void,True,0,0,0,2
+ES,escaperoom,2,1,2,0,0,escaperoom,0.5,1.0,,stocked,14,False,F5_ranking,True,0,2,0,0
+DE,city tour,4,0,2,0,0,citytour,0.0,0.5,0.0,stocked,7,True,F2_language,True,0,2,0,0
+DE,buurger,3,2,2,1,0,unmapped,0.6666666666666666,0.6666666666666666,,absent,0,False,F4_supply_void,True,0,0,0,2
+DE,pizza deal,3,0,2,0,0,dining_specific,0.0,0.6666666666666666,,plausible,0,True,F2_language,True,0,0,0,2
+DE,paintballl,2,0,2,0,0,paintball,0.0,1.0,,absent,0,True,F1_silent_substitution,True,2,0,0,0
+ES,extensioones pestañas,1,1,1,0,0,lashes,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,go iarting,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,hair color,1,0,1,0,0,hair,0.0,1.0,,stocked,11,False,F5_ranking,True,0,1,0,0
+GB,haio colour,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,go krting,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,go karuing,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,go kartiug,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,go kartiing,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,eyelash extesions,2,0,1,0,0,lashes,0.0,0.5,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+GB,facil,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,haircuut,3,1,1,1,0,unmapped,0.3333333333333333,0.3333333333333333,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,kart ffahren,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,eyelash extensiens,1,0,1,0,0,lashes,0.0,1.0,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+GB,escpe room,2,0,1,1,1,escaperoom,0.0,0.5,,stocked,7,False,F5_ranking,True,0,1,0,0
+GB,deeptissue massage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,deep tissue mssage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,deep tissue masssage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,deep tissue aassage,1,1,1,0,0,massage,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,crossfiit,1,0,1,0,0,crossfit,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+DE,hubsschrauber rundflug,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,helicopaer tour,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,heliaopter tour,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,heliccopter tour,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,heißluftballon fahit,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,personai trainer,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,paontball,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,paintballl,1,0,1,0,0,paintball,0.0,1.0,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+DE,heißluftballonefahrt,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,paiatball,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,heißluftbalon fahrt,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,maniccure,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,heißlutballon fahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,hot air billoon ride,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,hubschrauber rendflug,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,hot air ballooon ride,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,hubschrauber undflug,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,hot air balloon rde,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,ho air balloon ride,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,hubsehrauber rundflug,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,helicopter our,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,helicopeer tour,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,maniküe,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,couplles massage,2,1,1,0,0,massage,0.5,0.5,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,bowlig,1,1,1,0,0,bowling,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,city touur,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,mniküre,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,salle de  sport,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,sale de sport,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,rfting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,restaurunt italien,1,1,1,0,0,dining_specific,1.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+DE,pilats,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,restaurant itaalien,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,17,False,F5_ranking,True,0,1,0,0
+FR,restaurant iitalien,1,0,1,0,0,dining_specific,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+FR,restaurant ialien,1,0,1,0,0,dining_generic,0.0,1.0,,stocked,17,False,F5_ranking,True,0,1,0,0
+FR,raoting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,raftng,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+FR,raffting,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+FR,raating,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,rückenmassuge,1,0,1,0,0,massage,0.0,1.0,,stocked,21,False,F5_ranking,True,0,1,0,0
+FR,mssage thai,1,0,1,0,0,massage,0.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+FR,masssage dos,1,1,1,0,0,massage,1.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+FR,massage uuo,1,0,1,0,0,massage,0.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+DE,seeakhaus,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,massage dao,1,1,1,0,0,massage,1.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+FR,massae dos,1,0,1,0,0,massage,0.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+FR,salle de sort,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,salle de spirt,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,salle de ssport,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,visiae guidee,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,heißluftballon faahrt,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,back  massage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+FR,volen montgolfiere,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+FR,vol en montolfiere,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,vol en montgolfiire,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,vol en montgolfieere,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,vol en monntgolfiere,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,vol en mntgolfiere,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,tour en heliccoptere,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,piiates,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,paiitball,1,0,1,1,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,sushhi,2,1,1,0,0,unmapped,0.5,0.5,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,peronal trainer,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,soin vissage,1,0,1,1,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,soiin visage,1,0,1,0,0,facial,0.0,1.0,,stocked,6,False,F5_ranking,True,0,1,0,0
+FR,saut en prachute,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,saut en paraciute,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,saut en parachutte,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,pilaies,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,prsonal trainer,1,0,1,1,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,heißluftballon eahrt,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,fallschirmsprinien,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+PL,manicre,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,lt helikopterem,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+PL,lot helokopterem,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,fallsahirmspringen,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,lot heikopterem,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,fallschirmspringn,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+PL,lot baalonem,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,fallschirmspringun,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+PL,kręggle,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,koloryyzacja,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,pizza del,2,0,1,0,0,dining_specific,0.0,0.5,,plausible,0,False,F5_ranking,True,0,0,0,1
+DE,fallschirmsspringen,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,fallschirrmspringen,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,fallschirspringen,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,gym,1,0,1,0,0,gym,0.0,1.0,,stocked,3,True,F2_language,True,0,0,1,0
+DE,fallscirmspringen,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,fallshirmspringen,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,finessstudio,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,escaape room,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,fitnessstuduo,1,0,1,0,0,massage,0.0,1.0,,stocked,21,False,F5_ranking,True,0,1,0,0
+DE,escape rooom,1,0,1,0,0,escaperoom,0.0,1.0,,stocked,12,True,F2_language,True,0,1,0,0
+DE,crrossfit,1,0,1,1,0,crossfit,0.0,1.0,,plausible,0,True,F2_language,True,0,0,0,1
+DE,crosssfit,2,0,1,1,0,unmapped,0.0,0.5,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,oczyszczanie twary,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,zwiedzanie miauta,1,1,1,0,0,citytour,1.0,1.0,,stocked,10,False,F5_ranking,True,0,1,0,0
+PL,yoga class,2,0,1,0,0,yoga,0.0,0.5,,plausible,0,True,F2_language,True,0,0,0,1
+PL,treoer personalny,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,bowlig,1,0,1,0,0,bowling,0.0,1.0,,absent,0,True,F1_silent_substitution,True,1,0,0,0
+PL,tener personalny,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,bowlong,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,skoki spadochronoe,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+PL,siłłownia,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,rufting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,rfting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,restaracja włoska,1,1,1,0,0,dining_specific,1.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+PL,rating,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,raiting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,raftung,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,przedłużanie rzas,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,burgr,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+PL,pizzeia,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,couples massage,1,0,1,0,0,massage,0.0,1.0,,stocked,21,True,F2_language,True,0,1,0,0
+DE,crosfit,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,crosfit,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+PL,couples massage,2,0,1,0,0,massage,0.0,0.5,,stocked,14,True,F2_language,True,0,1,0,0
+DE,fitnessstuudio,1,0,1,1,0,gym,0.0,1.0,,stocked,10,False,F5_ranking,True,0,1,0,0
+DE,heeißluftballon fahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,steak ddinner,1,0,1,0,0,dining_specific,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+GB,sportts massage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+DE,heißlftballon fahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,skyiving,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,skydivinng,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,heißluetballon fahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,skydiiving,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,skyddiving,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+DE,heißlufftballon fahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,shark divong,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shark divinng,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,heißluftbaelon fahrt,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shark diviing,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shark diiving,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shark ddiving,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shark  diving,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,shaark diving,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,sark diving,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+FR,masage dos,1,0,1,0,0,massage,0.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+GB,steak dinneer,1,0,1,0,0,dining_specific,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+GB,steakk dinner,1,0,1,0,0,dining_specific,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+DE,friser,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,steeak dinner,1,1,1,0,0,dining_generic,1.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+DE,friseuur,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,yoga closs,1,0,1,0,0,yoga,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+GB,yog class,2,1,1,1,0,unmapped,0.5,0.5,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,yoea class,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,gesichtsbehandlunng,1,1,1,0,0,facial,1.0,1.0,,stocked,12,False,F5_ranking,True,0,1,0,0
+GB,thaai massage,1,0,1,0,0,massage,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+GB,suushi,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+GB,superrcar track day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercr track day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercarutrack day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercartrack day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercar track dday,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,hbschrauber rundflug,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+GB,supercar track  day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercar tracck day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supercar  track day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,supeercar track day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,suercar track day,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+GB,steik dinner,1,0,1,0,0,dining_generic,0.0,1.0,,stocked,27,False,F5_ranking,True,0,1,0,0
+FR,masage thai,1,0,1,0,0,massage,0.0,1.0,,stocked,24,False,F5_ranking,True,0,1,0,0
+FR,tour en helicopteoe,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,velo en helicoptero,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,paseo en gllobo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,coach spportif,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,paracaiismo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,parcaidismo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,parocaidismo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,thi massage,1,0,1,0,0,massage,0.0,1.0,,stocked,21,False,F5_ranking,True,0,1,0,0
+ES,paseo en  globo,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,clase  de yoga,1,0,1,0,0,yoga,0.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+ES,paracaaidismo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,ciffeur,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,passeo en globo,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,peauqueria,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,widwasser rafting,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+FR,burgeer,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,caossfit,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,coach sprtif,1,0,1,1,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,paiacaidismo,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,bunch,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,crossft,2,0,1,2,0,unmapped,0.0,0.5,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,crrossfit,1,0,1,1,0,crossfit,0.0,1.0,,plausible,0,True,F2_language,True,0,0,0,1
+FR,crosafit,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,masaje descontraturante,1,0,1,0,0,massage,0.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,masaje en paareja,1,0,1,0,0,massage,0.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,crosssfit,2,0,1,0,0,unmapped,0.0,0.5,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,suortmassage,1,1,1,0,0,massage,1.0,1.0,,stocked,21,False,F5_ranking,True,0,1,0,0
+ES,masaje tailandees,1,0,1,0,0,massage,0.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,paeo en globo,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,crossfiit,1,0,1,0,0,crossfit,0.0,1.0,,plausible,0,True,F2_language,True,0,0,0,1
+ES,masaje tailanees,1,0,1,0,0,massage,0.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,masajeeen pareja,1,0,1,0,0,massage,0.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,musaje descontracturante,1,1,1,0,0,massage,1.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,paaracaidismo,1,1,1,0,0,massage,1.0,1.0,,stocked,22,False,F5_ranking,True,0,1,0,0
+FR,coiffer,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,pilaates,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,bruneh,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,crossffit,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,raiting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,tpas,2,0,1,0,0,unmapped,0.0,0.5,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,raftiing,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,arroeria,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,tour ciedad,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,tintee pelo,1,1,1,0,0,hair,1.0,1.0,,stocked,3,False,F5_ranking,True,0,1,0,0
+DE,wimpernverlängerng,1,0,1,0,0,lashes,0.0,1.0,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+ES,rating,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vueli en helicoptero,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,rfting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,rofting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,tinte  pelo,1,1,1,0,0,hair,1.0,1.0,,stocked,3,False,F5_ranking,True,0,1,0,0
+ES,arroceriia,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,arrocerea,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,taps,3,0,1,1,0,unmapped,0.0,0.3333333333333333,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,raftig,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vuelo en  helicoptero,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,wildwaasser rafting,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,wimpernverllängerung,1,1,1,0,0,lashes,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+DE,wildwasserrafting,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+FR,brnch,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,True,F1_silent_substitution,True,0,0,0,1
+ES,pilatos,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,wilewasser rafting,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,puintball,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,raafting,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vuelu en helicoptero,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,vuelo en helicootero,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vuelo enhelicoptero,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,vuelo en helioptero,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,rafaing,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vuelo en helicptero,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,vuelo en helicopterro,1,1,1,0,0,adrenaline,1.0,1.0,,absent,0,False,F4_supply_void,True,1,0,0,0
+ES,brunih,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,manicuura,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,susshi,2,0,1,0,0,sushi,0.0,0.5,,absent,0,True,F1_silent_substitution,True,1,0,0,0
+DE,statrundfahrt,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,exttension de cils,1,0,1,0,0,lashes,0.0,1.0,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+DE,sportmasuage,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,steahaus,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,esape game,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,gimnesio,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,eyelash extensions,5,0,1,1,0,lashes,0.0,0.2,,absent,0,True,F1_silent_substitution,True,1,0,0,0
+ES,gmnasio,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,stadtruundfahrt,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,hamburrguesa,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,kartig,2,1,1,1,0,unmapped,0.5,0.5,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,mancure,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,True,F4_supply_void,True,0,0,0,1
+ES,maaicura,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,extension de cels,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,escapu game,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,limpieza faial,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,sportmasage,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,curs de yoga,1,1,1,0,0,yoga,1.0,1.0,,plausible,0,False,F5_ranking,True,0,0,0,1
+ES,maasaje en pareja,2,1,1,0,0,massage,0.5,0.5,,stocked,22,False,F5_ranking,True,0,1,0,0
+ES,entrnador personal,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+FR,crossit,1,0,1,1,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,kartang,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+ES,extensiones pestñas,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+FR,crêeerie,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,stadrundfahrt,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,entrrenador personal,1,1,1,0,0,unmapped,1.0,1.0,,absent,0,False,F4_supply_void,True,0,0,0,1
+DE,stakhaus,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,maniccura,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,extensaones pestañas,1,0,1,0,0,lashes,0.0,1.0,,absent,0,False,F1_silent_substitution,True,1,0,0,0
+ES,karrting,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+DE,stadtrunfahrt,1,0,1,0,0,unmapped,0.0,1.0,,absent,0,False,F1_silent_substitution,True,0,0,0,1
+ES,pilatis,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,bruoch,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,restauracja właska,1,0,0,1,0,dining_generic,0.0,0.0,,stocked,15,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,steakidinner,1,0,0,0,0,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,brrunch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,resturacja włoska,1,0,0,1,1,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,bruunch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,suhi,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,escae room,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,przedłużanieurzęs,1,0,0,1,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,steak inner,2,0,0,2,0,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,escaperoom,1,0,0,0,0,escaperoom,0.0,0.0,,stocked,12,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,hambuoguesa,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,brnch,2,0,0,1,1,unmapped,0.0,0.0,,absent,0,True,F1_silent_substitution,True,0,0,0,0
+ES,susi,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,aaroceria,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,susai,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,boowling,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,sshi,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,zwiedzanie miasoa,1,0,0,1,0,citytour,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,gimnaoio,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,trenner personalny,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,trenir personalny,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,bowing,1,0,0,0,0,bowling,0.0,0.0,,absent,0,True,F1_silent_substitution,True,0,0,0,0
+PL,trener peersonalny,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,treer personalny,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,arrocerria,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,branch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,bowliing,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,sports assage,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,suihi,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,sports massagge,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,sports masssage,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,clae de yoga,1,0,0,0,0,yoga,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,bowlinng,2,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,escpe room,1,0,0,1,0,escaperoom,0.0,0.0,,stocked,14,True,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,escapee room,1,0,0,1,0,escaperoom,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,escape reom,1,0,0,0,0,escaperoom,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,hambuguesa,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,burgeer,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,entrenadorpersonal,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,peluqueia,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,oczyszczaniie twarzy,1,0,0,0,0,facial,0.0,0.0,,stocked,3,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,fitnessstuiio,1,0,0,0,0,gym,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,crossoit,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,maaje descontracturante,1,0,0,1,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,fitnessstodio,1,0,0,1,0,gym,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,fitnessatudio,1,0,0,0,0,gym,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,taaas,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,masażtajski,1,0,0,1,0,massage,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,gokary,2,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,masaje tailanddes,1,0,0,1,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,masaje espallda,1,0,0,0,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,masaż tujski,1,0,0,0,0,massage,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,koloryzaacja,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,masaje esoalda,1,0,0,0,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,koloryzzacja,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,masaje enn pareja,1,0,0,1,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,esape room,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,masaje en  pareja,1,0,0,1,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,entrenadoor personal,2,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,masaż dla  par,1,0,0,1,1,massage,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,maniura,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,masaż aportowy,1,0,0,0,0,massage,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,maaaż dla par,1,0,0,1,0,massage,0.0,0.0,,stocked,14,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,crssfit,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,crosifit,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,crossffit,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,peluqueeria,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,buurger,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,peluqeria,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,hare färben,1,0,0,1,0,hair,0.0,0.0,,stocked,8,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,peloqueria,1,0,0,0,0,hair,0.0,0.0,,stocked,3,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,kartinng,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,limpieeza facial,1,0,0,1,0,facial,0.0,0.0,,stocked,7,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,limpieza faciaal,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,manicue,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,susei,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,haaare färben,1,0,0,0,0,hair,0.0,0.0,,stocked,8,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,gesichtsbehndlung,1,0,0,0,0,facial,0.0,0.0,,stocked,12,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,susui,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,limpieza facual,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,thai  massage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,thaiomassage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,thii massage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,yoa class,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,yoga claos,1,0,0,0,0,yoga,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,frisseur,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,clse de yoga,1,0,0,1,0,yoga,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+PL,paitball,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,brnch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,True,F1_silent_substitution,True,0,0,0,0
+ES,paintbell,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,fitnesstudio,1,0,0,1,1,gym,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,masajje espalda,1,0,0,1,0,massage,0.0,0.0,,stocked,22,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,maosage sportif,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,plates,1,0,0,0,0,pilates,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,paintbaal,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,crossft,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,son visage,1,0,0,0,0,facial,0.0,0.0,,stocked,6,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,soin visege,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,persoual trainer,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,soin viage,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,soin isage,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,boling,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,crêpperie,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,sallee de sport,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,salle e sport,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,escaie game,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,pilatees,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,escape ame,1,0,0,0,0,escaperoom,0.0,0.0,,stocked,13,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,salle de port,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,salle d sport,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,steakhaaus,1,0,0,0,0,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,susshi,1,0,0,0,0,sushi,0.0,0.0,,absent,0,True,F1_silent_substitution,True,0,0,0,0
+GB,pizzza deal,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,crosfit,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,nackkenmassage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,back masoage,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,coifffeur,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,bacck massage,1,0,0,1,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,neckenmassage,1,0,0,1,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,coloraation,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,stteakhaus,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,paarmassge,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,steeakhaus,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,cours de  yoga,1,0,0,1,1,yoga,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,steauhaus,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,visite guiee,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,paarmessage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,paiintball,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,extensiones peutañas,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,restauranteitalien,1,0,0,1,1,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,stadtrundffahrt,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,stadtrudfahrt,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,stadtrandfahrt,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massagee duo,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,saeakhaus,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massage sportiif,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,seakhaus,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massage siortif,1,0,0,1,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massage os,1,0,0,1,1,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massage ds,1,0,0,1,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,spirtmassage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,sporimassage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massage dis,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,sportmaassage,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massag sportif,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massag duo,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,manuure,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massaage thai,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massagethai,1,0,0,1,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massagge sportif,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massaue duo,1,0,0,1,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,peintball,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,pioates,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,sprtmassage,1,0,0,1,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,plates,1,0,0,1,0,pilates,0.0,0.0,,plausible,0,True,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,ruckenmassage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,pieates,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,rücienmassage,1,0,0,1,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,pantball,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,massge duo,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,paintbull,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,paintbael,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,painntball,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,paentball,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,masuage dos,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,korting,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,backk massage,1,0,0,1,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,baek massage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,bick massage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,kart faaren,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,wimpernverlngerung,1,0,0,0,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,hircut,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,wimmpernverlängerung,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,bowliing,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,hairut,2,0,0,2,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,bowlng,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,hair couour,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,bowlong,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,karrt fahren,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,brunh,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,kart ahren,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,bunch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,go karoing,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,buraer,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,fcial,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,inddian restaurant,1,0,0,0,0,dining_generic,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,massaage dos,1,0,0,0,0,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,indian restaurrant,1,0,0,0,0,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,personal traainer,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,yoga kkurs,1,0,0,1,1,yoga,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,pizza deel,1,0,0,0,0,dining_specific,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+ES,tappas,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,wimpernvorlängerung,1,0,0,0,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,pilaees,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,piilates,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,personal tainer,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,mancure,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,tinte elo,1,0,0,1,0,hair,0.0,0.0,,stocked,3,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,persona trainer,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,wimpernverlängeerung,1,0,0,1,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,maniure,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,manicurre,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+ES,tourciudad,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,bureer,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,faccial,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,boeling,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,eyelashextensions,1,0,0,0,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,couples massagge,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,coiefeur,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,cityitour,1,0,0,1,1,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,city tuur,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,coiffeeur,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,maniküue,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,city tor,2,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,city toour,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,bruuch,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,brunah,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,brnch,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,bowuing,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+DE,nackenmasage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,sushhi,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,bowing,1,0,0,0,0,bowling,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,couplesmassage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,manikre,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,crrossfit,1,0,0,0,0,crossfit,0.0,0.0,,plausible,0,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,eelash extensions,1,0,0,1,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,burrger,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,eyelasa extensions,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,escape rroom,1,0,0,0,0,escaperoom,0.0,0.0,,stocked,7,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,escape rooom,1,0,0,1,0,escaperoom,0.0,0.0,,stocked,7,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,kart fohren,1,0,0,1,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,escape rom,2,0,0,0,0,escaperoom,0.0,0.0,,stocked,7,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,eaelash extensions,1,0,0,1,0,lashes,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+FR,coach spoutif,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+GB,dep tissue massage,1,0,0,1,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,deep tissuue massage,1,0,0,1,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+GB,deep tissuo massage,1,0,0,0,0,massage,0.0,0.0,,stocked,27,False,BASELINE_still_40pct_dead,True,0,0,0,0
+FR,coach spartif,1,0,0,1,1,massage,0.0,0.0,,stocked,24,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,thai masage,1,0,0,0,0,massage,0.0,0.0,,stocked,21,False,BASELINE_still_40pct_dead,True,0,0,0,0
+DE,susi,1,0,0,0,0,unmapped,0.0,0.0,,absent,0,False,F1_silent_substitution,True,0,0,0,0
+PL,zwiedzaniee miasta,1,0,0,0,0,citytour,0.0,0.0,,stocked,10,False,BASELINE_still_40pct_dead,True,0,0,0,0

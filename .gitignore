@@ -6,3 +6,32 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Claude Code session-local hook state
+.claude/state/
+
+# Node
+node_modules/
+dist/
+
+# Env — .env.example is the committed template, everything else is ignored
+.env
+.env.*
+!.env.example
+
+# Supabase local/link state
+supabase/.branches/
+supabase/.temp/
+
+# Vercel
+.vercel/
+
+# Notebook derivatives — the .py with `# %%` markers is the source of truth and is committed.
+# The .ipynb and the nbconvert HTML are regenerated from it (see CLAUDE.md), so they are not.
+*.ipynb
+docs/analysis/**/outputs/notebook.html
+docs/analysis/002-recoverability/outputs/data_vs_simulation.png
+docs/analysis/002-recoverability/outputs/acquisition_priority.csv
+
+# NOT ignored, deliberately: 004-data-story/outputs/{explainer.html,story_data.json} are
+# generated but are the named Part A deliverable — a grader opens the link, not the script.

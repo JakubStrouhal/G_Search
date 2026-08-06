@@ -1,0 +1,31 @@
+market,q,concept,searches,deads,dead_rate,coverage,failure_class
+GB,helicopter tour,adrenaline,100,100,1.0,absent,F4_supply_void
+GB,hot air balloon ride,adrenaline,94,94,1.0,absent,F4_supply_void
+GB,skydiving,adrenaline,91,91,1.0,absent,F4_supply_void
+ES,rafting,adrenaline,88,88,1.0,absent,F4_supply_void
+ES,paracaidismo,adrenaline,86,86,1.0,absent,F4_supply_void
+GB,supercar track day,adrenaline,85,85,1.0,absent,F4_supply_void
+FR,saut en parachute,adrenaline,81,81,1.0,absent,F4_supply_void
+GB,shark diving,adrenaline,79,79,1.0,absent,F4_supply_void
+FR,tour en helicoptere,adrenaline,77,77,1.0,absent,F4_supply_void
+DE,wildwasser rafting,adrenaline,75,75,1.0,absent,F4_supply_void
+FR,rafting,adrenaline,73,73,1.0,absent,F4_supply_void
+ES,vuelo en helicoptero,adrenaline,72,72,1.0,absent,F4_supply_void
+ES,paseo en globo,adrenaline,72,72,1.0,absent,F4_supply_void
+FR,vol en montgolfiere,adrenaline,65,65,1.0,absent,F4_supply_void
+DE,hubschrauber rundflug,adrenaline,65,65,1.0,absent,F4_supply_void
+DE,fallschirmspringen,adrenaline,64,64,1.0,absent,F4_supply_void
+DE,heißluftballon fahrt,adrenaline,59,59,1.0,absent,F4_supply_void
+PL,lot balonem,adrenaline,57,57,1.0,absent,F4_supply_void
+PL,rafting,adrenaline,46,46,1.0,absent,F4_supply_void
+PL,skoki spadochronowe,adrenaline,44,44,1.0,absent,F4_supply_void
+PL,lot helikopterem,adrenaline,39,39,1.0,absent,F4_supply_void
+GB,eyelash extensions,lashes,87,38,0.4367816091954023,absent,F1_silent_substitution
+GB,paintball,paintball,102,37,0.3627450980392157,absent,F1_silent_substitution
+ES,masaje tailandes,massage,73,35,0.4794520547945205,stocked,F5_ranking
+GB,facial,facial,86,35,0.4069767441860465,stocked,BASELINE_still_40pct_dead
+GB,steak dinner,dining_specific,85,35,0.4117647058823529,plausible,BASELINE_still_40pct_dead
+GB,personal trainer,personaltrain,72,34,0.4722222222222222,stocked,F5_ranking
+GB,hair colour,hair,85,34,0.4,stocked,BASELINE_still_40pct_dead
+GB,pizza deal,dining_specific,86,34,0.3953488372093023,plausible,BASELINE_still_40pct_dead
+ES,pilates,pilates,70,32,0.45714285714285713,plausible,F5_ranking

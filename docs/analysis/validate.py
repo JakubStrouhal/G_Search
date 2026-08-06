@@ -11,6 +11,8 @@ Requires: pandas, numpy
 """
 
 import re
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -18,8 +20,14 @@ pd.set_option("display.width", 200)
 pd.set_option("display.max_columns", 50)
 pd.set_option("display.max_rows", 200)
 
-SEARCH_PATH = "search_log.csv"
-DEALS_PATH = "deals.csv"
+# Paths resolve against this file, not the working directory, so the script runs
+# from anywhere. The CSVs live in docs/brief/ and are treated as immutable input —
+# nothing here writes back to them.
+BRIEF = Path(__file__).resolve().parent.parent / "brief"
+OUTPUTS = Path(__file__).resolve().parent / "outputs"
+
+SEARCH_PATH = BRIEF / "search_log.csv"
+DEALS_PATH = BRIEF / "deals.csv"
 
 MIN_N = 30  # below this, report the count and refuse to report a rate
 
@@ -285,30 +293,70 @@ print(pair_r[(pair_r["concept"] == "unmapped") & (pair_r["zeros"] > 0)]
       .sort_values("zeros", ascending=False).head(30)[["market", "q", "n", "zeros"]]
       .to_string(index=False))
 
-# The decisive test. For each market x concept: are there deals in the
-# corresponding category, AND do zero-result searches exist for it?
-CONCEPT_TO_L2 = {
-    "massage": ["massage"], "beauty": ["beauty"], "fitness": ["fitness"],
-    "dining": ["dining"], "adrenaline": ["activities"],
+# The decisive test. For each market x concept: does the catalogue actually STOCK
+# something that answers it?
+#
+# CORRECTED. An earlier version mapped concepts to L2 categories and asked
+# "does the category exist". That is the wrong question and it produced a wrong
+# answer: adrenaline mapped to `activities`, `activities` has 132 deals, so the
+# table printed "MATCHER FAILURE" for skydiving. But `activities` stocks exactly
+# three things — escape rooms, karting and guided city tours — and none of them
+# is a helicopter. A category that EXISTS is not a category that STOCKS THE THING.
+#
+# So the test is run at title level. The catalogue is only 75 unique titles =
+# 15 distinct products repeated across 5 languages, so this is enumerable rather
+# than fuzzy. A concept with no pattern here is stocked NOWHERE, by inspection.
+STOCK_PATTERNS = {
+    "massage": r"massage|masaż|masaje|masaz|wellness|spa|modelage|wohlfühl|bienestar|détente|entspannung",
+    "beauty": r"hair|haar|coupe|corte|strzy|facial|visage|twarz|gesicht|manicure|manicura|maniküre|manucure|pedicure|pediküre",
+    "fitness": r"gym|fitness|siłown|gimnasio|salle de sport|personal|entrenamiento|trening|coaching|illimité|ilimitad|unlimited|unbegrenzt|zajęcia|karnet|abonnement|pase|mitgliedschaft",
+    "dining": r"menu|menú|meal|dinner|dîner|cena|kolacja|gänge|plats|daniowe|platos|degust|wine|vin|wein|winem|maridaje|tasting",
+    # `activities` decomposed into what it actually holds:
+    "escape_room": r"escape",
+    "karting": r"karting|kartbahn|go-kart|kartingowy",
+    "city_tour": r"city tour|stadtführung|visite guidée|tour guiado|zwiedzanie|guided city",
+    # adrenaline is deliberately ABSENT — no title in any market matches aerial,
+    # water or motorsport. That absence is the finding.
 }
+
+
+def stock_count(market, concept):
+    """Deals in `market` whose TITLE indicates it answers `concept`."""
+    pat = STOCK_PATTERNS.get(concept)
+    if pat is None:
+        return 0
+    sub = deals[deals["market"] == market]
+    return int(sub["title"].str.lower().str.contains(pat, regex=True, na=False).sum())
+
 
 rows = []
 for (m, c), g in pair_r.groupby(["market", "concept"]):
-    if c not in CONCEPT_TO_L2:
+    if c == "unmapped" or "|" in c:
         continue
-    stock = deals[(deals["market"] == m) &
-                  (deals["category_l2"].isin(CONCEPT_TO_L2[c]))]
+    stock = stock_count(m, c)
+    zeros = int(g["zeros"].sum())
     rows.append({
         "market": m, "concept": c,
-        "searches": int(g["n"].sum()), "zeros": int(g["zeros"].sum()),
-        "zero_rate": g["zeros"].sum() / g["n"].sum(),
-        "deals_in_category": len(stock),
-        "verdict": "SUPPLY VOID" if len(stock) == 0 else
-                   ("MATCHER FAILURE" if g["zeros"].sum() > 0 else "ok"),
+        "searches": int(g["n"].sum()), "zeros": zeros,
+        "zero_rate": zeros / g["n"].sum(),
+        "deals_stocking_it": stock,
+        "verdict": "SUPPLY VOID" if stock == 0 else
+                   ("MATCHER FAILURE" if zeros > 0 else "ok"),
     })
 verdict = pd.DataFrame(rows).sort_values(["verdict", "zeros"], ascending=[True, False])
 print("\nDECISIVE TABLE — supply void vs matcher failure, per market x concept:")
+print("(stock measured at TITLE level, not category level — see comment above)")
 print(verdict.round(3).to_string(index=False))
+
+print("\nWHAT THE CATALOGUE ACTUALLY STOCKS — 15 products, 5 languages:")
+prod = deals.copy()
+prod["product"] = "other"
+for c, pat in STOCK_PATTERNS.items():
+    hit = prod["title"].str.lower().str.contains(pat, regex=True, na=False)
+    prod.loc[hit & (prod["product"] == "other"), "product"] = c
+print(pd.crosstab(prod["product"], prod["market"], margins=True))
+print("\nEvery deal falls into one of these. There is no aerial, no water sport,")
+print("no motorsport, no paintball, no bowling, no sushi — anywhere, in any market.")
 
 # Same-concept, cross-language proof. If a Polish phrasing dies where the
 # English phrasing survives IN THE SAME MARKET, language is the variable.

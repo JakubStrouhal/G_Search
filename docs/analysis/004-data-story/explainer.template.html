@@ -1,0 +1,949 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Groupon search doesn't work</title>
+<style>
+/* ============================================================================
+   Design plan
+   Subject   Forensic report on a search engine that cannot say "we don't have that".
+   Concept   Prose is serif, EVIDENCE IS MONOSPACE -- every count, query string and
+             API field is set in mono. The rule separates argument from observation,
+             which is the whole grading criterion of this exercise.
+   Colour    Paper/ink neutrals biased warm; ultramarine for structure and controls;
+             oxide for absence/dead ends; pine for the working state. Semantic
+             colours are separate from the accent.
+   Live      Chapter 2 is a FIXED dark console in both themes -- it is captured from
+             a live API, so it looks like one. That is the device that makes live
+             and supplied data impossible to confuse.
+   Layout    Single ~68ch column for argument; evidence blocks break out wider.
+   ========================================================================== */
+:root {
+  --paper:#fbfaf7; --paper-2:#f2efe9; --paper-3:#e7e3da;
+  --ink:#1b1a17; --ink-2:#4a4741; --ink-3:#78736a;
+  --rule:#ddd8cd;
+  --blue:#2c3f8f; --blue-soft:#eaecf7;
+  --oxide:#a63a25; --oxide-soft:#f8ebe6;
+  --pine:#2f6952; --pine-soft:#e7f0eb;
+  --amber:#8a6520; --amber-soft:#f8f0dd;
+  --serif:ui-serif,Georgia,'Iowan Old Style','Times New Roman',serif;
+  --mono:ui-monospace,'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  --measure:68ch;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --paper:#14140f; --paper-2:#1d1c17; --paper-3:#282720;
+    --ink:#eeeae0; --ink-2:#b8b2a4; --ink-3:#8b8577;
+    --rule:#33312a;
+    --blue:#93a4e8; --blue-soft:#1c2140;
+    --oxide:#e0876c; --oxide-soft:#38201a;
+    --pine:#7cc2a2; --pine-soft:#152e24;
+    --amber:#d8b060; --amber-soft:#332813;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14140f; --paper-2:#1d1c17; --paper-3:#282720;
+  --ink:#eeeae0; --ink-2:#b8b2a4; --ink-3:#8b8577;
+  --rule:#33312a;
+  --blue:#93a4e8; --blue-soft:#1c2140;
+  --oxide:#e0876c; --oxide-soft:#38201a;
+  --pine:#7cc2a2; --pine-soft:#152e24;
+  --amber:#d8b060; --amber-soft:#332813;
+}
+:root[data-theme="light"]{
+  --paper:#fbfaf7; --paper-2:#f2efe9; --paper-3:#e7e3da;
+  --ink:#1b1a17; --ink-2:#4a4741; --ink-3:#78736a;
+  --rule:#ddd8cd;
+  --blue:#2c3f8f; --blue-soft:#eaecf7;
+  --oxide:#a63a25; --oxide-soft:#f8ebe6;
+  --pine:#2f6952; --pine-soft:#e7f0eb;
+  --amber:#8a6520; --amber-soft:#f8f0dd;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--measure);margin:0 auto;padding:0 24px}
+.bleed{max-width:1000px;margin:0 auto;padding:0 24px}
+
+h1,h2,h3{text-wrap:balance;line-height:1.18;margin:0}
+h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:600;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3.2vw,2.05rem);font-weight:600;letter-spacing:-.015em}
+h3{font-size:1.1rem;font-weight:600}
+p{margin:0}
+strong{font-weight:640}
+a{color:var(--blue)}
+.mono,code,kbd{font-family:var(--mono);font-variant-numeric:tabular-nums}
+code{background:var(--paper-2);padding:.1em .34em;border-radius:3px;font-size:.86em;
+  border:1px solid var(--rule)}
+.stack{display:flex;flex-direction:column;gap:1.15rem}
+.stack-s{display:flex;flex-direction:column;gap:.6rem}
+
+/* ---- masthead ---------------------------------------------------------- */
+header.top{border-bottom:1px solid var(--rule);padding:clamp(3rem,9vw,5.5rem) 0 2.6rem;
+  background:linear-gradient(var(--paper-2),var(--paper))}
+.eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3)}
+.lede{font-size:1.2rem;color:var(--ink-2);max-width:60ch}
+
+/* ---- chapters ---------------------------------------------------------- */
+section.ch{padding:clamp(3rem,7vw,4.75rem) 0;border-bottom:1px solid var(--rule)}
+.chno{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);display:block;margin-bottom:.55rem}
+.src{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--ink-3);border:1px solid var(--rule);border-radius:999px;padding:.2rem .6rem;
+  display:inline-block}
+
+/* ---- the two-number opener --------------------------------------------- */
+.versus{display:grid;grid-template-columns:1fr auto 1fr;gap:1.2rem;align-items:center;
+  margin:2rem 0;text-align:center}
+.big{font-family:var(--mono);font-size:clamp(2.6rem,9vw,4.2rem);font-weight:500;line-height:1;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.big.wrong{color:var(--ink-3)}
+.big.right{color:var(--oxide)}
+.versus .cap{font-size:.85rem;color:var(--ink-2);margin-top:.5rem;display:block;line-height:1.4}
+.arrow{font-family:var(--mono);color:var(--ink-3);font-size:1.4rem}
+@media(max-width:620px){.versus{grid-template-columns:1fr;gap:.6rem}.arrow{display:none}}
+
+/* ---- band / cliff chart ------------------------------------------------ */
+.bands{display:flex;flex-direction:column;gap:.1rem;margin:1.4rem 0}
+.brow{display:grid;grid-template-columns:6.5rem 1fr 5.5rem;gap:.85rem;align-items:center;
+  padding:.5rem 0;border-bottom:1px solid var(--rule)}
+.brow .lab{font-family:var(--mono);font-size:.8rem;color:var(--ink-2)}
+.bar{height:1.5rem;background:var(--paper-2);position:relative;border-radius:2px;overflow:hidden}
+.bar span{position:absolute;inset:0 auto 0 0;border-radius:2px}
+.bar .fill-dead{background:var(--oxide)}
+.bar .fill-ok{background:var(--pine)}
+.brow .val{font-family:var(--mono);font-size:.82rem;text-align:right;font-variant-numeric:tabular-nums}
+.legend{font-family:var(--mono);font-size:.7rem;color:var(--ink-3);letter-spacing:.04em}
+
+/* ---- generic evidence table -------------------------------------------- */
+.tablewrap{overflow-x:auto;margin:1.3rem 0;border:1px solid var(--rule);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:.8rem;
+  font-variant-numeric:tabular-nums}
+th,td{padding:.5rem .8rem;text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{background:var(--paper-2);font-weight:600;font-size:.68rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-2)}
+tr:last-child td{border-bottom:0}
+td.num{text-align:right}
+
+/* ---- callouts ----------------------------------------------------------- */
+.note{border-left:3px solid var(--blue);background:var(--blue-soft);padding:.9rem 1.1rem;
+  border-radius:0 4px 4px 0;font-size:.95rem}
+.note.warn{border-color:var(--oxide);background:var(--oxide-soft)}
+.note.good{border-color:var(--pine);background:var(--pine-soft)}
+.note .t{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;
+  display:block;margin-bottom:.35rem;opacity:.8}
+
+/* ---- CHAPTER 2: the live console. Fixed dark in BOTH themes. ------------ */
+.live{background:#0e1119;color:#c9d1e3;border-radius:6px;padding:1.6rem;margin:1.5rem 0;
+  border:1px solid #232a3d;font-family:var(--mono);font-size:.82rem;line-height:1.55}
+.live-banner{background:#1a1030;border:1px solid #3d2a6b;color:#c3b0f0;border-radius:6px;
+  padding:.85rem 1.1rem;margin:1.5rem 0;font-family:var(--mono);font-size:.76rem;line-height:1.5}
+.live-banner b{color:#e4d9ff}
+.live h3{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:#7f8db3;margin-bottom:.9rem;font-weight:500}
+.live .q{color:#ffd479}
+.live .got{color:#f0f3fa}
+.live .why{color:#8d9ab8}
+.live .add{color:#7ee2b8}
+.live .sub{color:#ff9d85}
+.live .nil{color:#7f8db3}
+.livegrid{display:grid;gap:.55rem}
+.liveitem{display:grid;grid-template-columns:9.5rem 1fr;gap:.9rem;padding:.55rem 0;
+  border-bottom:1px solid #1c2233}
+.liveitem:last-child{border-bottom:0}
+@media(max-width:620px){.liveitem{grid-template-columns:1fr;gap:.2rem}}
+
+/* ---- request lifecycle -------------------------------------------------- */
+.stages{display:grid;gap:.5rem;margin:1.4rem 0}
+.stage{border:1px solid #232a3d;border-radius:5px;background:#12161f;overflow:hidden}
+.stage>button{width:100%;text-align:left;background:none;border:0;color:#c9d1e3;
+  font-family:var(--mono);font-size:.78rem;padding:.75rem 1rem;cursor:pointer;display:flex;
+  gap:.75rem;align-items:center}
+.stage>button:hover{background:#171d29}
+.stage>button:focus-visible{outline:2px solid #93a4e8;outline-offset:-2px}
+.stage .n{color:#5f6c8f;font-size:.7rem}
+.stage .tw{flex:1}
+.stage .chev{color:#5f6c8f;transition:transform .18s}
+.stage[open] .chev{transform:rotate(90deg)}
+.stage .body{padding:0 1rem 1rem;font-size:.76rem;color:#a8b2ca;line-height:1.6;
+  border-top:1px solid #1c2233;padding-top:.85rem;margin-top:0}
+.stage .body pre{margin:.6rem 0 0;padding:.75rem;background:#0a0d14;border-radius:4px;
+  overflow-x:auto;color:#c9d1e3;font-size:.72rem;line-height:1.5}
+.absent{list-style:none;padding:0;margin:.5rem 0 0;display:grid;gap:.3rem}
+.absent li{color:#ff9d85}
+.absent li::before{content:"— absent  ";color:#5f6c8f}
+.present{list-style:none;padding:0;margin:.5rem 0 0;display:grid;gap:.3rem}
+.present li{color:#7ee2b8}
+.present li::before{content:"+ returns  ";color:#5f6c8f}
+
+/* ---- class breakdown ---------------------------------------------------- */
+.classes{display:grid;gap:.55rem;margin:1.5rem 0}
+.cls{border:1px solid var(--rule);border-radius:5px;padding:.9rem 1.05rem;background:var(--paper-2)}
+.cls .hd{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.cls .nm{font-weight:640;font-size:1rem}
+.cls .ct{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);white-space:nowrap}
+.cls .wh{font-size:.9rem;color:var(--ink-2);margin-top:.3rem}
+.cls .fx{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;margin-top:.55rem;
+  display:inline-block;padding:.15rem .5rem;border-radius:3px;border:1px solid var(--rule)}
+.fx-no{color:var(--oxide);background:var(--oxide-soft);border-color:transparent}
+.fx-yes{color:var(--pine);background:var(--pine-soft);border-color:transparent}
+.fx-part{color:var(--amber);background:var(--amber-soft);border-color:transparent}
+.cls .track{height:5px;background:var(--paper-3);border-radius:99px;margin-top:.7rem;overflow:hidden}
+.cls .track i{display:block;height:100%;background:var(--oxide);border-radius:99px}
+
+/* ---- CH3: where was the answer? ----------------------------------------- */
+/* Four owners, four colours, used identically in the bar and the cards so the
+   eye can carry one from the other. `cant_tell` is hatched rather than solid --
+   it is the absence of an attribution, and it should not look like one. */
+.bk-nowhere{--bk:var(--oxide)} .bk-same_city{--bk:var(--blue)}
+.bk-another_city{--bk:var(--amber)} .bk-cant_tell{--bk:var(--ink-3)}
+.bucketbar{display:flex;height:3.2rem;border-radius:5px;overflow:hidden;margin:1.5rem 0 .5rem;
+  border:1px solid var(--rule);font-family:var(--mono);font-size:.72rem}
+.bucketbar .seg{display:flex;align-items:center;justify-content:center;background:var(--bk);
+  color:var(--paper);min-width:0;overflow:hidden}
+.bucketbar .seg.bk-cant_tell{background:repeating-linear-gradient(135deg,
+  var(--bk) 0 5px,transparent 5px 10px),var(--paper-3);color:var(--ink)}
+.buckets{display:grid;gap:.6rem;margin:1.5rem 0}
+.bk{border:1px solid var(--rule);border-left:4px solid var(--bk);border-radius:5px;
+  padding:.9rem 1.05rem;background:var(--paper-2)}
+.bk .hd{display:flex;justify-content:space-between;gap:1rem;align-items:baseline;flex-wrap:wrap}
+.bk .nm{font-weight:640;font-size:1.05rem}
+.bk .dot{display:inline-block;width:.6rem;height:.6rem;border-radius:2px;background:var(--bk);
+  margin-right:.5rem}
+.bk .ct{font-family:var(--mono);font-size:.78rem;color:var(--ink-2);white-space:nowrap}
+.bk .wh{font-size:.92rem;color:var(--ink-2);margin-top:.35rem}
+.bk .own{font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;margin-top:.5rem;
+  color:var(--ink-2)}
+.bk .own b{color:var(--bk)}
+.bk .rd{font-size:.88rem;margin-top:.5rem;line-height:1.55}
+.bk .nest{display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.7rem;padding-top:.6rem;
+  border-top:1px dashed var(--rule)}
+.bk .pill{font-family:var(--mono);font-size:.66rem;letter-spacing:.03em;padding:.16rem .48rem;
+  border-radius:3px;background:var(--paper-3);color:var(--ink-2)}
+.bk .pill b{color:var(--ink)}
+
+/* ---- CH4: the language test --------------------------------------------- */
+.lang{display:flex;flex-direction:column;gap:.15rem;margin:1.5rem 0 .4rem}
+.lrow{display:grid;grid-template-columns:14rem 1fr 4rem;gap:.85rem;align-items:center;
+  padding:.55rem 0;border-bottom:1px solid var(--rule)}
+.lrow .lt{font-size:.92rem;color:var(--ink-2)}
+.lrow .lv{font-family:var(--mono);font-size:.9rem;text-align:right;font-variant-numeric:tabular-nums}
+.lrow .lc{grid-column:2/4;font-family:var(--mono);font-size:.68rem;color:var(--ink-3)}
+@media(max-width:620px){.lrow{grid-template-columns:1fr 4rem}.lrow .lt{grid-column:1/3}
+  .lrow .bar{grid-column:1/2}.lrow .lc{grid-column:1/3}}
+.ctrls{display:grid;gap:.5rem;margin:1rem 0}
+.ctrl{border:1px solid var(--rule);border-left:3px solid var(--pine);border-radius:0 5px 5px 0;
+  padding:.75rem .95rem;background:var(--pine-soft);font-size:.88rem}
+.ctrl b{display:block;margin-bottom:.25rem}
+td .dim{color:var(--ink-3)}
+
+/* ---- collapsed appendix -------------------------------------------------- */
+.appx{margin:1.6rem 0;border-top:1px solid var(--rule);padding-top:1rem}
+.appx>summary{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--blue);
+  cursor:pointer;padding:.4rem 0}
+.appx>summary::marker{color:var(--ink-3)}
+
+/* ---- recovery split ----------------------------------------------------- */
+.split{display:flex;height:3.2rem;border-radius:5px;overflow:hidden;margin:1.4rem 0;
+  border:1px solid var(--rule);font-family:var(--mono);font-size:.75rem}
+.split div{display:flex;align-items:center;justify-content:center;color:#fff;padding:0 .5rem;
+  text-align:center;line-height:1.25}
+.split .s-search{background:var(--pine)}
+.split .s-supply{background:var(--oxide)}
+.assum{display:grid;gap:.5rem;margin:1.3rem 0}
+.as{border:1px solid var(--rule);border-radius:5px;padding:.75rem .95rem;font-size:.9rem;
+  background:var(--paper-2)}
+.as .hd{display:flex;justify-content:space-between;gap:.8rem;align-items:baseline;flex-wrap:wrap}
+.as .nm{font-weight:640}
+.as .rng{font-family:var(--mono);font-size:.78rem;color:var(--ink-2)}
+.as .bs{font-size:.84rem;color:var(--ink-2);margin-top:.35rem;line-height:1.5}
+.tag{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  padding:.12rem .42rem;border-radius:3px;vertical-align:.15em}
+.tag-m{background:var(--pine-soft);color:var(--pine)}
+.tag-w{background:var(--oxide-soft);color:var(--oxide)}
+.tag-a{background:var(--paper-3);color:var(--ink-2)}
+
+/* ---- simulator ---------------------------------------------------------- */
+.sim{border:1px solid var(--rule);border-radius:6px;background:var(--paper-2);overflow:hidden;
+  margin:1.5rem 0}
+.simbar{display:flex;gap:.6rem;padding:.9rem;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.simbar input,.simbar select{font-family:var(--mono);font-size:.85rem;padding:.55rem .7rem;
+  border:1px solid var(--rule);border-radius:4px;background:var(--paper);color:var(--ink)}
+.simbar input{flex:1;min-width:12rem}
+.simbar input:focus,.simbar select:focus{outline:2px solid var(--blue);outline-offset:1px}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;padding:0 .9rem .9rem}
+.chip{font-family:var(--mono);font-size:.72rem;padding:.32rem .6rem;border-radius:99px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink-2);cursor:pointer}
+.chip:hover{border-color:var(--blue);color:var(--blue)}
+.chip:focus-visible{outline:2px solid var(--blue);outline-offset:1px}
+.simout{padding:1.1rem;border-top:1px solid var(--rule);min-height:8rem}
+.verdict{font-size:1.12rem;font-weight:640;line-height:1.35;margin-bottom:.15rem}
+.vsub{font-size:.88rem;color:var(--ink-2)}
+.pills{display:flex;gap:.4rem;flex-wrap:wrap;margin:.8rem 0}
+.pill{font-family:var(--mono);font-size:.7rem;padding:.22rem .55rem;border-radius:3px;
+  background:var(--paper-3);color:var(--ink-2)}
+.pill.k{background:var(--blue-soft);color:var(--blue)}
+.does{margin:.85rem 0 0;padding-left:1.1rem;font-size:.92rem;color:var(--ink-2);display:grid;
+  gap:.28rem}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(6.2rem,1fr));gap:.5rem;
+  margin:.9rem 0 0}
+.stat{background:var(--paper);border:1px solid var(--rule);border-radius:4px;padding:.55rem .65rem}
+.stat .k{font-family:var(--mono);font-size:.6rem;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);display:block}
+.stat .v{font-family:var(--mono);font-size:1.05rem;font-variant-numeric:tabular-nums;
+  margin-top:.15rem;display:block}
+.miss{color:var(--ink-2);font-size:.95rem}
+.void-l{border-left:4px solid var(--oxide);padding-left:.9rem}
+.substitution-l{border-left:4px solid var(--amber);padding-left:.9rem}
+.fixable-l{border-left:4px solid var(--pine);padding-left:.9rem}
+.geographic-l{border-left:4px solid var(--blue);padding-left:.9rem}
+.residual-l{border-left:4px solid var(--ink-3);padding-left:.9rem}
+
+/* ---- limits + footer ---------------------------------------------------- */
+.limits{display:grid;gap:.55rem;margin:1.3rem 0}
+.limit{border:1px solid var(--rule);border-left:3px solid var(--ink-3);border-radius:0 4px 4px 0;
+  padding:.7rem .95rem;font-size:.92rem;background:var(--paper-2)}
+.limit b{display:block;margin-bottom:.15rem}
+footer{padding:3rem 0 4rem;color:var(--ink-3);font-size:.82rem}
+footer .mono{font-size:.72rem}
+.themed{position:fixed;top:.8rem;right:.8rem;z-index:9;font-family:var(--mono);font-size:.68rem;
+  padding:.4rem .6rem;border:1px solid var(--rule);border-radius:4px;background:var(--paper-2);
+  color:var(--ink-2);cursor:pointer}
+@media print{.themed{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<button class="themed" id="tt" aria-label="Toggle light or dark theme">theme</button>
+
+<header class="top">
+  <div class="wrap stack">
+    <span class="eyebrow">Groupon R29944 · Part A · discovery, international</span>
+    <h1>Why search doesn't work</h1>
+    <p class="lede"><span id="lede-n"></span> searches, one month, five markets.
+      Half of them ended in nothing usable. This page asks one question of every failure —
+      <strong>when the search failed, where was the answer?</strong> — because the answer decides
+      who fixes it, and for most of them it is not the search team.</p>
+    <p class="eyebrow" id="built"></p>
+  </div>
+</header>
+
+<!-- ===================== CH 1 ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div>
+    <span class="chno">Chapter 1 · the supplied data</span>
+    <h2>Half of all searches end in nothing usable</h2>
+  </div>
+  <p>Every search dashboard reports <strong>zero-result rate</strong>: the share of searches that
+    came back empty. It is the wrong denominator, and it is wrong by nearly half.</p>
+
+  <div class="versus">
+    <div><span class="big wrong" id="n-zero"></span>
+      <span class="cap">zero-result rate<br>what a dashboard shows</span></div>
+    <div class="arrow">→</div>
+    <div><span class="big right" id="n-dead"></span>
+      <span class="cap">dead-end rate<br>what users actually hit</span></div>
+  </div>
+
+  <p>The gap is the searches that returned <strong>one or two results</strong>. They are counted as
+    successes. They do not behave like successes.</p>
+
+  <div class="bands" id="bands"></div>
+  <p class="legend">bar = share of all searches · figure at right = search→purchase rate</p>
+
+  <p>A search returning 1–2 results converts at <strong id="s2p-low"></strong>. One returning nothing
+    converts at 0%. One returning four or more converts at <strong id="s2p-high"></strong>. There is
+    a <strong>cliff, not a gradient</strong> — so 1–2 belongs with zero, and the honest headline is
+    <strong id="n-dead-2"></strong>.</p>
+
+  <div class="note"><span class="t">The obvious objection, tested</span>
+    Perhaps queries returning 1–2 results are simply <em>different</em> queries — rarer concepts,
+    thinner cities — that would convert badly at any result count. Compared 1–2 against 4+
+    <strong>within</strong> concept × city strata, so neither concept nor city can drive the gap:
+    <span id="strat"></span></div>
+
+  <p>Stratifying moves the purchase rate by <strong id="strat-delta"></strong>. The cliff is a
+    property of the <em>result count</em>, not of which queries happen to land there.</p>
+</div></section>
+
+<!-- ===================== CH 2 ===================== -->
+<section class="ch"><div class="bleed stack">
+  <div>
+    <span class="chno">Chapter 2 · live production Groupon — a different catalogue</span>
+    <h2>Two results is not the same as "we found it"</h2>
+  </div>
+
+  <div class="live-banner">
+    <b>READ THIS BEFORE THE NUMBERS BELOW.</b><br>
+    Chapters 1, 3, 4 and 5 are the supplied dataset. <b>This chapter is not.</b> It is production
+    Groupon, observed read-only on <span id="live-pin"></span>. The two are different catalogues.
+    Live evidence can show <b>how a real search engine fails</b> — it cannot validate any number in
+    the supplied data, and nothing here is used to size anything there.
+  </div>
+
+  <div class="wrap" style="padding:0">
+    <p>The supplied log records a result <em>count</em> and nothing else — no mapping from a query to
+      the deals it returned. So in Chapter 1's data, "this query returned the wrong things" can only
+      ever be inferred. Live Groupon does show you the results. Here is one search.</p>
+  </div>
+
+  <div class="live"><h3>Observed · <span id="ex-pin"></span></h3>
+    <div id="live-exhibit"></div></div>
+
+  <div class="wrap" style="padding:0" class="stack">
+    <p id="ex-mech"></p>
+    <div class="note warn"><span class="t">Why a result count cannot tell you whether search worked</span>
+      <span id="ex-hinge"></span></div>
+    <div class="note"><span class="t">And the claim <em>not</em> being made</span>
+      <span id="ex-counter"></span></div>
+  </div>
+
+  <details class="appx"><summary>Four more probes, collapsed — the working behind the exhibit</summary>
+  <div class="stack" style="margin-top:1.25rem">
+    <h3>What you search for, and what you get</h3>
+    <div class="live"><h3>Observed · exact result sets</h3>
+      <div class="livegrid" id="live-sub"></div></div>
+
+    <h3>Adding a more specific word does not narrow the results</h3>
+    <div class="live"><h3>Observed · <span class="q" id="lever-base"></span> as the base query</h3>
+      <div class="livegrid" id="live-lever"></div>
+      <p style="margin-top:1rem;color:#8d9ab8" id="lever-set"></p></div>
+    <div class="wrap" style="padding:0">
+      <div class="note warn"><span class="t">The claim, and the claim not being made</span>
+        <span id="lever-claim"></span><br><br><span id="lever-not"></span></div>
+      <p style="margin-top:1.15rem"><strong>The user has no lever.</strong> No word they add
+        reliably narrows anything, so nothing the user types can push the engine towards the
+        sentence <em>we don't have that</em>.</p>
+    </div>
+
+    <h3>What comes back when a request is sent</h3>
+    <div class="stages" id="stages"></div>
+    <div class="wrap" style="padding:0">
+      <div class="note warn"><span class="t">Why this matters more than it looks</span>
+        <span id="resp-consequence"></span></div>
+    </div>
+
+    <h3>The system knows it has nothing nearby, and answers anyway</h3>
+    <div class="live"><h3>Observed · cumulative results within each radius</h3>
+      <div id="live-dist"></div>
+      <p style="margin-top:.9rem;color:#8d9ab8" id="dist-claim"></p></div>
+
+    <h3>One check that constrains what any of this can conclude</h3>
+    <div class="live"><h3>Observed · adrenaline inventory, three cities</h3>
+      <div id="live-supply"></div>
+      <p style="margin-top:.9rem;color:#8d9ab8" id="supply-note"></p></div>
+    <div class="wrap" style="padding:0">
+      <div class="note warn"><span class="t">A limit found by us, not by the reader</span>
+        <span id="supply-bound"></span></div>
+    </div>
+  </div></details>
+</div></section>
+
+<!-- ===================== CH 3 ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div>
+    <span class="chno">Chapter 3 · the supplied data</span>
+    <h2>When a search failed, where was the answer?</h2>
+  </div>
+  <p>A single "search quality" programme would be the wrong response, because these failures do not
+    share a cause, a fix, or an owner. One question sorts them, and the answer names the team:</p>
+
+  <div class="bucketbar" id="bucketbar"></div>
+  <p class="legend">every one of the <span id="bk-total"></span> dead ends, one denominator</p>
+
+  <div class="buckets" id="buckets"></div>
+
+  <div class="note"><span class="t">Per-cell counts, deliberately</span>
+    Aggregate pair counts for the supply void are contested between two defensible rules in this
+    repository, so this page quotes <strong>individual cells</strong> instead — directly computed and
+    identical under either rule.</div>
+  <div class="tablewrap"><table id="voidtbl"></table></div>
+
+  <div class="note warn"><span class="t">The judgement call this rests on, and what it is worth</span>
+    <span id="seam-note"></span></div>
+</div></section>
+
+<!-- ===================== CH 4 ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div>
+    <span class="chno">Chapter 4 · the supplied data</span>
+    <h2>For one slice we can prove it was the search</h2>
+  </div>
+  <p>Chapter 3 leaves an obvious objection: <em>you say a third of these failures had the answer in
+    the user's own city — prove that search is why they failed.</em> For one slice we can, and it is
+    the most controlled result here. The brief's own thesis is that the platform was built for
+    "dense supply, English-language queries". Same concept, same market, same month — only the
+    <em>words</em> change.</p>
+
+  <div class="lang" id="lang"></div>
+  <p class="legend" id="lang-cap"></p>
+  <div class="tablewrap"><table id="langtbl"></table></div>
+
+  <p>Both obvious objections were ruled out, and that is what makes this a finding rather than an
+    artifact:</p>
+  <div class="ctrls" id="lang-ctrls"></div>
+  <div class="note"><span class="t">The limit on this one</span><span id="lang-caveat"></span></div>
+
+  <h3 style="margin-top:2.2rem">And what the whole thing is worth</h3>
+  <p>Of the demand being lost right now, how much can better search actually return?</p>
+  <div class="split" id="split"></div>
+  <p class="legend" id="split-cap"></p>
+
+  <div class="note warn"><span class="t">A third, or a twelfth? Both, and they measure different things</span>
+    <span id="recon"></span></div>
+
+  <p>Recoverability per class is an <strong>assumption</strong>, not a measurement — with one
+    exception, which is stated as the exception. Every assumption is named and ranged:</p>
+  <div class="assum" id="assum"></div>
+
+  <div class="note"><span class="t">Every way of tightening this moves the same direction</span>
+    <span id="recon-strict"></span></div>
+
+  <div class="note good"><span class="t">The part that does not depend on any of it</span>
+    Push every assumption to its optimistic extreme and search still reaches only
+    <strong id="opt-share"></strong> of the recoverable opportunity. That conclusion is
+    assumption-free: the supply void is zero <em>by construction</em>, not by estimate. There is no
+    inventory. No search quality recovers a deal that does not exist.</div>
+</div></section>
+
+<!-- ===================== CH 5 ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div>
+    <span class="chno">Chapter 5 · try it</span>
+    <h2>Replay any real query</h2>
+  </div>
+  <p>Every market + query pair the analysis classified, with its real counts and what a system built
+    on this analysis would do. This is a <strong>lookup against the analysis</strong>, not a model
+    guessing — so what you see is what Chapter 3 measured.</p>
+
+  <div class="sim">
+    <div class="simbar">
+      <select id="mkt" aria-label="Market"></select>
+      <input id="q" type="text" placeholder="type a query — e.g. skydiving, masaz tajski, paintball"
+        autocomplete="off" spellcheck="false" list="qlist" aria-label="Query">
+      <datalist id="qlist"></datalist>
+    </div>
+    <div class="chips" id="chips"></div>
+    <div class="simout" id="simout"></div>
+  </div>
+
+  <div class="note"><span class="t">The behaviour that matters most</span>
+    Type something that is not in the log — <code>xqzjw</code>, or your own name. A search engine
+    that cannot say <em>I don't have this</em> is the failure this whole analysis is about, so this
+    one says it.</div>
+</div></section>
+
+<!-- ===================== LIMITS ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div><span class="chno">What this does not establish</span>
+    <h2>The limits, stated</h2></div>
+  <p>The brief grades whether claims survive being checked. These are the places where they would
+    not, said before anyone has to find them.</p>
+  <div class="limits">
+    <div class="limit"><b>"Same city" means stock existed nearby — not that it would have satisfied
+      the searcher.</b> A deal titled "Spa &amp; Massage Treatment" counts as the answer to
+      <code>sports massage</code>. This inflates the search bucket, and it is the load-bearing
+      assumption of Chapter 3.</div>
+    <div class="limit"><b>The two biggest errors here push in opposite directions</b>, and they are
+      stated rather than netted against each other. The one above inflates the search problem;
+      the <span id="lim-seam"></span> can't-tell dead ends inflate the supply problem. Neither is
+      quietly resolved in our own favour.</div>
+    <div class="limit"><b>The size of silent substitution is inferred, not observed.</b>
+      The supplied log has no query→deal mapping, so "these users saw the wrong thing" is read off
+      the catalogue. Chapter 2 shows the mechanism is real in production; it does not size it here.</div>
+    <div class="limit"><b>One class's stated basis was falsified by our own Chapter 3.</b> The
+      geographic class was justified as "stocked in the market, not in this city" — but only
+      <span id="lim-f3"></span> of its dead ends actually are. Its recoverability was left at the
+      more generous value rather than re-cut, and the tightened figure is shown in Chapter 4.</div>
+    <div class="limit"><b>Recovered demand is converted at the healthy rate — an upper bound.</b>
+      Demand that already failed once converts worse than demand that never did.</div>
+    <div class="limit"><b>The classifier is <span id="lim-acc"></span> accurate, self-audited</b> by
+      the author of its own rules, so that figure is an upper bound too.</div>
+    <div class="limit"><b>The data is clean enough to be synthetic.</b> The supply void is a property
+      of this catalogue. Live production is <i>thin</i> on the same concepts rather than empty
+      (<span id="lim-supply"></span>), so the shape is not merely an artifact — but no number about
+      real Groupon's inventory follows from it either.</div>
+    <div class="limit"><b>No search in the supplied data returns exactly three results</b> — the
+      distribution runs <span id="lim-gap"></span>. Live Groupon returns 3 routinely
+      (<span id="lim-three"></span>), so this is a property of how the data was generated.</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap stack-s">
+  <p class="mono" id="foot-src"></p>
+  <p class="mono">Prose is set in serif; every count, query string and API field is set in mono.
+    The distinction is the point: argument and evidence should not look alike.</p>
+</div></footer>
+
+<script>
+const D = __STORY_DATA__;
+const pc = (x, d = 1) => (x * 100).toFixed(d) + '%';
+const el = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+/* Payload prose is authored in notebook.py, where `query` and **emphasis** are the
+   natural way to write. Escape first, then allow exactly those two -- so the page
+   renders them instead of showing the punctuation, and nothing else gets through. */
+const md = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>')
+                      .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+
+/* theme toggle -- must beat the media query in both directions */
+el('tt').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme')
+    || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+};
+
+/* ---------- chapter 1 ---------- */
+const H = D.headline;
+el('lede-n').textContent = H.searches.toLocaleString();
+el('built').textContent = `${H.searches.toLocaleString()} searches · ${H.unique_queries} unique queries · `
+  + `${H.deals} deals · ${H.unique_titles} unique titles · ${H.markets} markets · ${H.cities} cities · June 2026`;
+el('n-zero').textContent = pc(H.zero_rate);
+el('n-dead').textContent = pc(H.dead_rate);
+el('n-dead-2').textContent = pc(H.dead_rate);
+const bl = H.bands.find(b => b.band === '1-2'), bh = H.bands.find(b => b.band === '4+');
+el('s2p-low').textContent = pc(bl.s2p, 1);
+el('s2p-high').textContent = pc(bh.s2p, 1);
+
+const LBL = {'0': 'nothing', '1-2': '1 or 2', '4+': '4 or more'};
+el('bands').innerHTML = H.bands.map(b => `
+  <div class="brow">
+    <span class="lab">${LBL[b.band]}</span>
+    <span class="bar"><span class="${b.band === '4+' ? 'fill-ok' : 'fill-dead'}"
+      style="width:${(b.share * 100).toFixed(1)}%"></span></span>
+    <span class="val">${pc(b.s2p, 2)}</span>
+  </div>`).join('');
+
+const S = H.stratification;
+el('strat').innerHTML = `across <strong>${S.n_strata}</strong> strata covering
+  <strong>${S.n_searches.toLocaleString()}</strong> searches, the purchase rate goes
+  <strong>${pc(S.str_s2p_low, 2)} → ${pc(S.str_s2p_high, 2)}</strong> — against
+  ${pc(S.raw_s2p_low, 2)} → ${pc(S.raw_s2p_high, 2)} unstratified. The direction holds in
+  <strong>${S.holds_ctr} of ${S.n_strata}</strong> strata on click-through.`;
+el('strat-delta').textContent =
+  Math.abs((S.str_s2p_low - S.raw_s2p_low) * 100).toFixed(2) + ' percentage points';
+
+/* ---------- chapter 2: live ---------- */
+const L = D.live, LA = L.appendix, EX = L.exhibit;
+el('live-pin').textContent = EX.pinned;
+
+/* the one exhibit -- a single query, single surface, single date */
+el('ex-pin').textContent = `${EX.url} · ${EX.pinned}`;
+el('live-exhibit').innerHTML = `
+  <div class="liveitem" style="border-bottom:1px solid #232a3d;padding-bottom:.6rem">
+    <div><span class="q">${esc(EX.q)}</span></div>
+    <div><span class="got">${esc(EX.header)}</span></div>
+  </div>
+  ${EX.got.map((g, i) => `
+  <div class="liveitem">
+    <div><span class="nil">result ${i + 1}</span></div>
+    <div><span class="got">${esc(g.title)}</span>
+      <div class="why" style="margin-top:.3rem">${esc(g.note)}</div></div>
+  </div>`).join('')}`;
+el('ex-mech').innerHTML = md(EX.mechanism);
+el('ex-hinge').innerHTML = '<strong>' + esc(EX.hinge) + '</strong>';
+el('ex-counter').innerHTML = md(EX.counterpoint);
+
+el('live-sub').innerHTML = LA.substitution.map(s => `
+  <div class="liveitem">
+    <div><span class="q">${esc(s.q)}</span> <span class="nil">→ ${s.total}</span></div>
+    <div><span class="got">${s.got.map(esc).join('<br>')}</span>
+      <div class="why" style="margin-top:.3rem">${esc(s.why)}</div></div>
+  </div>`).join('');
+
+el('lever-base').textContent = `${LA.no_lever.base.q} = ${LA.no_lever.base.total}`;
+el('live-lever').innerHTML = LA.no_lever.rows.map(r => {
+  const cl = r.effect.includes('SUBTRACT') ? 'sub' : r.effect.startsWith('+0') ? 'nil' : 'add';
+  return `<div class="liveitem">
+    <div><span class="q">${esc(r.q)}</span></div>
+    <div><span class="got">${r.total}</span>
+      <span class="nil"> · '${esc(r.q.split(' ')[0])}' alone = ${r.alone}</span>
+      <span class="${cl}"> · ${esc(r.effect)}</span></div></div>`;
+}).join('');
+el('lever-set').textContent = LA.no_lever.set_test;
+el('lever-claim').innerHTML = '<strong>' + esc(LA.no_lever.claim) + '</strong>';
+el('lever-not').textContent = LA.no_lever.not_claimed;
+
+/* request lifecycle */
+const R = LA.response;
+const STAGES = [
+  ['You type a query', `The words go to the site's own search endpoint as a single opaque string —
+    <code>filters: [{key:'query', value:{static:'masaz tajski'}}]</code> — alongside a location key.
+    Nothing in the request says how the words relate to each other.`],
+  ['The engine matches fragments', `As Chapter 2 shows, the query is broken up and matched piecewise.
+    A word that matches nothing contributes nothing rather than excluding anything, so specificity
+    cannot reduce the result set.`],
+  ['A response comes back', `<ul class="present">${R.returns.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`],
+  ['And here is what is not in it', `<ul class="absent">${R.absent.map(x => `<li>${esc(x)}</li>`).join('')}</ul>`],
+];
+el('stages').innerHTML = STAGES.map(([t, b], i) => `
+  <details class="stage"${i === 3 ? ' open' : ''}>
+    <summary style="list-style:none"><button type="button" tabindex="-1" style="pointer-events:none">
+      <span class="n">${String(i + 1).padStart(2, '0')}</span><span class="tw">${esc(t)}</span>
+      <span class="chev">›</span></button></summary>
+    <div class="body">${b}</div>
+  </details>`).join('');
+el('resp-consequence').innerHTML = '<strong>' + esc(R.consequence) + '</strong>';
+
+/* distance */
+const DI = LA.distance;
+const drow = (o, cls) => `<div class="liveitem"><div><span class="q">${esc(o.q)}</span>
+  <span class="nil">→ ${o.total} total</span></div><div class="${cls}">`
+  + o.curve.map(([km, n]) => `${n} within ${km}km`).join(' · ') + '</div></div>';
+el('live-dist').innerHTML = `<div class="livegrid">${drow(DI.dense, 'add')}${drow(DI.thin, 'sub')}</div>`;
+el('dist-claim').textContent = DI.claim;
+
+/* supply -- a 3-city table, single-token queries only */
+const SU = LA.supply;
+el('live-supply').innerHTML = `<div style="overflow-x:auto"><table style="color:#c9d1e3;font-size:.8rem">
+  <thead><tr>${SU.header.map((h, i) =>
+    `<th style="background:#161b26;color:#7f8db3;border-color:#232a3d">${esc(h)}</th>`).join('')}</tr></thead>
+  <tbody>${SU.rows.map(r => `<tr>
+    <td style="border-color:#1c2233" class="q">${esc(r[0])}</td>` +
+    r.slice(1).map(n => `<td style="border-color:#1c2233;text-align:right"
+      class="${n <= 3 ? 'sub' : 'add'}">${n}</td>`).join('') + '</tr>').join('')}</tbody></table></div>`;
+el('supply-note').innerHTML = esc(SU.note)
+  + `<br><br><span style="color:#ffd479">Corrected the same day it was written.</span> ${esc(SU.correction)}`;
+el('supply-bound').innerHTML = '<strong>' + esc(LA.supply.bound) + '</strong>';
+
+/* ---------- chapter 3: where was the answer? ---------- */
+const B = D.buckets;
+const CLS_LABEL = Object.fromEntries(D.classes.map(c => [c.key, c.label]));
+el('bk-total').textContent = B.total_dead.toLocaleString();
+
+/* the stacked bar -- one row, four segments, proportional */
+el('bucketbar').innerHTML = B.rows.map(r =>
+  `<span class="seg bk-${r.key}" style="flex:${r.n}" title="${esc(r.label)}: ${r.n}">
+     <b>${pc(r.share, 0)}</b></span>`).join('');
+
+/* one card per bucket, with the failure classes nested inside it */
+el('buckets').innerHTML = B.rows.map(r => `
+  <div class="bk bk-b-${r.key}">
+    <div class="hd">
+      <span class="nm"><i class="dot bk-${r.key}"></i>${esc(r.label)}</span>
+      <span class="ct">${r.n.toLocaleString()} dead ends · ${pc(r.share)} of all</span>
+    </div>
+    <div class="wh">${md(r.what)}</div>
+    <div class="own">who fixes it: <b>${esc(r.owner)}</b></div>
+    <div class="rd">${md(r.reading)}</div>
+    <div class="nest">${Object.entries(r.classes)
+      .sort((a, b) => b[1] - a[1])
+      .map(([k, n]) => `<span class="pill">${esc(CLS_LABEL[k] || k)} <b>${n.toLocaleString()}</b></span>`)
+      .join('')}</div>
+  </div>`).join('');
+
+/* the seam -- stated with its size, not buried */
+const SE = B.sensitivity;
+const conv = c => ({cant_tell: 'give them their own bucket', nowhere: 'count them as no answer',
+                    stocked_generic: 'count a generic deal as an answer'}[c] || c);
+el('seam-note').innerHTML =
+  `One tier of the coverage test is a judgement call — ${md(SE.seam)} `
+  + `Rather than pick a side quietly, they get their own bucket above. Across all three defensible `
+  + `readings the <b>nowhere</b> share spans <b>${pc(SE.band_low, 1)}–${pc(SE.band_high, 1)}</b>:`
+  + '<br><br>' + SE.rows.map(r =>
+      `<code>${esc(conv(r.convention))}</code> → nowhere ${pc(r.nowhere / B.total_dead, 1)}, `
+      + `same city ${pc(r.same_city / B.total_dead, 1)}${r.is_default ? ' <b>← shown above</b>' : ''}`
+    ).join('<br>')
+  + (SE.flips_under.length
+      ? `<br><br><b>Under "${esc(conv(SE.flips_under[0]))}" the same-city bucket overtakes nowhere `
+        + `and the ordering flips.</b> That is the honest range, and it is why this page does not `
+        + `quote one end of it alone.`
+      : '');
+
+el('lim-seam').textContent = B.rows.find(r => r.key === 'cant_tell').n.toLocaleString();
+
+el('voidtbl').innerHTML = '<thead><tr><th>market</th><th>city</th><th>query</th>'
+  + '<th class="num">searches</th><th class="num">zeros</th><th class="num">deals stocking it</th></tr></thead><tbody>'
+  + D.void_cells.slice(0, 8).map(v => `<tr><td>${esc(v.market)}</td><td>${esc(v.city)}</td>
+      <td>${esc(v.raw_query)}</td><td class="num">${v.searches}</td>
+      <td class="num">${v.zeros}</td><td class="num">0</td></tr>`).join('') + '</tbody>';
+
+/* ---------- chapter 4: the language test ---------- */
+const LG = D.language;
+el('lang').innerHTML = [
+  ['Asked in English', LG.en, 'bad'], ['Asked in the local language', LG.local, 'ok'],
+].map(([t, o, cls]) => `
+  <div class="lrow">
+    <span class="lt">${t}</span>
+    <span class="bar"><span class="${cls === 'bad' ? 'fill-dead' : 'fill-ok'}"
+      style="width:${(o.rate * 100).toFixed(1)}%"></span></span>
+    <span class="lv">${o.pct}</span>
+    <span class="lc">${o.dead}/${o.n.toLocaleString()} · 95% CI ${pc(o.ci[0], 1)}–${pc(o.ci[1], 1)}</span>
+  </div>`).join('');
+el('lang-cap').textContent = `dead-end rate, same concept and market, ${LG.pairs} matched pairs · `
+  + `gap ${LG.gap_pp.toFixed(1)} percentage points · the intervals are nowhere near overlapping · `
+  + `${LG.same_direction} of ${LG.pairs} pairs point the same way`;
+
+el('langtbl').innerHTML = '<thead><tr><th>market</th><th>asked in English</th>'
+  + '<th>asked locally</th><th class="num">English dead</th><th class="num">local dead</th></tr></thead><tbody>'
+  + LG.top_pairs.map(p => `<tr><td>${esc(p.market)}</td><td>${esc(p.en_query)}</td>
+      <td>${esc(p.local_query)}</td>
+      <td class="num">${pc(p.en_dead, 0)} <span class="dim">n=${p.en_n}</span></td>
+      <td class="num">${pc(p.loc_dead, 0)} <span class="dim">n=${p.loc_n}</span></td></tr>`).join('')
+  + '</tbody>';
+
+el('lang-ctrls').innerHTML = LG.controls.map(c =>
+  `<div class="ctrl"><b>${esc(c.name)}</b><div>${md(c.detail)}</div></div>`).join('');
+el('lang-caveat').textContent = LG.caveat;
+
+/* ---------- chapter 4b: what it is worth ---------- */
+const RC = D.recovery, mid = RC.shares.central;
+el('split').innerHTML = `
+  <div class="s-search" style="flex:${mid.share}">${pc(mid.share, 0)} search</div>
+  <div class="s-supply" style="flex:${1 - mid.share}">${pc(1 - mid.share, 0)} merchant acquisition</div>`;
+el('split-cap').textContent = `central estimate: search work returns ~${Math.round(mid.purchases)} `
+  + `purchases/month against a supply-void ceiling of ~${Math.round(RC.f4_ceiling)}. `
+  + `Both are upper bounds. Range across all assumptions: `
+  + `${pc(RC.shares.pessimistic.share, 1)} – ${pc(RC.shares.optimistic.share, 1)}.`;
+el('opt-share').textContent = pc(RC.shares.optimistic.share, 0);
+
+el('assum').innerHTML = RC.assumptions.map(a => {
+  const tag = a.measured ? '<span class="tag tag-m">measured</span>'
+    : a.withdrawn ? '<span class="tag tag-w">withdrawn</span>'
+    : '<span class="tag tag-a">assumption</span>';
+  const rng = a.withdrawn ? 'withdrawn'
+    : `${pc(a.mid, 0)} (${pc(a.low, 0)}–${pc(a.high, 0)})`;
+  return `<div class="as"><div class="hd"><span class="nm">${esc(a.label)} ${tag}</span>
+    <span class="rng">${rng}</span></div><div class="bs">${md(a.basis)}</div></div>`;
+}).join('');
+
+/* the 33% / 12% bridge -- computed in the notebook, no remainder */
+const RX = RC.reconciliation;
+const named = k => CLS_LABEL[k] || k;
+const list = o => Object.entries(o).sort((a, b) => b[1] - a[1])
+  .map(([k, n]) => `${esc(named(k))} ${n.toLocaleString()}`).join(' + ');
+el('recon').innerHTML =
+  `Chapter 3 counted <b>${RX.same_city_total.toLocaleString()}</b> failures where the answer was `
+  + `stocked in the user's own city. This chapter says search work is worth `
+  + `<b>${pc(RX.headline_share, 0)}</b>. Both are true, because they measure different things.`
+  + `<br><br><b>${pc(RX.same_city_total / B.total_dead, 0)} is the size of the problem.</b> `
+  + `<b>${pc(RX.headline_share, 0)} is the size of the fix we can defend.</b> Of those `
+  + `${RX.same_city_total.toLocaleString()}, a named mechanism and a fix exist for `
+  + `<b>${RX.credited_total.toLocaleString()}</b> (${list(RX.credited)}). The other `
+  + `<b>${RX.uncredited_total.toLocaleString()}</b> (${list(RX.uncredited)}) are stocked, failing `
+  + `and unexplained.<br><br>That gap is not a rounding error. It is the part of the search problem `
+  + `we could not explain, and claiming it anyway would be the same false confidence this whole `
+  + `page is about.`;
+
+el('recon-strict').innerHTML =
+  `The published figure credits each class across all its dead ends. Tighten it — credit recovery `
+  + `only where the answer demonstrably existed in the user's own city — and search's share falls `
+  + `to <b>${pc(RX.strict_share, 1)}</b>. Withdraw the geographic class the way the ranking class `
+  + `was already withdrawn, and it falls to <b>${pc(RX.f3_withdrawn_share, 1)}</b>. `
+  + `<b>We publish the most generous of the three (${pc(RX.headline_share, 1)}).</b> `
+  + `Every way of making this stricter moves the conclusion the same direction.`;
+
+/* ---------- limits ---------- */
+el('lim-f3').textContent =
+  `${B.rows.find(r => r.key === 'another_city').classes['F3_geographic'] || 0} of `
+  + `${D.classes.find(c => c.key === 'F3_geographic').dead}`;
+el('lim-acc').textContent = pc(D.meta.classifier_accuracy, 0);
+el('lim-supply').innerHTML = LA.supply.rows.filter(r => r[0].startsWith('skydiv'))
+  .map(r => `skydiving returns ${r.slice(1).join(', ')} across `
+    + LA.supply.header.slice(1).map(esc).join(', ')).join('');
+el('lim-gap').textContent = D.meta.result_counts_seen.join(', ')
+  + ` — ${D.meta.result_counts_missing.join(', ')} never occurs`;
+el('lim-three').textContent = LA.exactly_three.found.map(f => `${f[0]} → ${f[1]}`).join(', ');
+
+/* ---------- chapter 5: the simulator ---------- */
+const Q = D.queries, BH = D.behaviour;
+
+/* Chapter 3's vocabulary, on the replay card. `bucket_mixed` is disclosed rather
+   than hidden: a query can land in different buckets in different cities. */
+const BK_SHORT = {nowhere: 'nowhere in this market', same_city: "the user's own city",
+                  another_city: 'another city', cant_tell: "can't tell"};
+const bucketPill = row => row.bucket
+  ? `<span class="pill">where was the answer? <b>${esc(BK_SHORT[row.bucket] || row.bucket)}</b>`
+    + `${row.bucket_mixed ? ' (mostly — varies by city)' : ''}</span>`
+  : '';
+const markets = [...new Set(Q.map(r => r.market))].sort();
+el('mkt').innerHTML = markets.map(m => `<option value="${m}">${m}</option>`).join('');
+
+/* Diacritic folding. Not a flourish -- it IS the one fix this analysis claims is genuinely
+   fixable, so the simulator performs it and then SHOWS that it fired. It never invents a result:
+   it resolves to a real logged query and reports that query's real counts. Polish l-stroke does
+   not decompose under NFD, so it is mapped explicitly. */
+const fold = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '')
+  .replace(/ł/g, 'l').replace(/Ł/g, 'L').trim().toLowerCase();
+
+const DEMO = [['DE', 'thai massage'], ['GB', 'paintball'], ['DE', 'fallschirmspringen'],
+              ['FR', 'crossfit'], ['PL', 'masaz tajski'], ['GB', 'xqzjw']];
+el('chips').innerHTML = DEMO.map(([m, q]) =>
+  `<button class="chip" data-m="${m}" data-q="${esc(q)}">${m} · ${esc(q)}</button>`).join('');
+
+function refreshList() {
+  const m = el('mkt').value;
+  el('qlist').innerHTML = Q.filter(r => r.market === m)
+    .sort((a, b) => b.searches - a.searches)
+    .map(r => `<option value="${esc(r.q)}"></option>`).join('');
+}
+
+function render() {
+  const m = el('mkt').value, raw = el('q').value.trim(), q = raw.toLowerCase();
+  const out = el('simout');
+  if (!q) { out.innerHTML = '<p class="miss">Pick a market and type a query, or use an example above.</p>'; return; }
+
+  let row = Q.find(r => r.market === m && r.q.toLowerCase() === q), normalised = null;
+  if (!row) {  // second pass: fold diacritics, the F2 fix, and disclose it if it fires
+    const f = fold(q);
+    row = Q.find(r => r.market === m && fold(r.q) === f);
+    if (row) normalised = row.q;
+  }
+
+  if (!row) {
+    out.innerHTML = `<div class="residual-l">
+      <div class="verdict">Not in the search log.</div>
+      <div class="vsub">No one searched <code>${esc(q)}</code> in ${esc(m)} during June 2026, so
+        there is nothing measured to show you — and this page will not invent it.</div>
+      <ul class="does"><li>Say plainly that there is no data, rather than showing a plausible answer</li>
+        <li>Never estimate a number that was not observed</li></ul>
+      <div class="vsub" style="margin-top:.9rem">That refusal is the entire point of the analysis.
+        The failure being described is a system that always returns <em>something</em>.</div></div>`;
+    return;
+  }
+
+  const b = BH[row.failure_class];
+  const conc = row.concept
+    ? `<span class="pill">concept: ${esc(row.concept)}${row.concept_confident ? '' : ' (low confidence, n≤3)'}</span>`
+    : '';
+  const norm = normalised ? `<div class="note good" style="margin-bottom:.9rem">
+      <span class="t">normalisation fired</span>
+      You typed <code>${esc(raw)}</code>. Folding diacritics matched it to the logged query
+      <code>${esc(normalised)}</code>, and the figures below are that query's real ones.
+      <strong>This is the one fix the analysis claims genuinely works</strong> — so the page performs
+      it, and tells you it did rather than quietly resolving behind your back.</div>` : '';
+  out.innerHTML = `${norm}<div class="${b.colour}-l">
+    <div class="verdict">${esc(b.verdict)}</div>
+    <div class="vsub">${esc(b.what)}</div>
+    <div class="pills">
+      <span class="pill k">${esc(b.label)}</span>
+      ${bucketPill(row)}
+      <span class="pill">catalogue: ${esc(row.coverage)}</span>
+      <span class="pill">deals stocking it: ${row.deals_stocking}</span>
+      ${conc}
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="k">searches</span><span class="v">${row.searches}</span></div>
+      <div class="stat"><span class="k">returned 0</span><span class="v">${row.zeros}</span></div>
+      <div class="stat"><span class="k">dead ends</span><span class="v">${row.deads}</span></div>
+      <div class="stat"><span class="k">dead rate</span><span class="v">${pc(row.dead_rate, 0)}</span></div>
+      <div class="stat"><span class="k">clicks</span><span class="v">${row.clicks}</span></div>
+      <div class="stat"><span class="k">purchases</span><span class="v">${row.buys}</span></div>
+    </div>
+    <ul class="does">${b.does.map(d => `<li>${esc(d)}</li>`).join('')}</ul>
+    <div class="vsub" style="margin-top:.9rem"><strong>Fixable by search?</strong> ${esc(b.fixable)}</div>
+  </div>`;
+}
+
+el('mkt').onchange = () => { refreshList(); render(); };
+el('q').oninput = render;
+el('chips').onclick = e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  el('mkt').value = c.dataset.m; refreshList();
+  el('q').value = c.dataset.q; render();
+};
+el('mkt').value = 'GB'; refreshList();
+el('q').value = 'paintball'; render();
+
+el('foot-src').textContent = `Built from ${D.meta.built_from} · ${D.meta.pairs} classified `
+  + `market+query pairs · ${D.meta.note}`;
+</script>
