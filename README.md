@@ -67,6 +67,50 @@ Parts A/B/C map to `docs/analysis/FINDINGS.md`, the prototype (`supabase/` +
 `web/app/`), and the writeup. The numbered folders under `docs/analysis/` are
 working units; `INDEX.md` states where each of the three stands.
 
+## Deploy
+
+```
+branch → PR to main → GitHub Actions build gate → merge → Vercel builds production
+                                                    ↑
+                            schema is pushed by hand, before the merge
+```
+
+**What is automated.** `.github/workflows/ci.yml` runs on every PR to `main` and every
+push to `main`: `npm --prefix web/app ci` then `npm --prefix web/app run build`. That
+build is `vue-tsc -b && vite build`, so type errors fail the gate; there is no separate
+typecheck job and no test job, because there are no tests. Vercel deploys the front end
+through its own Git integration — a preview per PR, production on `main`. The only
+repo-side Vercel config is `vercel.json`, and it builds **from the repo root**, not from
+`web/app`: `prebuild` runs `web/app/scripts/copy-explainer.mjs`, which reads
+`docs/analysis/004-data-story/outputs/explainer.html` from outside the app folder. Setting
+Vercel's Root Directory to `web/app` breaks that silently — leave it at the repo root.
+
+**What is not, and why.** Migrations. `CLAUDE.md` requires one reviewed migration generated
+by `supabase db pull --local`, and explicit per-run approval before mutating SQL runs
+against the remote project. An automated `supabase db push` from CI would defeat both.
+So the schema goes up by hand, and it goes up **first** — merging a change that needs a
+new column before the column exists ships a broken production front end.
+
+```bash
+npx supabase link --project-ref <ref>   # once; ref and DB password go in .env, never committed
+npx supabase db push                    # review the diff it prints before confirming
+```
+
+**Owner-only, in the dashboards** (not doable from this repo):
+
+| Where | What |
+|---|---|
+| Vercel | connect `JakubStrouhal/G_Search`; Root Directory = repo root; env `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` |
+| Supabase | create the remote project; take the ref and the **publishable** key from its API settings |
+
+The browser gets the publishable key only — never the legacy anon key, never the secret
+key. Anything `VITE_`-prefixed is compiled into the bundle.
+
+**Still owed.** `006-one-page/SPEC.md` §5 requires the agent's refusal fixture to run in
+CI — "a refusal that stops firing is a regression". It is not wired up: there is no fixture
+and no agent yet. It gets a job in `ci.yml` when build step 4 lands, and until then CI does
+not cover it.
+
 ## What is broken
 
 This section is the summary. `FINDINGS.md` owns the numbers and their caveats;
