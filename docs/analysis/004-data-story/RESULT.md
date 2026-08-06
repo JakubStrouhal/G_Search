@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Records what the data-story unit built — the notebook, the templated explainer, and the JSON contract that keeps numbers out of the page source.
+---
+
 # 004 — result
 
 Built 2026-08-06. Brief: `BRIEF.md`. Decisions E1–E8 were taken in an interview before any code.

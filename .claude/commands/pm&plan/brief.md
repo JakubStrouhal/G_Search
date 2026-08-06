@@ -26,6 +26,12 @@ A brief that restates what those files already say is waste. The brief's job is 
 ## 3. Write `BRIEF.md`
 
 ```markdown
+---
+created: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+note: One sentence — what changed and why. Overwritten in place, never appended.
+---
+
 # <title>
 
 Opened <YYYY-MM-DD>.
@@ -47,6 +53,9 @@ Time budget. What must stay true (the brief's grading criteria, existing contrac
 ## Done looks like
 The artifact this produces, and how someone would tell it worked.
 ```
+
+Both dates are today's, and `note` says in one sentence what this brief opens and why.
+`.claude/hooks/unit-frontmatter.sh` maintains `updated` afterwards; it cannot author `note`.
 
 ## 4. Rules
 

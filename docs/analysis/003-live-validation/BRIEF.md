@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Opens the live-validation unit — pre-registers predictions P1-P6 against live Groupon and fixes the line between what live recon can and cannot say about the supplied dataset.
+---
+
 # Live validation of the recoverability model — before any build
 
 Opened 2026-08-06.
@@ -11,7 +17,7 @@ are mechanisms rather than measurements. Live Groupon can test the mechanisms.
 
 **What live recon can and cannot do — the line that must not blur.** It can confirm *how a real
 search engine fails*, which is what F1–F6 describe. It **cannot** validate any number in the
-supplied dataset, because they are different catalogues. `PLAN.md` §7 already lists conflating the
+supplied dataset, because they are different catalogues. `FINDINGS.md` §5e already flags conflating the
 two as a trap. Every finding here gets tagged with which catalogue it is about.
 
 ## Why now

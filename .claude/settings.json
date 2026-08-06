@@ -27,6 +27,18 @@
           }
         ]
       }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR\"/.claude/hooks/unit-frontmatter.sh",
+            "timeout": 5
+          }
+        ]
+      }
     ]
   }
 }

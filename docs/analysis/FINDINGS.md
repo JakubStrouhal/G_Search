@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Corrected the query_classes.csv pair count (755 → 751, which the §5d class table had always summed to) and consolidated twelve scattered retraction narratives — three moved out of PLAN.md — into one dated Corrections register (§9); deleted §6 and §7 and rebuilt §8 from a table of copied numbers into a table of quoting rules, since copying is what produced the 755 drift.
+---
+
 # Groupon case study R29944 — verified findings handoff
 
 **Purpose of this file.** Everything below was produced by running
@@ -5,6 +11,9 @@
 Part B (prototype) and Part C (writeup). Numbers marked VERIFIED came out of
 the script. Numbers marked INFERRED are interpretation. Items marked
 CANNOT VERIFY are limits of the dataset and must be stated as such in Part C.
+
+**Every claim made and then withdrawn is in §9, the Corrections register — one
+dated row each, and nothing else here retells that history.**
 
 Do not treat this as final. Re-run `validate.py` before quoting anything.
 
@@ -66,14 +75,12 @@ openly — it is a flag on the data, and noticing it is worth more than
 pretending the distribution is smooth.
 
 **RESOLVED 2026-08-06 — it is a generation artifact.** Not resolvable from this
-file, so it was resolved against the live catalogue instead. Live Groupon
-returns exactly 3 routinely: `quadbike` 3 and `trapeze` 3 (GB · london, N=33),
-with a smooth low-count distribution 0(×6), 1(×4), 2(×2), **3(×2)**, 5, 6, 7, 8,
-10, 17. A real ranking cut-off that suppressed 3s would have to be a property of
-this generator alone. Script: `live_probe.js histogram()`; evidence:
-`003-live-validation/RESULT.md` P4. **Consequence: F5 "ranking cutoff" is a
-mislabelled class** — its recoverability assumption rested entirely on this
-inference and has been withdrawn (see §5e). Closes known issue #4's first half.
+file, so it was resolved against the live catalogue instead: live Groupon returns
+exactly 3 routinely (`quadbike` 3, `trapeze` 3; GB · london, N=33, smooth
+low-count distribution). A cut-off suppressing 3s would have to be a property of
+this generator alone. `live_probe.js histogram()`; `003-live-validation/RESULT.md`
+P4. This is what withdrew F5's "ranking cutoff" — **§9 row 7**; §5d has how to
+read the surviving population.
 
 ---
 
@@ -97,19 +104,23 @@ VERIFIED: rate is flat across the four weeks of June (28.2% → 31.1%). No trend
 
 ---
 
-## 3. THE CORE FINDING — three tiers of failure, not one
+## 3. Failure is structured, not uniform — the first cut
 
-This is the whole exercise. The catalogue has **5 L2 categories and only 15
-unique deal titles per market** (75 unique titles across 568 deals). Titles are
-generic — "Relaxing Wellness Session", "Wellness-Massage Paket", "Sesja
-Wellness". The matcher appears to work at **category level, not item level**.
+The catalogue has **5 L2 categories and only 15 unique deal titles per market**
+(75 unique titles across 568 deals). Titles are generic — "Relaxing Wellness
+Session", "Wellness-Massage Paket", "Sesja Wellness". The matcher appears to
+work at **category level, not item level**, which produces structurally
+different failures that a single zero-result number averages together.
 
-That produces three structurally different failures:
+*The "three tiers" this section originally led with were the first cut at that
+structure and are **superseded** — §5d replaces them with the F1–F6 taxonomy and
+§5f with the four location buckets that assign an owner. The headings survive
+below only as labels over the numbers they produced, which still stand and keep
+their tags. Build Part C on §5d and §5f, not on the tiers.*
 
-### Tier 1 — SILENT MISMATCH (invisible to every zero-result metric)
-Query names something the catalogue does not stock, but which maps to an
-existing category. The user gets a full page of results that do not answer
-their question.
+### Tier 1 → F1 — SILENT MISMATCH (invisible to every zero-result metric)
+The query names something the catalogue does not stock but which maps to an
+existing category, so the user gets a full page of results that do not answer it.
 
 VERIFIED — there are **zero paintball deals, zero crossfit deals, zero sushi
 deals, zero bowling deals** in the entire catalogue. Yet:
@@ -129,10 +140,14 @@ CANNOT VERIFY: the log records `results_shown` as a count only. There is no
 query→deal mapping. So "paintball returns escape rooms" is INFERRED from the
 category structure, not observed. Also: paintball converts (CTR 41%, s2p 11%)
 as well as escape room. Either users substitute happily, or the data generator
-did not model relevance. **You cannot distinguish these from this file.** Say
-so. This is the honesty test the brief is running.
+did not model relevance. **You cannot distinguish these from this file.** This is
+the honesty test the brief is running, and it is the one question left open:
+**Part C must state the ambiguity, not resolve it.** §5e shows the substitution
+*mechanism* is real in live production, which makes substitution the likelier
+reading — but that is a different catalogue and is **not** evidence about this
+dataset.
 
-### Tier 2 — SUPPLY VOID (64.2% of zero-result searches)
+### Tier 2 → F4 — SUPPLY VOID (64.2% of zero-result searches)
 VERIFIED: 185 market+query pairs return zero **every single time**, accounting
 for 1,691 lost searches. Almost all are adrenaline/aerial:
 
@@ -166,16 +181,9 @@ aerial, no water sports, no motorsport. **Search cannot fix this.** It is a
 merchant-acquisition signal wearing a search failure's clothes.
 
 VERIFIED concept-level: adrenaline queries are 1,685 searches, 74.4% zero,
-**47.6% of all zero-result searches in the dataset.**
-
-CORRECTION — RAISED, THEN FIXED (2026-08-05). Layer 3 originally mapped
-adrenaline → `activities` L2 and asked "does the category exist". It does —
-132 deals — so the decisive table printed "MATCHER FAILURE" for skydiving, the
-exact opposite of the truth. **A category that exists is not a category that
-stocks the thing.** The test now runs at *title* level, and adrenaline reads
-SUPPLY VOID in all five markets with 0 deals stocking it. The narrative is kept
-here on purpose: it is the honest answer to the brief's "what did the AI tools
-get wrong" question, and it is a better answer than a generic one.
+**47.6% of all zero-result searches in the dataset.** This test runs at *title*
+level, not `category_l2` level; running it at category level produced the
+opposite answer and is **§9 row 1**.
 
 ### Tier 3 — INTERMITTENT (35.8% of zero-result searches)
 VERIFIED: 179 pairs return zero sometimes, 942 lost searches. Typical rates
@@ -186,10 +194,11 @@ VERIFIED city test: median city-to-city spread within intermittent pairs is
 **0.199** — substantial. ES crossfit ranges 0% to 43.8% by city; DE
 gesichtsbehandlung 0% to 42.9%; FR extension de cils 0% to 37.5%.
 
-INFERRED: city-level supply thinness is a real contributor. But 20pp spread
-does not explain the whole intermittency, and a query that returns results 80%
-of the time and nothing 20% of the time in the *same city* points at a ranking
-threshold. CANNOT VERIFY without the ranker.
+INFERRED: city-level supply thinness is a real contributor, but a 20pp spread
+does not explain the whole of the intermittency. **The remainder is unexplained.**
+An earlier reading attributed it to a ranking threshold; that is the same causal
+claim withdrawn as F5 (**§9 row 7**) and it is not made here. CANNOT VERIFY
+without the ranker.
 
 VERIFIED supply-density check: corr(deals per city, zero rate) = **-0.379**
 across 20 city-market cells. Direction matches Groupon's own stated mechanism
@@ -230,24 +239,15 @@ VERIFIED, non-zero searches only (re-run 2026-08-05):
 - By market s2p, non-zero searches: FR 10.0%, DE 10.2%, PL 11.3%, GB 12.0%,
   ES 12.8%. Over *all* searches: FR 7.0%, DE 7.5%, PL 7.6%, GB 8.5%, ES 9.0%.
 
-CORRECTED. An earlier version of this section said "roughly 5–10%, PL lowest".
-Both halves were wrong — the range is 7.0–9.0% over all searches, and **FR is
-lowest while PL is third**. A wrong directional claim about a named market is
-precisely what the brief's "claims survive us checking them" criterion catches.
-The earlier CTR/CVR figures (38.4 / 30.0 / 11.5) were also stale by ~0.2pp.
+**The lowest market s2p is FR, not PL** — the earlier claim of "roughly 5–10%,
+PL lowest" was wrong in both halves and is **§9 row 2**.
 
 VERIFIED upper bound (recomputed 2026-08-06): if all 2,633 zero-result searches
 converted at the observed non-zero s2p of **11.36%**, that is **299 purchases**
 over 30 days across 5 markets. **Label this an upper bound, not a forecast.**
 Recovered demand converts worse than organic demand. If you present it any other
-way you have failed the "claims survive their data checks" criterion.
-
-CORRECTED 2026-08-06. This bound previously read "~303 purchases at the observed
-11.5%" — eleven lines below the same section's own 11.4%. The stale rate was
-inside a derived figure, so the bound itself was recomputed rather than the digit
-edited. **Use one number: 299.** It had already propagated into the Part B spec's
-acquisition-brief copy, which is how a drifted rate becomes a claim in the
-deliverable.
+way you have failed the "claims survive their data checks" criterion. **Use one
+number: 299** — the superseded 303 is **§9 row 6**.
 
 *Denominator note, because it is the thing that gets misread:* 38.1 / 29.8 / 11.4
 are over **searches that returned results**. Over all 8,997 searches the figures
@@ -318,8 +318,9 @@ coverage-gap test enumerable rather than fuzzy.
 
 ## 5d. CLASSIFICATION AND THE FIX LIST
 
-Added 2026-08-05. Script: `classify.py` → `outputs/query_classes.csv` (755
-market+query pairs), `outputs/fix_list.csv`.
+Added 2026-08-05. Script: `classify.py` → `outputs/query_classes.csv` (**751**
+market+query pairs — the class table below has always summed to 751),
+`outputs/fix_list.csv`.
 
 VERIFIED — share of all dead-ends by failure class:
 
@@ -328,23 +329,24 @@ VERIFIED — share of all dead-ends by failure class:
 | F4 supply void | 178 | 1,689 | 35.7% |
 | Baseline (stocked, still ~40% dead) | 161 | 4,321 | 32.9% |
 | F1 silent substitution | 259 | 1,326 | 11.2% |
-| ~~F5 ranking~~ *(label withdrawn — see §1 and §5e)* | 73 | 658 | 7.5% |
-| ~~F3 geographic~~ *(label withdrawn — see §5f)* | 15 | 645 | 6.8% |
+| ~~F5 ranking~~ *(label withdrawn — §9 row 7)* | 73 | 658 | 7.5% |
+| ~~F3 geographic~~ *(label withdrawn — §9 row 10)* | 15 | 645 | 6.8% |
 | F2 language | 65 | 358 | 5.9% |
 
-**The F5 row is a population, not a diagnosis.** Its 73 pairs / 658 searches are real
-and still counted, but the *name* is withdrawn: `classify.py` assigns F5 as a
-residual (stocked · failing · not F2 · not F3), and the "ranking cutoff" reading
-rested entirely on the missing `results_shown = 3`, which §1 now resolves as a
-generation artifact. Treat it as a **second unexplained residual** alongside
-BASELINE. Its recoverability was withdrawn to zero, not re-estimated.
+*(178 + 161 + 259 + 73 + 15 + 65 = 751, the row count of `query_classes.csv`.)*
 
-**The F3 row is also a population, not a diagnosis** — same shape, found the same
-way, 2026-08-06. `classify.py` assigns F3 from city-to-city variance in dead rate,
-not from where inventory sits; tested directly, **only 6 of its 321 dead ends have
-the answering deal in another city**. Full detail and the consequences in **§5f**.
-Unlike F5, its recoverability was **not** withdrawn — see §5f for why, and for the
-tightened figures if it were.
+**How to read the two struck rows: they are populations, not diagnoses.** Both
+names were withdrawn (§9 rows 7 and 10); both populations are real and still
+counted at the pairs and searches above.
+
+- **F5** is a residual by construction (`classify.py`: stocked · failing · not F2
+  · not F3) — a **second unexplained residual** alongside BASELINE. Recoverability
+  withdrawn to zero, not re-estimated.
+- **F3** is a population with **high city-to-city variance in dead rate**
+  (`city_spread >= 0.25`) — a symptom, not a location. Relabelled **"Uneven across
+  cities"**. Unlike F5, its recoverability was **not** withdrawn; §5f holds why.
+  *(Its 645 **searches** contain **321 dead ends** — that is the denominator §5f
+  and §9 row 10 use. Not a second figure for the same thing.)*
 
 VERIFIED — demand is concentrated, so the fix list is short: the top 50
 market+query pairs are **51.2%** of all dead-ends; the top 100 are **75.3%**.
@@ -373,7 +375,9 @@ Predictions were pre-registered in that folder's `BRIEF.md` before probing.
 Groupon** (`groupon.co.uk`/`london`, `groupon.pl`/`warszawa`, 2026-08-06). It is
 a *different catalogue* from the supplied CSVs. It can confirm **how a real
 search engine fails** — which is what F1–F6 describe. It **cannot** validate any
-number in the supplied dataset. `PLAN.md` §7 lists conflating the two as a trap.
+number in the supplied dataset. **Conflating the two voids the package:** the
+live pass evidences how the matcher fails, never what the supplied catalogue
+contains. Never mix a live figure into a dataset claim or the reverse.
 
 VERIFIED (live catalogue) — **silent substitution is now observed, not inferred.**
 §3 Tier 1 tags "paintball returns escape rooms" CANNOT VERIFY because this log
@@ -417,23 +421,17 @@ Single-token probes across three cities and three hosts, 2026-08-06:
 | helicopter | 11 | 10 | 18 |
 | climbing | 0 | 4 | 14 |
 
-**CORRECTED 2026-08-06, same day it was written.** The first version of this line
-said "abundantly stocked in London" on the strength of `hot air balloon` 558 and
-`wing walking` 449. Those are **multi-word** queries, and the paragraph two above
-this one establishes that multi-word counts are inflated by fragment matching —
-so the evidence for "abundant" was an artifact of the defect being described.
-Probing Berlin and Paris with single tokens exposed it. **This is the best "what
-the AI tools got wrong" example in the package**: one probe contradicted another
-probe in the same session, and only a second and third city surfaced it.
+**Single tokens only, and that is load-bearing** — multi-word counts are inflated
+by fragment matching (two above), so they cannot evidence abundance. Two claims
+built on them were withdrawn: **§9 rows 8 and 9**.
 
-**What it bounds, revised.** The supplied catalogue's *total* void (0 deals,
-100% zero) is still an exaggeration and so still a modelling choice. But it
-exaggerates a **real thinness** rather than inventing one — the shape the
-analysis identifies is visible in production. Part C **may** say the pattern is
-not merely an artifact of the supplied data. It **may not** put a number on real
-Groupon's inventory gap, or recommend named-city vendor acquisition, from this run.
+**What it bounds.** The supplied catalogue's *total* void (0 deals, 100% zero) is
+still an exaggeration and still a modelling choice — but it exaggerates a **real
+thinness** rather than inventing one. Part C **may** say the pattern is not merely
+an artifact of the supplied data. It **may not** put a number on real Groupon's
+inventory gap, or recommend named-city vendor acquisition, from this run.
 
-VERIFIED (live) — **F5's recoverability is withdrawn.** See §1. The
+VERIFIED (live) — **F5's recoverability is withdrawn.** See §1 and §9 row 7. The
 `002-recoverability` central estimate moves **59 → 36 purchases/mo**, and search's
 share of the recoverable total moves **17.9% → 11.8%** (range 5.6–15.1%).
 **Quote ~12%, never ~18%.** The direction strengthens as the number falls.
@@ -454,10 +452,10 @@ distance bucket at all. The platform knows it has nothing near the user and
 returns results anyway.
 
 VERIFIED (live) — **the autocomplete layer is erroring.** `SuggestedSearchQueries`
-returned `INTERNAL_SERVER_ERROR` for 3/4 queries on `groupon.pl` (2026-08-06),
-having returned 5/5 errors on `groupon.co.uk` (2026-08-05). Cross-host and
-cross-day, so no longer a single-session artifact. The layer where spell
-correction and query understanding live is returning nothing.
+returned `INTERNAL_SERVER_ERROR` for 3/4 queries on `groupon.pl` (2026-08-06) and
+5/5 on `groupon.co.uk` (2026-08-05) — cross-host and cross-day, so not a
+single-session artifact. The layer where spell correction and query understanding
+live is returning nothing.
 
 CANNOT VERIFY (live): single session, one division per market, GB and PL only.
 Counts were stable on repeat; **ordering was not**. Counts are inflated by the
@@ -477,9 +475,8 @@ It asks a different question from §5d. F1–F6 ask *why* a query failed. This a
 `classify.py`'s own `coverage()` evaluated at `(market, city)` instead of
 `(market)` — no new map, no new judgement beyond the seam named below.
 
-VERIFIED, over **all 4,720 dead ends** (one denominator throughout — the earlier
-draft of this section mixed a mapped-only denominator with a total one, which is
-exactly the sloppiness the brief's "claims survive checking" criterion catches):
+VERIFIED, over **all 4,720 dead ends** — one denominator throughout, which an
+earlier draft of this section got wrong (**§9 row 11**):
 
 | Where the answer was | dead ends | share | owner |
 |---|---|---|---|
@@ -571,122 +568,84 @@ recovery only on demonstrable-answer rows → **7.8%**; additionally withdraw F3
 way F5 was withdrawn → **5.7%**. Part C publishes the most generous, **11.8%**,
 and says the other two exist.
 
-### CORRECTION — F3's diagnosis is withdrawn (its population is not)
+### F3's exposure — retained deliberately, so stated rather than buried
 
-VERIFIED: of F3's 321 dead ends, **only 6 have the answering deal in another city**.
-158 are in the user's own city and 157 are `can't tell`. `classify.py` assigns F3
-from **city-to-city variance in dead rate** (`city_spread >= 0.25`), which is a
-symptom, not a location. **The name "geographic thinness" was never earned.**
-
-Same shape as F5's withdrawn "ranking cutoff": the population is real and still
-counted, the diagnosis is not. Relabelled to **"Uneven across cities"** in the
-explainer, with the class key `F3_geographic` deliberately unchanged so
-`query_classes.csv`, `web/mock/build.py` and `002-recoverability` keep working.
-
-This also means F3's shipped user-facing copy — *"We have this, just not in your
-city."* — was **false for 315 of 321 dead ends and live in `explainer.html`**,
-where a grader could click a chip and read it. Fixed 2026-08-06.
+VERIFIED: of F3's 321 dead ends, **only 6 have the answering deal in another
+city**. 158 are in the user's own city and 157 are `can't tell`. That is what
+withdrew the "geographic thinness" diagnosis (**§9 row 10**); the population, and
+the class key `F3_geographic` that `query_classes.csv`, `web/mock/build.py` and
+`002-recoverability` depend on, are unchanged.
 
 **Its recoverability range was deliberately left unchanged at 25% (10–40%)** rather
 than re-derived, because re-deriving it lowers the headline and the generous
 number is the one worth defending. F3 contributes 12.9 of the 36.3 purchases — 36%
 of the entire search-side estimate — so this is a live exposure, not a footnote.
 
----
+### What this obliges the prototype to do
 
-## 6. What this means for Part B (the prototype)
-
-The brief says the prototype must handle every query type found in Part A,
-**including the ones that cannot be fixed** — "what it does when it has no good
-answer tells us as much."
-
-The three tiers each need a visibly different behaviour:
-
-1. **Silent mismatch (paintball → escape rooms).** The hardest and the most
-   interesting, because today it is invisible. The prototype should be able to
-   say *"we don't have paintball in Berlin — here's what's close, and here's
-   what we do have"* rather than silently substituting. This is the one no
-   other candidate will have found, because it does not show up in a
-   zero-result dashboard.
-
-2. **Supply void (skydiving in Berlin).** The largest bucket. The empty state
-   is the product, not an error page. This query is simultaneously a demand
-   signal for merchant acquisition — the intersection of Groupon's two stated
-   priorities. Capture intent; do not just apologise.
-
-3. **Vocabulary / thinness (masaż tajski, haare färben).** The genuinely
-   fixable matching layer: local-language query against generic local-language
-   titles. Semantic or concept-level matching.
-
-Build note: **do not build a nice semantic search bar and call it done.** The
-largest bucket is unfixable by search, and the most interesting bucket is
-invisible to search metrics. A prototype that only demos better matching has
-answered a different question than the one asked.
+**Do not build a nice semantic search bar and call it done.** The largest bucket
+(`nowhere`, 43.2% — band to 64.7%) is **unfixable by search**, and the most
+interesting failure (F1) is **invisible to every search metric** because it
+returns a full page. A prototype that only demos better matching has answered a
+different question than the one asked. Behaviour per class: `001-part-b/SPEC.md`
+§3/§4, which owns that contract in more detail.
 
 ---
 
-## 7. Open items — must be resolved before Part C is written
+## 8. How to quote the headline numbers
 
-- [x] Re-run `validate.py`; confirm every number above. *(2026-08-05)*
-- [x] Fix the adrenaline → `activities` concept mapping. *(now a title-level
-      test; see §3)*
-- [x] Extend the concept map until the "unmapped" bucket is small. *(3.7% of
-      searches in `classify.py`, down from 42%)*
-- [x] Run the language test. *(§5b — the strongest result in the package)*
-- [x] Decide and state the position on the missing `results_shown = 3`.
-      *(2026-08-06 — **generation artifact**, settled against the live catalogue
-      because this file cannot settle it. See §1 and §5e.)*
-- [ ] Decide and state the position on whether paintball's healthy conversion
-      is substitution or a data artifact. *(Still open for the supplied data.
-      §5e shows the substitution mechanism is real in production, which makes
-      "substitution" the more likely reading — but it is not evidence about
-      **this** dataset, and must not be presented as such.)*
-- [ ] Log hours and AI tools used, including what the tools got wrong. The
-      adrenaline/activities misclassification in §3 is a real example — use it.
+**Not a copy of the numbers — a copy is what drifts (§9 row 12).** Every figure
+lives in its own section with its tag; go there. What this section carries is the
+short list of numbers that come with a **rule about how to say them**, because
+quoting those correctly is where Part C is most easily caught out.
+
+| Number | The rule | Where |
+|---|---|---|
+| **52.5%** combined dead-end (29.3% zero + 23.2% at 1–2) | Lead with this, **not** 29.3%. Stopping at zero-results understates it by nearly half | §1 |
+| **81.2%** English vs **39.0%** local, gap **42.3pp** | Always as the matched pair with the gap. Loanwords for unstocked concepts fail at the ordinary 44.0% and are a *supply* story — never merge the two | §5b |
+| **~12%** search-fixable (central 11.8%, range 5.6–15.1%) · **36 purchases/mo** | **Quote ~12%, never ~18%**; the ~18% / 59 figures are withdrawn (§9 row 7). Pair the percentage with the absolute | §5e |
+| `nowhere` **43.2%** | **Never one end of the band [43.2%, 64.7%] alone** — the `plausible` seam moves 1,016 dead ends together and under one reading the ordering flips | §5f |
+| **299** purchases / 30 days | An **upper bound, not a forecast**, at s2p 11.36%. Recovered demand converts worse than organic | §5 |
+| **723 purchases** across 5 markets | The denominator for anything "per month": +36/mo is **+5.0%**; the supply-void ceiling of +271 is **+37.5%** | §5e |
+| Typos **1.9%** (strict) or **7.5%** (long tail) | Name which definition, every time. Use 1.9% for "typos", 7.5% for "the long tail" | §4 |
+| Funnel **38.1 / 29.8 / 11.4** | Over **non-zero** searches. Over all 8,997 it is CTR 27.0% / s2p 8.0%. Lowest market s2p is **FR**, not PL | §5 |
+| corr(city deals, zero rate) **−0.379** | n=20 — report the **direction only**, and say n=20 | §3 |
+| F3 "geographic" | A **withdrawn diagnosis**. Say "uneven across cities, cause not established" | §5f, §9 row 10 |
+| `query_classes.csv` = **751** rows | — | §5d |
+
+**Live-catalogue figures are a separate namespace — never mix them with the
+above.** Live Groupon returns exactly 3 routinely (so the dataset's 0,1,2→4 gap is
+a generation artifact); `paragliding`/London returns 2 cable-car river passes and
+`kitesurf` a barista kit (silent substitution, *observed*); the API exposes no
+relevance score or matched-term field; adrenaline is thin in London, Berlin and
+Paris alike. Full statements and their limits: §5e. **No vendor-acquisition
+recommendation for a named city follows from any of them.**
 
 ---
 
-## 8. Facts to reuse verbatim
+## 9. Corrections register — every claim made and then withdrawn
 
-- 8,997 searches · 613 unique queries · 568 deals · 75 unique deal titles ·
-  **15 distinct products** · 5 markets · 4 cities each · June 2026.
-- 29.3% zero results. 23.2% return 1–2 results. **52.5% combined dead-end.**
-- Zero-result split: 64.2% always-zero (supply void), 35.8% intermittent.
-- Adrenaline = 47.6% of all zero-result searches; SUPPLY VOID in all 5 markets,
-  0 deals stocking it.
-- **English phrasing 81.2% dead-end vs local phrasing 39.0% — a 42.3pp gap,
-  47 of 48 matched pairs, consistent across all four non-GB markets.**
-- Loanwords for unstocked concepts fail at 44.0% — the ordinary rate. Supply
-  problem, not a language problem.
-- Top 50 market+query pairs = 51.2% of all dead-ends. Top 100 = 75.3%.
-- Inventory: 4 L1 categories, 5 L2 categories, no aerial/water/motorsport.
-- corr(city deal count, zero rate) = -0.379, n=20 — direction only.
-- Typos: 1.9% of zeros (strict) or 7.5% (long tail). Name the definition.
-- Funnel, non-zero searches: CTR 38.1%, click→purchase 29.8%, s2p 11.4%.
-  Lowest market s2p is **FR**, not PL.
-- Search-fixable share of the recoverable opportunity: **~12%** (central 11.8%,
-  range 5.6–15.1%), **36 purchases/mo** central. **The older ~18% / 59 figures
-  are dead** — withdrawn 2026-08-06 when live probe P4 killed F5's basis.
-- **Where the answer was**, over all 4,720 dead ends: **nowhere in the market 43.2%
-  (2,039) · the user's own city 32.2% (1,520) · another city 3.1% (145) · can't
-  tell 21.5% (1,016)**. Quote the `nowhere` **band [43.2%, 64.7%]**, never one end
-  — the `plausible` seam moves 1,016 dead ends together, and under one reading the
-  ordering flips. See §5f.
-- Denominator for anything "per month": **723 purchases** across 5 markets today.
-  So +36/mo is **+5.0%** on purchases; the supply-void ceiling of +271 is **+37.5%**.
-- **F3 "geographic" is a withdrawn diagnosis** — 6 of 321 dead ends are actually
-  another-city. Say "uneven across cities, cause not established".
+**The only record of retractions in the package.** Consolidated 2026-08-06 from
+ten places across this file and `PLAN.md`; a new retraction is a new row here, not
+a new paragraph elsewhere. Part C's tools log should be drawn from it.
 
-**Live catalogue only — never mix these with the eight lines above:**
+The pattern across the twelve rows is itself a finding: **most are a coarse or
+convenient measurement mistaken for a finding** — a category count standing in for
+a title count, a UI bucket for an exact count, a multi-word count for supply, a
+symptom for a cause. Every one was caught by measuring the same thing a second
+way, never by re-reading the first result.
 
-- Live Groupon **does** return exactly 3 results (`quadbike`, `trapeze`), so the
-  supplied data's 0,1,2→4 gap is a generation artifact.
-- Live `paragliding` in London returns **2 cable-car river passes**; `kitesurf`
-  returns a **barista kit**. Silent substitution, observed.
-- Live search returns **no relevance score and no matched-term field** — the same
-  blindness as `results_shown` being a bare count.
-- Live adrenaline supply is **thin in London, Berlin and Paris alike** (skydiving
-  2/3/3, ballooning-paragliding 2/1/0). The supplied catalogue's *total* void
-  exaggerates a real thinness rather than inventing one — so the pattern is not
-  merely an artifact, but no vendor-acquisition recommendation for a named city
-  follows either.
+| # | Date | The claim, withdrawn | What killed it | What replaced it |
+|---|---|---|---|---|
+| 1 | 2026-08-05 | Skydiving is a **matcher failure**: the `activities` L2 category exists (132 deals), so search had stock and failed to find it. `validate.py` Layer 3's decisive table printed "MATCHER FAILURE" — the exact opposite of the truth | Re-running the test at **title** level instead of `category_l2` level. There are only five L2 categories, so a category-level test reports "the category exists" for concepts the catalogue stocks nothing of. `activities` holds only city tours, escape rooms and karting | **SUPPLY VOID in all five markets, 0 deals stocking adrenaline** (§3 Tier 2). The test now runs at title level throughout. **This is the tools-log example to use in Part C** — a plausible mapping produced a confidently inverted headline |
+| 2 | 2026-08-05 | Search→purchase is "roughly 5–10% by market, **PL lowest**" | Re-running `validate.py`. Both halves were wrong — a wrong *directional* claim about a **named market** is precisely what "claims survive us checking them" catches | **7.0–9.0% over all searches; FR lowest, PL third** (§5). The stale CTR/CVR trio 38.4 / 30.0 / 11.5 was replaced at the same time by **38.1 / 29.8 / 11.4** |
+| 3 | 2026-08-05 | Live GB does **silent token-dropping**, and `shark diving`'s 80+ results "came entirely from *diving*". Separately: a real-but-unstocked word **widens** the result set, as a property of the query semantics | Exact `totalCount`s. `diving` alone is **29**, and dropping a token cannot *raise* a count. And `dinosaur` has **13** matches of its own, so "widens" was overreach — the arithmetic fits neither a union nor an intersection (`massage` 458 + `dinosaur` 13 → 460, not 471; `shark` 10 + `diving` 29 → **81**, not 39) | **"Adding a term does not reliably narrow."** Consistent with scored retrieval over a relevance threshold plus an expansion stage, tuned per market — and the ranker config is not observable from outside, so it is not guessed at. Derivation: `PLAN.md` §4 Finding 1 |
+| 4 | 2026-08-05 | The DE Zittau session was **inconsistent**: it served Thai massage 75–79 km away yet returned zero for `fallschirmspringen`, implying a radius bug | It was an inference, not an observation. A finite maximum radius with **no German skydiving inside it** produces the identical result with no inconsistency at all — and whether skydiving supply exists near Zittau was never checked | Only what the screenshot shows plainly: **the zero state blames filters the user has not applied** ("Versuchen Sie, einen der angewendeten Filter zu entfernen", with no filters applied). `PLAN.md` §4 Finding 3 |
+| 5 | 2026-08-05 | Polish diacritics cost **4× recall** — read off the UI labels "40+" vs "10+" | Exact counts with `division` pinned to `warszawa`: **162 vs 95**. The UI buckets were coarse **and** the two runs had an unpinned location. Both the ratio and the framing were wrong | Single-token loss is small (`masaż` 272 / `masaz` 248, **−8.8%**); the penalty lands on **multi-word** queries (−41%, −48%). Sharper and more actionable, because it says *where* to fix it. `PLAN.md` §4 Finding 4. Later narrowed again live — the effect is specific to the `masaż` token family (§5e) |
+| 6 | 2026-08-06 | Upper bound of **~303 purchases** over 30 days, at "the observed 11.5%" s2p | The 11.5% was stale — it sat **eleven lines below the same section's own 11.4%**. A stale rate inside a *derived* figure, so the bound had to be recomputed rather than the digit edited | **299 purchases** at s2p **11.36%** (§5). It had already propagated into the Part B spec's acquisition-brief copy — which is how a drifted rate becomes a claim in the deliverable |
+| 7 | 2026-08-06 | **F5 = "ranking cutoff"**, and its recoverability, resting entirely on the dataset anomaly that no search ever returns exactly 3 results | The live catalogue. Groupon returns exactly 3 routinely — `quadbike` 3, `trapeze` 3 (GB · london, N=33), with a smooth low-count distribution 0(×6), 1(×4), 2(×2), **3(×2)**, 5, 6, 7, 8, 10, 17. The missing 3 is a property of **this generator alone** (§1) | The **population survives, the diagnosis does not**: 73 pairs / 658 searches still counted, relabelled a **second unexplained residual** alongside BASELINE. Recoverability withdrawn to **zero**, not re-estimated — which moved `002-recoverability` from **59 → 36 purchases/mo** and search's share from **17.9% → 11.8%**. Quote ~12%, never ~18% |
+| 8 | 2026-08-06 | Live London **stocks adrenaline abundantly** — on the strength of `hot air balloon` **558** and `wing walking` **449** | Those are **multi-word** queries, and the same section establishes that multi-word counts are inflated by fragment matching. The evidence for "abundant" was an artifact of the very defect being described. Single-token probes in **Berlin and Paris** exposed it | **Thin in production too, but not absent** — skydiving 2/3/3, ballooning-paragliding 2/1/0, helicopter 11/10/18 (London/Berlin/Paris), §5e. Part C may say the pattern is not merely a synthetic artifact; it may **not** put a number on real Groupon's gap. **The sharpest tools-log entry in the package**: one probe contradicted another *in the same session*, and only a second and third city surfaced it |
+| 9 | 2026-08-06 | "Live GB stocks **300+** helicopter tours" — the caveat separating the live catalogue from the dataset in `PLAN.md` §4 | The single-token exact count is **11** (`helicopter`, division `london`, 2026-08-06; `003-live-validation/RESULT.md`). **300+ was a coarse UI bucket or a multi-word count** — the precise artifact class that `PLAN.md` §4's own method paragraph says the exact-count harness exists to catch. The file was caught by its own stated method | **`helicopter` 11 (London) / 10 (Berlin) / 18 (Paris)** — the same single-token figures as row 8. The live/synthetic separation the caveat was drawing still holds; the number it was drawn with did not |
+| 10 | 2026-08-06 | **F3 = "geographic thinness"** — and the user-facing copy it justified, *"We have this, just not in your city."*, **shipped and live in `explainer.html`** where a grader could click a chip and read it | A direct test of where the inventory actually sat: of F3's **321** dead ends, **only 6** have the answering deal in another city — 158 same-city, 157 can't-tell. `classify.py` assigns F3 from **city-to-city variance in dead rate** (`city_spread >= 0.25`), which is a *symptom*, not a location. The name was never earned, and the copy was **false for 315 of 321 rows** | Relabelled **"Uneven across cities"**; class key `F3_geographic` deliberately unchanged so `query_classes.csv`, `web/mock/build.py` and `002-recoverability` keep working. Copy fixed 2026-08-06. **Recoverability deliberately left at 25% (10–40%)** rather than re-derived — F3 is 12.9 of the 36.3 purchases, so §5f states the exposure instead of hiding it |
+| 11 | 2026-08-06 | §5f's first draft, which **mixed a mapped-only denominator with a total one** across its own bucket table | Recomputing every bucket over one denominator. The four buckets have to sum to the dead-end total, and they did not | **All 4,720 dead ends, one denominator throughout** (§5f). A per-row assertion in `classify.py` now fails the build if the four columns stop summing to `deads` |
+| 12 | 2026-08-06 | `outputs/query_classes.csv` holds **755** market+query pairs (§5d prose) | Counting the CSV: **751** data rows. §5d's own class table had always summed to 751 (178+161+259+73+15+65), and `001-part-b/SPEC.md` §2 had it right — only the prose drifted | **751**. Copying numbers into a quote-card is the channel that produced this drift, so §8 was rebuilt from a list of reproduced figures into a table of **quoting rules** that points at the owning section instead |

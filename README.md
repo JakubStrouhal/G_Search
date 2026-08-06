@@ -3,28 +3,36 @@
 Submission for **Senior Product Manager, AI (Discovery, International)**.
 
 The brief supplies a month of search logs from five international markets and the
-deal inventory those searches ran against, and deliberately declines to say what
-to look for. Everything below comes out of that data or out of Groupon's live
+deal inventory those searches ran against, and deliberately declines to say what to
+look for. Everything below comes out of that data or out of Groupon's live
 production search — every number is traceable to a script in this repo.
-
----
 
 ## Start here
 
 | If you want to… | Read / run |
 |---|---|
+| Read Part A as one page | [`explainer.html`](docs/analysis/004-data-story/outputs/explainer.html) |
 | Check the analysis yourself | `python3 docs/analysis/validate.py` |
-| Re-derive the **live** production numbers | `docs/analysis/live_probe.js` (see below) |
+| Re-derive the **live** production numbers | `docs/analysis/live_probe.js` (below) |
 | See the verified findings | `docs/analysis/FINDINGS.md` |
 | See the reasoning behind it | `docs/analysis/PLAN.md` |
 | See what is done, pending, and what was decided | `INDEX.md` |
 
+### Running the analysis
+
 ```bash
-python3 docs/analysis/validate.py          # requires pandas + numpy; runs from anywhere
+# All three need only pandas + numpy, take no arguments, and run from anywhere —
+# paths resolve against the script file.
+python3 docs/analysis/validate.py       # Layers 0–5b: shape, zero-rates, always/intermittent
+                                        # split, concept coverage, typo sizing, funnel. stdout only
+python3 docs/analysis/classify.py       # F1–F6 classifier + inventory location -> outputs/
+                                        # query_classes.csv, fix_list.csv, inventory_location.csv
+python3 docs/analysis/language_test.py  # matched-pair language test -> outputs/language_pairs.csv
 ```
 
-The script is a linear sequence of `LAYER` blocks, each printing its own counts,
-so any headline number can be traced to a line. To read one section:
+`validate.py` is a linear sequence of `LAYER` blocks, each printing its own counts,
+so any headline number traces to a line. To read one section, slice the output
+rather than editing the script:
 
 ```bash
 python3 docs/analysis/validate.py | sed -n '/LAYER 3 /,/LAYER 4 /p'
@@ -36,8 +44,6 @@ python3 docs/analysis/validate.py | sed -n '/LAYER 3 /,/LAYER 4 /p'
 exact result counts, because the UI only shows rounded buckets ("400+"), and
 reasoning from those buckets produced two wrong claims in an earlier draft.
 
----
-
 ## Layout
 
 ```
@@ -46,45 +52,49 @@ docs/brief/       Exactly what Groupon supplied — the PDF, search_log.csv, dea
 docs/analysis/    The work: FINDINGS.md (verified claims), PLAN.md (reasoning),
                   validate.py / classify.py / language_test.py / live_probe.js.
         outputs/  Generated CSVs. Regenerable, never hand-edited.
-        <nnn>-*/  One folder per unit of work: BRIEF.md -> SPEC.md -> RESULT.md.
-                  Working files, not deliverables.
+        <nnn>-*/  One folder per unit of work: BRIEF.md -> SPEC.md -> RESULT.md, or
+                  CHORE.md for a maintenance unit. Working files, not deliverables.
+                  Each has a README.md: what it is, how to read it, presentable or not.
+docs/design/      Design tokens and the design system, shared by the app and the mock.
+supabase/         Migrations, seeds, RPC — the DB and BE layer.
+web/app/          Vue 3 + Vite + TS front end. web/mock/ is the static state gallery
+                  that settled the design decisions — not the app.
 INDEX.md          Status, queue, defects, decisions.
+CLAUDE.md         Operating instructions for the AI agents used to build this.
 ```
 
-**The three deliverables are** `docs/analysis/FINDINGS.md` (Part A), the hosted prototype
-(Part B), and the writeup (Part C). The numbered folders are how they got built.
-
----
+Parts A/B/C map to `docs/analysis/FINDINGS.md`, the prototype (`supabase/` +
+`web/app/`), and the writeup. The numbered folders under `docs/analysis/` are
+working units; `INDEX.md` states where each of the three stands.
 
 ## What is broken
 
-**The readable version of all of this is
-[`docs/analysis/004-data-story/outputs/explainer.html`](docs/analysis/004-data-story/outputs/explainer.html)**
-— one self-contained page, no kernel, with a box that replays any of the 613 real
-queries. Open that first. This section is the summary; `FINDINGS.md` owns the
-numbers and their caveats, and nothing here is restated that lives there.
+This section is the summary. `FINDINGS.md` owns the numbers and their caveats;
+[`explainer.html`](docs/analysis/004-data-story/outputs/explainer.html) is the
+readable version — one self-contained page, no kernel, with a box that replays any
+of the 613 real queries.
 
 **1. The obvious metric is the wrong one.** 29.3% of searches return zero results
 — but a search returning **1–2 results converts at 1.7%**, against 16.1% at four
 or more. A cliff, not a gradient. **The defensible headline is 52.5%**, and it
-survives stratification within concept × city (it moves the purchase rate by
-0.02pp, and holds in 137 of 138 strata).
+survives stratification within concept × city: the purchase rate moves 0.02pp and
+the direction holds in 137 of 138 strata on CTR.
 
 **2. One question sorts the failures, and the answer names the owner.** For every
 one of the 4,720 dead ends: *where was the answer?*
 
-| Where the answer was | dead ends | share | who fixes it |
-|---|---|---|---|
-| Nowhere in the market | 2,039 | **43.2%** | Merchant acquisition — not search |
-| The user's own city | 1,520 | **32.2%** | Search |
-| Another city in the market | 145 | 3.1% | Product / UX |
-| Can't tell from this catalogue | 1,016 | 21.5% | Not attributed |
+| Where the answer was | share | who fixes it |
+|---|---|---|
+| Nowhere in the market | **43.2%** | Merchant acquisition — not search |
+| The user's own city | **32.2%** | Search |
+| Another city in the market | 3.1% | Product / UX |
+| Can't tell from this catalogue | 21.5% | Not attributed |
 
 The largest bucket is not a search problem at all. **Quote the `nowhere` band
 [43.2%, 64.7%], not one end** — one tier of the coverage test is a judgement call
 that moves 1,016 dead ends together, and under one reading the ordering flips.
 The decomposition beats a shuffled null under every reading (excess +9.8pp to
-+14.0pp, z = 19.5 to 33.6). `FINDINGS.md` §5f.
++14.0pp, z = 19.5 to 33.6). Counts and the sensitivity table: `FINDINGS.md` §5f.
 
 **3. The strongest single result: phrasing, measured.** The brief's own thesis is
 that the platform was built for English-language queries. Matched pairs — same
@@ -95,9 +105,9 @@ were killed: loanwords for unstocked concepts fail at the ordinary 44.0%, and ra
 
 **4. Sizing, with the denominator attached.** Today: **723 purchases/month** across
 five markets. Fixing every class we can name returns **+36/month (+5.0%)** — about
-**12%** of the recoverable opportunity. The supply-void ceiling is **+271 (+37.5%)**.
-Every way of tightening the search side lowers it further (7.8%, then 5.7%); the
-most generous figure is the one published.
+**12%** of the recoverable opportunity, against a supply-void ceiling of **+271
+(+37.5%)**. Every way of tightening the search side lowers it further (7.8%, then
+5.7%); the most generous figure is the one published.
 
 **5. It is not one broken country**, and **typos are a red herring** — market
 zero-rates run 26.9% (DE) to 32.6% (PL) with only that pair non-overlapping, and
@@ -115,18 +125,18 @@ records a successful search. The matcher matches *fragments*: `kitesurf` returns
 "Portable Bartender Barista **Kit**".
 
 That is the whole point of the question in §2: **a result count cannot tell you
-whether search worked.** The API confirms why — it returns no relevance score, no
-matched-term field and no spell-correction field, so the client cannot distinguish
-a genuine match from padding. The supplied dataset's central limitation is not a
-weakness of the sample; it reproduces what the platform actually exposes.
+whether search worked.** The API confirms why — no relevance score, no matched-term
+field, no spell-correction field, so the client cannot distinguish a genuine match
+from padding. The supplied dataset's central limitation is not a weakness of the
+sample; it reproduces what the platform actually exposes.
 
-Two claims from an earlier draft of this file were **withdrawn** after checking,
-and the corrections are in `003-live-validation/RESULT.md`: "a word that matches
-nothing is completely inert" (true for nonsense, false for real words — one
-*removed* 40 results), and a general two-word diacritic penalty (it replicates
-exactly for the `masaż` family and not at all for three other Polish pairs).
-
----
+Withdrawn claims stay visible, because the brief grades whether claims survive
+checking. Two from an earlier draft of this file, corrected in
+`003-live-validation/RESULT.md`: "a word that matches nothing is completely inert"
+(true for nonsense, false for real words — one *removed* 40 results), and a general
+two-word diacritic penalty (it replicates exactly for the `masaż` family and not at
+all for three other Polish pairs). Mechanisms withdrawn earlier in the live
+reconnaissance are in `PLAN.md` §4.
 
 ## How to think about it
 
@@ -134,21 +144,18 @@ Every search is a cell in a grid of **what supply exists** × **how the system
 responded**. The zero-result metric only ever sees the "returns nothing" column —
 a full page of confident, wrong results is invisible to it.
 
-There are two cuts of that grid and they nest rather than compete. **"Where was the
-answer?"** (§2 above) is the one to lead with: four buckets, four owners, and it is
-the question that decides where engineering effort goes. **F1–F6** sits underneath
-it as the mechanism detail — *why* each failure happened — and the prototype's
-required behaviours are keyed to those classes. `nowhere` is exactly F1 ∪ F4, and
-that nesting is asserted in code rather than claimed. Full treatment of F1–F6 in
-`docs/analysis/PLAN.md` §5; of the buckets in `FINDINGS.md` §5f.
+Two cuts of that grid nest rather than compete. **"Where was the answer?"** (§2) is
+the one to lead with: four buckets, four owners, and it decides where engineering
+effort goes. **F1–F6** sits underneath as the mechanism detail — *why* each failure
+happened — and the prototype's required behaviours are keyed to those classes.
+`nowhere` is exactly F1 ∪ F4, asserted in code rather than claimed. F1–F6 in
+`PLAN.md` §5; the buckets in `FINDINGS.md` §5f.
 
-Two of the six class *names* have been withdrawn while keeping their populations:
+Two of the six class *names* are withdrawn while their populations are kept:
 **F5 "ranking cutoff"** (the live probe showed Groupon returns exactly 3 routinely,
 so the inference behind it was dead) and **F3 "geographic thinness"** (only 6 of
 its 321 dead ends actually have the deal in another city). Both are now residuals
-with no established cause, which is a smaller claim than the one they replaced.
-
----
+with no established cause — a smaller claim than the one they replaced.
 
 ## Honest limits
 
@@ -161,24 +168,22 @@ searches got wrong results" — the latter is not provable from this data.
 **Not testable at all with what was supplied:** the revenue and AOV claims (no
 order data), and "thinner inventory" in absolute terms (no US baseline).
 
-**Data quality flags:** no search anywhere returns exactly 3 results — the
-distribution runs 0, 1, 2, then jumps to 4. Zero nulls, zero duplicate IDs, no
-funnel-impossible rows. Consistent with synthetic generation; stated rather than
-smoothed over.
+**Data quality, checked rather than left hanging:** no search in the supplied file
+returns exactly 3 results — 0, 1, 2, then a jump to 4. That looked like a ranking
+cut-off and is not: live Groupon returns exactly 3 routinely (`quadbike`,
+`trapeze`), so it is a generation artifact (`FINDINGS.md` §1,
+`003-live-validation/RESULT.md` P4). Otherwise the file is clean — zero nulls, zero
+duplicate IDs, no funnel-impossible rows.
 
-**Claims retracted during the work**, kept visible because the brief grades
-whether claims survive checking: an initial "silent token-dropping" mechanism
-(disproved — dropping a term cannot raise a result count), a follow-up "unstocked
-words widen results" claim (overreach — measured a union, not query semantics),
-and a "4× diacritic penalty" read off rounded UI labels with an unpinned location
-(real figures: 162 vs 95).
-
----
+**Still open:** the catalogue stocks zero paintball deals, yet paintball converts
+about as well as a query it does stock. Users substituting happily and a generator
+that did not model relevance cannot be told apart from this file, so it is logged
+unresolved in `FINDINGS.md` §3 Tier 1 rather than argued either way.
 
 ## Status
 
-**[`INDEX.md`](INDEX.md)** — the board for Parts A/B/C, the open work queue, the known-defect list,
-and the last six decisions with the reasoning behind them.
+**[`INDEX.md`](INDEX.md)** — the board for Parts A/B/C, the open work queue, the
+known-defect list, and the last six decisions with the reasoning behind them.
 
-Status is stated there and nowhere else, deliberately: it previously lived in four files and had
-drifted to four different answers.
+Status is stated there and nowhere else, deliberately: it previously lived in four
+files and had drifted to four different answers.

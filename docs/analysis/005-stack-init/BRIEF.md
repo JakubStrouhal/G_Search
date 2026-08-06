@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Opens the stack-init unit — asks for the smallest change that boots Supabase and a Vue app with zero migrations and zero tables.
+---
+
 # Stack init — connect Supabase, scaffold the app, create no schema
 
 Opened 2026-08-06. Plan only; nothing below has been executed.

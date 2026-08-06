@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: The executable layer under P1-P6 — the setup, the exact query strings and the verified GraphQL contract each prediction runs against.
+---
+
 # Live validation — the executable layer under P1–P6
 
 Written 2026-08-06. **Companion to `BRIEF.md`, not a replacement.** `BRIEF.md` owns the
@@ -111,7 +117,7 @@ until all 20 are either verified or explicitly marked "not probed, using capital
 
 **Every row records:** `market · division · exact query string · date · totalCount · locations
 facet · distance facet`, plus **which catalogue it describes**. Live ≠ the supplied dataset —
-`BRIEF.md` and `PLAN.md` §7 both flag conflating them as the trap. All rows below are **LIVE**.
+`BRIEF.md` and `FINDINGS.md` §5e both flag conflating them as the trap. All rows below are **LIVE**.
 
 Results column deliberately blank — fill during the run.
 

@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Opens the data-story unit — asks for a business-readable presentation layer over Part A whose explainer hand-types no numbers.
+---
+
 # 004 — The data story: a business-readable answer to "why doesn't it work?"
 
 Opened 2026-08-06. **Awaiting approval — nothing built yet.**
@@ -26,7 +32,7 @@ step inlines it into the HTML. A number that changes in the data changes on the 
 | **E1** | Relationship to Part B | **Beside it, not part of it.** | Part B still needs its own build per `001-part-b/SPEC.md` §10. The hours are additive and must be logged as such. This unit does **not** reduce Part B's remaining work. |
 | **E2** | How it is consumed | **Both** — notebook for the working, static HTML for the grader. | Interactivity must survive `nbconvert`. That rules out `ipywidgets`, whose callbacks need a live kernel. The explainer is plain inline JS over precomputed JSON. |
 | **E3** | Simulator scope | **Replay the real queries only.** | Lookup against `query_classes.csv`, not embeddings. Traceable to Part A by construction; consistent with SPEC §2 (the class comes from the CSV, not from a threshold). A query not in the log says so honestly — that is itself in character. **No embedding work in this unit.** |
-| **E4** | Live vs supplied data | **Both, visibly separated.** | Every live observation pinned with market · city · query · date. Two distinct visual treatments so no reader can merge them. `PLAN.md` §7 lists conflating the catalogues as a trap. |
+| **E4** | Live vs supplied data | **Both, visibly separated.** | Every live observation pinned with market · city · query · date. Two distinct visual treatments so no reader can merge them. `FINDINGS.md` §5e opens with the catalogue-conflation trap. |
 | **E5** | Live probe | **Run P1–P5 first, via browser automation, read-only.** | ~45 min before the build. P4 can move a number in `002-recoverability`. See "Dependency" below. |
 | **E6** | Contested numbers | **Route around them.** | No adrenaline share (47.6% vs 59.9%, known issue #1). No supply-void aggregate pair count (185/1,691 vs 178/1,689, #6). No pair-universe figure (185 vs 191, #7). **Per-cell counts only** — GB helicopter tour 100/100/0 — which are identical under both rules and directly computed. |
 | **E7** | Technical depth | **Concrete request lifecycle.** | Real GraphQL request → what the ranker does with the tokens → the JSON that returns → what is absent from it. Anchored on captured payloads, expandable per stage. Not a search-engine tutorial. |

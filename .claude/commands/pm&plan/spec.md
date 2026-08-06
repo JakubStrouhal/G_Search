@@ -26,6 +26,12 @@ a spec is where a drifted number becomes a built thing.
 ## 3. Write `SPEC.md`
 
 ```markdown
+---
+created: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+note: One sentence — what changed and why. Overwritten in place, never appended.
+---
+
 # <title> — spec
 
 Approved to build <YYYY-MM-DD>. Brief: `BRIEF.md` in this folder.
@@ -61,6 +67,9 @@ Numbered. Put whatever could invalidate the plan **first**, before any UI work.
 ## Decision log
 Every open question the brief left, resolved here, with the reason. One row each.
 ```
+
+Both dates are today's, and `note` says in one sentence what this spec settles and why.
+`.claude/hooks/unit-frontmatter.sh` maintains `updated` afterwards; it cannot author `note`.
 
 ## 4. Rules
 

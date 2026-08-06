@@ -47,6 +47,12 @@ reporting success is not evidence; output is.
 ## 5. Write `RESULT.md` beside the spec
 
 ```markdown
+---
+created: <YYYY-MM-DD>
+updated: <YYYY-MM-DD>
+note: One sentence — what changed and why. Overwritten in place, never appended.
+---
+
 # <title> — result
 
 Built <YYYY-MM-DD>. Spec: `SPEC.md` in this folder.
@@ -67,6 +73,9 @@ What building it taught that specifying it did not.
 The brief requires a log: hours, AI tools used for what, and what they got wrong that you caught.
 ```
 
+Both dates are today's, and `note` says in one sentence what this build changed and why.
+`.claude/hooks/unit-frontmatter.sh` maintains `updated` afterwards; it cannot author `note`.
+
 ## 6. Update `INDEX.md`
 
 Flip the Pending rows this closed to ✅, replacing the Note with what was established — a number, a
@@ -78,9 +87,39 @@ path, a verdict — not "done". Add any defect the build created to Known issues
 Append one row per `.claude/decision-row.md` — **only if building decided something the spec did
 not**. Executing an approved spec is not a decision; that is what `git log` records.
 
-## 8. Report, ≤6 lines
+## 8. Independent validation against the spec
 
-What runs · what does not · what is unverified · where the spec was wrong · the next action.
+Last step, and it is not optional. `/review` is a *decision* gate before work; this is a
+*conformance* check after it — a second reader who has the spec and the diff and no stake in the
+build having gone well. Shell out to the same reviewer the `/review` hook uses, in its fourth mode:
+
+```bash
+bash .claude/hooks/codex-interview.sh implement docs/analysis/<nnn>-<slug>/SPEC.md
+```
+
+The script collects the diff itself — `git diff HEAD` plus `git status --short`, because most units
+here are still untracked and a build made of new files produces no `git diff` at all. Codex is
+read-only and ephemeral: it validates, it does not implement. Its last line is
+`VERDICT: MATCHES SPEC | DEVIATES | CANNOT TELL`.
+
+Exit status is the part that matters:
+
+| Exit | Meaning | What to do |
+|---|---|---|
+| 0 | Codex ran; the report is its verdict | Verify each material finding against the repo yourself, exactly as under `/review`. Codex saying it is not evidence. |
+| 2 | Bad mode, or no spec at that path | Fix the path and re-run. Do not skip. |
+| 3 | Codex did not complete | Report **"spec conformance unvalidated — reviewer unavailable"**. Never a pass. |
+
+**An unavailable reviewer is unknown, not approval.** If the exit status is 3, or the report says
+Codex did not complete, say so in the report in those words and do not present the build as
+validated against its spec. If the verdict is `DEVIATES` or `CANNOT TELL`, name the deviation and
+reconsider any `INDEX.md` row you flipped to ✅ in step 6 — a row marked done on a build that does
+not match its spec is exactly the drift this pipeline exists to prevent.
+
+## 9. Report, ≤6 lines
+
+What runs · what does not · what is unverified · **Codex's verdict, or that it was unavailable** ·
+where the spec was wrong · the next action.
 
 > Half-done is reported as half-done. A build reported as working that has not been run is the one
 > failure this repo cannot afford — it is graded on whether claims survive checking.

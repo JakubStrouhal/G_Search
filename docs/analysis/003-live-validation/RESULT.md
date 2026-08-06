@@ -1,3 +1,9 @@
+---
+created: 2026-08-06
+updated: 2026-08-06
+note: Results of P1-P6 replayed read-only against live groupon.co.uk and groupon.pl on 2026-08-06, with the instrument checks that guard them.
+---
+
 # Live validation P1–P6 — results
 
 Run 2026-08-06 against **www.groupon.co.uk** (division `london`) and **www.groupon.pl** (division
@@ -111,7 +117,7 @@ the mildest case. So the prediction was confirmed as stated; what is unsupported
 
 Widening F2's range was the pre-registered response to a **failure**, and applying it to a partial
 replication would import a live-catalogue result into a supplied-data measurement — the
-catalogue-conflation trap `PLAN.md` §7 names. §5b's 42.3pp gap is measured in the supplied data and
+catalogue-conflation trap `FINDINGS.md` §5e names. §5b's 42.3pp gap is measured in the supplied data and
 nothing here touches it. **Recorded instead as a stated limit:** the live mechanism does not license
 the claim that the diacritic penalty is general.
 
