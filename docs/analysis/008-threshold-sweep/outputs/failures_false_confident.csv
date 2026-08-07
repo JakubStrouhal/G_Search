@@ -1,0 +1,72 @@
+market,q,coverage,failure_class,searches,deads,thin_n,max_sim,nearest_title
+FR,sallee de sport,absent,F1_silent_substitution,1,0,True,0.764637673626914,Abonnement Salle de Sport
+FR,salle d sport,absent,F1_silent_substitution,1,0,True,0.760276482122125,Abonnement Salle de Sport
+FR,salle de  sport,absent,F1_silent_substitution,1,1,True,0.757586113430594,Abonnement Salle de Sport
+FR,salle e sport,absent,F1_silent_substitution,1,0,True,0.752792535880873,Abonnement Salle de Sport
+DE,stadrundfahrt,absent,F1_silent_substitution,1,1,True,0.752715377381267,Stadtführung
+ES,limpieza faciaal,absent,F1_silent_substitution,1,0,True,0.747559532959652,Tratamiento Facial
+DE,stadtrandfahrt,absent,F1_silent_substitution,1,0,True,0.740301136827011,Stadtführung
+DE,stadtrunfahrt,absent,F1_silent_substitution,1,1,True,0.734250642828937,Stadtführung
+DE,stadtruundfahrt,absent,F4_supply_void,1,1,True,0.731011764347144,Stadtführung
+DE,stadtrundffahrt,absent,F1_silent_substitution,1,0,True,0.714143923435303,Stadtführung
+DE,stadtrudfahrt,absent,F1_silent_substitution,1,0,True,0.707012936945229,Stadtführung
+FR,coach sportiif,absent,F1_silent_substitution,2,2,True,0.676281290941104,Coaching Personnel
+PL,trenir personalny,absent,F1_silent_substitution,1,0,True,0.664640267629632,Trening Personalny
+ES,peluqueeria,absent,F1_silent_substitution,1,0,True,0.644877802831324,Corte y Peinado
+FR,visite guiee,absent,F1_silent_substitution,1,0,True,0.640662551420087,Visite Guidée
+GB,haircuut,absent,F1_silent_substitution,3,1,True,0.625030852856119,Hair Styling & Cut
+GB,hair couour,absent,F1_silent_substitution,1,0,True,0.615675697020648,Hair Styling & Cut
+GB,personai trainer,absent,F1_silent_substitution,1,1,True,0.59919070618351,Personal Training Package
+FR,mancure,absent,F4_supply_void,1,1,True,0.589210286179767,Manucure & Pédicure
+FR,maosage sportif,absent,F1_silent_substitution,1,0,True,0.588687093751704,Cours Illimités
+FR,sale de sport,absent,F4_supply_void,1,1,True,0.587362802159498,Abonnement Salle de Sport
+DE,persoual trainer,absent,F1_silent_substitution,1,0,True,0.582355228417444,Personal Training Paket
+PL,manicre,absent,F1_silent_substitution,1,1,True,0.580642738649361,Manicure i Pedicure
+DE,esape room,absent,F1_silent_substitution,1,0,True,0.571565551441734,Escape Room Erlebnis
+FR,escapu game,absent,F1_silent_substitution,1,1,True,0.567830641370629,Expérience Escape Game
+ES,entrenadoor personal,absent,F1_silent_substitution,2,0,True,0.567591881421168,Entrenamiento Personal
+GB,maniccure,absent,F1_silent_substitution,1,1,True,0.56208740535004,Manicure & Pedicure Package
+ES,entrenadorpersonal,absent,F1_silent_substitution,1,0,True,0.561819689328065,Entrenamiento Personal
+GB,cityitour,absent,F1_silent_substitution,1,0,True,0.560410759289954,Guided City Tour
+GB,persona trainer,absent,F1_silent_substitution,1,0,True,0.560172846332747,Personal Training Package
+FR,soin viage,absent,F1_silent_substitution,1,0,True,0.552195736257689,Visite Guidée
+ES,escae room,absent,F1_silent_substitution,1,0,True,0.543898257249514,Experiencia Escape Room
+DE,kart ahren,absent,F1_silent_substitution,1,0,True,0.534223262575157,Kartbahn Rennen
+GB,go krting,absent,F1_silent_substitution,1,1,True,0.533982006960108,Go-Karting Session
+FR,coach spoutif,absent,F1_silent_substitution,1,0,True,0.533721188819771,Coaching Personnel
+PL,escaape room,absent,F1_silent_substitution,1,1,True,0.532801524544493,Escape Room Przygoda
+GB,prsonal trainer,absent,F1_silent_substitution,1,1,True,0.529408281341528,Personal Training Package
+ES,karrting,absent,F1_silent_substitution,1,1,True,0.528210017003997,Sesión de Karting
+ES,paseo en  globo,absent,F4_supply_void,1,1,True,0.527942197288392,Tour Guiado
+ES,paseo en globo,absent,F4_supply_void,72,72,False,0.527942197288392,Tour Guiado
+FR,salle de sort,absent,F4_supply_void,1,1,True,0.522989967259504,Expérience Escape Game
+FR,esape game,absent,F4_supply_void,1,1,True,0.52290213108072,Expérience Escape Game
+ES,limpieza facual,absent,F1_silent_substitution,1,0,True,0.507764789721581,Tratamiento Facial
+PL,trenner personalny,absent,F1_silent_substitution,1,0,True,0.504789711186831,Trening Personalny
+DE,peronal trainer,absent,F4_supply_void,1,1,True,0.502160667857965,Personal Training Paket
+DE,kart ffahren,absent,F1_silent_substitution,1,1,True,0.500025182984941,Kartbahn Rennen
+DE,statrundfahrt,absent,F1_silent_substitution,1,1,True,0.497027796741189,Kartbahn Rennen
+PL,przedłużanieurzęs,absent,F1_silent_substitution,1,0,True,0.496327370624104,Tor Kartingowy
+DE,karrt fahren,absent,F1_silent_substitution,1,0,True,0.492534367005381,Kartbahn Rennen
+GB,go karuing,absent,F4_supply_void,1,1,True,0.488926316647795,Go-Karting Session
+PL,trener peersonalny,absent,F1_silent_substitution,1,0,True,0.4883250039846,Trening Personalny
+ES,kartinng,absent,F1_silent_substitution,1,0,True,0.488075664009665,Sesión de Karting
+GB,faccial,absent,F1_silent_substitution,1,0,True,0.487639456250657,Facial Treatment
+DE,kart faaren,absent,F1_silent_substitution,1,0,True,0.485904633998995,Kartbahn Rennen
+GB,go karoing,absent,F1_silent_substitution,1,0,True,0.484771714068313,Go-Karting Session
+ES,hambuguesa,absent,F1_silent_substitution,1,0,True,0.484670139708452,Menú de 3 Platos para Dos
+FR,coach spportif,absent,F1_silent_substitution,1,1,True,0.483344965184615,Coaching Personnel
+ES,passeo en globo,absent,F4_supply_void,1,1,True,0.480986383137694,Tour Guiado
+FR,escaie game,absent,F1_silent_substitution,1,0,True,0.476751751675701,Expérience Escape Game
+DE,manikre,absent,F1_silent_substitution,1,0,True,0.476392169877601,Maniküre & Pediküre
+DE,sportmaassage,absent,F1_silent_substitution,1,0,True,0.474927339670388,Unbegrenzte Kurse
+FR,salle de spirt,absent,F1_silent_substitution,1,1,True,0.471870642716028,Expérience Escape Game
+PL,przedłużanie rzas,absent,F1_silent_substitution,1,1,True,0.469731246442952,Tor Kartingowy
+DE,kart fohren,absent,F1_silent_substitution,1,0,True,0.467268445488984,Kartbahn Rennen
+PL,lot heikopterem,absent,F4_supply_void,1,1,True,0.464916501651227,Tor Kartingowy
+DE,maniküe,absent,F4_supply_void,1,1,True,0.463442619257315,Maniküre & Pediküre
+ES,peluqueia,absent,F1_silent_substitution,1,0,True,0.45816031098371,Manicura y Pedicura
+FR,coach sprtif,absent,F1_silent_substitution,1,1,True,0.452498890160985,Coaching Personnel
+DE,hubsehrauber rundflug,absent,F4_supply_void,1,1,True,0.45044982460131,Kartbahn Rennen
+PL,paitball,absent,F1_silent_substitution,1,0,True,0.449577063574208,Tor Kartingowy
+DE,maniküue,absent,F1_silent_substitution,1,0,True,0.442939496882101,Maniküre & Pediküre

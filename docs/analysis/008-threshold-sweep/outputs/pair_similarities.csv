@@ -1,0 +1,752 @@
+market,q,coverage,failure_class,searches,deads,thin_n,max_sim,nearest_title
+ES,aaroceria,absent,F1_silent_substitution,1,0,True,0.298538328088346,Experiencia Escape Room
+ES,arrocerea,absent,F4_supply_void,1,1,True,0.342391059774265,Cena con Maridaje
+ES,arroceria,plausible,BASELINE_still_40pct_dead,54,23,False,0.38284197380977,Cena con Maridaje
+ES,arroceriia,absent,F1_silent_substitution,1,1,True,0.308709919452667,Sesión de Masaje y Spa
+ES,arrocerria,absent,F1_silent_substitution,1,0,True,0.380707593132886,Cena con Maridaje
+ES,arroeria,absent,F1_silent_substitution,1,1,True,0.347310896585958,Cena con Maridaje
+GB,bacck massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.601324212314339,Full Body Massage Package
+GB,back  massage,stocked,F5_ranking,1,1,True,0.562241738577489,Full Body Massage Package
+GB,back masoage,absent,F1_silent_substitution,1,0,True,0.238267556532175,Manicure & Pedicure Package
+DE,back massage,stocked,F2_language,2,2,True,0.548005022406007,Wohlfühl-Massage
+ES,back massage,stocked,F2_language,13,9,False,0.519699262353795,Tratamiento de Bienestar
+FR,back massage,stocked,F2_language,7,7,True,0.566431332508709,Forfait Massage Bien-être
+GB,back massage,stocked,BASELINE_still_40pct_dead,78,27,False,0.562241738577489,Full Body Massage Package
+GB,backk massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.581869686730524,Full Body Massage Package
+GB,baek massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.652651665088843,Full Body Massage Package
+GB,bick massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.570459995893241,Full Body Massage Package
+GB,boeling,absent,F1_silent_substitution,1,0,True,0.254568218095816,Three-Course Meal for Two
+ES,bolera,absent,F1_silent_substitution,48,21,False,0.232911243016218,Cena con Maridaje
+DE,boling,absent,F1_silent_substitution,1,0,True,0.265565062833768,Degustationsmenü
+DE,boowling,absent,F1_silent_substitution,1,0,True,0.217805143333133,Kartbahn Rennen
+DE,bowing,absent,F1_silent_substitution,1,0,True,0.224834650754954,Maniküre & Pediküre
+GB,bowing,absent,F1_silent_substitution,1,0,True,0.168368523065975,Go-Karting Session
+DE,bowlig,absent,F1_silent_substitution,1,1,True,0.33300755429088,3-Gänge-Menü für Zwei
+GB,bowlig,absent,F4_supply_void,1,1,True,0.295503656984266,Three-Course Meal for Two
+DE,bowliing,absent,F1_silent_substitution,1,0,True,0.24352227992978,3-Gänge-Menü für Zwei
+FR,bowliing,absent,F1_silent_substitution,1,0,True,0.226823814903981,Menu Dégustation
+DE,bowling,absent,F1_silent_substitution,57,21,False,0.182172937678661,Dinner mit Weinbegleitung
+ES,bowling,absent,F1_silent_substitution,5,4,True,0.171202030514223,Sesión de Karting
+FR,bowling,absent,F1_silent_substitution,57,28,False,0.169803587899668,Expérience Escape Game
+GB,bowling,absent,F1_silent_substitution,73,31,False,0.188529383452525,Three-Course Meal for Two
+PL,bowling,absent,F4_supply_void,2,2,True,0.185640236750798,Kolacja z Winem
+DE,bowlinng,absent,F1_silent_substitution,2,0,True,0.272325336933153,3-Gänge-Menü für Zwei
+DE,bowlng,absent,F4_supply_void,2,2,True,0.235948469201937,Dinner mit Weinbegleitung
+FR,bowlng,absent,F1_silent_substitution,1,0,True,0.209621093015895,Expérience Escape Game
+DE,bowlong,absent,F1_silent_substitution,1,1,True,0.229661737761085,3-Gänge-Menü für Zwei
+FR,bowlong,absent,F1_silent_substitution,1,0,True,0.272722954096713,Visite Guidée
+GB,bowuing,absent,F1_silent_substitution,1,0,True,0.222780766024965,Go-Karting Session
+ES,branch,absent,F1_silent_substitution,1,0,True,0.205177143930707,Sesión de Karting
+DE,brnch,absent,F1_silent_substitution,2,0,True,0.229926860571662,Degustationsmenü
+FR,brnch,absent,F1_silent_substitution,1,1,True,0.298202561689392,Session Karting
+GB,brnch,absent,F1_silent_substitution,1,0,True,0.282384704509678,Go-Karting Session
+PL,brnch,absent,F1_silent_substitution,1,0,True,0.263087352610356,Tor Kartingowy
+DE,brrunch,absent,F1_silent_substitution,1,0,True,0.208806041839444,Degustationsmenü
+FR,brrunch,absent,F4_supply_void,2,2,True,0.295392930507668,Session Karting
+GB,brunah,absent,F1_silent_substitution,1,0,True,0.206139987890126,Go-Karting Session
+DE,brunch,plausible,F3_geographic,59,31,False,0.473978622805627,3-Gänge-Menü für Zwei
+ES,brunch,plausible,F3_geographic,64,32,False,0.436150254106292,Menú Degustación
+FR,brunch,plausible,BASELINE_still_40pct_dead,57,21,False,0.410756711418597,Menu 3 Plats pour Deux
+GB,brunch,plausible,BASELINE_still_40pct_dead,76,31,False,0.402761971785991,Three-Course Meal for Two
+PL,brunch,plausible,F3_geographic,35,20,False,0.488528259853177,Menu 3-Daniowe dla Dwojga
+FR,bruneh,absent,F1_silent_substitution,1,1,True,0.29651633477237,Visite Guidée
+FR,brunh,absent,F1_silent_substitution,1,0,True,0.31128556266853,Session Karting
+ES,brunih,absent,F1_silent_substitution,1,1,True,0.332102954387703,Cena con Maridaje
+DE,bruoch,absent,F1_silent_substitution,1,0,True,0.250541381521839,Degustationsmenü
+GB,bruuch,absent,F1_silent_substitution,1,0,True,0.25035882733729,Go-Karting Session
+ES,bruunch,absent,F1_silent_substitution,1,0,True,0.325316098068635,Sesión de Karting
+ES,bunch,absent,F1_silent_substitution,1,1,True,0.340769769090974,Clases Ilimitadas
+FR,bunch,absent,F1_silent_substitution,1,0,True,0.252706229041567,Cours Illimités
+FR,buraer,absent,F1_silent_substitution,1,0,True,0.328343205942198,Expérience Escape Game
+FR,bureer,absent,F1_silent_substitution,1,0,True,0.32282155094319,Visite Guidée
+DE,burgeer,absent,F1_silent_substitution,1,0,True,0.304164400698384,Stadtführung
+FR,burgeer,absent,F1_silent_substitution,1,1,True,0.306032264668304,Visite Guidée
+DE,burger,plausible,BASELINE_still_40pct_dead,53,15,False,0.397334695259536,3-Gänge-Menü für Zwei
+FR,burger,plausible,F3_geographic,39,19,False,0.343675917970114,Menu 3 Plats pour Deux
+PL,burger,plausible,BASELINE_still_40pct_dead,25,11,False,0.355635943651364,Menu 3-Daniowe dla Dwojga
+DE,burgr,absent,F4_supply_void,1,1,True,0.220595747232439,Escape Room Erlebnis
+FR,burrger,absent,F1_silent_substitution,1,0,True,0.27548711244268,Session Karting
+DE,buurger,absent,F4_supply_void,3,2,True,0.288088070636302,3-Gänge-Menü für Zwei
+PL,buurger,absent,F1_silent_substitution,1,0,True,0.34257435963889,Tor Kartingowy
+ES,caossfit,absent,F1_silent_substitution,1,1,True,0.328946623363535,Sesión de Karting
+FR,ciffeur,absent,F4_supply_void,1,1,True,0.352352743481862,Menu Dégustation
+GB,city toour,absent,F1_silent_substitution,1,0,True,0.368189793008113,Guided City Tour
+GB,city tor,absent,F1_silent_substitution,2,0,True,0.317928634102812,Guided City Tour
+DE,city tour,stocked,F2_language,4,2,True,0.653041406559665,Stadtführung
+ES,city tour,stocked,F2_language,5,4,True,0.704640486068962,Tour Guiado
+FR,city tour,stocked,F2_language,4,3,True,0.499584510513906,Visite Guidée
+GB,city tour,stocked,BASELINE_still_40pct_dead,72,31,False,0.600026726714881,Guided City Tour
+PL,city tour,stocked,F2_language,2,2,True,0.495267568326319,Zwiedzanie z Przewodnikiem
+GB,city touur,absent,F1_silent_substitution,1,1,True,0.395521166610048,Guided City Tour
+GB,city tuur,absent,F1_silent_substitution,1,0,True,0.335775474561857,Guided City Tour
+GB,cityitour,absent,F1_silent_substitution,1,0,True,0.560410759289954,Guided City Tour
+ES,clae de yoga,plausible,BASELINE_still_40pct_dead,1,0,True,0.46064083630078,Pase de Gimnasio
+ES,clase  de yoga,plausible,F5_ranking,1,1,True,0.517202876781262,Entrenamiento Personal
+ES,clase de yoga,plausible,BASELINE_still_40pct_dead,69,25,False,0.517202876781262,Entrenamiento Personal
+ES,clse de yoga,plausible,BASELINE_still_40pct_dead,1,0,True,0.514921387850776,Tratamiento de Bienestar
+FR,coach spartif,stocked,BASELINE_still_40pct_dead,1,0,True,0.562942877517449,Coaching Personnel
+FR,coach sportif,stocked,F5_ranking,37,18,False,0.626313772483222,Coaching Personnel
+FR,coach sportiif,absent,F1_silent_substitution,2,2,True,0.676281290941104,Coaching Personnel
+FR,coach spoutif,absent,F1_silent_substitution,1,0,True,0.533721188819771,Coaching Personnel
+FR,coach spportif,absent,F1_silent_substitution,1,1,True,0.483344965184615,Coaching Personnel
+FR,coach sprtif,absent,F1_silent_substitution,1,1,True,0.452498890160985,Coaching Personnel
+FR,coiefeur,absent,F1_silent_substitution,1,0,True,0.395341999995861,Visite Guidée
+FR,coiffeeur,absent,F1_silent_substitution,1,0,True,0.309311005895065,Visite Guidée
+FR,coiffer,absent,F1_silent_substitution,1,1,True,0.235192214726259,Session Karting
+FR,coiffeur,stocked,BASELINE_still_40pct_dead,51,13,False,0.653731691214776,Coupe & Coiffage
+FR,coifffeur,absent,F1_silent_substitution,1,0,True,0.23774100080669,Soin du Visage
+FR,coloation,absent,F1_silent_substitution,2,2,True,0.312414592114288,Manucure & Pédicure
+FR,coloraation,absent,F1_silent_substitution,1,0,True,0.340097976823726,Soin du Visage
+FR,coloration,stocked,BASELINE_still_40pct_dead,53,22,False,0.353570748440228,Soin du Visage
+DE,couples massage,stocked,F2_language,1,1,True,0.603471610033365,Wohlfühl-Massage
+ES,couples massage,stocked,F2_language,8,6,True,0.56993034961334,Sesión de Masaje y Spa
+FR,couples massage,stocked,F2_language,8,4,True,0.598616373786469,Forfait Massage Bien-être
+GB,couples massage,stocked,BASELINE_still_40pct_dead,70,29,False,0.582345992679874,Full Body Massage Package
+PL,couples massage,stocked,F2_language,2,1,True,0.632299680072251,Masaż Relaksacyjny Pakiet
+GB,couples massagge,absent,F1_silent_substitution,1,0,True,0.164930347767043,Three-Course Meal for Two
+GB,couplesmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.574128133266434,Full Body Massage Package
+GB,couplles massage,stocked,F5_ranking,2,1,True,0.654683485951631,Full Body Massage Package
+FR,cours de  yoga,plausible,BASELINE_still_40pct_dead,1,0,True,0.518881559371948,Modelage Détente
+FR,cours de yoga,plausible,BASELINE_still_40pct_dead,42,12,False,0.518881559371948,Modelage Détente
+FR,crêeerie,absent,F4_supply_void,1,1,True,0.399970549328558,Visite Guidée
+FR,crêperie,plausible,BASELINE_still_40pct_dead,41,16,False,0.497907936323649,Menu Dégustation
+FR,crêpperie,absent,F1_silent_substitution,1,0,True,0.319111501296231,Expérience Escape Game
+FR,crosafit,absent,F1_silent_substitution,1,1,True,0.232941015538108,Soin du Visage
+DE,crosfit,absent,F1_silent_substitution,1,1,True,0.300983846187626,Maniküre & Pediküre
+FR,crosfit,absent,F1_silent_substitution,1,0,True,0.246564494630997,Soin du Visage
+PL,crosfit,absent,F1_silent_substitution,1,1,True,0.242970037413224,Karnet na Siłownię
+PL,crosifit,absent,F1_silent_substitution,1,0,True,0.207601989483372,Zabieg na Twarz
+ES,crossffit,absent,F1_silent_substitution,1,0,True,0.262582341547265,Sesión de Karting
+FR,crossffit,absent,F4_supply_void,1,1,True,0.25870442182914,Expérience Escape Game
+ES,crossfiit,plausible,F2_language,1,1,True,0.300051438796254,Sesión de Karting
+GB,crossfiit,plausible,F5_ranking,1,1,True,0.278243245502585,Go-Karting Session
+DE,crossfit,plausible,F5_ranking,62,28,False,0.254326383496944,Maniküre & Pediküre
+ES,crossfit,plausible,BASELINE_still_40pct_dead,72,31,False,0.311953823785609,Pase de Gimnasio
+FR,crossfit,plausible,F3_geographic,59,27,False,0.246733970064127,Session Karting
+GB,crossfit,plausible,BASELINE_still_40pct_dead,84,30,False,0.26975549209381,Go-Karting Session
+PL,crossfit,plausible,F5_ranking,22,13,False,0.301542970860077,Karnet na Siłownię
+ES,crossft,absent,F1_silent_substitution,2,1,True,0.258465447422818,Sesión de Karting
+FR,crossft,absent,F1_silent_substitution,1,0,True,0.24637285091111,Expérience Escape Game
+FR,crossit,absent,F1_silent_substitution,1,1,True,0.235679998335966,Visite Guidée
+DE,crossoit,absent,F1_silent_substitution,1,0,True,0.245030463926744,Maniküre & Pediküre
+DE,crosssfit,absent,F1_silent_substitution,2,1,True,0.225739368972654,Kartbahn Rennen
+ES,crosssfit,absent,F1_silent_substitution,2,1,True,0.237059913837976,Sesión de Karting
+DE,crrossfit,plausible,F2_language,1,1,True,0.253716408320394,Maniküre & Pediküre
+ES,crrossfit,plausible,F2_language,1,1,True,0.238254319902115,Sesión de Karting
+GB,crrossfit,plausible,BASELINE_still_40pct_dead,1,0,True,0.168379584284613,Go-Karting Session
+ES,crssfit,absent,F1_silent_substitution,1,0,True,0.282097748401473,Sesión de Karting
+FR,curs de yoga,plausible,F5_ranking,1,1,True,0.512487947940826,Modelage Détente
+GB,deep tissue aassage,stocked,F5_ranking,1,1,True,0.223041556919746,Facial Treatment
+DE,deep tissue massage,stocked,F2_language,11,7,False,0.56696892955143,Wohlfühl-Massage
+ES,deep tissue massage,stocked,F2_language,8,7,True,0.520981933895027,Circuito Spa con Masaje
+FR,deep tissue massage,stocked,F2_language,6,5,True,0.54233887539279,Forfait Massage Bien-être
+GB,deep tissue massage,stocked,BASELINE_still_40pct_dead,77,31,False,0.576702814888299,Full Body Massage Package
+PL,deep tissue massage,stocked,F2_language,5,3,True,0.597085107589022,Masaż Relaksacyjny Pakiet
+GB,deep tissue masssage,stocked,F5_ranking,1,1,True,0.169391274452209,Full Body Massage Package
+GB,deep tissue mssage,stocked,F5_ranking,1,1,True,0.19985423982144,Facial Treatment
+GB,deep tissuo massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.586765523781065,Full Body Massage Package
+GB,deep tissuue massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.586654733020636,Full Body Massage Package
+GB,deeptissue massage,stocked,F5_ranking,1,1,True,0.563045136565554,Full Body Massage Package
+GB,dep tissue massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.602257108150235,Full Body Massage Package
+GB,eaelash extensions,absent,F1_silent_substitution,1,0,True,0.174239977293047,Unlimited Fitness Classes
+GB,eelash extensions,absent,F1_silent_substitution,1,0,True,0.25933526289429,Unlimited Fitness Classes
+ES,entrenadoor personal,absent,F1_silent_substitution,2,0,True,0.567591881421168,Entrenamiento Personal
+ES,entrenador personal,stocked,BASELINE_still_40pct_dead,56,16,False,0.578304287902762,Entrenamiento Personal
+ES,entrenadorpersonal,absent,F1_silent_substitution,1,0,True,0.561819689328065,Entrenamiento Personal
+ES,entrnador personal,absent,F4_supply_void,1,1,True,0.335979789732098,Experiencia Escape Room
+ES,entrrenador personal,absent,F4_supply_void,1,1,True,0.394867636608733,Experiencia Escape Room
+FR,esape game,absent,F4_supply_void,1,1,True,0.52290213108072,Expérience Escape Game
+DE,esape room,absent,F1_silent_substitution,1,0,True,0.571565551441734,Escape Room Erlebnis
+PL,escaape room,absent,F1_silent_substitution,1,1,True,0.532801524544493,Escape Room Przygoda
+ES,escae room,absent,F1_silent_substitution,1,0,True,0.543898257249514,Experiencia Escape Room
+FR,escaie game,absent,F1_silent_substitution,1,0,True,0.476751751675701,Expérience Escape Game
+FR,escape ame,stocked,BASELINE_still_40pct_dead,1,0,True,0.480196954000247,Expérience Escape Game
+FR,escape game,stocked,F3_geographic,52,27,False,0.73644092239548,Expérience Escape Game
+ES,escape reom,stocked,BASELINE_still_40pct_dead,1,0,True,0.387545260797845,Experiencia Escape Room
+GB,escape rom,stocked,BASELINE_still_40pct_dead,2,0,True,0.459557591333908,Escape Room Experience
+DE,escape room,stocked,F3_geographic,56,28,False,0.753705394377267,Escape Room Erlebnis
+ES,escape room,stocked,BASELINE_still_40pct_dead,60,18,False,0.787364660316533,Experiencia Escape Room
+FR,escape room,stocked,F5_ranking,5,5,True,0.655401281009864,Expérience Escape Game
+GB,escape room,stocked,BASELINE_still_40pct_dead,87,28,False,0.735005354283748,Escape Room Experience
+PL,escape room,stocked,F3_geographic,21,12,False,0.741991925600941,Escape Room Przygoda
+DE,escape rooom,stocked,F2_language,1,1,True,0.534911572933201,Escape Room Erlebnis
+GB,escape rooom,stocked,BASELINE_still_40pct_dead,1,0,True,0.531112952100698,Escape Room Experience
+GB,escape rroom,stocked,BASELINE_still_40pct_dead,1,0,True,0.636893689632579,Escape Room Experience
+ES,escapee room,stocked,BASELINE_still_40pct_dead,1,0,True,0.778644508992405,Experiencia Escape Room
+DE,escaperoom,stocked,BASELINE_still_40pct_dead,1,0,True,0.753098263413244,Escape Room Erlebnis
+ES,escaperoom,stocked,F5_ranking,2,2,True,0.794181182081282,Experiencia Escape Room
+FR,escapu game,absent,F1_silent_substitution,1,1,True,0.567830641370629,Expérience Escape Game
+ES,escpe room,stocked,BASELINE_still_40pct_dead,1,0,True,0.479216975440428,Experiencia Escape Room
+GB,escpe room,stocked,F5_ranking,2,1,True,0.389240933747316,Escape Room Experience
+ES,extensaones pestañas,absent,F1_silent_substitution,1,1,True,0.332926015520441,Sesión de Karting
+FR,extension de cels,absent,F4_supply_void,1,1,True,0.274207380508499,Session Karting
+FR,extension de cils,absent,F1_silent_substitution,58,20,False,0.283373287815658,Session Karting
+ES,extensiones pestañas,absent,F1_silent_substitution,52,25,False,0.311417498597804,Sesión de Karting
+ES,extensiones pestñas,absent,F1_silent_substitution,1,1,True,0.238771274016698,Sesión de Karting
+ES,extensiones peutañas,absent,F1_silent_substitution,1,0,True,0.249660983883764,Sesión de Karting
+ES,extensioones pestañas,absent,F4_supply_void,1,1,True,0.311648007329943,Circuito Spa con Masaje
+FR,exttension de cils,absent,F1_silent_substitution,1,1,True,0.22878787680106,Session Karting
+GB,eyelasa extensions,absent,F1_silent_substitution,1,0,True,0.234923359137409,Facial Treatment
+GB,eyelash extensiens,absent,F1_silent_substitution,1,1,True,0.400834769134964,Facial Treatment
+DE,eyelash extensions,absent,F1_silent_substitution,4,4,True,0.401038540214364,Gesichtsbehandlung
+ES,eyelash extensions,absent,F1_silent_substitution,5,5,True,0.400327706503009,Tratamiento Facial
+FR,eyelash extensions,absent,F1_silent_substitution,5,1,True,0.390677917281543,Soin du Visage
+GB,eyelash extensions,absent,F1_silent_substitution,87,38,False,0.396356844142057,Facial Treatment
+GB,eyelash extesions,absent,F1_silent_substitution,2,1,True,0.412447603065636,Facial Treatment
+GB,eyelashextensions,absent,F1_silent_substitution,1,0,True,0.34183048746144,Facial Treatment
+GB,faccial,absent,F1_silent_substitution,1,0,True,0.487639456250657,Facial Treatment
+DE,facial,stocked,F2_language,4,4,True,0.564747337063659,Gesichtsbehandlung
+ES,facial,stocked,F2_language,7,6,True,0.622067450078706,Tratamiento Facial
+FR,facial,stocked,F2_language,4,4,True,0.619141482166097,Soin du Visage
+GB,facial,stocked,BASELINE_still_40pct_dead,86,35,False,0.589827762215385,Facial Treatment
+PL,facial,stocked,F2_language,5,5,True,0.553073425200034,Zabieg na Twarz
+GB,facil,absent,F4_supply_void,1,1,True,0.307094025802933,Go-Karting Session
+DE,fallsahirmspringen,absent,F4_supply_void,1,1,True,0.349321472321259,Maniküre & Pediküre
+DE,fallschirmspringen,absent,F4_supply_void,64,64,False,0.176737787140238,Kartbahn Rennen
+DE,fallschirmspringn,absent,F4_supply_void,1,1,True,0.180767725407504,Kartbahn Rennen
+DE,fallschirmspringun,absent,F4_supply_void,1,1,True,0.173141463483253,Kartbahn Rennen
+DE,fallschirmsprinien,absent,F4_supply_void,1,1,True,0.166118090384121,Escape Room Erlebnis
+DE,fallschirmsspringen,absent,F4_supply_void,1,1,True,0.154072500246185,Kartbahn Rennen
+DE,fallschirrmspringen,absent,F4_supply_void,1,1,True,0.315496673552398,Maniküre & Pediküre
+DE,fallschirspringen,absent,F4_supply_void,1,1,True,0.276693837445631,Maniküre & Pediküre
+DE,fallscirmspringen,absent,F4_supply_void,1,1,True,0.242833149423136,Kartbahn Rennen
+DE,fallshirmspringen,absent,F4_supply_void,1,1,True,0.28226870923971,Kartbahn Rennen
+GB,fcial,absent,F1_silent_substitution,1,0,True,0.201183736324316,Facial Treatment
+DE,finessstudio,absent,F1_silent_substitution,1,1,True,0.376256197990475,Maniküre & Pediküre
+DE,fitnessatudio,stocked,BASELINE_still_40pct_dead,1,0,True,0.589816301344597,Unbegrenzte Kurse
+DE,fitnessstodio,stocked,BASELINE_still_40pct_dead,1,0,True,0.725262881643107,Fitnessstudio Mitgliedschaft
+DE,fitnessstudio,stocked,F5_ranking,46,23,False,0.760773761134083,Fitnessstudio Mitgliedschaft
+DE,fitnessstuduo,stocked,F5_ranking,1,1,True,0.686528594614381,Unbegrenzte Kurse
+DE,fitnessstuiio,stocked,BASELINE_still_40pct_dead,1,0,True,0.605794487395087,Unbegrenzte Kurse
+DE,fitnessstuudio,stocked,F5_ranking,1,1,True,0.676122808146423,Unbegrenzte Kurse
+DE,fitnesstudio,stocked,BASELINE_still_40pct_dead,1,0,True,0.682153012394771,Fitnessstudio Mitgliedschaft
+DE,friser,absent,F1_silent_substitution,1,1,True,0.397998045920394,Maniküre & Pediküre
+DE,friseur,stocked,BASELINE_still_40pct_dead,45,17,False,0.577530138948651,Haarschnitt & Styling
+DE,friseuur,absent,F4_supply_void,1,1,True,0.395770310095079,Kartbahn Rennen
+DE,frisseur,absent,F1_silent_substitution,1,0,True,0.33891667045408,Degustationsmenü
+PL,fryzjer,stocked,F5_ranking,31,17,False,0.558291415862695,Strzyżenie i Stylizacja
+DE,gesichtsbehandlung,stocked,BASELINE_still_40pct_dead,54,22,False,0.503181098374811,Entspannungs-Behandlung im Spa
+DE,gesichtsbehandlunng,stocked,F5_ranking,1,1,True,0.401077627172208,Wohlfühl-Massage
+DE,gesichtsbehndlung,stocked,BASELINE_still_40pct_dead,1,0,True,0.395191731934732,Wohlfühl-Massage
+ES,gimnaoio,absent,F1_silent_substitution,1,0,True,0.347512881169006,Cena con Maridaje
+ES,gimnasio,stocked,BASELINE_still_40pct_dead,55,21,False,0.633724519505515,Pase de Gimnasio
+ES,gimnesio,absent,F1_silent_substitution,1,1,True,0.373109232577957,Clases Ilimitadas
+ES,gmnasio,absent,F1_silent_substitution,1,1,True,0.27403173825489,Circuito Spa con Masaje
+GB,go iarting,absent,F1_silent_substitution,1,1,True,0.357130695666956,Go-Karting Session
+GB,go karoing,absent,F1_silent_substitution,1,0,True,0.484771714068313,Go-Karting Session
+GB,go kartiing,absent,F1_silent_substitution,1,1,True,0.403885239015364,Go-Karting Session
+DE,go karting,stocked,F2_language,5,4,True,0.390143169024534,Kartbahn Rennen
+ES,go karting,stocked,F2_language,5,3,True,0.446690410978344,Sesión de Karting
+FR,go karting,stocked,F2_language,4,4,True,0.471914735740881,Session Karting
+GB,go karting,stocked,BASELINE_still_40pct_dead,73,24,False,0.543113088821483,Go-Karting Session
+PL,go karting,stocked,F2_language,4,3,True,0.532303459733288,Tor Kartingowy
+GB,go kartiug,absent,F1_silent_substitution,1,1,True,0.31313355823954,Go-Karting Session
+GB,go karuing,absent,F4_supply_void,1,1,True,0.488926316647795,Go-Karting Session
+GB,go krting,absent,F1_silent_substitution,1,1,True,0.533982006960108,Go-Karting Session
+PL,gokarty,stocked,BASELINE_still_40pct_dead,29,10,False,0.261386378920891,Tor Kartingowy
+PL,gokary,absent,F1_silent_substitution,2,0,True,0.248332695067293,Tor Kartingowy
+DE,gym,stocked,F2_language,9,6,True,0.559440355200912,Fitnessstudio Mitgliedschaft
+ES,gym,stocked,F2_language,3,3,True,0.663496632142586,Pase de Gimnasio
+FR,gym,stocked,F2_language,8,7,True,0.587117363558334,Abonnement Salle de Sport
+GB,gym,stocked,BASELINE_still_40pct_dead,88,30,False,0.654707154351243,Gym Membership Pass
+PL,gym,stocked,F2_language,1,1,True,0.638302619153821,Karnet na Siłownię
+DE,haaare färben,stocked,BASELINE_still_40pct_dead,1,0,True,0.361710433634441,Maniküre & Pediküre
+DE,haare färben,stocked,F3_geographic,48,23,False,0.514201249420279,Haarschnitt & Styling
+GB,haio colour,absent,F1_silent_substitution,1,1,True,0.278807301947845,Hair Styling & Cut
+GB,hair color,stocked,F5_ranking,1,1,True,0.584757636160606,Hair Styling & Cut
+DE,hair colour,stocked,F2_language,3,3,True,0.443417084959987,Haarschnitt & Styling
+ES,hair colour,stocked,F2_language,3,3,True,0.564215993384847,Corte y Peinado
+FR,hair colour,stocked,F2_language,3,3,True,0.553094166303461,Coupe & Coiffage
+GB,hair colour,stocked,BASELINE_still_40pct_dead,85,34,False,0.581169661280205,Hair Styling & Cut
+PL,hair colour,stocked,F2_language,4,4,True,0.541919635176456,Strzyżenie i Stylizacja
+GB,hair couour,absent,F1_silent_substitution,1,0,True,0.615675697020648,Hair Styling & Cut
+DE,haircut,stocked,F2_language,3,3,True,0.507584091384877,Haarschnitt & Styling
+ES,haircut,stocked,F2_language,7,7,True,0.712473609672014,Corte y Peinado
+FR,haircut,stocked,F2_language,8,7,True,0.625518705618721,Coupe & Coiffage
+GB,haircut,stocked,BASELINE_still_40pct_dead,79,23,False,0.73140277966115,Hair Styling & Cut
+PL,haircut,stocked,F2_language,2,2,True,0.627462915342268,Strzyżenie i Stylizacja
+GB,haircuut,absent,F1_silent_substitution,3,1,True,0.625030852856119,Hair Styling & Cut
+GB,hairut,absent,F1_silent_substitution,2,0,True,0.161110067036168,Go-Karting Session
+ES,hambuguesa,absent,F1_silent_substitution,1,0,True,0.484670139708452,Menú de 3 Platos para Dos
+ES,hambuoguesa,absent,F1_silent_substitution,1,0,True,0.417275189918191,Menú Degustación
+ES,hamburguesa,plausible,BASELINE_still_40pct_dead,52,20,False,0.361977556721538,Menú de 3 Platos para Dos
+ES,hamburrguesa,absent,F1_silent_substitution,1,1,True,0.397327767687701,Cena con Maridaje
+DE,hare färben,stocked,BASELINE_still_40pct_dead,1,0,True,0.1938356854328,Maniküre & Pediküre
+DE,hbschrauber rundflug,absent,F4_supply_void,1,1,True,0.172101924924322,Stadtführung
+DE,heeißluftballon fahrt,absent,F4_supply_void,1,1,True,0.247972837432742,Kartbahn Rennen
+DE,heißlftballon fahrt,absent,F4_supply_void,1,1,True,0.361320121445734,Kartbahn Rennen
+DE,heißluetballon fahrt,absent,F4_supply_void,1,1,True,0.303977635604696,Kartbahn Rennen
+DE,heißlufftballon fahrt,absent,F4_supply_void,1,1,True,0.390545563762921,Kartbahn Rennen
+DE,heißluftbaelon fahrt,absent,F4_supply_void,1,1,True,0.341101846957686,Kartbahn Rennen
+DE,heißluftballon eahrt,absent,F4_supply_void,1,1,True,0.182354431116901,Entspannungs-Behandlung im Spa
+DE,heißluftballon faahrt,absent,F4_supply_void,1,1,True,0.184617755505177,Entspannungs-Behandlung im Spa
+DE,heißluftballon fahit,absent,F4_supply_void,1,1,True,0.240387415370724,Degustationsmenü
+DE,heißluftballon fahrt,absent,F4_supply_void,59,59,False,0.265001751185306,Kartbahn Rennen
+DE,heißluftballonefahrt,absent,F4_supply_void,1,1,True,0.26720699897209,Kartbahn Rennen
+DE,heißluftbalon fahrt,absent,F4_supply_void,1,1,True,0.31879388506085,Kartbahn Rennen
+DE,heißlutballon fahrt,absent,F4_supply_void,1,1,True,0.335277558763665,Kartbahn Rennen
+GB,heliaopter tour,absent,F4_supply_void,1,1,True,0.285554174980523,Guided City Tour
+GB,heliccopter tour,absent,F4_supply_void,1,1,True,0.325431888986676,Guided City Tour
+GB,helicopaer tour,absent,F4_supply_void,1,1,True,0.337397871221283,Guided City Tour
+GB,helicopeer tour,absent,F4_supply_void,1,1,True,0.302339982149661,Guided City Tour
+GB,helicopter our,absent,F4_supply_void,1,1,True,0.156144809880951,Go-Karting Session
+GB,helicopter tour,absent,F4_supply_void,100,100,False,0.225770018765373,Guided City Tour
+GB,hircut,absent,F1_silent_substitution,1,0,True,0.0623977929597554,Guided City Tour
+GB,ho air balloon ride,absent,F4_supply_void,1,1,True,0.217265785362139,Go-Karting Session
+GB,hot air balloon rde,absent,F4_supply_void,1,1,True,0.166653558618909,Gym Membership Pass
+GB,hot air balloon ride,absent,F4_supply_void,94,94,False,0.228854213189293,Gym Membership Pass
+GB,hot air ballooon ride,absent,F4_supply_void,1,1,True,0.235551875234675,Gym Membership Pass
+GB,hot air bballoon ride,absent,F4_supply_void,2,2,True,0.327138026186241,Gym Membership Pass
+GB,hot air billoon ride,absent,F4_supply_void,1,1,True,0.343118312326786,Gym Membership Pass
+DE,hubschrauber rendflug,absent,F4_supply_void,1,1,True,0.102683086213514,Escape Room Erlebnis
+DE,hubschrauber rundflug,absent,F4_supply_void,65,65,False,0.126475281749616,Escape Room Erlebnis
+DE,hubschrauber undflug,absent,F4_supply_void,1,1,True,0.153965796365711,Escape Room Erlebnis
+DE,hubsehrauber rundflug,absent,F4_supply_void,1,1,True,0.45044982460131,Kartbahn Rennen
+DE,hubsschrauber rundflug,absent,F4_supply_void,1,1,True,0.138022064619011,Stadtführung
+GB,inddian restaurant,stocked,BASELINE_still_40pct_dead,1,0,True,0.432707947604557,Three-Course Meal for Two
+DE,indian restaurant,plausible,F2_language,6,6,True,0.482374475982104,3-Gänge-Menü für Zwei
+ES,indian restaurant,plausible,F2_language,6,5,True,0.545634925424587,Cena con Maridaje
+FR,indian restaurant,plausible,F2_language,3,3,True,0.477136328135029,Menu Dégustation
+GB,indian restaurant,plausible,BASELINE_still_40pct_dead,85,32,False,0.447098100551237,Three-Course Meal for Two
+GB,indian restaurrant,plausible,BASELINE_still_40pct_dead,1,0,True,0.138515738116129,Facial Treatment
+DE,italiener,plausible,BASELINE_still_40pct_dead,53,18,False,0.247126045241082,Stadtführung
+DE,italiner,absent,F4_supply_void,2,2,True,0.275814878552049,Stadtführung
+PL,joga,plausible,BASELINE_still_40pct_dead,23,9,False,0.326239180269439,Tor Kartingowy
+DE,karrt fahren,absent,F1_silent_substitution,1,0,True,0.492534367005381,Kartbahn Rennen
+ES,karrting,absent,F1_silent_substitution,1,1,True,0.528210017003997,Sesión de Karting
+DE,kart ahren,absent,F1_silent_substitution,1,0,True,0.534223262575157,Kartbahn Rennen
+DE,kart faaren,absent,F1_silent_substitution,1,0,True,0.485904633998995,Kartbahn Rennen
+DE,kart fahren,stocked,BASELINE_still_40pct_dead,61,16,False,0.545022574363957,Kartbahn Rennen
+DE,kart ffahren,absent,F1_silent_substitution,1,1,True,0.500025182984941,Kartbahn Rennen
+DE,kart fohren,absent,F1_silent_substitution,1,0,True,0.467268445488984,Kartbahn Rennen
+FR,kartang,absent,F4_supply_void,1,1,True,0.410131868680755,Session Karting
+FR,kartig,absent,F4_supply_void,2,1,True,0.420046398634151,Session Karting
+ES,karting,stocked,BASELINE_still_40pct_dead,53,19,False,0.450525292347152,Sesión de Karting
+FR,karting,stocked,BASELINE_still_40pct_dead,60,25,False,0.417394255294819,Session Karting
+ES,kartinng,absent,F1_silent_substitution,1,0,True,0.488075664009665,Sesión de Karting
+PL,koloryyzacja,absent,F1_silent_substitution,1,1,True,0.409309934459959,Strzyżenie i Stylizacja
+PL,koloryzaacja,absent,F1_silent_substitution,1,0,True,0.397768247526636,Strzyżenie i Stylizacja
+PL,koloryzacja,stocked,F5_ranking,29,14,False,0.400016134983596,Strzyżenie i Stylizacja
+PL,koloryzzacja,absent,F1_silent_substitution,1,0,True,0.405775841155952,Strzyżenie i Stylizacja
+FR,korting,absent,F1_silent_substitution,1,0,True,0.213324976761684,Expérience Escape Game
+PL,kręggle,absent,F4_supply_void,1,1,True,0.348364899634537,Tor Kartingowy
+PL,kręgle,absent,F1_silent_substitution,15,5,False,0.377928442380303,Tor Kartingowy
+ES,limpieeza facial,stocked,BASELINE_still_40pct_dead,1,0,True,0.681211192535746,Tratamiento Facial
+ES,limpieza faciaal,absent,F1_silent_substitution,1,0,True,0.747559532959652,Tratamiento Facial
+ES,limpieza facial,stocked,BASELINE_still_40pct_dead,67,23,False,0.755218292436339,Tratamiento Facial
+ES,limpieza facual,absent,F1_silent_substitution,1,0,True,0.507764789721581,Tratamiento Facial
+ES,limpieza faial,absent,F1_silent_substitution,1,1,True,0.3881724700497,Corte y Peinado
+PL,lot baalonem,absent,F4_supply_void,1,1,True,0.238562998429061,Zwiedzanie z Przewodnikiem
+PL,lot balonem,absent,F4_supply_void,57,57,False,0.322556484126532,Tor Kartingowy
+PL,lot heikopterem,absent,F4_supply_void,1,1,True,0.464916501651227,Tor Kartingowy
+PL,lot helikopterem,absent,F4_supply_void,39,39,False,0.208389940337564,Karnet na Siłownię
+PL,lot helokopterem,absent,F4_supply_void,1,1,True,0.344814152551997,Karnet na Siłownię
+PL,lt helikopterem,absent,F4_supply_void,1,1,True,0.236556896440644,Karnet na Siłownię
+PL,maaaż dla par,stocked,BASELINE_still_40pct_dead,1,0,True,0.505103347252218,Menu 3-Daniowe dla Dwojga
+ES,maaicura,absent,F4_supply_void,1,1,True,0.246924009599247,Tour Guiado
+ES,maaje descontracturante,stocked,BASELINE_still_40pct_dead,1,0,True,0.27068780912292,Tour Guiado
+ES,maasaje en pareja,stocked,F5_ranking,2,1,True,0.4416995304434,Cena con Maridaje
+FR,mancure,absent,F4_supply_void,1,1,True,0.589210286179767,Manucure & Pédicure
+GB,mancure,absent,F1_silent_substitution,1,0,True,0.39621852703957,Manicure & Pedicure Package
+ES,maniccura,absent,F1_silent_substitution,1,1,True,0.326796623421925,Manicura y Pedicura
+GB,maniccure,absent,F1_silent_substitution,1,1,True,0.56208740535004,Manicure & Pedicure Package
+PL,manicre,absent,F1_silent_substitution,1,1,True,0.580642738649361,Manicure i Pedicure
+PL,manicue,absent,F1_silent_substitution,1,0,True,0.381614118814471,Tor Kartingowy
+ES,manicura,stocked,F3_geographic,45,21,False,0.33377177506167,Manicura y Pedicura
+DE,manicure,stocked,F5_ranking,3,2,True,0.6211605812503,Maniküre & Pediküre
+ES,manicure,stocked,F5_ranking,5,3,True,0.609667798399525,Manicura y Pedicura
+FR,manicure,stocked,F5_ranking,4,3,True,0.624201099962634,Manucure & Pédicure
+GB,manicure,stocked,BASELINE_still_40pct_dead,74,28,False,0.633069239075835,Manicure & Pedicure Package
+PL,manicure,stocked,BASELINE_still_40pct_dead,22,8,False,0.647005649205697,Manicure i Pedicure
+GB,manicurre,absent,F1_silent_substitution,1,0,True,0.326719819316832,Go-Karting Session
+ES,manicuura,absent,F4_supply_void,1,1,True,0.349576821898033,Circuito Spa con Masaje
+DE,manikre,absent,F1_silent_substitution,1,0,True,0.476392169877601,Maniküre & Pediküre
+DE,maniküe,absent,F4_supply_void,1,1,True,0.463442619257315,Maniküre & Pediküre
+DE,maniküre,stocked,BASELINE_still_40pct_dead,47,15,False,0.535027942078083,Maniküre & Pediküre
+DE,maniküue,absent,F1_silent_substitution,1,0,True,0.442939496882101,Maniküre & Pediküre
+ES,maniura,absent,F1_silent_substitution,1,0,True,0.373040724136989,Sesión de Masaje y Spa
+GB,maniure,absent,F1_silent_substitution,1,0,True,0.269544689804068,Go-Karting Session
+FR,manucure,stocked,BASELINE_still_40pct_dead,42,15,False,0.553638307697633,Manucure & Pédicure
+FR,manuure,absent,F1_silent_substitution,1,0,True,0.400659275664027,Manucure & Pédicure
+FR,maosage sportif,absent,F1_silent_substitution,1,0,True,0.588687093751704,Cours Illimités
+FR,masage dos,stocked,F5_ranking,1,1,True,0.306417202790069,Dîner avec Vin
+FR,masage thai,stocked,F5_ranking,1,1,True,0.268452931568501,Visite Guidée
+ES,masaje descontracturante,stocked,BASELINE_still_40pct_dead,69,25,False,0.312065579152552,Sesión de Karting
+ES,masaje descontraturante,stocked,F5_ranking,1,1,True,0.497761786651122,Circuito Spa con Masaje
+ES,masaje en  pareja,stocked,BASELINE_still_40pct_dead,1,0,True,0.446606477488253,Sesión de Masaje y Spa
+ES,masaje en paareja,stocked,F5_ranking,1,1,True,0.431937055828203,Corte y Peinado
+ES,masaje en pareja,stocked,BASELINE_still_40pct_dead,64,26,False,0.446606477488253,Sesión de Masaje y Spa
+ES,masaje enn pareja,stocked,BASELINE_still_40pct_dead,1,0,True,0.37735993288526,Sesión de Masaje y Spa
+ES,masaje esoalda,stocked,BASELINE_still_40pct_dead,1,0,True,0.34991489491442,Cena con Maridaje
+ES,masaje espalda,stocked,BASELINE_still_40pct_dead,67,19,False,0.286651048671457,Manicura y Pedicura
+ES,masaje espallda,stocked,BASELINE_still_40pct_dead,1,0,True,0.416079645180603,Circuito Spa con Masaje
+ES,masaje tailanddes,stocked,BASELINE_still_40pct_dead,1,0,True,0.240387994224429,Tour Guiado
+ES,masaje tailandees,stocked,F5_ranking,1,1,True,0.256507457854149,Cena con Maridaje
+ES,masaje tailandes,stocked,F5_ranking,73,35,False,0.279066048387373,Cena con Maridaje
+ES,masaje tailanees,stocked,F5_ranking,1,1,True,0.42836183719064,Cena con Maridaje
+ES,masajeeen pareja,stocked,F5_ranking,1,1,True,0.415938528767009,Circuito Spa con Masaje
+ES,masajje espalda,stocked,BASELINE_still_40pct_dead,1,0,True,0.460025356997401,Tratamiento de Bienestar
+PL,masaż aportowy,stocked,BASELINE_still_40pct_dead,1,0,True,0.728165664429535,Masaż Relaksacyjny Pakiet
+PL,masaż dla  par,stocked,BASELINE_still_40pct_dead,1,0,True,0.700229832591805,Masaż Relaksacyjny Pakiet
+PL,masaż dla par,stocked,BASELINE_still_40pct_dead,38,13,False,0.700229832591805,Masaż Relaksacyjny Pakiet
+PL,masaż pleców,stocked,BASELINE_still_40pct_dead,27,10,False,0.595122493476277,Masaż Relaksacyjny Pakiet
+PL,masaż sportowy,stocked,F3_geographic,33,16,False,0.68879873549904,Masaż Relaksacyjny Pakiet
+PL,masaż tajski,stocked,F5_ranking,35,19,False,0.55174572715667,Zabieg Spa i Masaż
+PL,masaż tujski,stocked,BASELINE_still_40pct_dead,1,0,True,0.657640819623041,Masaż Relaksacyjny Pakiet
+PL,masażtajski,stocked,BASELINE_still_40pct_dead,1,0,True,0.362562564030346,Zabieg Spa i Masaż
+FR,massaage dos,stocked,BASELINE_still_40pct_dead,1,0,True,0.319203991172321,Menu 3 Plats pour Deux
+FR,massaage thai,stocked,BASELINE_still_40pct_dead,1,0,True,0.253955567632926,Visite Guidée
+FR,massae dos,stocked,F5_ranking,1,1,True,0.310344677547004,Menu 3 Plats pour Deux
+FR,massag duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.251926466707852,Menu 3 Plats pour Deux
+FR,massag sportif,absent,F1_silent_substitution,1,0,True,0.432984648293739,Cours Illimités
+FR,massage dao,stocked,F5_ranking,1,1,True,0.699236279589476,Forfait Massage Bien-être
+FR,massage dis,stocked,BASELINE_still_40pct_dead,1,0,True,0.690323525860047,Forfait Massage Bien-être
+FR,massage do,stocked,F5_ranking,2,2,True,0.683866143226667,Forfait Massage Bien-être
+FR,massage dos,stocked,F5_ranking,50,25,False,0.690494362800316,Forfait Massage Bien-être
+FR,massage ds,stocked,BASELINE_still_40pct_dead,1,0,True,0.684831876466818,Forfait Massage Bien-être
+FR,massage duo,stocked,BASELINE_still_40pct_dead,66,24,False,0.620582469597703,Forfait Massage Bien-être
+FR,massage os,stocked,BASELINE_still_40pct_dead,1,0,True,0.653505118790358,Forfait Massage Bien-être
+FR,massage siortif,stocked,BASELINE_still_40pct_dead,1,0,True,0.696118839854211,Forfait Massage Bien-être
+FR,massage sportif,stocked,BASELINE_still_40pct_dead,63,19,False,0.652282551611231,Forfait Massage Bien-être
+FR,massage sportiif,stocked,BASELINE_still_40pct_dead,1,0,True,0.665431619353288,Forfait Massage Bien-être
+FR,massage thai,stocked,BASELINE_still_40pct_dead,59,20,False,0.599379050620634,Forfait Massage Bien-être
+FR,massage uuo,stocked,F5_ranking,1,1,True,0.686045292504791,Forfait Massage Bien-être
+FR,massagee duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.623830236424845,Forfait Massage Bien-être
+FR,massagethai,stocked,BASELINE_still_40pct_dead,1,0,True,0.63604660990634,Forfait Massage Bien-être
+FR,massagge sportif,absent,F1_silent_substitution,1,0,True,0.33371585597274,Cours Illimités
+FR,massaue duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.274843449131648,Menu 3 Plats pour Deux
+FR,massge duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.213474423031759,Menu 3 Plats pour Deux
+FR,masssage dos,stocked,F5_ranking,1,1,True,0.323593679573433,Menu 3 Plats pour Deux
+FR,masuage dos,stocked,BASELINE_still_40pct_dead,1,0,True,0.332008539801263,Manucure & Pédicure
+DE,mniküre,absent,F4_supply_void,1,1,True,0.284518335903248,Stadtführung
+FR,mssage thai,stocked,F5_ranking,1,1,True,0.268018449682313,Visite Guidée
+ES,musaje descontracturante,stocked,F5_ranking,1,1,True,0.392860675496403,Experiencia Escape Room
+DE,nackenmasage,stocked,BASELINE_still_40pct_dead,1,0,True,0.368655414901967,Maniküre & Pediküre
+DE,nackenmassage,stocked,BASELINE_still_40pct_dead,60,24,False,0.542687964510003,Entspannungs-Behandlung im Spa
+DE,nackkenmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.620638810358252,Entspannungs-Behandlung im Spa
+DE,neckenmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.503177106759378,Entspannungs-Behandlung im Spa
+PL,oczyszczanie twary,absent,F4_supply_void,1,1,True,0.38679607746673,Zabieg na Twarz
+PL,oczyszczanie twarzy,stocked,BASELINE_still_40pct_dead,24,8,False,0.732599278509896,Zabieg na Twarz
+PL,oczyszczaniie twarzy,stocked,BASELINE_still_40pct_dead,1,0,True,0.737939542943795,Zabieg na Twarz
+ES,paaracaidismo,stocked,F5_ranking,1,1,True,0.310029484037102,Clases Ilimitadas
+DE,paarmassage,stocked,BASELINE_still_40pct_dead,39,13,False,0.650175660743957,Wohlfühl-Massage
+DE,paarmassge,stocked,BASELINE_still_40pct_dead,1,0,True,0.368025823596242,Maniküre & Pediküre
+DE,paarmessage,stocked,BASELINE_still_40pct_dead,1,0,True,0.369233368912369,Kartbahn Rennen
+FR,paentball,absent,F1_silent_substitution,1,0,True,0.382658123970043,Session Karting
+ES,paeo en globo,absent,F4_supply_void,1,1,True,0.3665378411919,Sesión de Karting
+ES,paiacaidismo,absent,F4_supply_void,1,1,True,0.317370821612586,Manicura y Pedicura
+GB,paiatball,absent,F4_supply_void,1,1,True,0.261278201594861,Go-Karting Session
+DE,paiintball,absent,F1_silent_substitution,1,0,True,0.344914712844882,Kartbahn Rennen
+DE,paiitball,absent,F1_silent_substitution,1,1,True,0.365454206141359,Kartbahn Rennen
+FR,painntball,absent,F1_silent_substitution,1,0,True,0.267562501410033,Manucure & Pédicure
+DE,paintbaal,absent,F1_silent_substitution,1,0,True,0.400063204782351,Gesichtsbehandlung
+FR,paintbael,absent,F1_silent_substitution,1,0,True,0.345729906984354,Soin du Visage
+DE,paintball,absent,F1_silent_substitution,39,12,False,0.306104942835964,Gesichtsbehandlung
+ES,paintball,absent,F1_silent_substitution,52,23,False,0.292526438333593,Corte y Peinado
+FR,paintball,absent,F1_silent_substitution,55,21,False,0.320963538698074,Manucure & Pédicure
+GB,paintball,absent,F1_silent_substitution,102,37,False,0.250750437781471,Manicure & Pedicure Package
+PL,paintball,absent,F1_silent_substitution,27,12,False,0.262030578869943,Strzyżenie i Stylizacja
+DE,paintballl,absent,F1_silent_substitution,2,2,True,0.307431903944171,Gesichtsbehandlung
+GB,paintballl,absent,F1_silent_substitution,1,1,True,0.234566639234648,Facial Treatment
+ES,paintbell,absent,F1_silent_substitution,1,0,True,0.39691923590475,Corte y Peinado
+FR,paintbull,absent,F1_silent_substitution,1,0,True,0.356172776387793,Coupe & Coiffage
+PL,paitball,absent,F1_silent_substitution,1,0,True,0.449577063574208,Tor Kartingowy
+FR,pantball,absent,F1_silent_substitution,1,0,True,0.349665755153038,Expérience Escape Game
+GB,paontball,absent,F1_silent_substitution,1,1,True,0.259203582957341,Go-Karting Session
+ES,paracaaidismo,absent,F4_supply_void,1,1,True,0.253852085427082,Clases Ilimitadas
+ES,paracaidismo,absent,F4_supply_void,86,86,False,0.283138637262112,Pase de Gimnasio
+ES,paracaiismo,absent,F4_supply_void,1,1,True,0.296468999666185,Clases Ilimitadas
+ES,parcaidismo,absent,F4_supply_void,1,1,True,0.343257339583165,Clases Ilimitadas
+ES,parocaidismo,absent,F4_supply_void,1,1,True,0.312203124236325,Manicura y Pedicura
+ES,paseo en  globo,absent,F4_supply_void,1,1,True,0.527942197288392,Tour Guiado
+ES,paseo en gllobo,absent,F4_supply_void,1,1,True,0.437513627116798,Tour Guiado
+ES,paseo en globo,absent,F4_supply_void,72,72,False,0.527942197288392,Tour Guiado
+ES,passeo en globo,absent,F4_supply_void,1,1,True,0.480986383137694,Tour Guiado
+ES,peauqueria,absent,F1_silent_substitution,1,1,True,0.431070542506703,Manicura y Pedicura
+FR,peintball,absent,F1_silent_substitution,1,0,True,0.398340679302963,Expérience Escape Game
+ES,peloqueria,stocked,BASELINE_still_40pct_dead,1,0,True,0.376418486068496,Cena con Maridaje
+ES,peluqeria,absent,F1_silent_substitution,1,0,True,0.335345189196437,Manicura y Pedicura
+ES,peluqueeria,absent,F1_silent_substitution,1,0,True,0.644877802831324,Corte y Peinado
+ES,peluqueia,absent,F1_silent_substitution,1,0,True,0.45816031098371,Manicura y Pedicura
+ES,peluqueria,stocked,BASELINE_still_40pct_dead,62,26,False,0.510502732725747,Corte y Peinado
+DE,peronal trainer,absent,F4_supply_void,1,1,True,0.502160667857965,Personal Training Paket
+GB,persona trainer,absent,F1_silent_substitution,1,0,True,0.560172846332747,Personal Training Package
+GB,personai trainer,absent,F1_silent_substitution,1,1,True,0.59919070618351,Personal Training Package
+GB,personal tainer,absent,F1_silent_substitution,1,0,True,0.392955500097417,Personal Training Package
+GB,personal traainer,absent,F1_silent_substitution,1,0,True,0.417619205755846,Go-Karting Session
+DE,personal trainer,stocked,BASELINE_still_40pct_dead,64,26,False,0.678832909921798,Personal Training Paket
+ES,personal trainer,stocked,F2_language,6,4,True,0.703699696946092,Entrenamiento Personal
+FR,personal trainer,stocked,F2_language,10,7,False,0.653786732571951,Coaching Personnel
+GB,personal trainer,stocked,F5_ranking,72,34,False,0.677674873305078,Personal Training Package
+PL,personal trainer,stocked,F2_language,4,3,True,0.719726912910223,Trening Personalny
+DE,persoual trainer,absent,F1_silent_substitution,1,0,True,0.582355228417444,Personal Training Paket
+FR,pieates,absent,F1_silent_substitution,1,0,True,0.364613123216803,Dîner avec Vin
+DE,piiates,absent,F4_supply_void,1,1,True,0.383796485375531,Maniküre & Pediküre
+GB,piilates,absent,F1_silent_substitution,1,0,True,0.254716846178082,Three-Course Meal for Two
+ES,pilaates,absent,F4_supply_void,1,1,True,0.32809592317966,Manicura y Pedicura
+GB,pilaees,absent,F1_silent_substitution,1,0,True,0.252690138036095,Three-Course Meal for Two
+GB,pilaies,absent,F1_silent_substitution,1,1,True,0.255426189984963,Go-Karting Session
+DE,pilatees,absent,F1_silent_substitution,1,0,True,0.412552207708406,Maniküre & Pediküre
+DE,pilates,plausible,F5_ranking,51,23,False,0.380629740991014,Maniküre & Pediküre
+ES,pilates,plausible,F5_ranking,70,32,False,0.355414813186963,Sesión de Karting
+FR,pilates,plausible,BASELINE_still_40pct_dead,56,19,False,0.348804453757381,Visite Guidée
+GB,pilates,plausible,BASELINE_still_40pct_dead,72,27,False,0.251929521790714,Three-Course Meal for Two
+PL,pilates,plausible,BASELINE_still_40pct_dead,34,14,False,0.408801338958424,Tor Kartingowy
+ES,pilatis,absent,F1_silent_substitution,1,0,True,0.303673760112322,Sesión de Karting
+ES,pilatos,absent,F4_supply_void,1,1,True,0.367280339658527,Cena con Maridaje
+DE,pilats,absent,F1_silent_substitution,1,1,True,0.362701979327684,Maniküre & Pediküre
+DE,pioates,absent,F1_silent_substitution,1,0,True,0.234558459415075,Maniküre & Pediküre
+DE,pizza deal,plausible,F2_language,3,2,True,0.317002917916427,3-Gänge-Menü für Zwei
+ES,pizza deal,plausible,F2_language,4,4,True,0.278204737527232,Menú de 3 Platos para Dos
+FR,pizza deal,plausible,F2_language,6,6,True,0.267262184673233,Menu 3 Plats pour Deux
+GB,pizza deal,plausible,BASELINE_still_40pct_dead,86,34,False,0.272769535161211,Three-Course Meal for Two
+PL,pizza deal,plausible,F2_language,5,4,True,0.336749583788288,Menu 3-Daniowe dla Dwojga
+GB,pizza deel,plausible,BASELINE_still_40pct_dead,1,0,True,0.352562387019344,Three-Course Meal for Two
+GB,pizza del,plausible,F5_ranking,2,1,True,0.329274793224072,Three-Course Meal for Two
+PL,pizzeia,absent,F4_supply_void,1,1,True,0.408383141948875,Menu 3-Daniowe dla Dwojga
+PL,pizzeria,plausible,BASELINE_still_40pct_dead,22,7,False,0.404881160869532,Menu 3-Daniowe dla Dwojga
+GB,pizzza deal,absent,F1_silent_substitution,1,0,True,0.275555016464304,Three-Course Meal for Two
+FR,plates,plausible,BASELINE_still_40pct_dead,1,0,True,0.57374662846568,Menu 3 Plats pour Deux
+GB,plates,plausible,BASELINE_still_40pct_dead,1,0,True,0.477469803245778,Three-Course Meal for Two
+GB,prsonal trainer,absent,F1_silent_substitution,1,1,True,0.529408281341528,Personal Training Package
+PL,przedłużanie rzas,absent,F1_silent_substitution,1,1,True,0.469731246442952,Tor Kartingowy
+PL,przedłużanie rzęs,absent,F1_silent_substitution,22,7,False,0.439381528085022,Tor Kartingowy
+PL,przedłużanieurzęs,absent,F1_silent_substitution,1,0,True,0.496327370624104,Tor Kartingowy
+ES,puintball,absent,F4_supply_void,1,1,True,0.299762028583418,Sesión de Karting
+ES,raafting,absent,F4_supply_void,1,1,True,0.284171189442748,Corte y Peinado
+FR,raating,absent,F4_supply_void,1,1,True,0.271398909592287,Session Karting
+ES,rafaing,absent,F4_supply_void,1,1,True,0.261627681380254,Sesión de Karting
+ES,raffting,absent,F4_supply_void,3,3,True,0.334533273530068,Sesión de Karting
+FR,raffting,absent,F4_supply_void,1,1,True,0.315284732231248,Session Karting
+ES,raftig,absent,F4_supply_void,1,1,True,0.31795197587776,Circuito Spa con Masaje
+ES,raftiing,absent,F4_supply_void,1,1,True,0.204762332212505,Pase de Gimnasio
+ES,rafting,absent,F4_supply_void,88,88,False,0.179399850261186,Pase de Gimnasio
+FR,rafting,absent,F4_supply_void,73,73,False,0.227583233652003,Modelage Détente
+PL,rafting,absent,F4_supply_void,46,46,False,0.240586332135176,Tor Kartingowy
+ES,raftinng,absent,F4_supply_void,2,2,True,0.184925188146492,Circuito Spa con Masaje
+ES,raftng,absent,F4_supply_void,3,3,True,0.201955879259199,Circuito Spa con Masaje
+FR,raftng,absent,F4_supply_void,1,1,True,0.213353146316404,Session Karting
+PL,raftung,absent,F4_supply_void,1,1,True,0.342887479914727,Tor Kartingowy
+ES,raiting,absent,F4_supply_void,1,1,True,0.325971346862078,Sesión de Karting
+PL,raiting,absent,F4_supply_void,1,1,True,0.357185993883505,Tor Kartingowy
+FR,raoting,absent,F4_supply_void,1,1,True,0.311721440265463,Session Karting
+ES,rating,absent,F4_supply_void,1,1,True,0.216254436074636,Clases Ilimitadas
+PL,rating,absent,F4_supply_void,1,1,True,0.235640708055334,Trening Personalny
+PL,restaracja włoska,plausible,F5_ranking,1,1,True,0.283024941412368,Kolacja z Winem
+PL,restauracja właska,stocked,BASELINE_still_40pct_dead,1,0,True,0.591353031880748,Menu Degustacyjne
+PL,restauracja włoska,plausible,F3_geographic,16,8,False,0.581476187930223,Menu 3-Daniowe dla Dwojga
+FR,restaurant ialien,stocked,F5_ranking,1,1,True,0.552639311866694,Menu Dégustation
+FR,restaurant iitalien,plausible,F5_ranking,1,1,True,0.530002497733349,Menu Dégustation
+FR,restaurant itaalien,stocked,F5_ranking,1,1,True,0.596912425848796,Dîner avec Vin
+FR,restaurant italien,plausible,BASELINE_still_40pct_dead,34,13,False,0.541156585078647,Menu Dégustation
+FR,restauranteitalien,plausible,BASELINE_still_40pct_dead,1,0,True,0.524541494304956,Menu Dégustation
+FR,restaurunt italien,plausible,F5_ranking,1,1,True,0.355719873561983,Dîner avec Vin
+PL,resturacja włoska,plausible,BASELINE_still_40pct_dead,1,0,True,0.272895514909924,Kolacja z Winem
+ES,rfting,absent,F4_supply_void,1,1,True,0.332297057284036,Sesión de Karting
+FR,rfting,absent,F4_supply_void,1,1,True,0.263135522603996,Session Karting
+PL,rfting,absent,F4_supply_void,1,1,True,0.347273966507558,Tor Kartingowy
+ES,rofting,absent,F4_supply_void,1,1,True,0.401546334206499,Sesión de Karting
+DE,rücienmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.627801871620856,Entspannungs-Behandlung im Spa
+DE,ruckenmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.61309978649637,Wohlfühl-Massage
+DE,rückenmassage,stocked,BASELINE_still_40pct_dead,43,13,False,0.622286971416106,Entspannungs-Behandlung im Spa
+DE,rückenmassuge,stocked,F5_ranking,1,1,True,0.380495427442826,Kartbahn Rennen
+PL,rufting,absent,F4_supply_void,1,1,True,0.422159474410913,Tor Kartingowy
+DE,saeakhaus,absent,F1_silent_substitution,1,0,True,0.256022793521944,Stadtführung
+FR,sale de sport,absent,F4_supply_void,1,1,True,0.587362802159498,Abonnement Salle de Sport
+FR,salle d sport,absent,F1_silent_substitution,1,0,True,0.760276482122125,Abonnement Salle de Sport
+FR,salle de  sport,absent,F1_silent_substitution,1,1,True,0.757586113430594,Abonnement Salle de Sport
+FR,salle de port,absent,F1_silent_substitution,1,0,True,0.349930204420119,Visite Guidée
+FR,salle de sort,absent,F4_supply_void,1,1,True,0.522989967259504,Expérience Escape Game
+FR,salle de spirt,absent,F1_silent_substitution,1,1,True,0.471870642716028,Expérience Escape Game
+FR,salle de sport,stocked,BASELINE_still_40pct_dead,55,24,False,0.757586113430594,Abonnement Salle de Sport
+FR,salle de ssport,absent,F1_silent_substitution,1,1,True,0.386090846370634,Abonnement Salle de Sport
+FR,salle e sport,absent,F1_silent_substitution,1,0,True,0.752792535880873,Abonnement Salle de Sport
+FR,sallee de sport,absent,F1_silent_substitution,1,0,True,0.764637673626914,Abonnement Salle de Sport
+GB,sark diving,stocked,F5_ranking,1,1,True,0.165774365159823,Escape Room Experience
+FR,saut en parachute,absent,F4_supply_void,81,81,False,0.232450607576878,Expérience Escape Game
+FR,saut en parachutte,absent,F4_supply_void,1,1,True,0.251560434606086,Expérience Escape Game
+FR,saut en paraciute,absent,F4_supply_void,1,1,True,0.356361097313593,Expérience Escape Game
+FR,saut en prachute,absent,F4_supply_void,1,1,True,0.378125965595313,Expérience Escape Game
+DE,seakhaus,absent,F1_silent_substitution,1,0,True,0.42585847994294,Escape Room Erlebnis
+DE,seeakhaus,absent,F1_silent_substitution,1,1,True,0.394271911897692,Escape Room Erlebnis
+GB,shaark diving,stocked,F5_ranking,1,1,True,0.194997775404254,Escape Room Experience
+GB,shark  diving,absent,F4_supply_void,1,1,True,0.0886618574257413,Hair Styling & Cut
+GB,shark ddiving,absent,F4_supply_void,1,1,True,0.0804248068691243,Facial Treatment
+GB,shark diiving,absent,F4_supply_void,1,1,True,0.0889466288844859,Facial Treatment
+GB,shark diviing,absent,F4_supply_void,1,1,True,0.0642547554157358,Hair Styling & Cut
+GB,shark diving,absent,F4_supply_void,79,79,False,0.0886618372399194,Hair Styling & Cut
+GB,shark divinng,absent,F4_supply_void,1,1,True,0.0941896652409744,Facial Treatment
+GB,shark divong,absent,F4_supply_void,1,1,True,0.0763894203632082,Facial Treatment
+GB,sharkk diving,absent,F4_supply_void,2,2,True,0.105093447836206,Facial Treatment
+PL,siłłownia,absent,F1_silent_substitution,1,1,True,0.422296776360851,Tor Kartingowy
+PL,siłownia,stocked,BASELINE_still_40pct_dead,23,9,False,0.68672446350088,Karnet na Siłownię
+PL,skoki spadochronoe,absent,F4_supply_void,1,1,True,0.413232242272363,Tor Kartingowy
+PL,skoki spadochronowe,absent,F4_supply_void,44,44,False,0.269671193669106,Tor Kartingowy
+GB,skyddiving,stocked,F5_ranking,1,1,True,0.245585233499382,Facial Treatment
+GB,skydiiving,stocked,F5_ranking,1,1,True,0.177463045507114,Guided City Tour
+GB,skydiving,absent,F4_supply_void,91,91,False,0.215249295458408,Unlimited Fitness Classes
+GB,skydivinng,absent,F4_supply_void,1,1,True,0.220268619020501,Go-Karting Session
+GB,skyiving,stocked,F5_ranking,1,1,True,0.165961211599148,Guided City Tour
+FR,soiin visage,stocked,F5_ranking,1,1,True,0.614615481954341,Soin du Visage
+FR,soin isage,absent,F1_silent_substitution,1,0,True,0.202582096360976,Soin du Visage
+FR,soin viage,absent,F1_silent_substitution,1,0,True,0.552195736257689,Visite Guidée
+FR,soin visage,stocked,BASELINE_still_40pct_dead,57,22,False,0.611172000523567,Soin du Visage
+FR,soin visege,absent,F1_silent_substitution,1,0,True,0.355999877452832,Visite Guidée
+FR,soin vissage,absent,F1_silent_substitution,1,1,True,0.381935228685896,Visite Guidée
+FR,son visage,stocked,BASELINE_still_40pct_dead,1,0,True,0.498799712467437,Soin du Visage
+DE,spirtmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.659499309823193,Entspannungs-Behandlung im Spa
+DE,sporimassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.600809752699859,Entspannungs-Behandlung im Spa
+DE,sportmaassage,absent,F1_silent_substitution,1,0,True,0.474927339670388,Unbegrenzte Kurse
+DE,sportmasage,absent,F1_silent_substitution,1,1,True,0.404909324060762,Personal Training Paket
+DE,sportmassage,stocked,BASELINE_still_40pct_dead,53,22,False,0.606618460048167,Entspannungs-Behandlung im Spa
+DE,sportmasuage,absent,F1_silent_substitution,1,1,True,0.439874653763944,Kartbahn Rennen
+GB,sports assage,absent,F1_silent_substitution,1,0,True,0.296720917400932,Unlimited Fitness Classes
+DE,sports massage,stocked,F2_language,5,3,True,0.605874377847311,Wohlfühl-Massage
+ES,sports massage,stocked,F2_language,10,9,False,0.57259470175734,Circuito Spa con Masaje
+FR,sports massage,stocked,F2_language,4,3,True,0.599636495221835,Forfait Massage Bien-être
+GB,sports massage,stocked,BASELINE_still_40pct_dead,74,24,False,0.590662793797182,Full Body Massage Package
+PL,sports massage,stocked,F2_language,4,4,True,0.670670308031268,Masaż Relaksacyjny Pakiet
+GB,sports massagge,absent,F1_silent_substitution,1,0,True,0.15463881133173,Unlimited Fitness Classes
+GB,sports masssage,absent,F1_silent_substitution,1,0,True,0.298004633545052,Unlimited Fitness Classes
+GB,sportts massage,stocked,F5_ranking,1,1,True,0.636991197113492,Full Body Massage Package
+DE,sprtmassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.619522341575293,Entspannungs-Behandlung im Spa
+ES,sshi,absent,F1_silent_substitution,1,0,True,0.272518634796145,Circuito Spa con Masaje
+DE,stadrundfahrt,absent,F1_silent_substitution,1,1,True,0.752715377381267,Stadtführung
+DE,stadtrandfahrt,absent,F1_silent_substitution,1,0,True,0.740301136827011,Stadtführung
+DE,stadtrudfahrt,absent,F1_silent_substitution,1,0,True,0.707012936945229,Stadtführung
+DE,stadtrundfahrt,stocked,BASELINE_still_40pct_dead,35,14,False,0.768646020504273,Stadtführung
+DE,stadtrundffahrt,absent,F1_silent_substitution,1,0,True,0.714143923435303,Stadtführung
+DE,stadtrunfahrt,absent,F1_silent_substitution,1,1,True,0.734250642828937,Stadtführung
+DE,stadtruundfahrt,absent,F4_supply_void,1,1,True,0.731011764347144,Stadtführung
+DE,stakhaus,absent,F1_silent_substitution,1,1,True,0.359127282268363,Escape Room Erlebnis
+DE,statrundfahrt,absent,F1_silent_substitution,1,1,True,0.497027796741189,Kartbahn Rennen
+DE,steahaus,absent,F1_silent_substitution,1,1,True,0.33813162630406,3-Gänge-Menü für Zwei
+GB,steak ddinner,plausible,F5_ranking,1,1,True,0.347082805285828,Three-Course Meal for Two
+GB,steak dinneer,plausible,F5_ranking,1,1,True,0.436338197093684,Three-Course Meal for Two
+DE,steak dinner,plausible,F2_language,3,3,True,0.560547070519581,Dinner mit Weinbegleitung
+ES,steak dinner,plausible,F2_language,5,4,True,0.528805134656341,Cena con Maridaje
+FR,steak dinner,plausible,F2_language,8,7,True,0.547163664734506,Dîner avec Vin
+GB,steak dinner,plausible,BASELINE_still_40pct_dead,85,35,False,0.521610107045528,Three-Course Meal for Two
+PL,steak dinner,plausible,F2_language,4,4,True,0.582009513857258,Kolacja z Winem
+GB,steak inner,plausible,BASELINE_still_40pct_dead,2,0,True,0.330908903100168,Three-Course Meal for Two
+DE,steakhaaus,plausible,BASELINE_still_40pct_dead,1,0,True,0.307302236557042,Maniküre & Pediküre
+DE,steakhaus,plausible,BASELINE_still_40pct_dead,45,20,False,0.406380293852004,Dinner mit Weinbegleitung
+GB,steakidinner,plausible,BASELINE_still_40pct_dead,1,0,True,0.280425012898451,Dinner & Wine Experience
+GB,steakk dinner,plausible,F5_ranking,1,1,True,0.67857025457244,Three-Course Meal for Two
+DE,steauhaus,absent,F1_silent_substitution,1,0,True,0.339800374603095,3-Gänge-Menü für Zwei
+GB,steeak dinner,stocked,F5_ranking,1,1,True,0.627831831912092,Three-Course Meal for Two
+DE,steeakhaus,absent,F1_silent_substitution,1,0,True,0.309669813808966,Stadtführung
+GB,steik dinner,stocked,F5_ranking,1,1,True,0.587571827369339,Three-Course Meal for Two
+DE,stteakhaus,absent,F1_silent_substitution,1,0,True,0.356168985366844,3-Gänge-Menü für Zwei
+GB,suercar track day,absent,F4_supply_void,1,1,True,0.301329019150864,Go-Karting Session
+GB,suhi,absent,F1_silent_substitution,1,0,True,0.184606131683739,Three-Course Meal for Two
+PL,suihi,absent,F1_silent_substitution,1,0,True,0.286112095747023,Zwiedzanie z Przewodnikiem
+DE,suortmassage,stocked,F5_ranking,1,1,True,0.531113494236446,Entspannungs-Behandlung im Spa
+GB,supeercar track day,absent,F4_supply_void,1,1,True,0.299962607022758,Go-Karting Session
+GB,supercar  track day,absent,F4_supply_void,1,1,True,0.233061861943339,Go-Karting Session
+GB,supercar tracck day,absent,F4_supply_void,1,1,True,0.258530163037495,Go-Karting Session
+GB,supercar track  day,absent,F4_supply_void,1,1,True,0.233061861943339,Go-Karting Session
+GB,supercar track day,absent,F4_supply_void,85,85,False,0.233061861943339,Go-Karting Session
+GB,supercar track dday,absent,F4_supply_void,1,1,True,0.259975184804923,Go-Karting Session
+GB,supercar track dy,absent,F4_supply_void,2,2,True,0.213888044820791,Go-Karting Session
+GB,supercartrack day,absent,F4_supply_void,1,1,True,0.244895749554685,Go-Karting Session
+GB,supercarutrack day,absent,F4_supply_void,1,1,True,0.212042058481655,Go-Karting Session
+GB,supercr track day,absent,F4_supply_void,1,1,True,0.313571746328334,Go-Karting Session
+GB,superrcar track day,absent,F4_supply_void,1,1,True,0.277724863737035,Go-Karting Session
+ES,susai,absent,F1_silent_substitution,1,0,True,0.330870141879306,Sesión de Masaje y Spa
+GB,susei,absent,F1_silent_substitution,1,0,True,0.262220667071662,Go-Karting Session
+DE,sushhi,absent,F1_silent_substitution,1,0,True,0.251194714645359,Stadtführung
+FR,sushhi,absent,F4_supply_void,2,1,True,0.290570602442227,Visite Guidée
+DE,sushi,absent,F1_silent_substitution,39,23,False,0.312283823260206,3-Gänge-Menü für Zwei
+ES,sushi,absent,F1_silent_substitution,77,30,False,0.299583211354857,Cena con Maridaje
+FR,sushi,absent,F1_silent_substitution,48,17,False,0.29492230637705,Menu Dégustation
+GB,sushi,absent,F1_silent_substitution,71,27,False,0.260010910635755,Three-Course Meal for Two
+PL,sushi,absent,F1_silent_substitution,30,13,False,0.317842316949073,Menu 3-Daniowe dla Dwojga
+DE,susi,absent,F1_silent_substitution,1,0,True,0.322392280153288,Maniküre & Pediküre
+ES,susi,absent,F1_silent_substitution,1,0,True,0.266068373516156,Circuito Spa con Masaje
+ES,susshi,absent,F1_silent_substitution,2,1,True,0.311980247497559,Sesión de Masaje y Spa
+FR,susshi,absent,F1_silent_substitution,1,0,True,0.28015019190485,Visite Guidée
+GB,susshi,absent,F4_supply_void,4,3,True,0.162809092643594,Three-Course Meal for Two
+GB,susui,absent,F1_silent_substitution,1,0,True,0.2936524242628,Tasting Menu for Two
+GB,suushi,absent,F1_silent_substitution,1,1,True,0.181885331869158,Three-Course Meal for Two
+ES,taaas,absent,F1_silent_substitution,1,0,True,0.334062377438064,Cena con Maridaje
+ES,tapas,plausible,F3_geographic,40,20,False,0.32288234248934,Sesión de Karting
+ES,tappas,absent,F1_silent_substitution,1,0,True,0.316544419570829,Sesión de Karting
+ES,taps,absent,F1_silent_substitution,3,1,True,0.311602756594963,Manicura y Pedicura
+PL,tener personalny,absent,F4_supply_void,1,1,True,0.429194305327319,Manicure i Pedicure
+GB,thaai massage,stocked,F5_ranking,1,1,True,0.583191948628186,Full Body Massage Package
+GB,thai  massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.52561485767366,Spa & Massage Treatment
+DE,thai masage,stocked,BASELINE_still_40pct_dead,1,0,True,0.192025838124374,Stadtführung
+DE,thai massage,stocked,F2_language,45,21,False,0.573562399409808,Wohlfühl-Massage
+ES,thai massage,stocked,F2_language,6,5,True,0.535792438042623,Circuito Spa con Masaje
+FR,thai massage,stocked,F2_language,8,6,True,0.553473028747644,Forfait Massage Bien-être
+GB,thai massage,stocked,BASELINE_still_40pct_dead,76,28,False,0.52561485767366,Spa & Massage Treatment
+PL,thai massage,stocked,F2_language,4,3,True,0.611450370713959,Masaż Relaksacyjny Pakiet
+GB,thaiomassage,stocked,BASELINE_still_40pct_dead,1,0,True,0.450362308550168,Spa & Massage Treatment
+DE,thi massage,stocked,F5_ranking,1,1,True,0.708381336160988,Wohlfühl-Massage
+GB,thii massage,stocked,BASELINE_still_40pct_dead,1,0,True,0.67279487957863,Spa & Massage Treatment
+ES,tinte  pelo,stocked,F5_ranking,1,1,True,0.667372961986492,Corte y Peinado
+ES,tinte elo,stocked,BASELINE_still_40pct_dead,1,0,True,0.358309150228765,Corte y Peinado
+ES,tinte pelo,stocked,BASELINE_still_40pct_dead,59,24,False,0.667372882303289,Corte y Peinado
+ES,tintee pelo,stocked,F5_ranking,1,1,True,0.698532089372427,Corte y Peinado
+ES,tour ciedad,absent,F4_supply_void,1,1,True,0.406425633535788,Tour Guiado
+ES,tour ciudad,stocked,BASELINE_still_40pct_dead,54,18,False,0.720758388743143,Tour Guiado
+FR,tour en heliccoptere,absent,F4_supply_void,1,1,True,0.318715577584897,Session Karting
+FR,tour en helicopteoe,absent,F4_supply_void,1,1,True,0.380552234913082,Session Karting
+FR,tour en helicoptere,absent,F4_supply_void,77,77,False,0.289817557400165,Modelage Détente
+ES,tourciudad,absent,F1_silent_substitution,1,0,True,0.312750112369704,Cena con Maridaje
+ES,tpas,absent,F1_silent_substitution,2,1,True,0.302508026361468,Circuito Spa con Masaje
+PL,treer personalny,absent,F1_silent_substitution,1,0,True,0.42093183959684,Trening Personalny
+PL,trener peersonalny,absent,F1_silent_substitution,1,0,True,0.4883250039846,Trening Personalny
+PL,trener personalny,stocked,BASELINE_still_40pct_dead,25,10,False,0.566077250347638,Trening Personalny
+PL,trenir personalny,absent,F1_silent_substitution,1,0,True,0.664640267629632,Trening Personalny
+PL,trenner personalny,absent,F1_silent_substitution,1,0,True,0.504789711186831,Trening Personalny
+PL,treoer personalny,absent,F1_silent_substitution,1,1,True,0.399693262659424,Manicure i Pedicure
+ES,velo en helicoptero,absent,F4_supply_void,1,1,True,0.178561650218626,Pase de Gimnasio
+FR,visiae guidee,absent,F1_silent_substitution,1,1,True,0.438846081495297,Session Karting
+FR,visite guidee,stocked,F3_geographic,53,24,False,0.56443992058046,Visite Guidée
+FR,visite guiee,absent,F1_silent_substitution,1,0,True,0.640662551420087,Visite Guidée
+FR,vol en mntgolfiere,absent,F4_supply_void,1,1,True,0.295457681469969,Expérience Escape Game
+FR,vol en monntgolfiere,absent,F4_supply_void,1,1,True,0.305514271053335,Expérience Escape Game
+FR,vol en montgolfieere,absent,F4_supply_void,1,1,True,0.332076103169625,Expérience Escape Game
+FR,vol en montgolfiere,absent,F4_supply_void,65,65,False,0.315168137798282,Expérience Escape Game
+FR,vol en montgolfiire,absent,F4_supply_void,1,1,True,0.342103081314853,Expérience Escape Game
+FR,vol en montolfiere,absent,F4_supply_void,1,1,True,0.36332053492661,Expérience Escape Game
+FR,volen montgolfiere,absent,F4_supply_void,1,1,True,0.309201070355995,Expérience Escape Game
+ES,vueli en helicoptero,absent,F4_supply_void,1,1,True,0.10983354473618,Pase de Gimnasio
+ES,vuelo en  helicoptero,absent,F4_supply_void,1,1,True,0.142606958799108,Pase de Gimnasio
+ES,vuelo en helicootero,absent,F4_supply_void,1,1,True,0.163243511802482,Pase de Gimnasio
+ES,vuelo en helicoptero,absent,F4_supply_void,72,72,False,0.142606958799108,Pase de Gimnasio
+ES,vuelo en helicopterro,absent,F4_supply_void,1,1,True,0.170267158989015,Pase de Gimnasio
+ES,vuelo en helicptero,absent,F4_supply_void,1,1,True,0.279886114699142,Sesión de Karting
+ES,vuelo en helioptero,absent,F4_supply_void,1,1,True,0.151890728860636,Sesión de Karting
+ES,vuelo enhelicoptero,absent,F4_supply_void,1,1,True,0.117901679763049,Pase de Gimnasio
+ES,vuelu en helicoptero,absent,F4_supply_void,1,1,True,0.126522511062324,Experiencia Escape Room
+DE,widwasser rafting,absent,F4_supply_void,1,1,True,0.146364463892526,Stadtführung
+DE,wildwaasser rafting,absent,F4_supply_void,1,1,True,0.14784671742661,Unbegrenzte Kurse
+DE,wildwasser rafting,absent,F4_supply_void,75,75,False,0.112604762526354,Stadtführung
+DE,wildwasserrafting,absent,F4_supply_void,1,1,True,0.165846437362523,Stadtführung
+DE,wilewasser rafting,absent,F4_supply_void,1,1,True,0.13543965914744,Stadtführung
+DE,wimmpernverlängerung,absent,F1_silent_substitution,1,0,True,0.253846729948366,Unbegrenzte Kurse
+DE,wimpernverlängeerung,absent,F1_silent_substitution,1,0,True,0.397470562896307,Maniküre & Pediküre
+DE,wimpernverlängerng,absent,F1_silent_substitution,1,1,True,0.284401254368435,Kartbahn Rennen
+DE,wimpernverlängerung,absent,F1_silent_substitution,44,20,False,0.291351747803046,Kartbahn Rennen
+DE,wimpernverllängerung,absent,F4_supply_void,1,1,True,0.302809979708788,Maniküre & Pediküre
+DE,wimpernverlngerung,absent,F1_silent_substitution,1,0,True,0.345287548317416,Maniküre & Pediküre
+DE,wimpernvorlängerung,absent,F1_silent_substitution,1,0,True,0.335142334086733,Kartbahn Rennen
+GB,yoa class,absent,F1_silent_substitution,1,0,True,0.287190356468888,Unlimited Fitness Classes
+GB,yoea class,absent,F1_silent_substitution,1,1,True,0.292192809377857,Unlimited Fitness Classes
+GB,yog class,absent,F4_supply_void,2,1,True,0.263668527652548,Unlimited Fitness Classes
+GB,yoga claos,plausible,BASELINE_still_40pct_dead,1,0,True,0.469842800544859,Unlimited Fitness Classes
+DE,yoga class,plausible,F2_language,5,5,True,0.519403925938753,Unbegrenzte Kurse
+ES,yoga class,plausible,F2_language,5,5,True,0.507474869044134,Entrenamiento Personal
+FR,yoga class,plausible,F2_language,5,4,True,0.489156574657168,Modelage Détente
+GB,yoga class,plausible,BASELINE_still_40pct_dead,74,28,False,0.529654078566059,Unlimited Fitness Classes
+PL,yoga class,plausible,F2_language,2,1,True,0.536870351583878,Masaż Relaksacyjny Pakiet
+GB,yoga closs,plausible,F5_ranking,1,1,True,0.451970498109644,Relaxing Wellness Session
+DE,yoga kkurs,plausible,BASELINE_still_40pct_dead,1,0,True,0.48062311632614,Entspannungs-Behandlung im Spa
+DE,yoga kurs,plausible,BASELINE_still_40pct_dead,58,23,False,0.487956674342639,Entspannungs-Behandlung im Spa
+PL,zwiedzanie miasoa,stocked,BASELINE_still_40pct_dead,1,0,True,0.457323759794265,Zwiedzanie z Przewodnikiem
+PL,zwiedzanie miasta,stocked,F3_geographic,25,13,False,0.720251016676673,Zwiedzanie z Przewodnikiem
+PL,zwiedzanie miauta,stocked,F5_ranking,1,1,True,0.58139938740098,Zwiedzanie z Przewodnikiem
+PL,zwiedzaniee miasta,stocked,BASELINE_still_40pct_dead,1,0,True,0.722517957237236,Zwiedzanie z Przewodnikiem
