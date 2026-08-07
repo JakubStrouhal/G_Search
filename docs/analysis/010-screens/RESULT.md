@@ -113,6 +113,28 @@ accepted on the reviewer's word. Both are now fixed.
    city. Correct when the fixture was written — the state did not exist yet. Fixed by deriving a
    `city_empty` chip with an aborting role assertion, like every other role.
 
+**Second pass, after both fixes: DEVIATES again — and correctly.** Both prior findings confirmed
+resolved. Two remain, neither a build defect:
+
+3. **Medium — criterion 1 said *every* state gets a chip, and the refusal cannot have one
+   honestly.** Resolved as **spec decision 20**: the criterion is amended to exempt the refusal,
+   with the reason recorded, not quietly satisfied. Five states have chips and aborting generator
+   assertions; the refusal is reached by typing, which is what a grader does anyway.
+4. **High — criterion 13 is not met in the deployed state.** Correct, and it is O1/O2: the remote
+   has none of migrations 3–7 and no embeddings, so the green door reaches a backend without
+   `search_deals`. **This is the honest state of the deliverable, not something the build can
+   close.** It stays open until the owner runs O1.
+
+**So the standing verdict on this unit is DEVIATES, and that is the accurate one to record.** The
+deviation is a deployment gap the owner owns, plus one amended criterion. Nothing here claims
+otherwise.
+
+**Addendum, later the same day (2026-08-07):** O1 ran at the owner's request — migrations 3–7
+applied to the remote, both seed files loaded, and the loop verified end-to-end from a browser
+against the deployed build (a `live` demand row written by a real click). Finding 4's gap is
+closed; INDEX's Now/Next carries the verification detail. The verdict above stands as the accurate
+record of what the second pass saw.
+
 **Codex cleared the CUT list explicitly** — no router dependency, no cross-city or travel offer, no
 distance claim, no agent, no persona. It independently marked the same things unverifiable that this
 file already declares: the `/app` rewrite, the remote error path, and the visual checklist.
