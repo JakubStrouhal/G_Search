@@ -16,20 +16,22 @@ injected into every new session by the `SessionStart` hook.
 ## Now / Next
 
 <!-- state:start -->
-- **PRODUCTION IS BROKEN RIGHT NOW, and the fix is the owner's two commands.** ~2026-08-07 21:00 UTC
-  the Vercel vars `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` were re-added as **empty
-  strings** (verified by `vercel env pull` on both Production and Preview/align-design), and the
-  production deploy that followed baked the empties — `/app` and `/api` throw on load behind the
-  gate. Re-add both values, then deploy. The working publishable key is `sb_publishable_dYPHSnur…`
-  (200 on `/rest/v1/deals`); the one in `web/app/.env.local` is the **local** stack's and 401s
-  against the hosted project — do not paste that one.
+- **RETRACTED, and the lesson matters more than the scare: `vercel env pull` REDACTS encrypted
+  values to `""` — it is not evidence of emptiness.** An earlier revision of this bullet declared
+  production broken on "empty env vars". The tell that killed the diagnosis: `SITE_PASSWORD` also
+  pulls as `""` while the gate provably accepts a real password. The vars were never empty; the
+  owner's rm/re-add churn was unnecessary. Production `/app` was re-verified working in a browser
+  2026-08-07 ~21:45 UTC (`gym` GB·London → band confident, staff panel live). Never diagnose Vercel
+  env state from `pull` output — test the behaviour instead.
 - **Hosted Supabase closed the OpenAPI root to publishable keys** (`GET /rest/v1/` → 401 "Secret
   API key required", observed 2026-08-07; data endpoints unaffected), so `/api`'s browser-side spec
-  fetch is dead permanently, not intermittently. PR #7 moves the fetch to a middleware proxy at
-  `/__spec` holding `SUPABASE_SECRET_KEY` server-side (unauthenticated → the uniform 401 form, SPEC
-  §B1 preserved). **The proxy is unverified until the owner adds `SUPABASE_SECRET_KEY` on Vercel
-  and a deploy carries it** — until then /api shows a sentence naming the missing key, which is the
-  designed failure, not the goal state.
+  fetch is dead permanently, not intermittently. PR #7 (merged) moves the fetch to a middleware
+  proxy at `/__spec` holding `SUPABASE_SECRET_KEY` server-side (unauthenticated → the uniform 401
+  form, SPEC §B1 preserved). **Live status 21:50 UTC: the proxy runs and fails honestly — upstream
+  401, meaning the `SUPABASE_SECRET_KEY` value on Vercel is not the real `sb_secret_…` key.** The
+  page shows the designed failure sentence, not a blank. Owner: re-add the key (verify it first
+  with `curl -H "apikey: <secret>" <url>/rest/v1/` → JSON, not 401), then redeploy — middleware env
+  is baked per deployment.
 - **Grader orientation shipped (PR #7): every surface now answers "where am I" in the brief's own
   letters.** The explainer opens with a Part A/B/C deliverables bar (A = this page, B =
   `/app#prototype`, C = the package at `/app`); the sources box dropped its A/B/C letters for 1/2/3
