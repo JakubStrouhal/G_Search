@@ -63,8 +63,32 @@ and were corrected — the F3 basis ("Chapter 2 tested that"), F5's `fixable` ("
 `meta.note` ("the pinned live observations in chapter 5"). A rendered payload string that names the
 wrong chapter is the same defect as a stale number, and harder to see.
 
-**What has not been checked.** The page has never been opened in a browser. What ran: the drift
-guard, a headless DOM smoke test (every id served, nothing undefined or NaN, no exception),
-tag-balance and duplicate-id checks, and `vue-tsc` on the app build. Layout, type, the hover
-tooltips and the sticky launcher are all unverified by eye. Mobile below 991px was untested in the
-comp and is untested here.
+## The one bug the headless checks could not see
+
+The jump launcher never appeared. It was authored — in the comp, and in the first port — as the
+**first** child of `#nav-scope`, with `position:sticky; bottom:16px`. That cannot work:
+**sticky with `bottom` only ever pulls an element up from below the fold. It cannot hold one you
+have already scrolled past.** At the top of a 23,000px scope the launcher's flow position is
+reached and gone on the first flick of the wheel, and nothing brings it back — measured at
+`top: -1380px` while reading Chapter 1.
+
+Moving it to the **last** child of the same scope fixes it with no script: its flow position is now
+the footer, so it is pulled up and pinned 32px off the viewport bottom for the whole document, and
+settles into place when the footer arrives. The scope's guarantee is unchanged — above the contents
+list the scope has not started, so there is nothing to stick.
+
+This is the class of defect a DOM stub cannot catch: every id was served and every value was
+correct: the element was simply off-screen. It took a browser.
+
+**Known and left alone:** at the very top of the page the launcher floats over the contents list's
+*Part one* row. `DESIGN-NOTES.md` wanted it absent while the masthead is on screen, and it is —
+the masthead ends at 569px and the launcher sits at 795px — but the contents list is the one block
+wide enough to reach under it. Everywhere below, the launcher sits in empty gutter left of the
+680px prose column. Moving it is a design call, not a bug fix.
+
+**What has been checked, and what has not.** Verified in Chrome at 1568×873: all five figures draw,
+all three tables fill, all twelve mounts render, the jump panel opens grouped by part with its
+provenance chips, the part-map tooltips track their ticks through a scroll and clear on leave, the
+replay simulator answers both a hit and a miss, and the console is clean. Not checked: type and
+spacing against the comp at other widths, and mobile below 991px — untested in the comp and
+untested here.
