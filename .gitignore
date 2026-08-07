@@ -35,3 +35,14 @@ docs/analysis/002-recoverability/outputs/acquisition_priority.csv
 
 # NOT ignored, deliberately: 004-data-story/outputs/{explainer.html,story_data.json} are
 # generated but are the named Part A deliverable — a grader opens the link, not the script.
+
+# The deploy copy of that deliverable. `web/app/scripts/copy-explainer.mjs` refreshes it from
+# the committed original on every dev and build, so committing a second copy would be exactly
+# the drift channel FINDINGS.md §9 row 12 records.
+web/app/public/explainer.html
+
+# Local kill switch for the Codex reviewer. Its presence turns validation off, so it is a
+# machine-local state, never a committed one — a tracked copy would disable the gate for
+# everyone permanently. `.claude/hooks/codex-interview.sh` reads it.
+.claude/codex-review.disabled
+.vercel

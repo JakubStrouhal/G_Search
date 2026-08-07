@@ -85,6 +85,12 @@ repo-side Vercel config is `vercel.json`, and it builds **from the repo root**, 
 `docs/analysis/004-data-story/outputs/explainer.html` from outside the app folder. Setting
 Vercel's Root Directory to `web/app` breaks that silently — leave it at the repo root.
 
+**Not indexed.** `vercel.json` serves `X-Robots-Tag: noindex, nofollow` on every path. This is a
+hiring deliverable carrying Groupon's name and a critique of Groupon's search, sitting on a
+personal deployment; it should be reachable by whoever it was sent to and absent from search
+results. There is deliberately **no `robots.txt` `Disallow`** — that would stop a crawler
+fetching the page, so it would never read the header, and the URL can end up indexed anyway.
+
 **What is not, and why.** Migrations. `CLAUDE.md` requires one reviewed migration generated
 by `supabase db pull --local`, and explicit per-run approval before mutating SQL runs
 against the remote project. An automated `supabase db push` from CI would defeat both.

@@ -6,9 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predev": "node scripts/copy-explainer.mjs",
+    "prebuild": "node scripts/copy-explainer.mjs"
   },
   "dependencies": {
+    "@fontsource/nunito-sans": "^5.3.0",
     "@supabase/supabase-js": "^2.112.2",
     "vue": "^3.5.40"
   },

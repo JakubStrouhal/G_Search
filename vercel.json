@@ -4,5 +4,11 @@
   "installCommand": "npm --prefix web/app ci",
   "buildCommand": "npm --prefix web/app run build",
   "outputDirectory": "web/app/dist",
-  "github": { "silent": true }
+  "github": { "silent": true },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
 }
