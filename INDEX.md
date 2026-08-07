@@ -16,6 +16,25 @@ injected into every new session by the `SessionStart` hook.
 ## Now / Next
 
 <!-- state:start -->
+- **PRODUCTION IS BROKEN RIGHT NOW, and the fix is the owner's two commands.** ~2026-08-07 21:00 UTC
+  the Vercel vars `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` were re-added as **empty
+  strings** (verified by `vercel env pull` on both Production and Preview/align-design), and the
+  production deploy that followed baked the empties — `/app` and `/api` throw on load behind the
+  gate. Re-add both values, then deploy. The working publishable key is `sb_publishable_dYPHSnur…`
+  (200 on `/rest/v1/deals`); the one in `web/app/.env.local` is the **local** stack's and 401s
+  against the hosted project — do not paste that one.
+- **Hosted Supabase closed the OpenAPI root to publishable keys** (`GET /rest/v1/` → 401 "Secret
+  API key required", observed 2026-08-07; data endpoints unaffected), so `/api`'s browser-side spec
+  fetch is dead permanently, not intermittently. PR #7 moves the fetch to a middleware proxy at
+  `/__spec` holding `SUPABASE_SECRET_KEY` server-side (unauthenticated → the uniform 401 form, SPEC
+  §B1 preserved). **The proxy is unverified until the owner adds `SUPABASE_SECRET_KEY` on Vercel
+  and a deploy carries it** — until then /api shows a sentence naming the missing key, which is the
+  designed failure, not the goal state.
+- **Grader orientation shipped (PR #7): every surface now answers "where am I" in the brief's own
+  letters.** The explainer opens with a Part A/B/C deliverables bar (A = this page, B =
+  `/app#prototype`, C = the package at `/app`); the sources box dropped its A/B/C letters for 1/2/3
+  so provenance can't be read as deliverables; the prototype got a plain-English how-to strip above
+  the chips; the `/app` Part B card now says **live**, which `010-screens/RESULT.md` earned.
 - **Phase:** Part A done and live-validated. **Part B steps 1–4 of 10 are built** (`001-part-b/SPEC.md`
   §10): schema + seeds + 75 descriptions + embeddings + the calibrated threshold, all local. **Part C not started, and it is now
   the larger risk of the two.**
