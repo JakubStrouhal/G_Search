@@ -9,7 +9,8 @@
        TypeScript resolves here, and they drift silently if only one is edited. */
     "paths": {
       "@/*": ["./src/*"],
-      "@design/*": ["../../docs/design/*"]
+      "@design/*": ["../../docs/design/*"],
+      "@fixtures/*": ["../../docs/analysis/010-screens/outputs/*"]
     },
 
     /* Linting */

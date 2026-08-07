@@ -92,6 +92,15 @@ repo-side Vercel config is `vercel.json`, and it builds **from the repo root**, 
 `docs/analysis/004-data-story/outputs/explainer.html` from outside the app folder. Setting
 Vercel's Root Directory to `web/app` breaks that silently — leave it at the repo root.
 
+**Routing: the explainer *is* the landing page.** `copy-explainer.mjs` writes the built page to
+**both** `public/index.html` and `public/explainer.html`, so `/` and `/explainer.html` serve the
+same file. The Vue app is therefore not the root document: its entry is `web/app/app.html`, named
+in `vite.config.ts`'s `rollupOptions.input`, and `vercel.json` rewrites `/app` onto `/app.html`.
+Both public copies are gitignored and rebuilt on every dev and build run. Two consequences worth
+knowing: a Vercel rewrite of `/` would *not* have worked (rewrites are evaluated after the
+filesystem, and `index.html` is a real file), and the sign-out button lives in the Vue app, so it
+is on `/app` and not on the landing page.
+
 **Password-gated.** The deployment is private: `middleware.ts` at the repo root returns **401
 and a login form on every path** — the app shell, the hashed assets, and `explainer.html` alike
 — until a cookie signed with the password is presented. It runs on Vercel's edge, ahead of the

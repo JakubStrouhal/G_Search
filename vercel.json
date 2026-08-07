@@ -5,6 +5,7 @@
   "buildCommand": "npm --prefix web/app run build",
   "outputDirectory": "web/app/dist",
   "github": { "silent": true },
+  "rewrites": [{ "source": "/app", "destination": "/app.html" }],
   "headers": [
     {
       "source": "/(.*)",

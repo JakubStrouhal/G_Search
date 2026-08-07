@@ -1,6 +1,11 @@
 /**
  * Copy the built Part A explainer into public/ so Vite ships it verbatim.
  *
+ * It lands twice, at public/index.html and public/explainer.html, and both are the
+ * deliverable rather than one being a redirect: index.html because the explainer is the
+ * landing page, explainer.html because that URL is already in circulation and the access
+ * gate's acceptance criteria name it. The Vue app entry moved to app.html to make room.
+ *
  * The page is generated — notebook.py → outputs/story_data.json →
  * build_explainer.py → outputs/explainer.html — and its whole claim is that no
  * figure is hand-typed. A second copy checked in under public/ would be the same
@@ -16,7 +21,7 @@ import { fileURLToPath } from 'node:url'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const SRC = resolve(here, '../../../docs/analysis/004-data-story/outputs/explainer.html')
-const DEST = resolve(here, '../public/explainer.html')
+const DESTS = [resolve(here, '../public/index.html'), resolve(here, '../public/explainer.html')]
 
 let html
 try {
@@ -42,5 +47,8 @@ if (html.includes('__STORY_DATA__')) {
   process.exit(1)
 }
 
-copyFileSync(SRC, DEST)
-console.log(`copy-explainer: → public/explainer.html (${Math.round(statSync(DEST).size / 1024)} KB)`)
+for (const dest of DESTS) copyFileSync(SRC, dest)
+console.log(
+  `copy-explainer: → public/index.html + public/explainer.html ` +
+    `(${Math.round(statSync(DESTS[0]).size / 1024)} KB each)`,
+)

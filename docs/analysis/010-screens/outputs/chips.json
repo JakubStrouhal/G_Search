@@ -1,0 +1,662 @@
+{
+  "generated_by": "docs/analysis/010-screens/build_chips.py",
+  "generated_on": "2026-08-07",
+  "spec": "docs/analysis/010-screens/SPEC.md acceptance criteria 1, 2, 3, 6, 7",
+  "how": "Every band and flag under `expect` was read off public.search_deals on the local database inside a rolled-back transaction. The query strings and cities are curated (SPEC honesty register); nothing else here is. Re-run the script rather than editing this file — a hand-edited chip is a chip that claims a state the RPC does not return. `expect.demand_row_written` describes a single response, not a cumulative count: every abstain and every city-empty search writes another row (n=1), so assert it against the RPC's answer, never against a row count.",
+  "provenance": {
+    "note": "Recorded so this file can be dated against a calibration. The UI must read thresholds from public.search_config at runtime (SPEC G6), never from here.",
+    "low": 0.4,
+    "high": 0.55,
+    "alt_floor": 0.3,
+    "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+    "calibrated_on": "2026-08-07"
+  },
+  "default_city_by_market": {
+    "GB": "London",
+    "PL": "Warszawa",
+    "DE": "Berlin",
+    "FR": "Paris",
+    "ES": "Madrid"
+  },
+  "counts": {
+    "chips": 23,
+    "by_band": {
+      "confident": 8,
+      "adjacent": 8,
+      "abstain": 7
+    },
+    "by_render_state": {
+      "abstain": 7,
+      "adjacent": 5,
+      "city_empty": 1,
+      "confident": 5,
+      "near_empty": 5
+    },
+    "near_empty": 5,
+    "states_reachable_by_chip": [
+      "abstain",
+      "adjacent",
+      "city_empty",
+      "confident",
+      "near_empty"
+    ]
+  },
+  "chips": [
+    {
+      "id": "de-berlin-personal-trainer",
+      "market": "DE",
+      "city": "Berlin",
+      "query": "personal trainer",
+      "roles": [
+        "spec_named",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "confident",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 9,
+        "result_count": 9,
+        "normalised": false,
+        "resolved_to": "personal trainer",
+        "alternatives_above_floor": true,
+        "alt_max": 0.6788,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "es-madrid-limpieza-facial",
+      "market": "ES",
+      "city": "Madrid",
+      "query": "limpieza facial",
+      "roles": [
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "confident",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 7,
+        "result_count": 7,
+        "normalised": false,
+        "resolved_to": "limpieza facial",
+        "alternatives_above_floor": true,
+        "alt_max": 0.7552,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "fr-paris-massage-duo",
+      "market": "FR",
+      "city": "Paris",
+      "query": "massage duo",
+      "roles": [
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "confident",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 13,
+        "result_count": 12,
+        "normalised": false,
+        "resolved_to": "massage duo",
+        "alternatives_above_floor": true,
+        "alt_max": 0.6206,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-birmingham-escape-room",
+      "market": "GB",
+      "city": "Birmingham",
+      "query": "escape room",
+      "roles": [
+        "near_empty",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "near_empty",
+        "band": "confident",
+        "near_empty": true,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 1,
+        "result_count": 1,
+        "normalised": false,
+        "resolved_to": "escape room",
+        "alternatives_above_floor": true,
+        "alt_max": 0.735,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-birmingham-hair-colour",
+      "market": "GB",
+      "city": "Birmingham",
+      "query": "hair colour",
+      "roles": [
+        "city_empty",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "city_empty",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": true,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "hair colour",
+        "alternatives_above_floor": true,
+        "alt_max": 0.3423,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-london-gym",
+      "market": "GB",
+      "city": "London",
+      "query": "gym",
+      "roles": [
+        "spec_named",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "confident",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 17,
+        "result_count": 12,
+        "normalised": false,
+        "resolved_to": "gym",
+        "alternatives_above_floor": true,
+        "alt_max": 0.6547,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "pl-kraków-masaż-dla-par",
+      "market": "PL",
+      "city": "Kraków",
+      "query": "masaż dla par",
+      "roles": [
+        "near_empty",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "near_empty",
+        "band": "confident",
+        "near_empty": true,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 2,
+        "result_count": 2,
+        "normalised": false,
+        "resolved_to": "masaż dla par",
+        "alternatives_above_floor": true,
+        "alt_max": 0.7002,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "pl-warszawa-masaz-tajski",
+      "market": "PL",
+      "city": "Warszawa",
+      "query": "masaz tajski",
+      "roles": [
+        "normalised",
+        "band:confident"
+      ],
+      "expect": {
+        "render_state": "confident",
+        "band": "confident",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 5,
+        "result_count": 5,
+        "normalised": true,
+        "resolved_to": "masaż tajski",
+        "alternatives_above_floor": true,
+        "alt_max": 0.5517,
+        "part_a_logged_here": true,
+        "part_a_class": "F5_ranking",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "de-berlin-kart-fahren",
+      "market": "DE",
+      "city": "Berlin",
+      "query": "kart fahren",
+      "roles": [
+        "spec_named",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "adjacent",
+        "band": "adjacent",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 5,
+        "result_count": 5,
+        "normalised": false,
+        "resolved_to": "kart fahren",
+        "alternatives_above_floor": true,
+        "alt_max": 0.545,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "de-köln-kart-fahren",
+      "market": "DE",
+      "city": "Köln",
+      "query": "kart fahren",
+      "roles": [
+        "near_empty",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "near_empty",
+        "band": "adjacent",
+        "near_empty": true,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 1,
+        "result_count": 1,
+        "normalised": false,
+        "resolved_to": "kart fahren",
+        "alternatives_above_floor": true,
+        "alt_max": 0.545,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "es-barcelona-paseo-en-globo",
+      "market": "ES",
+      "city": "Barcelona",
+      "query": "paseo en globo",
+      "roles": [
+        "near_empty",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "near_empty",
+        "band": "adjacent",
+        "near_empty": true,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 2,
+        "result_count": 2,
+        "normalised": false,
+        "resolved_to": "paseo en globo",
+        "alternatives_above_floor": true,
+        "alt_max": 0.5279,
+        "part_a_logged_here": true,
+        "part_a_class": "F4_supply_void",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": false
+      }
+    },
+    {
+      "id": "es-madrid-paseo-en-globo",
+      "market": "ES",
+      "city": "Madrid",
+      "query": "paseo en globo",
+      "roles": [
+        "disagreement",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "adjacent",
+        "band": "adjacent",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 6,
+        "result_count": 6,
+        "normalised": false,
+        "resolved_to": "paseo en globo",
+        "alternatives_above_floor": true,
+        "alt_max": 0.5279,
+        "part_a_logged_here": true,
+        "part_a_class": "F4_supply_void",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": false
+      }
+    },
+    {
+      "id": "fr-paris-brunch",
+      "market": "FR",
+      "city": "Paris",
+      "query": "brunch",
+      "roles": [
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "adjacent",
+        "band": "adjacent",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 5,
+        "result_count": 5,
+        "normalised": false,
+        "resolved_to": "brunch",
+        "alternatives_above_floor": true,
+        "alt_max": 0.4108,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "plausible",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "fr-paris-karting",
+      "market": "FR",
+      "city": "Paris",
+      "query": "karting",
+      "roles": [
+        "near_empty",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "near_empty",
+        "band": "adjacent",
+        "near_empty": true,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 1,
+        "result_count": 1,
+        "normalised": false,
+        "resolved_to": "karting",
+        "alternatives_above_floor": true,
+        "alt_max": 0.4174,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-london-indian-restaurant",
+      "market": "GB",
+      "city": "London",
+      "query": "indian restaurant",
+      "roles": [
+        "spec_named",
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "adjacent",
+        "band": "adjacent",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 5,
+        "result_count": 5,
+        "normalised": false,
+        "resolved_to": "indian restaurant",
+        "alternatives_above_floor": true,
+        "alt_max": 0.4471,
+        "part_a_logged_here": true,
+        "part_a_class": "BASELINE_still_40pct_dead",
+        "part_a_coverage": "plausible",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "pl-warszawa-brunch",
+      "market": "PL",
+      "city": "Warszawa",
+      "query": "brunch",
+      "roles": [
+        "band:adjacent"
+      ],
+      "expect": {
+        "render_state": "adjacent",
+        "band": "adjacent",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": false,
+        "available": 4,
+        "result_count": 4,
+        "normalised": false,
+        "resolved_to": "brunch",
+        "alternatives_above_floor": true,
+        "alt_max": 0.4885,
+        "part_a_logged_here": true,
+        "part_a_class": "F3_geographic",
+        "part_a_coverage": "plausible",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "de-berlin-helicopter-tour",
+      "market": "DE",
+      "city": "Berlin",
+      "query": "helicopter tour",
+      "roles": [
+        "cross_market",
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "helicopter tour",
+        "alternatives_above_floor": false,
+        "alt_max": 0.173,
+        "part_a_logged_here": false,
+        "part_a_class": null,
+        "part_a_coverage": null,
+        "band_agrees_with_part_a": null
+      }
+    },
+    {
+      "id": "de-berlin-wildwasser-rafting",
+      "market": "DE",
+      "city": "Berlin",
+      "query": "wildwasser rafting",
+      "roles": [
+        "spec_named",
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "wildwasser rafting",
+        "alternatives_above_floor": false,
+        "alt_max": 0.1126,
+        "part_a_logged_here": true,
+        "part_a_class": "F4_supply_void",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "es-madrid-manicura",
+      "market": "ES",
+      "city": "Madrid",
+      "query": "manicura",
+      "roles": [
+        "disagreement",
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "manicura",
+        "alternatives_above_floor": true,
+        "alt_max": 0.3338,
+        "part_a_logged_here": true,
+        "part_a_class": "F3_geographic",
+        "part_a_coverage": "stocked",
+        "band_agrees_with_part_a": false
+      }
+    },
+    {
+      "id": "fr-paris-saut-en-parachute",
+      "market": "FR",
+      "city": "Paris",
+      "query": "saut en parachute",
+      "roles": [
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "saut en parachute",
+        "alternatives_above_floor": false,
+        "alt_max": 0.2325,
+        "part_a_logged_here": true,
+        "part_a_class": "F4_supply_void",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-london-eyelash-extensions",
+      "market": "GB",
+      "city": "London",
+      "query": "eyelash extensions",
+      "roles": [
+        "floor_show",
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "eyelash extensions",
+        "alternatives_above_floor": true,
+        "alt_max": 0.3964,
+        "part_a_logged_here": true,
+        "part_a_class": "F1_silent_substitution",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "gb-london-paintball",
+      "market": "GB",
+      "city": "London",
+      "query": "paintball",
+      "roles": [
+        "spec_named",
+        "band:abstain",
+        "floor_suppress"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "paintball",
+        "alternatives_above_floor": false,
+        "alt_max": 0.2508,
+        "part_a_logged_here": true,
+        "part_a_class": "F1_silent_substitution",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": true
+      }
+    },
+    {
+      "id": "pl-warszawa-lot-balonem",
+      "market": "PL",
+      "city": "Warszawa",
+      "query": "lot balonem",
+      "roles": [
+        "band:abstain"
+      ],
+      "expect": {
+        "render_state": "abstain",
+        "band": "abstain",
+        "near_empty": false,
+        "city_empty": false,
+        "demand_row_written": true,
+        "available": 0,
+        "result_count": 0,
+        "normalised": false,
+        "resolved_to": "lot balonem",
+        "alternatives_above_floor": true,
+        "alt_max": 0.3226,
+        "part_a_logged_here": true,
+        "part_a_class": "F4_supply_void",
+        "part_a_coverage": "absent",
+        "band_agrees_with_part_a": true
+      }
+    }
+  ]
+}

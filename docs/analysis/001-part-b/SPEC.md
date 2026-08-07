@@ -1,6 +1,6 @@
 ---
 created: 2026-08-06
-updated: 2026-08-06
+updated: 2026-08-07
 note: F3 and F5 diagnoses withdrawn and the behaviours re-grounded; four-bucket vocabulary added; duplicated defect text replaced with INDEX citations.
 ---
 
@@ -59,7 +59,11 @@ market+query rows with `failure_class`, `concept`, `searches`, `zeros`, `deads`,
 - **The staff panel shows both**, so a grader sees agreement — or disagreement, which is honest and
   more interesting than either alone.
 
-**Unknown queries** (not in the CSV) fall back to the threshold path. Say so in the staff panel.
+**Unknown queries** (not in the CSV) ~~fall back to the threshold path~~ — **superseded 2026-08-07
+by the E6 refusal**: embeddings are precomputed locally for the 613 logged queries only (INDEX
+decision 2026-08-07), so the shipped RPC refuses an unlogged query by name rather than guessing
+(`supabase/migrations/*_search_rpc.sql`, `010-screens/SPEC.md` refusal state). The staff panel
+still says so.
 
 ---
 

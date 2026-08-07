@@ -727,7 +727,19 @@
    "flips_under": [
     "stocked_generic"
    ],
-   "seam": "`plausible` coverage \u2014 a generic deal that might or might not answer the query. All 1,016 of these dead ends move together."
+   "seam": "`plausible` coverage \u2014 a generic deal that might or might not answer the query. All 1,016 of these dead ends move together.",
+   "permutation": {
+    "excess_pp": [
+     9.8,
+     14.0
+    ],
+    "z": [
+     19.5,
+     33.6
+    ],
+    "source": "FINDINGS.md \u00a75f",
+    "recomputed_here": false
+   }
   }
  },
  "classes": [
@@ -765,7 +777,7 @@
    "key": "F5_ranking",
    "label": "Unexplained residual",
    "what": "Stocked, failing, and none of the other causes apply.",
-   "fixable": "Unknown \u2014 see chapter 4",
+   "fixable": "Unknown \u2014 see chapter 3",
    "searches": 658,
    "dead": 353,
    "dead_rate": 0.5364741641337386,
@@ -1663,7 +1675,7 @@
     "low": 0.1,
     "mid": 0.25,
     "high": 0.4,
-    "basis": "ASSUMPTION, AND ITS STATED BASIS IS NOW KNOWN TO BE WRONG. The 25% was justified as 'inventory exists in-market, not in-city, so offer a wider radius'. Chapter 3 tested that: only 6 of this class's 321 dead ends have the deal in another city. The RANGE IS DELIBERATELY LEFT UNCHANGED rather than re-derived, because re-deriving it lowers the headline and we would rather report the number that is generous to search. Tightening it is shown below.",
+    "basis": "ASSUMPTION, AND ITS STATED BASIS IS NOW KNOWN TO BE WRONG. The 25% was justified as 'inventory exists in-market, not in-city, so offer a wider radius'. Chapter 2 tested that: only 6 of this class's 321 dead ends have the deal in another city. The RANGE IS DELIBERATELY LEFT UNCHANGED rather than re-derived, because re-deriving it lowers the headline and we would rather report the number that is generous to search. Tightening it is shown below.",
     "measured": false,
     "withdrawn": false,
     "basis_falsified": true
@@ -1722,7 +1734,7 @@
   "F5_ranking": {
    "label": "Unexplained residual",
    "what": "Stocked, failing, and none of the other causes apply.",
-   "fixable": "Unknown \u2014 see chapter 4",
+   "fixable": "Unknown \u2014 see chapter 3",
    "verdict": "Stocked, failing, and we do not know why.",
    "does": [
     "Treat 1\u20132 results as a near-empty state, not a results page",
@@ -16844,7 +16856,7 @@
  "meta": {
   "built_from": "docs/brief/{search_log,deals}.csv + docs/analysis/outputs/query_classes.csv",
   "pairs": 751,
-  "note": "Every number on the page comes from this file. Nothing is hand-typed except the pinned live observations in chapter 2.",
+  "note": "Every number on the page comes from this file. Nothing is hand-typed except the pinned live observations in chapter 5.",
   "classifier_accuracy": 0.86,
   "result_counts_seen": [
    0,
@@ -16856,6 +16868,7 @@
   ],
   "result_counts_missing": [
    3
-  ]
+  ],
+  "month": "June 2026"
  }
 }
