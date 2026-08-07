@@ -1,5 +1,9 @@
 <script setup lang="ts">
-// The deployed front door.
+// The package index, at /app.
+//
+// It was the front door until 2026-08-07; the redesigned explainer took `/` and this became
+// the page behind it, reached from the explainer's prototype door. Keep it: it is the only
+// place the three deliverables' real statuses sit together, and it carries the sign-out button.
 //
 // Number-free on purpose: 006-one-page/SPEC.md G6 bans a hand-typed figure in any
 // component, and every figure this page could quote already lives on the explainer,
@@ -36,7 +40,7 @@ const cards: Card[] = [
       'The supplied search log and catalogue read against each other, then checked ' +
       'against live production. Six chapters, every figure computed by a script rather ' +
       'than typed — including the ones that undercut the headline.',
-    href: '/explainer.html',
+    href: '/',
     cta: 'Open the explainer',
   },
   {
@@ -47,7 +51,8 @@ const cards: Card[] = [
       'A clickable prototype that handles every failure class the analysis found, ' +
       'including the ones search cannot fix. What it does when it has no good answer ' +
       'is the point, so abstention comes before results.',
-    pending: 'Not yet deployed.',
+    href: '#prototype',
+    cta: 'Open the prototype',
   },
   {
     part: 'Part C',

@@ -2855,5 +2855,5 @@ insert into public.demand_events (market, city, concept, raw_query, occurred_on,
   ('DE', 'Berlin', null, 'boling', '2026-06-30', 'seed', 1);
 
 -- search_config: 1 rows
-insert into public.search_config (low, high, model, calibrated_on, n_labelled, false_confident, false_abstain, note) values
-  (0.4, 0.55, 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', '2026-08-07', 751, 0.0683, 0.2322, 'LOW is calibrated against query_classes.coverage; the rates are BY SEARCH VOLUME at LOW and are reported in both directions because they are different mistakes. HIGH is a JUDGEMENT, not a calibration - nothing in the supplied data labels confident-vs-adjacent. Source: docs/analysis/008-threshold-sweep/RESULT.md');
+insert into public.search_config (low, high, alt_floor, model, calibrated_on, n_labelled, false_confident, false_abstain, note) values
+  (0.4, 0.55, 0.3, 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2', '2026-08-07', 751, 0.0683, 0.2322, 'LOW is calibrated against query_classes.coverage; the rates are BY SEARCH VOLUME at LOW and are reported in both directions because they are different mistakes. HIGH is a JUDGEMENT, not a calibration - nothing in the supplied data labels confident-vs-adjacent. ALT_FLOOR is the same standing as HIGH: an owner judgement (010-screens SPEC decision 18), not a swept value. Source: docs/analysis/008-threshold-sweep/RESULT.md');

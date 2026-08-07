@@ -40,6 +40,8 @@ docs/analysis/002-recoverability/outputs/acquisition_priority.csv
 # the committed original on every dev and build, so committing a second copy would be exactly
 # the drift channel FINDINGS.md §9 row 12 records.
 web/app/public/explainer.html
+# Same file again, under the name that makes it the landing page.
+web/app/public/index.html
 
 # Local kill switch for the Codex reviewer. Its presence turns validation off, so it is a
 # machine-local state, never a committed one — a tracked copy would disable the gate for

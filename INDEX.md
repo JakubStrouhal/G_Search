@@ -23,9 +23,14 @@ injected into every new session by the `SessionStart` hook.
   confident labels**. **Ship LOW=0.40, HIGH=0.55** — HIGH is a judgement, nothing labels it.
   **The search RPC is DONE** (`supabase/migrations/*_search_rpc.sql`): `search_deals(market, city,
   query)` returns the band **and** Part A's class, refuses by name for anything outside the logged
-  613, abstains below LOW and writes a demand row when it does. **Immediately next: the screens**
-  (`006 SPEC` §3.1 S1–S7) — the backend is complete. **Quote both error rates, never one accuracy
-  number.**
+  613, abstains below LOW and writes a demand row when it does. **Quote both error rates, never one
+  accuracy number.**
+- **THE SCREENS ARE BUILT (item 9.0, `010-screens/RESULT.md`) — and they are local-only.** Six
+  render states, not five: the spec's table missed `available = 0` outside the abstain band, which
+  is **424 combos** rendering a silent empty page. The prototype lives at **`/app#prototype`**,
+  reached from the explainer's now-green `#demo` door and the `/app` Part B card. **Immediately
+  next is not more building — it is O1**: the remote has none of migrations 3–6 and zero
+  embeddings, so the door a visitor clicks leads to a backend without `search_deals`.
 - **The spine, and it is what Part C should open with.** Over all 4,720 dead ends:
   **nowhere in the market 43.2% · the user's own city 32.2% · another city 3.1% · can't tell 21.5%**.
   Four buckets, four owners; F1–F6 nests inside (`nowhere` **is** F1 ∪ F4, asserted in code).
@@ -37,9 +42,13 @@ injected into every new session by the `SessionStart` hook.
   **qualification of §5b**: `007-embeddings/RESULT.md` shows the multilingual fix bridges *phrasing*
   (FR `thai massage`↔`massage thai` = .990) but **not vocabulary divergence** (ES `sports massage`↔
   `masaje descontracturante` = .119). "Language stops mattering" is too strong.
-- **Remote drift is real and recurring — check it, do not assume it.** `supabase/` migration 3
-  (`query_embeddings`) is **NOT APPLIED** on `ewknlggenhrlftdukwme`, and the remote carries the *old*
-  seed: 0 descriptions, 0 embeddings. Remote writes belong to the owner, so they lag by design.
+- **Remote drift is real, recurring, and now FOUR migrations — check it, do not assume it.**
+  `migration list --linked` on `ewknlggenhrlftdukwme` reports **3, 4 and 5 unapplied**, and
+  migration **6** (`screens_city_empty`) landed after that reading, so it is 3–6. The remote also
+  carries the *old* seed: 0 descriptions, 0 embeddings. Remote writes belong to the owner, so they
+  lag by design — but **the explainer's green prototype door now points at `/app#prototype`**, so
+  until this lands a visitor reaches a backend with no vectors and no `search_deals`. No
+  `migration repair` is needed: `db pull` stamped local history only, verified.
 - **The access gate is written, the password is set, and the site is still WIDE OPEN** (item 9.0,
   `009-access-gate/RESULT.md`). `SITE_PASSWORD` was added on preview and production 2026-08-07, but
   **`middleware.ts`, `package.json` and `package-lock.json` are still untracked** — commit 960b328
@@ -55,6 +64,38 @@ injected into every new session by the `SessionStart` hook.
   there. **Turn it off for Preview** (Project Settings → Deployment Protection) or the only place
   the gate can be verified is production, which is what G8 exists to avoid. Measured 2026-08-07:
   **production is public — `/explainer.html` → 200, `x-vercel-cache: HIT`, 354,528 bytes.**
+- **The explainer was redesigned from the Claude Design comp, and it is now the landing page**
+  (branch `align-design`). `explainer.template.html` is a full port of `Explainer.dc.html`: three
+  parts by provenance (supplied data · live production · what we built), chapters renumbered,
+  masthead B, the owner-ledger spine, the new Chapter 6 off `008`'s sweep, the part map and the
+  jump panel. **`/` and `/explainer.html` now serve the same file**; the Vue app moved to `/app`
+  (`web/app/app.html` + a `vercel.json` rewrite), so **the sign-out button is on `/app`, not on the
+  landing page** — worth a look before the gate is promoted. **The page is 643 KB now, not 361 KB**
+  (six base64 Nunito Sans faces + the inlined evidence JPG), so **009 criterion 11's byte count must
+  be read at deploy time, never quoted** — the decision below already says so, but the number moved
+  far enough to bite. **Now checked in a browser** at 1568×873: five figures, three tables, twelve
+  mounts, the jump panel, the part-map tooltips and the replay simulator all work, console clean.
+  **One real defect, found and fixed: the jump launcher never appeared.** `position:sticky` with
+  `bottom` only pulls an element up from below the fold — authored as the *first* child of
+  `#nav-scope` it scrolled away on the first wheel flick (measured at `top:-1380px`). It is now the
+  *last* child of the same scope, which pins it for the whole document with no script. **A DOM stub
+  structurally cannot catch that** — every id was served and every value correct; the element was
+  off-screen. Two more fell out of the same pass: the launcher was positioned inside the 1200px
+  frame and landed on the contents list, so it now sits 16px from the *window* and finally aligns
+  with `#nav-panel`; and **the part map's `max-width:1299px` hide never worked** — the comp's inline
+  `display:flex` outranks the stylesheet, so it needs `!important`. Checked at 1920, 1600, 1100 and
+  1000 wide. Served locally out of `dist`,
+  `/` and `/explainer.html` are byte-identical 200s and `/app.html` is the app; **the one hop that
+  needs a deploy to prove is `vercel.json`'s `/app` → `/app.html` rewrite**, and it matters because
+  the landing page's only exit is `<a href="/app">` and the prototype door's is `/app#prototype`.
+  `curl -I` both on the preview before promoting.
+- **The template is hand-edited from here on — do not regenerate it.** The port ran through a
+  one-time scratchpad generator; 010 has since edited `explainer.template.html` directly (the green
+  door). Re-running the generator would silently revert that. `REDESIGN-PORT.md` says so too.
+- **One hand-maintained string on the page will rot.** `buckets.sensitivity.permutation` in
+  `story_data.json` is **transcribed from `FINDINGS.md` §5f, not recomputed** — the script that
+  produced it (`scratchpad/verify_buckets.py`) is not in the repo. It is flagged as such in the
+  payload and on the page.
 - **Deliberately not doing:** any more Part A hardening.
 <!-- state:end -->
 
@@ -63,12 +104,12 @@ injected into every new session by the `SessionStart` hook.
 <!-- decisions:start -->
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-07 | **The explainer is the landing page: `/` = `index.html` = the explainer; the Vue app moves to `/app`** | A Vercel rewrite of `/` cannot beat a real `index.html` — rewrites run after the filesystem, so the file has to *be* the root |
+| 2026-08-07 | **010 screens BUILT: six render states, not five — `city_empty` found in build** | 424 combos scored above threshold with 0 city stock and rendered a silent empty page |
 | 2026-08-07 | **Gate criterion 11 checks the locally built `dist` byte count, not the literal 354,528** | 004's explainer was regenerated after the spec; a working gate would fail its own check |
 | 2026-08-07 | **Embeddings run locally, never via an API — one model, dimension asserted at build step 1** | A grader cannot re-run an API pipeline without their own key, so the central claim stops being checkable |
 | 2026-08-06 | **Embed 75 services, not 236 — city and market filter in SQL (D-A, deviates from SPEC §6)** | City is a structured filter; in the vector it shifts scores for reasons nobody can audit |
 | 2026-08-06 | **`.claude/agents/` restored — be/fe/reviewer teammates + `/execute:team`; reverses b48e3fb** | Part B spans two lanes. Agent teams need definitions; the deleted folder held only a README |
-| 2026-08-06 | **Operating docs cut to four files; whole tree committed to a branch first** | Nine places, three taxonomies, loaded every session. One commit made deletion unrecoverable |
-| 2026-08-06 | **Explainer re-spined on "where was the answer?"; F1–F6 nests inside** | Six classes is more than a reader holds, and *where* assigns an owner where *why* does not |
 <!-- decisions:end -->
 
 *Newest row goes under the header; the bottom row is deleted in the same edit. The hook injects
@@ -92,7 +133,7 @@ the top three into every session, so keep Decision ≤15 words and Why ≤20 —
 |---|---|---|---|
 | 1.6 | Write down positions on the two unresolvable items | 🟡 | **Half closed 2026-08-06.** `results_shown = 3` is settled — generation artifact, proven against the live catalogue (`FINDINGS.md` §1). Paintball's conversion still open. Fold the synthetic-data chi-square in here |
 | ~~1.7~~ | ~~Live-recon follow-ups~~ | ✅ | **CLOSED 2026-08-06.** (a) PL narrows on 4 of 6 two-token pairs (`kurs tańca` 312+4→4) but `joga tajski` widens — PL is *inconsistent*, which is the stronger claim. (b) The 500 replicated on `groupon.pl`, a different host and day. Both in `003-live-validation/RESULT.md` |
-| 9.0 | Screens per `010-screens/` | 🟡 | **BRIEF written 2026-08-07 — deliberately unresolved, 10 open decisions for the owner.** Measured first so nothing is designed for a state that never fires: all three bands are real (abstain **46.7%** of volume, confident 32.4%, adjacent 20.9%) and near-empty is **11.5%** of 12,260 city×query combos, not an edge case. **Do not build until the SPEC exists** |
+| 9.0 | Screens per `010-screens/` | 🟡 | **BUILT 2026-08-07 by a two-lane agent team — `RESULT.md` is the record. Local only; 🟡 not ✅ because nothing a grader clicks is proven.** 2 migrations + 19 Vue components + a 22-chip fixture generated from the live RPC (never typed). **Six render states, not the spec's five** — `city_empty` (decision 19) was found in build: **92 confident + 332 adjacent** combos scored above threshold with **0 city stock** and rendered `Results for "X"` over an empty grid, i.e. Groupon's own zero-results screen. `near_empty` was deliberately **not** widened to 0–2 (the 1–2 boundary carries §1's cliff). Lead-verified on a fresh `db reset`: all six states in a browser; both floor branches (`paintball` 0.2508 suppressed / `eyelash extensions` 0.3964 shown — owner's 0.30 floor, decision 18, 186 of 419 show); both band-vs-Part-A disagreement directions; the demand loop closing **from the UI** (`seed` 1322 · `live` 6 · `city_empty` 2 · `notify_me` 2, incl. a NULL-concept cross-market row); REST **401** on forged `live`/`seed`/`n=99` and on both embedding tables; the front door rendering with **env removed**; F6 marked cut with its reason. **Two defects the builders' own checks missed and only rendering found:** the default-open staff panel overlaid 6 elements up to 331px, and **Enter did not submit** (a disabled default button silently kills implicit form submission per the HTML spec, so clicking worked and the keyboard did not). Deviates from `001 SPEC` §3 F4 step 3 deliberately. **Codex `implement` gate run twice. Pass 1 DEVIATES — two findings, both real, both confirmed against the live DB and fixed** (the staff panel printed "Not written" on `city_empty` while the RPC had just written a row; and no chip reached `city_empty`). **Pass 2: both resolved, verdict still DEVIATES** — and correctly: criterion 13 cannot be met until the remote is migrated (O1), and criterion 1 was **amended** (decision 20) to exempt the refusal rather than satisfy it with a fabricated chip. **Left, all owner: O1 remote migrations 3–7 + reseed · O2 `curl -I /app` · O3 browser pass** |
 | 8.1 | Explainer: contents list + Chapter 5 | ⬜ | **The visual design exists and is supplied separately — `004-data-story/WHAT-TO-BUILD.md` is what and why only, no appearance decisions**, so an implementing agent cannot mistake it for a licence to re-design. It carries the argument as one causal chain (each chapter answers the question the last one left open, which is *why* the page is unfollowable without navigation), the seven contents lines carrying findings rather than titles, Chapter 5's four blocks, and the data contract. `REDESIGN-BRIEF.md` predates the design and is now history |
 | 8.0 | Keep `docs/AGAINST-THE-BRIEF.md` current | 🟡 | Requirement-by-requirement map: what Groupon asked → what exists → what it found → what is missing. **Points, never owns** — FINDINGS wins on numbers, INDEX on status. Update when a build step closes or a claim is withdrawn. Carries the 6-entry corrections log Part C needs |
 | 3.4 | Write the Option A/B/C rejection reasoning into Part C | ⬜ | Decided in `PLAN.md` §3-equivalent; the brief asks for it explicitly |
@@ -140,5 +181,7 @@ recomputed to **299** at 11.36% s2p). Parked: 1.4, 1.5 — low value against an 
 | 13 | **`STOCK_TITLE`'s `gym` regex is cross-market asymmetric.** GB's *"Unlimited Fitness Classes"* matches on `fitness`; the four local-language equivalents — *Unbegrenzte Kurse* (DE), *Clases Ilimitadas* (ES), *Cours Illimités* (FR), *Zajęcia bez Limitu* (PL) — match nothing | `classify.py` `STOCK_TITLE`, found 2026-08-06 while seeding `service_concepts` | **Immaterial to every published number, checked not assumed:** every market has a separate gym title that matches, so `coverage` stays `stocked` in all five, and city coverage for `gym` is **identical** with or without the *Unlimited* titles — no `inventory_location` bucket moves. It only inflates GB's `deals_stocking` (24 vs 11). **Not fixed** — INDEX says no more Part A hardening, and a fix would churn numbers for no gain. **Worth one line in Part C:** the analysis's own concept map has a language gap, which is the same class of defect it diagnoses in Groupon's search |
 | 12 | **`F3_geographic` measures city-to-city *variance*, not location.** Only **6 of its 321** dead ends have the answering deal in another city; 158 are same-city, 157 can't-tell. Diagnosis withdrawn 2026-08-06, population and 25% range retained | `classify.py` `classify()` L208, `FINDINGS.md` §5d/§5f | **Live exposure, not a footnote:** F3 contributes 12.9 of the 36.3 purchases — 36% of the whole search-side estimate. Tightened figures (7.8%, 5.7%) are published alongside. Shipped UI copy *"just not in your city"* was false for 315 of 321 rows — **fixed** in `004/notebook.py` `BEHAVIOUR`, but `001-part-b/SPEC.md` §3/§4 still carries it (item 7.3) |
 | 13 | **The `plausible` coverage tier moves the Chapter 3 headline by 21.5pp.** All 1,016 of its dead ends land in one bucket together, and under `stocked_generic` same-city (2,306) overtakes nowhere (2,211) — the ordering flips | `classify.py` `PLAUSIBLE_COUNTS_AS`, `outputs/inventory_sensitivity.csv` | **Not an error — a judgement, now testable.** Lifted to a named constant so all three readings re-run. **Never quote one end of [43.2%, 64.7%] alone**; the explainer prints the whole band and names the flip |
-| 15 | **`009-access-gate/SPEC.md` criterion 11 hardcodes 354,528 bytes for `explainer.html`; it is now 361,602.** `prebuild` copies `docs/analysis/004-data-story/outputs/explainer.html` into `web/app/public/`, and that source was regenerated at 16:54 on 2026-08-07, three minutes after the SPEC was last written | `009-access-gate/SPEC.md` §10 criterion 11, B7 | **A working gate would fail its own acceptance check**, and SPEC §8 tells the reader to *stop* on that mismatch. B7's real meaning is *bytes past the gate == bytes in the locally built `dist`* — compare against `wc -c < web/app/dist/explainer.html` at deploy time, never the literal. The source file is gitignored, so no commit shows the change |
+| 17 | **`/` returns 404 on the dev server, but works deployed — local testing looks broken when it is not.** `web/app/index.html` was renamed to `app.html` when the explainer became the landing page, so Vite dev has no root entry; production copies the explainer to `dist/index.html` at build time, so `/` is a real file there. `/app` is likewise a `vercel.json` rewrite that does not exist locally | `web/app/vite.config.ts`, `scripts/copy-explainer.mjs` | Anyone testing locally hits it first and concludes the build is broken. **Local URLs are `/app.html#prototype` and `/index.html`**; to exercise what actually deploys, build and `vite preview` the `dist` folder. Measured 2026-08-07: dev `/` 404, `/index.html` 200, `/app.html` 200 |
+| 16 | **The remote-failure path has never been exercised.** On `ewknlggenhrlftdukwme`, `search_deals` does not exist (migrations 3–6 unapplied), so PostgREST returns **404**, not a network error. Whether the prototype's error card catches a missing-function 404 as cleanly as it catches a connection failure is untested — and the deployed site is the pre-flip build, so it cannot be probed | `web/app/src/components/prototype/ErrorCard.vue`, O1/O2 | **The explainer's green door now points at `/app#prototype`.** If the card mishandles a 404, a visitor gets a broken page reached from a paragraph promising honesty. `be` drafted a sentence claiming the page "names the failure instead of pretending" and **cut it as unverified** — do not re-assert it until someone has seen it |
+| 15 | **`009-access-gate/SPEC.md` criterion 11 hardcodes 354,528 bytes for `explainer.html`; it is now 658,949** — three regenerations stale (354,528 → 361,602 → 658,208 → **658,949** after the 2026-08-07 door flip). `prebuild` copies `docs/analysis/004-data-story/outputs/explainer.html` into `web/app/public/`, and that source was regenerated at 16:54 on 2026-08-07, three minutes after the SPEC was last written | `009-access-gate/SPEC.md` §10 criterion 11, B7 | **A working gate would fail its own acceptance check**, and SPEC §8 tells the reader to *stop* on that mismatch. B7's real meaning is *bytes past the gate == bytes in the locally built `dist`* — compare against `wc -c < web/app/dist/explainer.html` at deploy time, never the literal. The source file is gitignored, so no commit shows the change |
 | 14 | **`validate.py`'s typo nearest-neighbour is non-deterministic.** It ties-breaks off `set` iteration order, so the answer depends on `PYTHONHASHSEED`: `puintball` → `paintball` *or* `peintball`, `maniküe` → `maniküre` *or* `maniküue`, `go karuing` → `go karting` *or* `go karoing` — identical similarity, different pick per run. Found 2026-08-06 by diffing two runs of the unchanged script | `validate.py` Layer 4 | **No count moves, so no headline is affected** — but the repo's rule is "re-run the script before quoting any number", and this table's *examples* change between runs. Sort candidates before taking the max, or quote counts only, never a named nearest match |

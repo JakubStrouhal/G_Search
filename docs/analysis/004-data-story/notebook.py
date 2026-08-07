@@ -480,6 +480,16 @@ STORY["buckets"] = dict(
         band_low=band[0], band_high=band[1], flips_under=flips,
         seam="`plausible` coverage — a generic deal that might or might not answer "
              "the query. All 1,016 of these dead ends move together.",
+        # TRANSCRIBED, NOT RECOMPUTED. The permutation test that licenses the whole
+        # decomposition was run by `scratchpad/verify_buckets.py`, which is not in the
+        # repository; FINDINGS.md §5f is its record and is authoritative. It is carried
+        # here rather than typed into the page so that the page keeps its one rule --
+        # every figure arrives through this file -- and so the transcription sits in a
+        # single auditable place. If §5f and this disagree, §5f wins.
+        permutation=dict(
+            excess_pp=[9.8, 14.0], z=[19.5, 33.6],
+            source="FINDINGS.md §5f", recomputed_here=False,
+        ),
     ),
 )
 
@@ -494,7 +504,7 @@ LABEL = {
     "F4_supply_void":            ("Supply void", "Nothing in the catalogue answers it, ever.", "No — merchant acquisition"),
     "BASELINE_still_40pct_dead": ("Baseline residual", "Stocked, still dead ~40% of the time. Unexplained.", "Unexplained — no fix claimed"),
     "F1_silent_substitution":    ("Silent substitution", "A full page of results that don't answer the question.", "Partly — needs term-constraining"),
-    "F5_ranking":                ("Unexplained residual", "Stocked, failing, and none of the other causes apply.", "Unknown — see chapter 4"),
+    "F5_ranking":                ("Unexplained residual", "Stocked, failing, and none of the other causes apply.", "Unknown — see chapter 3"),
     # RELABELLED 2026-08-06. Was "Geographic thinness" / "Stocked in the market, not
     # in this city." Chapter 3 tested that directly against inventory location and
     # it is false for 315 of the class's 321 dead ends: only 6 have the answering
@@ -653,7 +663,7 @@ BASIS = {
                   "is dead and this is a second unexplained residual.",
     "F3_geographic": "ASSUMPTION, AND ITS STATED BASIS IS NOW KNOWN TO BE WRONG. The 25% was "
                      "justified as 'inventory exists in-market, not in-city, so offer a wider "
-                     "radius'. Chapter 3 tested that: only 6 of this class's 321 dead ends have "
+                     "radius'. Chapter 2 tested that: only 6 of this class's 321 dead ends have "
                      "the deal in another city. The RANGE IS DELIBERATELY LEFT UNCHANGED rather "
                      "than re-derived, because re-deriving it lowers the headline and we would "
                      "rather report the number that is generous to search. Tightening it is shown "
@@ -846,12 +856,15 @@ _missing = [k for k in range(0, int(max(_seen))) if k not in _seen]
 STORY["meta"] = dict(
     built_from="docs/brief/{search_log,deals}.csv + docs/analysis/outputs/query_classes.csv",
     pairs=len(idx), note="Every number on the page comes from this file. Nothing is hand-typed "
-                         "except the pinned live observations in chapter 2.",
+                         "except the pinned live observations in chapter 5.",
     # Stated in classify.py's hand-audit block; carried here so the Limits section
     # binds it instead of retyping it. Upper bound — it is a self-audit.
     classifier_accuracy=0.86,
     result_counts_seen=sorted(int(x) for x in _seen)[:6],
     result_counts_missing=_missing,
+    # The page stamps the month in its masthead and its figure captions. It is a
+    # figure like any other -- read off the log rather than typed into the markup.
+    month=pd.to_datetime(searches.date).dt.strftime("%B %Y").mode()[0],
 )
 print(f"result counts never observed below the max: {_missing}")
 

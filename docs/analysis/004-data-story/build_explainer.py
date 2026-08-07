@@ -58,7 +58,10 @@ for bad in ("http://", "https://", "cdn.", "<link "):
 # ---------------------------------------------------------------------------
 ALLOWED_NUMERIC = {
     "1", "2", "3", "4", "5", "6", "1–4",   # chapter numbers, in headings and cross-references
-    "1–2", "4+",                      # the result bands, which are names rather than measurements
+    "01", "02", "03", "04", "05", "06",    # the same chapter numbers, zero-padded, in the contents
+                                      # list and the part map. Position in the document, not a
+                                      # measurement -- the chain they number lives in the script.
+    "0", "1–2", "4+", "0–2",          # the result bands, which are names rather than measurements
     "0%",                             # the "converts at 0%" floor, definitionally exact
     "29944",                          # the requisition ID in the eyebrow
 }
