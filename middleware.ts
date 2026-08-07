@@ -14,6 +14,7 @@ import { next } from '@vercel/functions'
 const COOKIE = 'g_demo_gate'
 const GATE_PATH = '/__gate'
 const LOGOUT_PATH = '/__gate/logout'
+const SPEC_PATH = '/__spec'
 const TTL_SECONDS = 30 * 24 * 60 * 60
 
 /**
@@ -170,6 +171,36 @@ export default async function middleware(request: Request): Promise<Response> {
   }
 
   if (await cookieIsValid(readCookie(request.headers.get('cookie'), COOKIE), secret)) {
+    // Spec proxy for /api. Hosted Supabase serves the PostgREST OpenAPI root to
+    // SECRET keys only ("Secret API key required" — observed 2026-08-07; publishable
+    // keys still reach every data endpoint). The secret key must never ship to the
+    // browser, so the browser asks THIS deployment, and the fetch with the secret
+    // happens here, server-side. Inside the valid-cookie branch deliberately: an
+    // unauthenticated request for /__spec falls through to the uniform 401 form,
+    // same as every other path (009-access-gate SPEC §B1).
+    if (url.pathname === SPEC_PATH) {
+      const supabaseUrl = process.env.VITE_SUPABASE_URL
+      const secretKey = process.env.SUPABASE_SECRET_KEY
+      if (!supabaseUrl || !secretKey) {
+        return new Response(
+          JSON.stringify({ error: 'Spec proxy not configured: SUPABASE_SECRET_KEY is unset on this deployment.' }),
+          { status: 503, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } },
+        )
+      }
+      const upstream = await fetch(`${supabaseUrl}/rest/v1/`, {
+        headers: { apikey: secretKey, Authorization: `Bearer ${secretKey}` },
+      })
+      if (!upstream.ok) {
+        return new Response(
+          JSON.stringify({ error: `Upstream spec fetch failed: ${upstream.status}` }),
+          { status: 502, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } },
+        )
+      }
+      return new Response(await upstream.text(), {
+        status: 200,
+        headers: { 'content-type': 'application/openapi+json', 'cache-control': 'no-store' },
+      })
+    }
     return next()
   }
 

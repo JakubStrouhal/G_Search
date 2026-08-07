@@ -46,7 +46,8 @@ const cards: Card[] = [
   {
     part: 'Part B',
     title: 'What right looks like',
-    status: 'in build',
+    status: 'live',
+    live: true,
     body:
       'A clickable prototype that handles every failure class the analysis found, ' +
       'including the ones search cannot fix. What it does when it has no good answer ' +

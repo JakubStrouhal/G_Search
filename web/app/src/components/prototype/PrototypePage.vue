@@ -5,6 +5,7 @@ import { searchDeals } from '@/lib/searchDeals'
 import { resolveRenderState } from '@/lib/renderState'
 import type { SearchDealsResponse, RefusalResult, FullSearchResult } from '@/types/search'
 import PageHeader from './PageHeader.vue'
+import HowToUse from './HowToUse.vue'
 import ChipsRow from './ChipsRow.vue'
 import RefusalCard from './RefusalCard.vue'
 import ErrorCard from './ErrorCard.vue'
@@ -101,6 +102,8 @@ function onChipPick(pick: { market: string; city: string; query: string }) {
 
   <main class="content">
     <p v-if="citiesError" class="cities-error">Could not load the market/city list: {{ citiesError }}</p>
+
+    <HowToUse />
 
     <ChipsRow @pick="onChipPick" />
 
