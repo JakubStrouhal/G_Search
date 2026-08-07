@@ -16,8 +16,8 @@ injected into every new session by the `SessionStart` hook.
 ## Now / Next
 
 <!-- state:start -->
-- **Phase:** Part A done and live-validated. **Part B steps 1–3 of 10 are built** (`001-part-b/SPEC.md`
-  §10): schema + seeds + 75 descriptions + embeddings, all local. **Part C not started, and it is now
+- **Phase:** Part A done and live-validated. **Part B steps 1–4 of 10 are built** (`001-part-b/SPEC.md`
+  §10): schema + seeds + 75 descriptions + embeddings + the calibrated threshold, all local. **Part C not started, and it is now
   the larger risk of the two.**
 - **The sweep is DONE and UI is unblocked** (`008-threshold-sweep/RESULT.md`). AUC 0.805 / **0.934 on
   confident labels**. **Ship LOW=0.40, HIGH=0.55** — HIGH is a judgement, nothing labels it.
@@ -65,7 +65,7 @@ the top three into every session, so keep Decision ≤15 words and Why ≤20 —
 | **A′** | Live production reconnaissance | ✅ done | `docs/analysis/PLAN.md` §4, `live_probe.js` |
 | **A″** | Live validation of P1–P6 (pre-registered) | ✅ done 2026-08-06 | `003-live-validation/RESULT.md` |
 | **A‴** | Data story — business-readable Part A + interactive explainer | ✅ done 2026-08-06 | `004-data-story/`, deliverable is `outputs/explainer.html` |
-| **B** | Working clickable prototype | 🟡 **steps 1–3 of 10 built, local**: schema+RLS, seeds, 75 descriptions, embeddings. **Step 4 (sweep) next and gates all UI.** No RPC and no UI yet | `001-part-b/SPEC.md` §10, `006-one-page/SPEC.md`, `007-embeddings/`, `supabase/` |
+| **B** | Working clickable prototype | 🟡 **steps 1–4 of 10 built, local**: schema+RLS, seeds, 75 descriptions, embeddings, **sweep done — UI unblocked**. Next: search RPC, then screens | `001-part-b/SPEC.md` §10, `006-one-page/SPEC.md`, `007-embeddings/`, `008-threshold-sweep/`, `supabase/` |
 | **C** | Writeup, 2 pages + tools log | ⬜ not started — **now the larger of the two risks** | Corrections register has 4 ready entries: adrenaline misclassification, F5 withdrawal, local-vs-remote grants, the vacuous cross-lingual check |
 
 ## Pending
