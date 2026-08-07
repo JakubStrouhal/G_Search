@@ -15,7 +15,14 @@ export default defineConfig({
     // scripts/copy-explainer.mjs. So this app is NOT the root document — its entry is
     // app.html, and Vercel rewrites /app onto it. Without this input override Vite
     // looks for index.html at the project root and would fight the copied file for it.
-    rollupOptions: { input: fileURLToPath(new URL('./app.html', import.meta.url)) },
+    rollupOptions: {
+      input: {
+        app: fileURLToPath(new URL('./app.html', import.meta.url)),
+        // Live API docs — Swagger UI over the PostgREST-generated spec.
+        // Vercel rewrites /api onto it, same pattern as /app.
+        api: fileURLToPath(new URL('./api.html', import.meta.url)),
+      },
+    },
   },
   resolve: {
     alias: {
