@@ -126,8 +126,12 @@ Design tokens are imported from `docs/design/` via the `@design` alias — the s
 
 - **Re-run the script before quoting any number.** Numbers in prose drift; scripts do not.
 - **History is git.** Do not hand-maintain a work log.
-- **Get reviewed before committing** to a plan, a material refinement, or a claim that a change
-  works: `/review <plan|refine|test> [focus]` invokes a separate read-only, ephemeral Codex process
-  — an independent interviewer, not an implementer. Verify its findings against the repository
-  yourself and return a Proceed / Proceed with changes / Stop disposition. An unavailable reviewer
-  is unknown, never a pass.
+- **The Codex reviewer runs at two moments, both command-driven — never as a routine pass over the
+  tree.** (1) A **new specification** exists and is about to be approved: the user runs
+  `/review <plan|refine|test> [focus]`, which is user-invoked only (`disable-model-invocation`).
+  (2) An **implementation is complete**: `/execute:implement` §8 and `/execute:team` §6 shell out to
+  `.claude/hooks/codex-interview.sh implement <SPEC path>` as the conformance check. Nothing else
+  triggers it — not an ordinary commit, not a refactor, not a doc edit. Codex is read-only and
+  ephemeral, an independent interviewer, not an implementer. Verify its findings against the
+  repository yourself and return a Proceed / Proceed with changes / Stop disposition. An unavailable
+  reviewer is unknown, never a pass.

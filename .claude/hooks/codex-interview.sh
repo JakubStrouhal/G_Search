@@ -68,6 +68,32 @@ print(json.dumps({
   exit 0
 }
 
+# Operator kill switch, one file for both callers. While `.claude/codex-review.disabled`
+# exists Codex is never launched; delete that file to re-enable. It reports the reviewer as
+# *unavailable*, never as a pass — the repo's rule is that an unavailable reviewer is
+# unknown, so CLI mode still exits 3 and a build run under it cannot be called validated.
+if [ -f "$repo/.claude/codex-review.disabled" ]; then
+  disabled_msg="Codex review is DISABLED by the operator (.claude/codex-review.disabled exists). \
+The reviewer did not run, so this is an UNAVAILABLE opinion, not a pass. Re-enable by deleting \
+that file. Do not present anything as reviewed or as spec-validated on the strength of this."
+  if [ "$invocation" = "hook" ]; then
+    DISABLED_MSG="$disabled_msg" python3 -c '
+import json
+import os
+
+print(json.dumps({
+    "hookSpecificOutput": {
+        "hookEventName": "UserPromptExpansion",
+        "additionalContext": os.environ["DISABLED_MSG"],
+    }
+}))
+'
+    exit 0
+  fi
+  printf '%s\n' "$disabled_msg" >&2
+  exit 3
+fi
+
 case "${invocation}:${mode}" in
   hook:plan|hook:refine|hook:test)
     ;;
