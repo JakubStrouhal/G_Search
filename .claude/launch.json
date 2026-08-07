@@ -9,6 +9,12 @@
       "autoPort": true
     },
     {
+      "name": "dist",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "web/app", "run", "preview", "--", "--port", "4199", "--strictPort"],
+      "port": 4199
+    },
+    {
       "name": "explainer",
       "runtimeExecutable": "python3",
       "runtimeArgs": ["-m", "http.server", "8765"],

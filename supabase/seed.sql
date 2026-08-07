@@ -12,6 +12,10 @@
 
 truncate public.demand_events, public.service_embeddings, public.service_concepts,
          public.services, public.deals, public.cities restart identity cascade;
+-- query_classes and search_config are seeded below but sit outside the cities cascade,
+-- so they need their own truncate — without it the seed only applies to an empty
+-- database (a fresh `db reset`), and re-seeding a linked remote hits query_classes_pkey.
+truncate public.query_classes;
 truncate public.search_config;
 
 -- cities: 20 rows
