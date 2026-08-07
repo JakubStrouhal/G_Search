@@ -48,7 +48,10 @@ input,select,button{font-family:inherit}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 /* hover states, lifted out of the comp's style-hover attributes */
-.hv1:hover{background:#111827;color:#ffffff;text-decoration:none}
+/* `!important` on color for the same reason as #nav-rail below: the comp's idiom is all-inline
+   styles, and the .hv1 buttons carry `color:#111827` on the element, which outranks this rule.
+   Without it the hover was #111827-on-#111827 — an unreadable black pill. */
+.hv1:hover{background:#111827;color:#ffffff!important;text-decoration:none}
 .hv2:hover{border-color:#8a8e98}
 .hv3:hover{background:#006e1b;border-color:#006e1b}
 .navrow:hover{background:#edeff2;text-decoration:none}
@@ -903,8 +906,9 @@ input,select,button{font-family:inherit}
 
     <div style="background:#f5edfc;border:1px solid #d8b9f2;border-radius:16px;padding:18px 20px">
       <span style="display:block;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#7e40b2;margin-bottom:8px">Status, stated before anyone clicks</span>
-      <span style="font-size:16px;line-height:25px;color:#414652"><!-- HAND-MAINTAINED. Rewrite when the hosted database is migrated and reseeded (owner
-     task O1); until then the "runs locally" sentence is load-bearing and must not be softened. --><span id="demo-status">The prototype is built and it runs. It handles every query class this analysis found — <strong style="font-weight:800">including the ones search cannot fix</strong> — plus two the classification never named: a city that stocks none of what the market matched, and a query from outside the logged set, which it refuses by name rather than guessing. Every abstention and every city-empty dead end writes itself to the demand table; notify-me writes a second, separate row, because &ldquo;we had nothing&rdquo; and &ldquo;tell me&rdquo; are different facts. <strong style="font-weight:800">What is not true yet:</strong> it runs locally. The hosted database has not been migrated or reseeded, so the search behind this button does not answer there yet. That is one owner task away, and this paragraph gets rewritten the day it lands. <a href="/app">The rest of the package is here.</a></span> A demo that overstates itself undoes the honesty the six chapters above it are built on, and it is the one claim on this page a reader can check in ten seconds.</span>
+      <span style="font-size:16px;line-height:25px;color:#414652"><!-- HAND-MAINTAINED. Owner task O-one landed: the hosted database carries every migration,
+     the seeds and the embeddings, verified by direct query before this paragraph was rewritten.
+     If the hosted stack ever breaks, the honest move is to say so here, not to soften it. --><span id="demo-status">The prototype is built and it runs — hosted, behind this button. It handles every query class this analysis found — <strong style="font-weight:800">including the ones search cannot fix</strong> — plus two the classification never named: a city that stocks none of what the market matched, and a query from outside the logged set, which it refuses by name rather than guessing. Every abstention and every city-empty dead end writes itself to the demand table; notify-me writes a second, separate row, because &ldquo;we had nothing&rdquo; and &ldquo;tell me&rdquo; are different facts. The hosted database has been migrated and seeded — schema, seeds and embeddings, all of them the analysis's own — so the search behind this button answers from the same data the chapters above were computed from. <a href="/app">The rest of the package is here.</a></span> A demo that overstates itself undoes the honesty the six chapters above it are built on, and it is the one claim on this page a reader can check in ten seconds.</span>
     </div>
 
     <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">

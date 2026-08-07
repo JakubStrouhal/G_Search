@@ -25,12 +25,12 @@ injected into every new session by the `SessionStart` hook.
   query)` returns the band **and** Part A's class, refuses by name for anything outside the logged
   613, abstains below LOW and writes a demand row when it does. **Quote both error rates, never one
   accuracy number.**
-- **THE SCREENS ARE BUILT (item 9.0, `010-screens/RESULT.md`) — and they are local-only.** Six
+- **THE SCREENS ARE BUILT (item 9.0, `010-screens/RESULT.md`) — and they are now HOSTED.** Six
   render states, not five: the spec's table missed `available = 0` outside the abstain band, which
   is **424 combos** rendering a silent empty page. The prototype lives at **`/app#prototype`**,
-  reached from the explainer's now-green `#demo` door and the `/app` Part B card. **Immediately
-  next is not more building — it is O1**: the remote has none of migrations 3–6 and zero
-  embeddings, so the door a visitor clicks leads to a backend without `search_deals`.
+  reached from the explainer's now-green `#demo` door and the `/app` Part B card. **O1 landed
+  2026-08-07** (see the remote bullet below): the door a visitor clicks now reaches a migrated,
+  seeded backend, verified end-to-end from a browser through the deployed build.
 - **The spine, and it is what Part C should open with.** Over all 4,720 dead ends:
   **nowhere in the market 43.2% · the user's own city 32.2% · another city 3.1% · can't tell 21.5%**.
   Four buckets, four owners; F1–F6 nests inside (`nowhere` **is** F1 ∪ F4, asserted in code).
@@ -42,19 +42,20 @@ injected into every new session by the `SessionStart` hook.
   **qualification of §5b**: `007-embeddings/RESULT.md` shows the multilingual fix bridges *phrasing*
   (FR `thai massage`↔`massage thai` = .990) but **not vocabulary divergence** (ES `sports massage`↔
   `masaje descontracturante` = .119). "Language stops mattering" is too strong.
-- **Remote drift is real, recurring, and now FOUR migrations — check it, do not assume it.**
-  `migration list --linked` on `ewknlggenhrlftdukwme` reports **3, 4 and 5 unapplied**, and
-  migration **6** (`screens_city_empty`) landed after that reading, so it is 3–6. The remote also
-  carries the *old* seed: 0 descriptions, 0 embeddings. Remote writes belong to the owner, so they
-  lag by design — but **the explainer's green prototype door now points at `/app#prototype`**, so
-  until this lands a visitor reaches a backend with no vectors and no `search_deals`. No
-  `migration repair` is needed: `db pull` stamped local history only, verified.
-- **The access gate is written, the password is set, and the site is still WIDE OPEN** (item 9.0,
-  `009-access-gate/RESULT.md`). `SITE_PASSWORD` was added on preview and production 2026-08-07, but
-  **`middleware.ts`, `package.json` and `package-lock.json` are still untracked** — commit 960b328
-  swept in the 009 docs and left the code. Vercel builds what is *pushed*, so the running deployment
-  contains no gate and the variable is inert. **Nothing protects anything until those three files
-  are committed, pushed and deployed.** Then: preview → criteria 4–13 and 16 → promote → 15.
+- **Remote drift is RESOLVED — O1 executed 2026-08-07 at the owner's request.** `db push` applied
+  migrations 3–7 to `ewknlggenhrlftdukwme` and `--include-seed` loaded both seed files. Verified by
+  direct query: **75 service embeddings, 613 query embeddings, 75 descriptions, 751 query_classes,
+  `search_deals` present**; a REST probe (`masaż tajski` PL·Warszawa) returned band `confident` with
+  the full staff payload, and a browser click on `paintball` GB·London **wrote a `live` demand row
+  dated 2026-08-07** — the loop closes hosted. Two fixes fell out: seed.sql never truncated
+  `query_classes` (worked only on an empty DB — fixed in `build_seed.py`, regenerated), and the CLI's
+  `projects api-keys` is broken (schema bug, even on latest) — the publishable key was read from the
+  dashboard. The lesson stands: **check the remote, do not assume it.**
+- **The access gate is LIVE in production** (item 9.0, `009-access-gate/RESULT.md`). The gate files
+  landed on main via PR #4, and the 2026-08-07 production deploy (the one that carried the O1 env
+  vars) activated it: **every path now returns 401 with the password form** — measured, not assumed.
+  `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` are set on Production and Preview
+  (align-design). Remaining from 009: criteria 4–13 and 16 on a preview → 15.
   **Criterion 14 has been made awkward** — it needs a preview with the variable *unset*, which now
   costs a `vercel env rm` on preview and one extra deploy. The 503 branch is verified locally
   (unset *and* empty) but never on a deployment.
@@ -62,8 +63,9 @@ injected into every new session by the `SessionStart` hook.
   `vercel.com/sso-api` on every path** — Vercel Authentication is on by default for previews and
   intercepts *ahead of* middleware, so the gate never runs and criteria 4–13/16 cannot be executed
   there. **Turn it off for Preview** (Project Settings → Deployment Protection) or the only place
-  the gate can be verified is production, which is what G8 exists to avoid. Measured 2026-08-07:
-  **production is public — `/explainer.html` → 200, `x-vercel-cache: HIT`, 354,528 bytes.**
+  the gate can be verified is production, which is what G8 exists to avoid. Superseding the earlier
+  public-200 reading, measured 2026-08-07 after the O1 deploy: **production is gated —
+  `/explainer.html` → 401, `cache-control: no-store`.**
 - **The explainer was redesigned from the Claude Design comp, and it is now the landing page**
   (branch `align-design`). `explainer.template.html` is a full port of `Explainer.dc.html`: three
   parts by provenance (supplied data · live production · what we built), chapters renumbered,
@@ -104,12 +106,12 @@ injected into every new session by the `SessionStart` hook.
 <!-- decisions:start -->
 | Date | Decision | Why |
 |---|---|---|
+| 2026-08-07 | **O1 executed on owner request: remote migrated + reseeded, env vars set, prod deployed** | The green door led to a backend without `search_deals`; owner asked for the real DB behind it |
 | 2026-08-07 | **The explainer is the landing page: `/` = `index.html` = the explainer; the Vue app moves to `/app`** | A Vercel rewrite of `/` cannot beat a real `index.html` — rewrites run after the filesystem, so the file has to *be* the root |
 | 2026-08-07 | **010 screens BUILT: six render states, not five — `city_empty` found in build** | 424 combos scored above threshold with 0 city stock and rendered a silent empty page |
 | 2026-08-07 | **Gate criterion 11 checks the locally built `dist` byte count, not the literal 354,528** | 004's explainer was regenerated after the spec; a working gate would fail its own check |
 | 2026-08-07 | **Embeddings run locally, never via an API — one model, dimension asserted at build step 1** | A grader cannot re-run an API pipeline without their own key, so the central claim stops being checkable |
 | 2026-08-06 | **Embed 75 services, not 236 — city and market filter in SQL (D-A, deviates from SPEC §6)** | City is a structured filter; in the vector it shifts scores for reasons nobody can audit |
-| 2026-08-06 | **`.claude/agents/` restored — be/fe/reviewer teammates + `/execute:team`; reverses b48e3fb** | Part B spans two lanes. Agent teams need definitions; the deleted folder held only a README |
 <!-- decisions:end -->
 
 *Newest row goes under the header; the bottom row is deleted in the same edit. The hook injects
@@ -182,6 +184,6 @@ recomputed to **299** at 11.36% s2p). Parked: 1.4, 1.5 — low value against an 
 | 12 | **`F3_geographic` measures city-to-city *variance*, not location.** Only **6 of its 321** dead ends have the answering deal in another city; 158 are same-city, 157 can't-tell. Diagnosis withdrawn 2026-08-06, population and 25% range retained | `classify.py` `classify()` L208, `FINDINGS.md` §5d/§5f | **Live exposure, not a footnote:** F3 contributes 12.9 of the 36.3 purchases — 36% of the whole search-side estimate. Tightened figures (7.8%, 5.7%) are published alongside. Shipped UI copy *"just not in your city"* was false for 315 of 321 rows — **fixed** in `004/notebook.py` `BEHAVIOUR`, but `001-part-b/SPEC.md` §3/§4 still carries it (item 7.3) |
 | 13 | **The `plausible` coverage tier moves the Chapter 3 headline by 21.5pp.** All 1,016 of its dead ends land in one bucket together, and under `stocked_generic` same-city (2,306) overtakes nowhere (2,211) — the ordering flips | `classify.py` `PLAUSIBLE_COUNTS_AS`, `outputs/inventory_sensitivity.csv` | **Not an error — a judgement, now testable.** Lifted to a named constant so all three readings re-run. **Never quote one end of [43.2%, 64.7%] alone**; the explainer prints the whole band and names the flip |
 | 17 | **`/` returns 404 on the dev server, but works deployed — local testing looks broken when it is not.** `web/app/index.html` was renamed to `app.html` when the explainer became the landing page, so Vite dev has no root entry; production copies the explainer to `dist/index.html` at build time, so `/` is a real file there. `/app` is likewise a `vercel.json` rewrite that does not exist locally | `web/app/vite.config.ts`, `scripts/copy-explainer.mjs` | Anyone testing locally hits it first and concludes the build is broken. **Local URLs are `/app.html#prototype` and `/index.html`**; to exercise what actually deploys, build and `vite preview` the `dist` folder. Measured 2026-08-07: dev `/` 404, `/index.html` 200, `/app.html` 200 |
-| 16 | **The remote-failure path has never been exercised.** On `ewknlggenhrlftdukwme`, `search_deals` does not exist (migrations 3–6 unapplied), so PostgREST returns **404**, not a network error. Whether the prototype's error card catches a missing-function 404 as cleanly as it catches a connection failure is untested — and the deployed site is the pre-flip build, so it cannot be probed | `web/app/src/components/prototype/ErrorCard.vue`, O1/O2 | **The explainer's green door now points at `/app#prototype`.** If the card mishandles a 404, a visitor gets a broken page reached from a paragraph promising honesty. `be` drafted a sentence claiming the page "names the failure instead of pretending" and **cut it as unverified** — do not re-assert it until someone has seen it |
+| 16 | **The missing-function 404 scenario no longer exists in the wild — but the error card is still unexercised.** O1 (2026-08-07) put `search_deals` on the remote, so the door now reaches a working RPC (verified from a browser: results render, a `live` demand row was written). Whether `ErrorCard.vue` handles a missing-function 404 or a connection failure cleanly remains untested — it just no longer sits on the visitor's path | `web/app/src/components/prototype/ErrorCard.vue` | The card is now a resilience question, not a front-door defect. `be`'s cut sentence ("names the failure instead of pretending") stays cut until someone breaks the backend on purpose and looks |
 | 15 | **`009-access-gate/SPEC.md` criterion 11 hardcodes 354,528 bytes for `explainer.html`; it is now 658,949** — three regenerations stale (354,528 → 361,602 → 658,208 → **658,949** after the 2026-08-07 door flip). `prebuild` copies `docs/analysis/004-data-story/outputs/explainer.html` into `web/app/public/`, and that source was regenerated at 16:54 on 2026-08-07, three minutes after the SPEC was last written | `009-access-gate/SPEC.md` §10 criterion 11, B7 | **A working gate would fail its own acceptance check**, and SPEC §8 tells the reader to *stop* on that mismatch. B7's real meaning is *bytes past the gate == bytes in the locally built `dist`* — compare against `wc -c < web/app/dist/explainer.html` at deploy time, never the literal. The source file is gitignored, so no commit shows the change |
 | 14 | **`validate.py`'s typo nearest-neighbour is non-deterministic.** It ties-breaks off `set` iteration order, so the answer depends on `PYTHONHASHSEED`: `puintball` → `paintball` *or* `peintball`, `maniküe` → `maniküre` *or* `maniküue`, `go karuing` → `go karting` *or* `go karoing` — identical similarity, different pick per run. Found 2026-08-06 by diffing two runs of the unchanged script | `validate.py` Layer 4 | **No count moves, so no headline is affected** — but the repo's rule is "re-run the script before quoting any number", and this table's *examples* change between runs. Sort candidates before taking the max, or quote counts only, never a named nearest match |
