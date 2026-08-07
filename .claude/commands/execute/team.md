@@ -45,22 +45,34 @@ does not start. Report that; it is a successful outcome for this command.
 
 ## 3. Decompose — and do not manufacture parallelism
 
-One task per build-order step, split further only where a step spans two lanes. For each:
+**If `PLAN-TEAM.md` sits beside the spec, decompose from it and do not re-derive the graph** — it
+already carries the lanes, the gate, the phases and the owner tasks. Check it against the spec, then
+create its tasks as written. `/plan-team` exists so this step is reviewable before anyone spawns.
+
+Otherwise: one task per build-order step, split further only where a step spans two lanes. For each:
 `TaskCreate` with the subject, the spec section it comes from, its acceptance criteria, and its
 lane. Then `TaskUpdate` to set `blockedBy` from the spec's own gates.
 
-**Respect the gate, and say it out loud in your report.** In `001-part-b/SPEC.md` §10 the first four
-steps — migrations/seeds → the 75 descriptions → offline embeddings → the threshold sweep — are
-strictly sequential, single-lane, and **step 4 gates every UI task below it.** That is the majority
-of the remaining critical path and it does not parallelise. A four-column phase table that pretends
-otherwise is a plan that will deadlock on its own dependencies.
+**Respect the gate, and say it out loud in your report.** Every spec here puts whatever could
+invalidate the plan first, and that step is usually single-lane and strictly sequential — the
+majority of the critical path, and it does not parallelise. A four-column phase table over a chain
+that cannot fan out is a plan that will deadlock on its own dependencies.
 
-- **Single lane to the gate.** `be-builder` alone. Do not spawn `fe-builder` yet; there is nothing
-  for it to build against and its screens depend on bands that do not exist.
-- **Fan out after the gate.** Screens by behaviour, demand loop, staff panel, acquisition brief and
-  coverage table split cleanly between the lanes.
+- **Single lane to the gate.** Whichever lane owns step 1 works alone. Do not spawn the other
+  teammate to look busy; it would be building against data that does not exist yet.
+- **Fan out after the gate**, and only where the spec's outputs genuinely separate.
 - Aim for **5–6 tasks per teammate.** Too small and coordination costs more than it saves; too large
   and a teammate works for an hour in a direction nobody checked.
+
+**Where that gate currently sits — verify against `INDEX.md`, do not trust this paragraph.** As of
+2026-08-07 `001-part-b/SPEC.md` §10 steps 1–5 are built and local: schema+seeds → the 75
+descriptions → offline embeddings → the threshold sweep (LOW=0.40, HIGH=0.55) → `search_deals`. **The
+old sweep gate is passed and the backend is complete**, so the next build is `006 SPEC` §3.1's
+screens S1–S7 (`010-screens` still has a `BRIEF.md` and no `SPEC.md` — that is the real block). That
+work is **mostly one lane**: S1–S7 render `web/app/**` against the existing RPC, and the only clear
+`be` task left is §5's agent contract — retrieval and its hard blocks. **If the split is that
+lopsided, `/execute:implement` is the right command and this one is overhead.** Check before you
+spawn a second teammate.
 
 Tasks the owner must do personally — anything the spec reserves, such as `001 SPEC` D2's
 hand-written descriptions — are created, assigned to nobody, and named as owner tasks in your

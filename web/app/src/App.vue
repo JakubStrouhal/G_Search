@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref, shallowRef, watch, type Component } from 'vue'
 import SiteIndex from '@/components/SiteIndex.vue'
+import SignOutButton from '@/components/SignOutButton.vue'
 
 // One hash, no router. The health check is an operational surface, not a screen of
 // the deliverable — it stays reachable at #stack and off the front door.
@@ -38,6 +39,9 @@ onUnmounted(() => window.removeEventListener('hashchange', sync))
     <p v-else-if="stackError" class="stack-error">{{ stackError }}</p>
   </template>
   <SiteIndex v-else />
+
+  <!-- Chrome, not a screen — mounted here so it survives the route switch above. -->
+  <SignOutButton />
 </template>
 
 <style scoped>
