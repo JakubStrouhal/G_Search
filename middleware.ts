@@ -13,7 +13,15 @@ import { next } from '@vercel/functions'
 
 const COOKIE = 'g_demo_gate'
 const GATE_PATH = '/__gate'
+const LOGOUT_PATH = '/__gate/logout'
 const TTL_SECONDS = 30 * 24 * 60 * 60
+
+/**
+ * Every attribute except Max-Age must match the Set-Cookie that issued it, Path=/ above
+ * all: scoped to /__gate/logout the deletion applies to a cookie the browser never had,
+ * the real one survives, and logout silently does nothing.
+ */
+const COOKIE_ATTRS = `Path=/; HttpOnly; Secure; SameSite=Lax`
 
 const enc = new TextEncoder()
 
@@ -136,6 +144,31 @@ export default async function middleware(request: Request): Promise<Response> {
 
   const url = new URL(request.url)
 
+  // Before the valid-cookie check below, not after: a signed-in visitor is exactly the
+  // one asking to sign out, and next() would hand /__gate/logout to the static output
+  // as a 404. POST only — a GET logout fires from any <img> on any page.
+  //
+  // This forgets the session on this browser; it does not revoke it. The cookie is
+  // self-contained, so a copy taken off this machine stays valid until it expires.
+  // Rotating SITE_PASSWORD is still the only thing that invalidates issued cookies.
+  if (url.pathname === LOGOUT_PATH) {
+    // Anything but POST gets the same 401 form every other path gets. A 405 here would
+    // be the honest status code and the wrong one: SPEC §B1 is that the unauthenticated
+    // response is uniform, and a status only this path returns names it to a prober.
+    // The form targets `/`, not this path — targeting itself would loop through login.
+    if (request.method !== 'POST') return page('/', 401, false)
+
+    return new Response(null, {
+      status: 303,
+      headers: {
+        location: '/',
+        // A cached Set-Cookie is the other way this fails without a symptom.
+        'cache-control': 'no-store',
+        'set-cookie': `${COOKIE}=; Max-Age=0; ${COOKIE_ATTRS}`,
+      },
+    })
+  }
+
   if (await cookieIsValid(readCookie(request.headers.get('cookie'), COOKIE), secret)) {
     return next()
   }
@@ -159,8 +192,7 @@ export default async function middleware(request: Request): Promise<Response> {
         headers: {
           location: target,
           'cache-control': 'no-store',
-          'set-cookie':
-            `${COOKIE}=${value}; Path=/; Max-Age=${TTL_SECONDS}; HttpOnly; Secure; SameSite=Lax`,
+          'set-cookie': `${COOKIE}=${value}; Max-Age=${TTL_SECONDS}; ${COOKIE_ATTRS}`,
         },
       })
     }
