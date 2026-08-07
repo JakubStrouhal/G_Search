@@ -73,7 +73,10 @@ input,select,button{font-family:inherit}
 <nav aria-label="The three deliverables" style="display:flex;gap:10px 32px;flex-wrap:wrap;align-items:baseline;padding:14px 0;border-bottom:1px solid #e7e8e9;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:19px">
   <span style="color:#111827;font-weight:700"><span style="background:#111827;color:#ffffff;border-radius:999px;padding:3px 10px;margin-right:8px">Part A</span>The analysis — this page. You are here.</span>
   <a href="/app#prototype" style="color:#006bc3;font-weight:700;text-decoration:none"><span style="border:1px solid #006bc3;border-radius:999px;padding:2px 10px;margin-right:8px">Part B</span>The working prototype &rarr;</a>
-  <a href="/app" style="color:#006bc3;font-weight:700;text-decoration:none"><span style="border:1px solid #006bc3;border-radius:999px;padding:2px 10px;margin-right:8px">Part C</span>The writeup, with the package &rarr;</a>
+  <!-- Points at the writeup itself, not the package index. It used to say "the writeup, with the
+       package" and land on /app, where the Part C card read "Not yet written." — a link whose
+       label promised a document that did not exist. 011-writeup closed that. -->
+  <a href="/app#writeup" style="color:#006bc3;font-weight:700;text-decoration:none"><span style="border:1px solid #006bc3;border-radius:999px;padding:2px 10px;margin-right:8px">Part C</span>The two-page writeup &rarr;</a>
 </nav>
 
 <!-- ============================ MASTHEAD A ============================ -->

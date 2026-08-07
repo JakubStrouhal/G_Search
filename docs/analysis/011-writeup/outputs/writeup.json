@@ -1,0 +1,967 @@
+{
+  "generated_by": "docs/analysis/011-writeup/build_writeup.py",
+  "source": "docs/analysis/011-writeup/WRITEUP.md",
+  "verified_by": "docs/analysis/011-writeup/check_writeup.py",
+  "how": "Generated. Edit WRITEUP.md and re-run the script -- a hand-edited fixture is a number that no longer traces to the data. The writeup blocks are the brief's two-page deliverable; the log is a separate request and is counted separately.",
+  "source_sha256": "9713013a293945543596728f1238eed33291911ddbf07afb87fd15d8760ce3ec",
+  "body_words": 1393,
+  "writeup": [
+    {
+      "type": "h1",
+      "spans": [
+        {
+          "t": "text",
+          "v": "Part C — Groupon international discovery"
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "spans": [
+        {
+          "t": "text",
+          "v": "Two pages. Part A is the explainer at "
+        },
+        {
+          "t": "code",
+          "v": "/"
+        },
+        {
+          "t": "text",
+          "v": "; Part B is the prototype at "
+        },
+        {
+          "t": "code",
+          "v": "/app#prototype"
+        },
+        {
+          "t": "text",
+          "v": ". Every figure below regenerates from a committed script — "
+        },
+        {
+          "t": "code",
+          "v": "check_writeup.py"
+        },
+        {
+          "t": "text",
+          "v": " fails if one drifts."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "spans": [
+        {
+          "t": "text",
+          "v": "What we found"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "One month, "
+        },
+        {
+          "t": "strong",
+          "v": "8,997"
+        },
+        {
+          "t": "text",
+          "v": " searches across five markets and twenty cities, against a "
+        },
+        {
+          "t": "strong",
+          "v": "568"
+        },
+        {
+          "t": "text",
+          "v": "-deal catalogue. First, the limit that shapes everything after it: the log records "
+        },
+        {
+          "t": "code",
+          "v": "results_shown"
+        },
+        {
+          "t": "text",
+          "v": " as a "
+        },
+        {
+          "t": "strong",
+          "v": "count"
+        },
+        {
+          "t": "text",
+          "v": ". There is no query→deal mapping and no relevance score, so any statement about "
+        },
+        {
+          "t": "em",
+          "v": "which"
+        },
+        {
+          "t": "text",
+          "v": " deals a query returned is inference from the catalogue, not observation. We did not engineer around that."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "The number a dashboard would show is the wrong number."
+        },
+        {
+          "t": "text",
+          "v": " 29.3% of searches return zero results — but a search returning 1–2 results converts like one returning nothing: "
+        },
+        {
+          "t": "strong",
+          "v": "1.7%"
+        },
+        {
+          "t": "text",
+          "v": " search→purchase against "
+        },
+        {
+          "t": "strong",
+          "v": "16.1%"
+        },
+        {
+          "t": "text",
+          "v": " at four or more. That is a cliff, not a gradient. The real dead-end rate is "
+        },
+        {
+          "t": "strong",
+          "v": "52.5%"
+        },
+        {
+          "t": "text",
+          "v": ". It survives the obvious objection that 1–2 might simply attract worse queries: compared "
+        },
+        {
+          "t": "em",
+          "v": "within"
+        },
+        {
+          "t": "text",
+          "v": " 138 concept × city strata, search→purchase moves by 0.02pp and the direction holds in "
+        },
+        {
+          "t": "strong",
+          "v": "137 of 138"
+        },
+        {
+          "t": "text",
+          "v": ". The metric is a property of the result count, not of which queries land there."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Re-asking \"why did it fail\" as \"where was the answer\" is what assigns an owner."
+        },
+        {
+          "t": "text",
+          "v": " Over all "
+        },
+        {
+          "t": "strong",
+          "v": "4,720"
+        },
+        {
+          "t": "text",
+          "v": " dead ends:"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "head": [
+        [
+          {
+            "t": "text",
+            "v": "Where the answer was"
+          }
+        ],
+        [
+          {
+            "t": "text",
+            "v": "Dead ends"
+          }
+        ],
+        [
+          {
+            "t": "text",
+            "v": "Share"
+          }
+        ],
+        [
+          {
+            "t": "text",
+            "v": "Owner"
+          }
+        ]
+      ],
+      "rows": [
+        [
+          [
+            {
+              "t": "text",
+              "v": "Nowhere in the market"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "2,039"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "43.2%"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Merchant acquisition — not search"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "t": "text",
+              "v": "The user's own city"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "1,520"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "32.2%"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Search"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "t": "text",
+              "v": "Another city in the market"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "145"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "3.1%"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Product / UX"
+            }
+          ]
+        ],
+        [
+          [
+            {
+              "t": "text",
+              "v": "Can't tell from this catalogue"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "1,016"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "21.5%"
+            }
+          ],
+          [
+            {
+              "t": "text",
+              "v": "Not attributed"
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "One judgement moves the top row — whether a generic deal counts as an answer to a specific query. Across the three defensible conventions the "
+        },
+        {
+          "t": "em",
+          "v": "nowhere"
+        },
+        {
+          "t": "text",
+          "v": " share runs "
+        },
+        {
+          "t": "strong",
+          "v": "[43.2%, 64.7%]"
+        },
+        {
+          "t": "text",
+          "v": ", and under one of them same-city overtakes it. We publish the band, never an end of it. Its hard core is "
+        },
+        {
+          "t": "strong",
+          "v": "178"
+        },
+        {
+          "t": "text",
+          "v": " market+query pairs / "
+        },
+        {
+          "t": "strong",
+          "v": "1,689"
+        },
+        {
+          "t": "text",
+          "v": " searches that returned zero "
+        },
+        {
+          "t": "em",
+          "v": "every single time"
+        },
+        {
+          "t": "text",
+          "v": " — the definition the prototype acts on, chosen over the analysis script's slightly wider rule (185 / 1,691) so the writeup and the working thing cannot disagree."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Phrasing costs far more than spelling does."
+        },
+        {
+          "t": "text",
+          "v": " On matched pairs — same concept, same market, restricted to concepts the catalogue stocks — English phrasing dead-ends "
+        },
+        {
+          "t": "strong",
+          "v": "81.2%"
+        },
+        {
+          "t": "text",
+          "v": " of the time against "
+        },
+        {
+          "t": "strong",
+          "v": "39.0%"
+        },
+        {
+          "t": "text",
+          "v": " for local phrasing. A "
+        },
+        {
+          "t": "strong",
+          "v": "42.3pp"
+        },
+        {
+          "t": "text",
+          "v": " gap, 47 of 48 pairs pointing the same way, holding in all four non-English markets. Both confounds are killed: loanwords naming unstocked concepts fail at the ordinary 44.0%, so this is not supply; rare "
+        },
+        {
+          "t": "em",
+          "v": "local"
+        },
+        {
+          "t": "text",
+          "v": " queries fail at 53.3%, so it is not rarity. Typos, by contrast, are worth about "
+        },
+        {
+          "t": "strong",
+          "v": "1.9%"
+        },
+        {
+          "t": "text",
+          "v": " of zero-result searches on the strict definition — the matcher is already fuzzy on spelling."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Most of this is not a search problem, and the honest number is the uncomfortable one."
+        },
+        {
+          "t": "text",
+          "v": " Of the 1,520 same-city failures, a named mechanism exists for 355; the other "
+        },
+        {
+          "t": "strong",
+          "v": "1,165"
+        },
+        {
+          "t": "text",
+          "v": " are stocked, failing, and unexplained. Search-side work is worth roughly "
+        },
+        {
+          "t": "strong",
+          "v": "12%"
+        },
+        {
+          "t": "text",
+          "v": " of the recoverable opportunity — about "
+        },
+        {
+          "t": "strong",
+          "v": "36"
+        },
+        {
+          "t": "text",
+          "v": " purchases a month against a base of "
+        },
+        {
+          "t": "strong",
+          "v": "723"
+        },
+        {
+          "t": "text",
+          "v": " — while the supply-void ceiling is "
+        },
+        {
+          "t": "strong",
+          "v": "+271"
+        },
+        {
+          "t": "text",
+          "v": ". Two tighter readings give 7.8% and 5.7%. We publish the most generous and say the other two exist."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "spans": [
+        {
+          "t": "text",
+          "v": "What we built, and why that rather than the alternatives"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "The prototype "
+        },
+        {
+          "t": "strong",
+          "v": "abstains before it substitutes"
+        },
+        {
+          "t": "text",
+          "v": ". Silent substitution is the defect, not the fallback: probed live, "
+        },
+        {
+          "t": "code",
+          "v": "kitesurf"
+        },
+        {
+          "t": "text",
+          "v": " on Groupon returns a *Portable Bartender Barista "
+        },
+        {
+          "t": "strong",
+          "v": "Kit"
+        },
+        {
+          "t": "text",
+          "v": "*. The matcher matches fragments, and the production API exposes no relevance score, no matched-term field and no spell-correction field — so the client cannot tell a real match from padding. Naming what could not be matched, then offering something explicitly "
+        },
+        {
+          "t": "em",
+          "v": "labelled"
+        },
+        {
+          "t": "text",
+          "v": " as an alternative, is the fix."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "Six render states, each a branch the backend genuinely returns: confident; adjacent, labelled and with the similarity shown; near-empty, where 1–2 results get a panel rather than a results page; nothing-in-this-city; abstain, which names the gap, shows the June demand for it, records the gap and captures intent; and a refusal for anything outside the logged 613. Abstention is the product, not the error page."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "What we did not build, each cut with a number rather than an opinion:"
+        }
+      ]
+    },
+    {
+      "type": "ul",
+      "items": [
+        [
+          {
+            "t": "strong",
+            "v": "\"The answer is in another city — offer the trip.\""
+          },
+          {
+            "t": "text",
+            "v": " The whole population is 145 dead ends: hair 62, karting 21, gym 18, nails 10. Nobody travels between cities for a haircut."
+          }
+        ],
+        [
+          {
+            "t": "strong",
+            "v": "\"Then gate it on price — over $100 the trip is worth it.\""
+          },
+          {
+            "t": "text",
+            "v": " Sound rule, wrong catalogue: 2.88% generous, 0.38% strict. The ceiling is $179.46 and the concepts worth travelling for have zero deals. It ships as a production recommendation with the threshold named, not as a screen."
+          }
+        ],
+        [
+          {
+            "t": "strong",
+            "v": "\"No helicopter? Offer a balloon.\""
+          },
+          {
+            "t": "text",
+            "v": " Balloon is equally absent. That swap ships the silent-substitution bug as a feature."
+          }
+        ],
+        [
+          {
+            "t": "strong",
+            "v": "Embeddings from a hosted model API."
+          },
+          {
+            "t": "text",
+            "v": " Nobody can re-run an API pipeline without their own key, so the central claim stops being checkable. 75 service documents and 613 query vectors come from a local model and are committed."
+          }
+        ],
+        [
+          {
+            "t": "strong",
+            "v": "A second retrieval system."
+          },
+          {
+            "t": "text",
+            "v": " pgvector inside the same Postgres; at 568 deals an index would be theatre."
+          }
+        ]
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "The threshold is calibrated against Part A's own labels rather than tuned by eye: "
+        },
+        {
+          "t": "strong",
+          "v": "AUC 0.805"
+        },
+        {
+          "t": "text",
+          "v": " across 751 pairs, "
+        },
+        {
+          "t": "strong",
+          "v": "0.934"
+        },
+        {
+          "t": "text",
+          "v": " on the 147 the analysis is confident about, which carry 90.1% of search volume. The upper band is a judgement and we say so — nothing in this data labels confident-versus-adjacent."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "spans": [
+        {
+          "t": "text",
+          "v": "What we would do next, and what we need from the platform teams"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Week one is instrumentation, because most of what we would want is not recorded anywhere."
+        },
+        {
+          "t": "text",
+          "v": " In priority order the platform ask is: "
+        },
+        {
+          "t": "strong",
+          "v": "query→results mapping with a relevance label"
+        },
+        {
+          "t": "text",
+          "v": "; null-result events carrying the raw query; session IDs and timestamps; ranker scores with impression positions. Without the first, every claim about which deals answered a query stays inference — ours included."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "Then: make a discriminating term actually "
+        },
+        {
+          "t": "em",
+          "v": "constrain"
+        },
+        {
+          "t": "text",
+          "v": " the result set, and audit the expansion stage — adding "
+        },
+        {
+          "t": "code",
+          "v": "helicopter"
+        },
+        {
+          "t": "text",
+          "v": " to "
+        },
+        {
+          "t": "code",
+          "v": "massage"
+        },
+        {
+          "t": "text",
+          "v": " currently "
+        },
+        {
+          "t": "em",
+          "v": "reduces"
+        },
+        {
+          "t": "text",
+          "v": " the count, so whatever is happening is not union semantics and is not visible from outside. Fix the autocomplete service, which returned "
+        },
+        {
+          "t": "code",
+          "v": "INTERNAL_SERVER_ERROR"
+        },
+        {
+          "t": "text",
+          "v": " on most probes across two hosts and two days; that is the layer where spell correction and query understanding live. And route the supply-void bucket to merchant acquisition, using the demand rows the prototype already writes as its input."
+        }
+      ]
+    },
+    {
+      "type": "h2",
+      "spans": [
+        {
+          "t": "text",
+          "v": "How we would measure it, and what would tell us it was not working"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Primary metric: dead-end rate at two results or fewer, replacing zero-result rate."
+        },
+        {
+          "t": "text",
+          "v": " Baseline 52.5%. The swap "
+        },
+        {
+          "t": "em",
+          "v": "is"
+        },
+        {
+          "t": "text",
+          "v": " the finding; reporting the old metric hides nearly half the problem."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Read it only as a pair with the guardrail."
+        },
+        {
+          "t": "text",
+          "v": " At the shipped threshold the system is wrong in two directions — "
+        },
+        {
+          "t": "strong",
+          "v": "6.83%"
+        },
+        {
+          "t": "text",
+          "v": " false-confident and "
+        },
+        {
+          "t": "strong",
+          "v": "23.22%"
+        },
+        {
+          "t": "text",
+          "v": " false-abstain by search volume. Different mistakes, different owners; one blended accuracy number hides which is being made."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "The counter-signal is the one to watch, and it is nth-order."
+        },
+        {
+          "t": "text",
+          "v": " Loosening the matcher lowers the dead-end rate "
+        },
+        {
+          "t": "em",
+          "v": "and makes the invisible failure worse"
+        },
+        {
+          "t": "text",
+          "v": ". A dead-end improvement arriving alongside a rising false-confident rate is not an improvement — it is the silent-substitution defect being manufactured. A headline win only counts if the guardrail held."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "What would tell us it was not working:"
+        },
+        {
+          "t": "text",
+          "v": " abstain-path sessions not converting above the 1.7% near-empty baseline; labelled alternatives earning clicks but not purchases, which is substitution accepted and then regretted; demand rows concentrating in concepts acquisition cannot act on. And the ceiling — the ~12% is an upper bound on what a search fix delivers, not a forecast. Recovered demand converts worse than organic demand."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "None of it is measurable on the supplied data"
+        },
+        {
+          "t": "text",
+          "v": " — no session IDs, no order values, no reformulations. These are production instrumentation asks, and saying so is the point rather than the caveat."
+        }
+      ]
+    },
+    {
+      "type": "note",
+      "spans": [
+        {
+          "t": "text",
+          "v": "Two limits, plainly. The data is clean enough to be synthetic, so the language test shows the generator encoded a language effect — evidence the thesis is coherent and quantifiable, not proof about production. And the live probe is a different catalogue: it shows how a real search engine fails and sizes nothing. Live Groupon does stock paintball and sushi in GB; the void is this catalogue's."
+        }
+      ]
+    }
+  ],
+  "log": [
+    {
+      "type": "h2",
+      "spans": [
+        {
+          "t": "text",
+          "v": "The log"
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Hours: 8:01"
+        },
+        {
+          "t": "text",
+          "v": " of owner wall-clock, tracked. Machine time is recorded separately in each unit's "
+        },
+        {
+          "t": "code",
+          "v": "RESULT.md"
+        },
+        {
+          "t": "text",
+          "v": " and is deliberately "
+        },
+        {
+          "t": "strong",
+          "v": "not"
+        },
+        {
+          "t": "text",
+          "v": " added to it — roughly 0.6 h for the access gate and 1h50m of agent execution across two build lanes for the screens. Adding the two would inflate the exact number this exercise grades output against."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "Tools."
+        },
+        {
+          "t": "text",
+          "v": " Claude Code (Opus/Fable 5) as the lead throughout: analysis scripts, the schema and RPC, the front end, and the writing. For the screens it dispatched a three-role agent team — a backend builder, a front-end builder and a read-only reviewer — with separate write scopes. "
+        },
+        {
+          "t": "strong",
+          "v": "Codex"
+        },
+        {
+          "t": "text",
+          "v": " ran as an independent, read-only conformance interviewer at two fixed moments: before a spec was approved, and when an implementation claimed to be finished. A Claude design pass produced the explainer's visual comp. Embeddings are a local "
+        },
+        {
+          "t": "code",
+          "v": "sentence-transformers"
+        },
+        {
+          "t": "text",
+          "v": " model; "
+        },
+        {
+          "t": "strong",
+          "v": "no API key exists anywhere in this repo."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "strong",
+          "v": "What the tools got wrong, and had to be caught."
+        },
+        {
+          "t": "text",
+          "v": " Three worth naming. "
+        },
+        {
+          "t": "strong",
+          "v": "(1)"
+        },
+        {
+          "t": "text",
+          "v": " The analysis script confidently printed "
+        },
+        {
+          "t": "code",
+          "v": "MATCHER FAILURE"
+        },
+        {
+          "t": "text",
+          "v": " for adrenaline — the exact opposite of the truth — because the stock test ran at category level, where five categories make everything look stocked. Re-running it at "
+        },
+        {
+          "t": "em",
+          "v": "title"
+        },
+        {
+          "t": "text",
+          "v": " level inverted the headline to a supply void. "
+        },
+        {
+          "t": "strong",
+          "v": "(2)"
+        },
+        {
+          "t": "text",
+          "v": " A live probe concluded London \"stocks adrenaline abundantly\" from multi-word result counts that were inflated by the very fragment-matching defect the same paragraph was describing; only probing Berlin and Paris with single tokens exposed it, and one probe had contradicted another inside the same session. "
+        },
+        {
+          "t": "strong",
+          "v": "(3)"
+        },
+        {
+          "t": "text",
+          "v": " A cross-lingual acceptance check passed on nothing — it hard-coded three query strings absent from the log, so every case silently skipped and the criterion went green."
+        }
+      ]
+    },
+    {
+      "type": "p",
+      "spans": [
+        {
+          "t": "text",
+          "v": "The pattern across twelve recorded retractions is one thing: "
+        },
+        {
+          "t": "strong",
+          "v": "a coarse or convenient measurement mistaken for a finding."
+        },
+        {
+          "t": "text",
+          "v": " Every one was caught by measuring the same thing a second way, never by re-reading the first result. Our own concept map carries the same class of defect it diagnoses in Groupon's search — its "
+        },
+        {
+          "t": "code",
+          "v": "gym"
+        },
+        {
+          "t": "text",
+          "v": " pattern matches the English title and not the four local-language equivalents. It changes no published number, which is exactly why it is easy to miss."
+        }
+      ]
+    }
+  ]
+}

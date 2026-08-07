@@ -10,7 +10,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@design/*": ["../../docs/design/*"],
-      "@fixtures/*": ["../../docs/analysis/010-screens/outputs/*"]
+      "@fixtures/*": ["../../docs/analysis/010-screens/outputs/*"],
+      "@writeup/*": ["../../docs/analysis/011-writeup/outputs/*"]
     },
 
     /* Linting */

@@ -58,12 +58,14 @@ const cards: Card[] = [
   {
     part: 'Part C',
     title: 'The writeup',
-    status: 'not started',
+    status: 'live',
+    live: true,
     body:
       'Two pages: what was found, what was built and why rather than the alternatives, ' +
       'what the platform teams must supply, and what would signal it was not working. ' +
       'Plus the log of hours and of what the AI tools got wrong.',
-    pending: 'Not yet written.',
+    href: '#writeup',
+    cta: 'Open the writeup',
   },
 ]
 </script>
