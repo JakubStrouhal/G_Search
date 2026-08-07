@@ -62,15 +62,21 @@ what the platform teams must supply, and the CSVs contain no information about t
 > including the ones that cannot be fixed — "what it does when it has no good answer tells us as
 > much as what it does when it has one."*
 
-**Status: 4 of 10 build steps done. Backend is real; no UI yet.** Live status is `INDEX.md` 4.1.
+**Status: 9 of `001-part-b/SPEC.md` §10's 10 build steps done; the prototype is hosted and clickable
+at `/app#prototype`.** Live status is `INDEX.md` 4.1 and 9.0.
 
-| Step | What exists |
+| Step (SPEC §10) | What exists |
 |---|---|
 | 1 ✅ | Supabase Postgres: 8 tables, 2 views, RLS + explicit grants. Seeds generated from the CSVs by script — **no number is hand-typed into SQL** |
 | 2 ✅ | 75 hand-written service descriptions, in five languages |
 | 3 ✅ | Embeddings: 75 service + 613 query vectors, local model, **no API key anywhere** |
 | 4 ✅ | The abstention threshold, calibrated against Part A's labelled pairs |
-| 5–10 ⬜ | Search RPC, behaviour screens, staff panel, demand loop, acquisition brief, deploy |
+| 5 ✅ | Behaviour screens — **six**, not the specified five: `city_empty` was found during the build (424 combos rendered a silent empty page). `search_deals` returns the band *and* Part A's class |
+| 6 ✅ | `demand_events` seeded from the log; abstention writes server-side; notify-me writes over REST |
+| 7 ✅ | Staff panel, including the side-by-side — labelled illustrative, because no query→deal mapping exists |
+| 8 ✅ | Acquisition brief |
+| 9 ✅ | Coverage table as a visible section, including the rows search cannot fix |
+| 10 🟡 | **Deployed** behind a password gate; the remote carries the migrations and both seeds. **What is not done is the second half of this step:** the five demo queries have not been run end to end against the remote — two were (`masaż tajski` PL, `paintball` GB, both from a browser, the second writing a live demand row) |
 
 ### What the build found — things the analysis could not produce on its own
 
@@ -114,18 +120,27 @@ Recorded because the brief grades judgement, and a cut with a number is worth mo
 > supply; how success is measured and what would signal it was not working. Plus a log: hours, which
 > AI tools did what, and what they got wrong that had to be caught.*
 
-**Status: not started. It is now the larger of the two remaining risks.**
+**Status: written.** `docs/analysis/011-writeup/WRITEUP.md` is the canonical two pages plus the log;
+the same text renders at **`/app#writeup`**, generated into a fixture rather than retyped into a
+component. Every figure in it is recomputed from the supplied CSVs by `check_writeup.py`, which
+**fails rather than skips** on a number it cannot resolve — and has been mutation-tested to prove
+it fails.
 
-Every input exists. Mapping their four bullets to what is ready:
+Where each of their four bullets is answered, and what it was drawn from:
 
-| Their bullet | Ready |
-|---|---|
-| What you found, with numbers | A1–A7 above; `FINDINGS.md` is the source |
-| What you built and **why rather than the alternatives** | `001-part-b/SPEC.md` §11 (D1–D6), `006-one-page` G1–G6, `007-embeddings` E1–E8 — every decision with its rejected alternative |
-| Next steps + what the platform teams must supply | Ranked in `INDEX.md` 5.3, and **A7 makes the ask concrete**: expose match provenance — a relevance score, a matched-term field, a spell-correction field. None exist in the production API today |
-| How success is measured, and what would signal failure | Dead-end rate (52.5%) replaces zero-result rate (29.3%). The failure signal is the one to write carefully |
+| Their bullet | In the writeup | Drawn from |
+|---|---|---|
+| What you found, with numbers | §"What we found" | A1–A7 above; `FINDINGS.md` is the source |
+| What you built and **why rather than the alternatives** | §"What we built…" — five cuts, each with a number | `001-part-b/SPEC.md` §11 (D1–D6), `006-one-page` G1–G6, `007-embeddings` E1–E8, `010-screens` decisions 7–20 |
+| Next steps + what the platform teams must supply | §"What we would do next…" | Ranked in `INDEX.md` 5.3, and **A7 makes the ask concrete**: expose match provenance — a relevance score, a matched-term field, a spell-correction field. None exist in the production API today |
+| How success is measured, and what would signal failure | §"How we would measure it…" | **The one section with no prior draft.** Its load-bearing claim is the counter-signal: loosening the matcher lowers the dead-end rate *and* raises false-confident, so a headline win only counts if the guardrail held |
 
-### The tools-and-corrections log — six entries ready, each with what caught it
+**Two page-count notes, because the cap is the one hard constraint on Part C.** The log is the
+brief's *separate* ask ("And a short log"), so it sits outside the two pages and starts its own
+sheet in print. And the two-page claim is measured, not asserted: at the print type size the
+writeup lays out at ~1.8 of two A4 pages, with the word count shown on the page.
+
+### The tools-and-corrections log — the register has twelve rows; these six are the ones with a clean "what caught it"
 
 | # | Claim made | How it was caught | What replaced it |
 |---|---|---|---|
@@ -137,6 +152,8 @@ Every input exists. Mapping their four bullets to what is ready:
 | 6 | Drop the category tokens from the embedded document | Six hand-picked cases said obviously yes; **all 751 pairs said no** (AUC 0.805 vs 0.793) | Format unchanged |
 
 **Entries 4, 5 and 6 are mistakes in this build, not in the analysis.** They are here on purpose.
+The full register is `FINDINGS.md` §9, **twelve rows**; the writeup's log quotes three of them,
+because the brief asks for "one or two sentences", not a table.
 
 ---
 
@@ -148,15 +165,21 @@ Every input exists. Mapping their four bullets to what is ready:
 | **Whether the prototype reflects the analysis** rather than being a search UI bolted on beside it | The class comes from `query_classes.csv` — a table in the database — **not** from a threshold (D1). Screens are specified per Part A failure class. The threshold is calibrated against Part A's own labels, and the disagreement rate is published |
 | **Whether claims survive checking** | Every number regenerates from a committed script. Six withdrawn claims are listed above with what caught them. D2 is enforced by a test that fails the build, not by discipline |
 | **Honesty about the limits of what was built** | A5 is stated rather than engineered around — no query→deal table exists in the schema, and the `COMMENT ON SCHEMA` says why. B3 admits HIGH is uncalibrated. B5 narrows our own recoverability claim |
-| **Output per hour** | Hours are the owner's to log. The build is deliberately small: pgvector inside Postgres rather than a second system, 75 documents rather than 568, no index at this size |
+| **Output per hour** | **8:01 of owner wall-clock**, in the writeup's log, with agent execution time recorded separately per unit and deliberately not added to it. The build is deliberately small: pgvector inside Postgres rather than a second system, 75 documents rather than 568, no index at this size |
 | *Not assessed: code quality, tests, visual design* | Taken at face value. No test suite. Visual design was reversed to match `docs/design` by owner decision, recorded as a reversal |
 
 ---
 
 ## What is missing, plainly
 
-1. **Part C is not written.** Largest remaining risk.
-2. **No UI.** The backend is real; nothing is clickable yet. The brief says *prototype, not a deck* — until step 5 lands, this package does not meet its central requirement.
-3. **The remote deployment lags local** by one migration and the current seed.
-4. **The 75 descriptions have not been reviewed line by line.** The guard proves nothing *harmful* is in them; only a human confirms nothing is *wrong*.
-5. **`HIGH` is a judgement**, and no amount of further work on this dataset changes that.
+1. **The two-page cap is verified by measurement, not by print preview.** The writeup lays out at
+   ~1.8 of two A4 pages at the print type size, measured in a browser against A4's content box.
+   Nobody has yet put it through an actual print dialogue, which is the only test that counts.
+2. **The 75 descriptions have not been reviewed line by line.** The guard proves nothing *harmful*
+   is in them; only a human confirms nothing is *wrong*.
+3. **`HIGH` is a judgement**, and no amount of further work on this dataset changes that.
+4. **`/api`'s spec proxy is failing honestly.** The `SUPABASE_SECRET_KEY` value on the deployment is
+   not the real secret key, so the page shows its designed failure sentence rather than the schema.
+   Owner action; nothing else depends on it.
+5. **Two definitions of the supply void still coexist** (185 / 1,691 in `validate.py`, 178 / 1,689
+   in `classify.py`). Part C picks the second and says why, but the two scripts are not reconciled.

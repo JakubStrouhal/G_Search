@@ -24,6 +24,14 @@ const stackError = ref('')
 const prototype = shallowRef<Component>()
 const prototypeError = ref('')
 
+// Part C, the writeup (011-writeup). Lazy for consistency with the two routes
+// above rather than out of necessity — it imports no Supabase code at all, on
+// purpose: the writeup is the one deliverable that should still be readable
+// when the backend is not. The explainer's deliverables bar points at /app for
+// Part C, so this is where that link has to land on something real.
+const writeup = shallowRef<Component>()
+const writeupError = ref('')
+
 watch(
   route,
   async (r) => {
@@ -40,6 +48,14 @@ watch(
         prototype.value = (await import('@/components/prototype/PrototypePage.vue')).default
       } catch (e) {
         prototypeError.value = e instanceof Error ? e.message : String(e)
+      }
+      return
+    }
+    if (r === '#writeup' && !writeup.value && !writeupError.value) {
+      try {
+        writeup.value = (await import('@/components/writeup/WriteupPage.vue')).default
+      } catch (e) {
+        writeupError.value = e instanceof Error ? e.message : String(e)
       }
     }
   },
@@ -58,6 +74,10 @@ onUnmounted(() => window.removeEventListener('hashchange', sync))
   <template v-else-if="route === '#prototype'">
     <component :is="prototype" v-if="prototype" />
     <p v-else-if="prototypeError" class="stack-error">{{ prototypeError }}</p>
+  </template>
+  <template v-else-if="route === '#writeup'">
+    <component :is="writeup" v-if="writeup" />
+    <p v-else-if="writeupError" class="stack-error">{{ writeupError }}</p>
   </template>
   <SiteIndex v-else />
 

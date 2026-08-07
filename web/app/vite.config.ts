@@ -33,6 +33,11 @@ export default defineConfig({
       // hand-typed. Declared in BOTH this file and tsconfig.app.json — the
       // @design alias is the precedent for what happens if only one is edited.
       '@fixtures': fileURLToPath(new URL('../../docs/analysis/010-screens/outputs', import.meta.url)),
+      // Part C. The writeup is prose full of the same headline figures that
+      // 010-screens criterion 12 forbids anywhere under src/ — so it stays in
+      // docs/, is verified there by check_writeup.py, and reaches the page as a
+      // generated fixture. Same two-file rule as the aliases above.
+      '@writeup': fileURLToPath(new URL('../../docs/analysis/011-writeup/outputs', import.meta.url)),
     },
   },
   server: {
