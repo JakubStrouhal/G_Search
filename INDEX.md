@@ -80,8 +80,11 @@ injected into every new session by the `SessionStart` hook.
   `#nav-scope` it scrolled away on the first wheel flick (measured at `top:-1380px`). It is now the
   *last* child of the same scope, which pins it for the whole document with no script. **A DOM stub
   structurally cannot catch that** — every id was served and every value correct; the element was
-  off-screen. **Left alone, owner's call:** at the very top the launcher floats over the contents
-  list's *Part one* row; below that it sits in empty gutter. Served locally out of `dist`,
+  off-screen. Two more fell out of the same pass: the launcher was positioned inside the 1200px
+  frame and landed on the contents list, so it now sits 16px from the *window* and finally aligns
+  with `#nav-panel`; and **the part map's `max-width:1299px` hide never worked** — the comp's inline
+  `display:flex` outranks the stylesheet, so it needs `!important`. Checked at 1920, 1600, 1100 and
+  1000 wide. Served locally out of `dist`,
   `/` and `/explainer.html` are byte-identical 200s and `/app.html` is the app; **the one hop that
   needs a deploy to prove is `vercel.json`'s `/app` → `/app.html` rewrite**, and it matters because
   the landing page's only exit is `<a href="/app">` and the prototype door's is `/app#prototype`.

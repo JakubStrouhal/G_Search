@@ -80,13 +80,24 @@ list the scope has not started, so there is nothing to stick.
 This is the class of defect a DOM stub cannot catch: every id was served and every value was
 correct: the element was simply off-screen. It took a browser.
 
-**Known and left alone:** at the very top of the page the launcher floats over the contents list's
-*Part one* row. `DESIGN-NOTES.md` wanted it absent while the masthead is on screen, and it is —
-the masthead ends at 569px and the launcher sits at 795px — but the contents list is the one block
-wide enough to reach under it. Everywhere below, the launcher sits in empty gutter left of the
-680px prose column. Moving it is a design call, not a bug fix.
+**And then it landed on the contents list.** Pinning it revealed the second half: the launcher was
+positioned 16px inside the 1200px page frame, and the contents list is the one block wide enough to
+reach under it. It now sits 16px from the *window*, via
+`left: calc(16px - (100vw - 100%) / 2)` on a wrapper that spans the frame's content box — the
+gutter cancels itself, so the offset collapses to 16px on its own once the window is narrower than
+the frame, with no media query. Two things fell out of that: the pill is clear of every block at
+every width, and it finally lines up with `#nav-panel`, which was always fixed at 16px from the
+viewport and had never been aligned with the button that opens it.
 
-**What has been checked, and what has not.** Verified in Chrome at 1568×873: all five figures draw,
+**A third defect, found in the same pass.** The part map is meant to be a wide-screen surface —
+`@media (max-width:1299px){#nav-rail{display:none}}`. It never hid. The comp's idiom is all-inline
+styles and `#nav-rail` carries `display:flex` on the element, which outranks any ordinary rule in
+the stylesheet, so the rail rendered at every width and sat on the prose. The rule needs
+`!important`, and that is the reason rather than an excuse.
+
+**What has been checked, and what has not.** Verified in Chrome at 1920×873, 1600×900, 1100×800 and
+1000×800 — the launcher pins 16px from the window at all four, the rail appears only above 1300px,
+and there is no horizontal overflow at any of them. Also at 1568×873: all five figures draw,
 all three tables fill, all twelve mounts render, the jump panel opens grouped by part with its
 provenance chips, the part-map tooltips track their ticks through a scroll and clear on leave, the
 replay simulator answers both a hit and a miss, and the console is clean. Not checked: type and

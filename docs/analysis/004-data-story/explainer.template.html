@@ -53,7 +53,11 @@ input,select,button{font-family:inherit}
 .hv3:hover{background:#006e1b;border-color:#006e1b}
 .navrow:hover{background:#edeff2;text-decoration:none}
 .chip:hover{background:#ffffff;border-color:#8a8e98}
-@media (max-width:1299px){#nav-rail{display:none}}
+/* The part map needs a gutter to live in, so it is a wide-screen surface only. `!important` is
+   load-bearing rather than lazy: the comp's idiom is all-inline styles, and #nav-rail carries
+   `display:flex` on the element, which outranks any ordinary rule here. Without it the rail
+   rendered at every width and sat on top of the prose. */
+@media (max-width:1299px){#nav-rail{display:none!important}}
 </style>
 </head>
 <body>
@@ -973,7 +977,13 @@ input,select,button{font-family:inherit}
 
 <!-- ---- the jump launcher · last child of #nav-scope, see the note where the scope opens ---- -->
 <div style="position:sticky;bottom:16px;height:0;z-index:41;pointer-events:none">
-  <div style="position:absolute;left:16px;bottom:16px;pointer-events:auto">
+  <!-- Pulled out of the 1200px frame into the window's own gutter: the launcher floats, and the
+       only block wide enough for it to land on was the contents list. `(100vw - 100%)/2` is the
+       gutter, because this wrapper spans the frame's content box — so the offset collapses to 16px
+       on its own once the window is narrower than the frame, with no media query. It also puts the
+       pill on the same 16px line as #nav-panel, which is fixed to the viewport and was never
+       aligned with it before. -->
+  <div style="position:absolute;left:calc(16px - (100vw - 100%) / 2);bottom:16px;pointer-events:auto">
     <div id="nav-panel" style="display:none;position:fixed;left:16px;bottom:64px;z-index:41;width:min(480px,calc(100vw - 32px));max-height:min(70vh,620px);overflow:auto;background:#ffffff;border:1px solid #e7e8e9;border-radius:16px;box-shadow:0px 12px 63px -18px rgba(8,14,28,.25);padding:14px 16px 16px"></div>
     <div id="here-bar" style="position:absolute;left:0;bottom:0;width:max-content;max-width:min(560px,calc(100vw - 32px))">
       <button id="here-btn" type="button" aria-expanded="false" aria-controls="nav-panel" style="display:flex;align-items:center;gap:10px;background:#ffffff;border:1px solid #e7e8e9;border-radius:999px;padding:6px 6px 6px 16px;box-shadow:0px 4px 28px -6px rgba(8,14,28,.15);cursor:pointer;max-width:100%" class="hv2">
