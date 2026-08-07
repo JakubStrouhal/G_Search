@@ -1,0 +1,4 @@
+plausible_counts_as,nowhere,same_city,another_city,cant_tell,is_default,total_dead
+cant_tell,2039,1520,145,1016,True,4720
+nowhere,3055,1520,145,0,False,4720
+stocked_generic,2211,2306,203,0,False,4720

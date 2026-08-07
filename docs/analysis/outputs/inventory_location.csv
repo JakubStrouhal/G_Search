@@ -1,0 +1,1323 @@
+market,city,q,concept,inventory_location,searches,deads,zeros,buys
+FR,Paris,saut en parachute,adrenaline,nowhere,51,51,51,0
+ES,Madrid,paracaidismo,adrenaline,nowhere,50,50,50,0
+GB,London,supercar track day,adrenaline,nowhere,49,49,49,0
+ES,Madrid,rafting,adrenaline,nowhere,46,46,46,0
+GB,London,helicopter tour,adrenaline,nowhere,46,46,46,0
+GB,London,hot air balloon ride,adrenaline,nowhere,43,43,43,0
+FR,Paris,tour en helicoptere,adrenaline,nowhere,43,43,43,0
+DE,Berlin,fallschirmspringen,adrenaline,nowhere,37,37,37,0
+GB,London,skydiving,adrenaline,nowhere,36,36,36,0
+GB,London,shark diving,adrenaline,nowhere,36,36,36,0
+FR,Paris,vol en montgolfiere,adrenaline,nowhere,35,35,35,0
+FR,Paris,rafting,adrenaline,nowhere,34,34,34,0
+ES,Madrid,paseo en globo,adrenaline,nowhere,31,31,31,0
+DE,Berlin,wildwasser rafting,adrenaline,nowhere,31,31,31,0
+ES,Madrid,vuelo en helicoptero,adrenaline,nowhere,30,30,30,0
+DE,Berlin,hubschrauber rundflug,adrenaline,nowhere,28,28,28,0
+DE,Berlin,heißluftballon fahrt,adrenaline,nowhere,27,27,27,0
+GB,London,eyelash extensions,lashes,nowhere,53,27,11,8
+PL,Warszawa,lot balonem,adrenaline,nowhere,27,27,27,0
+PL,Warszawa,skoki spadochronowe,adrenaline,nowhere,27,27,27,0
+PL,Warszawa,rafting,adrenaline,nowhere,25,25,25,0
+GB,Birmingham,helicopter tour,adrenaline,nowhere,24,24,24,0
+GB,Manchester,helicopter tour,adrenaline,nowhere,21,21,21,0
+ES,Valencia,vuelo en helicoptero,adrenaline,nowhere,20,20,20,0
+GB,Birmingham,skydiving,adrenaline,nowhere,20,20,20,0
+GB,London,paintball,paintball,nowhere,54,20,3,6
+DE,Hamburg,wildwasser rafting,adrenaline,nowhere,20,20,20,0
+GB,Manchester,hot air balloon ride,adrenaline,nowhere,20,20,20,0
+DE,Berlin,escape room,escaperoom,same_city,33,19,8,3
+GB,Birmingham,hot air balloon ride,adrenaline,nowhere,19,19,19,0
+ES,Madrid,sushi,sushi,nowhere,44,19,9,3
+GB,London,thai massage,massage,same_city,44,19,10,3
+ES,Valencia,rafting,adrenaline,nowhere,18,18,18,0
+ES,Barcelona,rafting,adrenaline,nowhere,18,18,18,0
+GB,London,hair colour,hair,same_city,40,18,6,2
+GB,Manchester,skydiving,adrenaline,nowhere,18,18,18,0
+GB,Manchester,shark diving,adrenaline,nowhere,17,17,17,0
+DE,München,hubschrauber rundflug,adrenaline,nowhere,17,17,17,0
+GB,Glasgow,skydiving,adrenaline,nowhere,17,17,17,0
+GB,Birmingham,shark diving,adrenaline,nowhere,17,17,17,0
+PL,Kraków,lot balonem,adrenaline,nowhere,17,17,17,0
+ES,Madrid,masaje tailandes,massage,same_city,38,17,5,4
+FR,Lyon,rafting,adrenaline,nowhere,17,17,17,0
+GB,London,pizza deal,dining_specific,cant_tell,42,17,6,3
+ES,Valencia,paseo en globo,adrenaline,nowhere,17,17,17,0
+GB,London,sushi,sushi,nowhere,41,17,8,5
+ES,Madrid,pilates,pilates,cant_tell,37,17,5,5
+FR,Lyon,tour en helicoptere,adrenaline,nowhere,16,16,16,0
+ES,Madrid,brunch,dining_specific,cant_tell,36,16,7,4
+GB,London,escape room,escaperoom,same_city,46,16,5,4
+GB,London,yoga class,yoga,cant_tell,38,16,6,3
+ES,Madrid,masaje en pareja,massage,same_city,30,16,6,5
+GB,Manchester,supercar track day,adrenaline,nowhere,16,16,16,0
+GB,London,facial,facial,same_city,37,16,5,5
+ES,Sevilla,paracaidismo,adrenaline,nowhere,16,16,16,0
+GB,London,city tour,citytour,same_city,35,16,4,4
+GB,London,indian restaurant,dining_specific,cant_tell,38,15,5,5
+DE,Berlin,brunch,dining_specific,cant_tell,33,15,3,5
+FR,Paris,bowling,bowling,nowhere,36,15,5,1
+GB,London,bowling,bowling,nowhere,37,15,4,7
+FR,Paris,massage dos,massage,same_city,25,15,4,2
+GB,London,personal trainer,personaltrain,same_city,36,15,5,5
+ES,Madrid,manicura,nails,same_city,26,15,5,5
+GB,London,go karting,karting,same_city,44,15,7,3
+DE,Hamburg,heißluftballon fahrt,adrenaline,nowhere,14,14,14,0
+DE,Hamburg,hubschrauber rundflug,adrenaline,nowhere,14,14,14,0
+DE,Berlin,thai massage,massage,same_city,28,14,4,3
+ES,Barcelona,paseo en globo,adrenaline,nowhere,14,14,14,0
+ES,Madrid,crossfit,crossfit,cant_tell,32,14,6,4
+ES,Madrid,bolera,bowling,nowhere,30,14,5,1
+GB,London,steak dinner,dining_specific,cant_tell,38,14,5,3
+ES,Barcelona,vuelo en helicoptero,adrenaline,nowhere,14,14,14,0
+DE,Berlin,gesichtsbehandlung,facial,same_city,27,14,5,3
+DE,München,fallschirmspringen,adrenaline,nowhere,14,14,14,0
+DE,Berlin,bowling,bowling,nowhere,33,14,2,2
+PL,Warszawa,lot helikopterem,adrenaline,nowhere,14,14,14,0
+ES,Madrid,peluqueria,hair,same_city,35,14,6,2
+GB,London,brunch,dining_specific,cant_tell,40,13,3,4
+DE,Berlin,fitnessstudio,gym,same_city,28,13,5,3
+GB,London,crossfit,crossfit,cant_tell,34,13,3,1
+PL,Wrocław,rafting,adrenaline,nowhere,13,13,13,0
+GB,London,back massage,massage,same_city,43,13,3,4
+GB,London,manicure,nails,same_city,37,13,4,3
+ES,Madrid,clase de yoga,yoga,cant_tell,35,13,3,3
+FR,Paris,crossfit,crossfit,cant_tell,31,12,5,2
+GB,Birmingham,supercar track day,adrenaline,nowhere,12,12,12,0
+DE,Berlin,yoga kurs,yoga,cant_tell,33,12,1,6
+ES,Madrid,arroceria,dining_specific,cant_tell,24,12,5,3
+GB,Glasgow,hot air balloon ride,adrenaline,nowhere,12,12,12,0
+DE,Köln,wildwasser rafting,adrenaline,nowhere,12,12,12,0
+DE,München,wildwasser rafting,adrenaline,nowhere,12,12,12,0
+FR,Marseille,vol en montgolfiere,adrenaline,nowhere,12,12,12,0
+PL,Wrocław,lot helikopterem,adrenaline,nowhere,12,12,12,0
+FR,Paris,coloration,hair,same_city,25,12,4,3
+GB,London,couples massage,massage,same_city,36,12,5,0
+GB,London,pilates,pilates,cant_tell,38,12,2,3
+FR,Marseille,rafting,adrenaline,nowhere,12,12,12,0
+DE,Berlin,pilates,pilates,cant_tell,25,12,2,4
+ES,Madrid,gimnasio,gym,another_city,30,12,4,4
+ES,Valencia,paracaidismo,adrenaline,nowhere,12,12,12,0
+PL,Kraków,lot helikopterem,adrenaline,nowhere,12,12,12,0
+DE,Berlin,haare färben,hair,same_city,29,12,4,1
+FR,Paris,massage sportif,massage,same_city,40,12,7,3
+GB,London,deep tissue massage,massage,same_city,36,12,8,3
+GB,Manchester,back massage,massage,same_city,22,11,4,3
+FR,Paris,soin visage,facial,same_city,31,11,4,2
+GB,London,gym,gym,same_city,34,11,3,2
+FR,Toulouse,saut en parachute,adrenaline,nowhere,11,11,11,0
+FR,Paris,karting,karting,same_city,29,11,6,4
+FR,Paris,escape game,escaperoom,same_city,20,11,6,1
+FR,Toulouse,tour en helicoptere,adrenaline,nowhere,11,11,11,0
+GB,Manchester,pizza deal,dining_specific,cant_tell,23,11,7,5
+FR,Paris,extension de cils,lashes,nowhere,32,11,5,0
+GB,London,sports massage,massage,same_city,32,11,4,7
+DE,München,heißluftballon fahrt,adrenaline,nowhere,11,11,11,0
+DE,Berlin,sportmassage,massage,same_city,24,11,3,3
+ES,Madrid,masaje espalda,massage,same_city,33,11,6,4
+ES,Madrid,escape room,escaperoom,same_city,33,11,3,5
+FR,Lyon,vol en montgolfiere,adrenaline,nowhere,11,11,11,0
+DE,Berlin,crossfit,crossfit,cant_tell,30,11,2,1
+ES,Madrid,extensiones pestañas,lashes,nowhere,26,11,2,4
+FR,Lyon,saut en parachute,adrenaline,nowhere,10,10,10,0
+DE,Berlin,kart fahren,karting,same_city,35,10,2,4
+GB,Manchester,city tour,citytour,same_city,20,10,1,0
+DE,München,crossfit,crossfit,cant_tell,18,10,7,1
+GB,Manchester,indian restaurant,dining_specific,cant_tell,26,10,3,1
+FR,Paris,visite guidee,citytour,same_city,24,10,4,2
+ES,Madrid,limpieza facial,facial,same_city,31,10,3,6
+FR,Paris,massage duo,massage,same_city,26,10,4,4
+PL,Warszawa,masaż sportowy,massage,same_city,16,10,5,0
+ES,Madrid,paintball,paintball,nowhere,30,10,3,4
+FR,Paris,salle de sport,gym,same_city,29,10,4,1
+ES,Madrid,hamburguesa,dining_specific,cant_tell,31,10,3,5
+PL,Warszawa,zwiedzanie miasta,citytour,same_city,16,10,1,0
+GB,London,haircut,hair,same_city,36,10,4,7
+FR,Paris,coach sportif,personaltrain,same_city,20,10,2,3
+FR,Toulouse,rafting,adrenaline,nowhere,10,10,10,0
+ES,Madrid,tinte pelo,hair,same_city,31,10,5,7
+FR,Paris,brunch,dining_specific,cant_tell,27,10,3,1
+ES,Sevilla,paseo en globo,adrenaline,nowhere,10,10,10,0
+FR,Marseille,saut en parachute,adrenaline,nowhere,9,9,9,0
+DE,Berlin,sushi,sushi,nowhere,18,9,5,1
+DE,Berlin,personal trainer,personaltrain,same_city,25,9,3,1
+FR,Paris,burger,dining_specific,cant_tell,24,9,3,3
+DE,Berlin,paarmassage,massage,same_city,22,9,0,3
+DE,Berlin,nackenmassage,massage,same_city,30,9,5,4
+ES,Madrid,masaje descontracturante,massage,same_city,27,9,4,2
+PL,Wrocław,lot balonem,adrenaline,nowhere,9,9,9,0
+GB,Glasgow,shark diving,adrenaline,nowhere,9,9,9,0
+GB,Glasgow,helicopter tour,adrenaline,nowhere,9,9,9,0
+GB,Birmingham,facial,facial,same_city,16,9,2,3
+GB,Manchester,pilates,pilates,cant_tell,18,9,0,1
+GB,Birmingham,personal trainer,personaltrain,another_city,16,9,6,0
+DE,Berlin,burger,dining_specific,cant_tell,30,9,3,2
+FR,Paris,massage thai,massage,same_city,28,9,3,4
+GB,Manchester,facial,facial,same_city,25,9,4,1
+PL,Warszawa,masaż pleców,massage,same_city,18,9,4,1
+ES,Madrid,tapas,dining_specific,cant_tell,19,9,2,1
+ES,Valencia,crossfit,crossfit,cant_tell,16,9,7,1
+GB,Birmingham,couples massage,massage,same_city,20,9,3,2
+PL,Warszawa,masaż tajski,massage,same_city,18,9,3,2
+GB,Glasgow,supercar track day,adrenaline,nowhere,8,8,8,0
+FR,Lyon,visite guidee,citytour,same_city,11,8,0,0
+GB,Birmingham,brunch,dining_specific,cant_tell,19,8,4,3
+FR,Lyon,bowling,bowling,nowhere,11,8,4,1
+ES,Valencia,masaje descontracturante,massage,same_city,17,8,2,0
+ES,Madrid,tour ciudad,citytour,same_city,26,8,3,2
+FR,Paris,coiffeur,hair,same_city,28,8,1,3
+FR,Paris,sushi,sushi,nowhere,20,8,1,3
+FR,Paris,restaurant italien,dining_specific,cant_tell,19,8,2,1
+GB,Glasgow,deep tissue massage,massage,same_city,13,8,2,0
+DE,Berlin,wimpernverlängerung,lashes,nowhere,16,8,1,1
+FR,Paris,crêperie,dining_specific,cant_tell,22,8,4,5
+GB,Manchester,steak dinner,dining_specific,cant_tell,19,8,3,1
+ES,Madrid,entrenador personal,personaltrain,same_city,31,8,3,5
+DE,Berlin,steakhaus,dining_specific,cant_tell,22,8,2,3
+DE,Hamburg,fallschirmspringen,adrenaline,nowhere,8,8,8,0
+GB,Manchester,paintball,paintball,nowhere,21,8,2,2
+GB,Manchester,manicure,nails,same_city,19,8,3,1
+FR,Marseille,salle de sport,gym,same_city,14,8,2,1
+DE,München,nackenmassage,massage,same_city,18,8,3,3
+FR,Marseille,brunch,dining_specific,cant_tell,13,8,3,1
+GB,Manchester,gym,gym,same_city,27,8,3,2
+ES,Sevilla,vuelo en helicoptero,adrenaline,nowhere,8,8,8,0
+GB,Manchester,crossfit,crossfit,cant_tell,16,8,2,3
+PL,Kraków,skoki spadochronowe,adrenaline,nowhere,8,8,8,0
+ES,Barcelona,masaje tailandes,massage,same_city,13,8,2,1
+DE,Hamburg,personal trainer,personaltrain,same_city,17,8,2,2
+ES,Barcelona,paracaidismo,adrenaline,nowhere,8,8,8,0
+FR,Paris,paintball,paintball,nowhere,27,8,1,3
+ES,Valencia,limpieza facial,facial,another_city,14,7,3,1
+ES,Barcelona,crossfit,crossfit,cant_tell,17,7,3,2
+FR,Toulouse,vol en montgolfiere,adrenaline,nowhere,7,7,7,0
+GB,Birmingham,haircut,hair,another_city,21,7,4,3
+GB,Birmingham,steak dinner,dining_specific,cant_tell,20,7,3,1
+GB,Birmingham,crossfit,crossfit,cant_tell,25,7,2,3
+ES,Valencia,masaje tailandes,massage,same_city,14,7,3,2
+ES,Valencia,tapas,dining_specific,cant_tell,11,7,2,1
+GB,Birmingham,gym,gym,same_city,17,7,1,1
+GB,Birmingham,hair colour,hair,another_city,24,7,2,3
+FR,Paris,cours de yoga,yoga,cant_tell,26,7,2,3
+PL,Warszawa,crossfit,crossfit,cant_tell,11,7,4,1
+PL,Warszawa,koloryzacja,hair,same_city,17,7,0,2
+FR,Marseille,tour en helicoptere,adrenaline,nowhere,7,7,7,0
+GB,Manchester,personal trainer,personaltrain,same_city,15,7,1,1
+FR,Paris,manucure,nails,same_city,22,7,3,1
+FR,Marseille,karting,karting,another_city,13,7,4,0
+GB,Manchester,escape room,escaperoom,same_city,19,7,5,4
+ES,Barcelona,paintball,paintball,nowhere,9,7,1,2
+GB,Manchester,brunch,dining_specific,cant_tell,11,7,3,0
+GB,Manchester,bowling,bowling,nowhere,11,7,3,0
+FR,Paris,pilates,pilates,cant_tell,22,7,1,3
+PL,Warszawa,brunch,dining_specific,cant_tell,15,7,2,3
+DE,Köln,heißluftballon fahrt,adrenaline,nowhere,7,7,7,0
+DE,Berlin,maniküre,nails,same_city,25,7,3,3
+FR,Marseille,crossfit,crossfit,cant_tell,9,7,0,1
+FR,Lyon,paintball,paintball,nowhere,13,7,3,0
+DE,Berlin,friseur,hair,same_city,21,7,1,2
+PL,Warszawa,pilates,pilates,cant_tell,19,7,3,2
+ES,Barcelona,extensiones pestañas,lashes,nowhere,13,7,2,1
+PL,Warszawa,pizzeria,dining_specific,cant_tell,17,7,2,2
+FR,Lyon,escape game,escaperoom,same_city,11,7,2,2
+ES,Valencia,extensiones pestañas,lashes,nowhere,11,6,0,0
+ES,Valencia,arroceria,dining_specific,cant_tell,16,6,2,2
+ES,Valencia,pilates,pilates,cant_tell,13,6,0,1
+ES,Valencia,clase de yoga,yoga,cant_tell,11,6,2,0
+FR,Lyon,crossfit,crossfit,cant_tell,12,6,3,1
+FR,Marseille,massage thai,massage,same_city,14,6,1,2
+DE,München,personal trainer,personaltrain,another_city,17,6,0,2
+ES,Madrid,karting,karting,same_city,22,6,1,4
+ES,Barcelona,pilates,pilates,cant_tell,12,6,3,3
+DE,München,pilates,pilates,cant_tell,13,6,1,0
+ES,Barcelona,brunch,dining_specific,cant_tell,8,6,1,2
+ES,Sevilla,rafting,adrenaline,nowhere,6,6,6,0
+FR,Lyon,karting,karting,same_city,14,6,1,1
+GB,Birmingham,bowling,bowling,nowhere,17,6,2,3
+DE,München,stadtrundfahrt,citytour,same_city,13,6,0,3
+GB,Birmingham,go karting,karting,another_city,14,6,0,3
+FR,Lyon,massage duo,massage,same_city,11,6,1,0
+GB,Birmingham,deep tissue massage,massage,same_city,12,6,0,1
+DE,München,sushi,sushi,nowhere,7,6,2,0
+DE,München,thai massage,massage,same_city,12,6,1,0
+ES,Madrid,sports massage,massage,same_city,6,6,1,0
+FR,Toulouse,massage duo,massage,same_city,13,6,2,2
+ES,Valencia,brunch,dining_specific,cant_tell,13,6,3,1
+GB,Manchester,couples massage,massage,same_city,11,6,3,2
+PL,Warszawa,gokarty,karting,same_city,13,6,3,1
+PL,Wrocław,fryzjer,hair,same_city,9,6,1,0
+PL,Warszawa,escape room,escaperoom,same_city,11,6,0,0
+DE,München,brunch,dining_specific,cant_tell,11,6,2,0
+DE,München,friseur,hair,another_city,11,6,2,0
+GB,Glasgow,steak dinner,dining_specific,cant_tell,8,6,3,0
+DE,Berlin,italiener,dining_specific,cant_tell,28,6,0,4
+PL,Warszawa,przedłużanie rzęs,lashes,nowhere,15,6,2,2
+GB,Manchester,sports massage,massage,same_city,15,6,3,2
+PL,Wrocław,skoki spadochronowe,adrenaline,nowhere,6,6,6,0
+GB,Manchester,hair colour,hair,same_city,16,6,3,2
+DE,Hamburg,haare färben,hair,same_city,9,6,4,1
+PL,Warszawa,sushi,sushi,nowhere,13,6,2,1
+PL,Warszawa,oczyszczanie twarzy,facial,same_city,15,6,3,3
+DE,Köln,hubschrauber rundflug,adrenaline,nowhere,6,6,6,0
+PL,Warszawa,paintball,paintball,nowhere,12,6,2,1
+DE,Berlin,deep tissue massage,massage,same_city,8,6,2,0
+GB,Manchester,deep tissue massage,massage,same_city,16,5,3,3
+ES,Barcelona,masaje descontracturante,massage,same_city,15,5,1,0
+DE,Hamburg,maniküre,nails,same_city,10,5,2,2
+GB,Manchester,eyelash extensions,lashes,nowhere,17,5,0,3
+PL,Warszawa,siłownia,gym,same_city,12,5,2,3
+DE,Hamburg,nackenmassage,massage,same_city,9,5,2,1
+DE,Hamburg,pilates,pilates,cant_tell,11,5,2,0
+ES,Barcelona,masaje en pareja,massage,same_city,16,5,2,3
+DE,Hamburg,steakhaus,dining_specific,cant_tell,11,5,2,1
+FR,Lyon,coloration,hair,another_city,13,5,2,1
+DE,Hamburg,wimpernverlängerung,lashes,nowhere,11,5,2,1
+ES,Barcelona,karting,karting,same_city,13,5,1,2
+FR,Paris,steak dinner,dining_specific,cant_tell,5,5,3,0
+DE,Hamburg,yoga kurs,yoga,cant_tell,11,5,4,1
+DE,Köln,brunch,dining_specific,cant_tell,5,5,1,0
+PL,Wrocław,brunch,dining_specific,cant_tell,10,5,0,0
+ES,Valencia,tour ciudad,citytour,same_city,14,5,1,3
+GB,Manchester,haircut,hair,same_city,15,5,1,2
+DE,Hamburg,fitnessstudio,gym,same_city,8,5,1,1
+ES,Barcelona,sushi,sushi,nowhere,16,5,1,0
+ES,Barcelona,tinte pelo,hair,same_city,9,5,2,1
+PL,Kraków,pilates,pilates,cant_tell,8,5,2,0
+PL,Kraków,masaż tajski,massage,same_city,8,5,0,1
+FR,Marseille,massage dos,massage,same_city,13,5,3,1
+FR,Marseille,escape game,escaperoom,same_city,15,5,3,2
+ES,Madrid,indian restaurant,dining_specific,cant_tell,5,5,2,0
+DE,Berlin,stadtrundfahrt,citytour,same_city,15,5,1,1
+FR,Marseille,burger,dining_specific,cant_tell,5,5,2,0
+ES,Madrid,facial,facial,same_city,6,5,2,0
+PL,Kraków,brunch,dining_specific,cant_tell,6,5,2,0
+DE,Berlin,paintball,paintball,nowhere,16,5,2,2
+PL,Gdańsk,rafting,adrenaline,nowhere,5,5,5,0
+PL,Warszawa,fryzjer,hair,same_city,11,5,0,0
+GB,Birmingham,thai massage,massage,same_city,14,5,0,1
+ES,Madrid,deep tissue massage,massage,same_city,5,5,3,0
+FR,Lyon,soin visage,facial,same_city,11,5,2,2
+PL,Warszawa,joga,yoga,cant_tell,12,5,3,2
+DE,Hamburg,brunch,dining_specific,cant_tell,10,5,2,1
+ES,Madrid,back massage,massage,same_city,8,5,2,0
+FR,Lyon,pilates,pilates,cant_tell,16,5,3,2
+GB,Manchester,sushi,sushi,nowhere,13,5,1,3
+PL,Warszawa,manicure,nails,same_city,10,5,2,2
+PL,Warszawa,masaż dla par,massage,same_city,17,5,0,2
+DE,Köln,fallschirmspringen,adrenaline,nowhere,5,5,5,0
+ES,Valencia,tinte pelo,hair,another_city,12,5,1,2
+DE,Berlin,rückenmassage,massage,same_city,24,5,2,1
+GB,Birmingham,eyelash extensions,lashes,nowhere,14,5,1,2
+ES,Valencia,escape room,escaperoom,same_city,10,5,1,0
+PL,Wrocław,masaż dla par,massage,same_city,9,5,2,0
+GB,Glasgow,paintball,paintball,nowhere,13,5,2,0
+GB,Glasgow,indian restaurant,dining_specific,cant_tell,9,5,2,1
+DE,Köln,sportmassage,massage,same_city,12,5,0,0
+GB,Birmingham,manicure,nails,same_city,8,5,1,0
+DE,München,fitnessstudio,gym,same_city,9,5,1,0
+ES,Valencia,peluqueria,hair,another_city,11,5,1,1
+PL,Wrocław,burger,dining_specific,cant_tell,9,5,1,2
+GB,Birmingham,yoga class,yoga,cant_tell,17,5,2,1
+DE,München,italiener,dining_specific,cant_tell,12,5,3,2
+ES,Valencia,entrenador personal,personaltrain,same_city,10,4,1,0
+FR,Marseille,manucure,nails,another_city,11,4,4,0
+PL,Wrocław,trener personalny,personaltrain,same_city,8,4,0,3
+DE,München,rückenmassage,massage,same_city,8,4,0,0
+FR,Paris,couples massage,massage,same_city,6,4,1,0
+ES,Valencia,karting,karting,same_city,12,4,2,1
+GB,Manchester,yoga class,yoga,cant_tell,12,4,1,2
+DE,München,sportmassage,massage,same_city,7,4,1,1
+GB,Glasgow,gym,gym,same_city,10,4,2,1
+PL,Wrocław,masaż tajski,massage,same_city,7,4,2,4
+FR,Lyon,massage thai,massage,same_city,12,4,1,1
+FR,Toulouse,extension de cils,lashes,nowhere,9,4,2,0
+ES,Barcelona,tour ciudad,citytour,same_city,9,4,1,1
+DE,München,steakhaus,dining_specific,cant_tell,6,4,0,0
+FR,Lyon,restaurant italien,dining_specific,cant_tell,9,4,1,0
+DE,München,escape room,escaperoom,same_city,10,4,0,1
+PL,Kraków,trener personalny,personaltrain,same_city,4,4,1,0
+GB,Birmingham,paintball,paintball,nowhere,14,4,0,5
+PL,Kraków,fryzjer,hair,same_city,9,4,2,1
+FR,Marseille,pilates,pilates,cant_tell,11,4,2,2
+GB,Birmingham,pizza deal,dining_specific,cant_tell,15,4,1,4
+ES,Madrid,eyelash extensions,lashes,nowhere,4,4,0,0
+ES,Sevilla,tinte pelo,hair,another_city,7,4,1,1
+GB,Birmingham,sports massage,massage,same_city,17,4,2,3
+FR,Marseille,bowling,bowling,nowhere,7,4,2,3
+DE,Berlin,yoga class,yoga,cant_tell,4,4,0,0
+FR,Marseille,coloration,hair,another_city,12,4,1,1
+PL,Gdańsk,lot balonem,adrenaline,nowhere,4,4,4,0
+DE,Köln,yoga kurs,yoga,cant_tell,8,4,1,1
+ES,Valencia,gimnasio,gym,same_city,8,4,1,0
+FR,Paris,back massage,massage,same_city,4,4,1,0
+FR,Lyon,sushi,sushi,nowhere,12,4,1,2
+GB,Glasgow,pilates,pilates,cant_tell,8,4,1,1
+FR,Toulouse,escape game,escaperoom,same_city,6,4,0,1
+DE,Hamburg,sushi,sushi,nowhere,6,4,2,0
+FR,Paris,personal trainer,personaltrain,same_city,6,4,1,0
+ES,Valencia,sushi,sushi,nowhere,14,4,1,1
+FR,Toulouse,paintball,paintball,nowhere,7,4,2,0
+ES,Sevilla,brunch,dining_specific,cant_tell,7,4,0,1
+DE,Köln,crossfit,crossfit,cant_tell,7,4,2,0
+ES,Barcelona,clase de yoga,yoga,cant_tell,13,4,0,3
+FR,Lyon,coiffeur,hair,another_city,12,4,3,0
+ES,Barcelona,limpieza facial,facial,same_city,13,4,3,3
+ES,Barcelona,manicura,nails,same_city,9,4,2,1
+ES,Sevilla,hamburguesa,dining_specific,cant_tell,9,4,1,0
+ES,Sevilla,karting,karting,same_city,6,4,2,0
+FR,Marseille,extension de cils,lashes,nowhere,8,4,3,3
+FR,Toulouse,soin visage,facial,same_city,7,4,3,1
+PL,Warszawa,restauracja włoska,dining_specific,cant_tell,11,4,1,2
+DE,Berlin,gym,gym,same_city,4,4,0,0
+DE,München,paintball,paintball,nowhere,9,4,0,1
+GB,Birmingham,city tour,citytour,same_city,13,4,2,0
+DE,München,wimpernverlängerung,lashes,nowhere,10,4,2,0
+ES,Valencia,masaje en pareja,massage,same_city,16,4,3,3
+DE,Hamburg,italiener,dining_specific,cant_tell,7,4,1,1
+ES,Barcelona,peluqueria,hair,same_city,13,4,3,0
+DE,Hamburg,gesichtsbehandlung,facial,same_city,7,4,3,1
+DE,Köln,sushi,sushi,nowhere,8,4,1,0
+ES,Sevilla,paintball,paintball,nowhere,7,4,0,0
+ES,Sevilla,bolera,bowling,nowhere,6,3,1,0
+FR,Marseille,escape room,escaperoom,same_city,3,3,0,0
+FR,Lyon,coach sportif,personaltrain,same_city,6,3,1,1
+PL,Wrocław,crossfit,crossfit,cant_tell,5,3,0,0
+FR,Lyon,burger,dining_specific,cant_tell,6,3,0,0
+ES,Sevilla,pilates,pilates,cant_tell,8,3,2,2
+ES,Madrid,thai massage,massage,same_city,4,3,1,0
+ES,Sevilla,peluqueria,hair,another_city,3,3,1,0
+PL,Wrocław,sushi,sushi,nowhere,7,3,1,2
+ES,Sevilla,gimnasio,gym,same_city,6,3,1,0
+FR,Marseille,crêperie,dining_specific,cant_tell,6,3,3,0
+PL,Wrocław,escape room,escaperoom,another_city,6,3,1,1
+PL,Kraków,sushi,sushi,nowhere,7,3,2,1
+ES,Valencia,couples massage,massage,same_city,3,3,2,0
+FR,Marseille,coach sportif,personaltrain,same_city,7,3,2,0
+PL,Warszawa,kręgle,bowling,nowhere,6,3,0,0
+FR,Lyon,salle de sport,gym,same_city,8,3,1,0
+PL,Warszawa,burger,dining_specific,cant_tell,8,3,2,0
+FR,Lyon,manucure,nails,same_city,6,3,1,0
+PL,Wrocław,paintball,paintball,nowhere,6,3,1,1
+PL,Warszawa,facial,facial,same_city,3,3,0,0
+DE,Berlin,facial,facial,same_city,3,3,0,0
+ES,Madrid,personal trainer,personaltrain,same_city,5,3,1,0
+PL,Warszawa,pizza deal,dining_specific,cant_tell,3,3,1,0
+PL,Warszawa,sports massage,massage,same_city,3,3,1,0
+ES,Sevilla,masaje descontracturante,massage,same_city,10,3,0,1
+ES,Valencia,hamburguesa,dining_specific,cant_tell,6,3,0,1
+PL,Warszawa,hair colour,hair,same_city,3,3,1,0
+ES,Sevilla,masaje tailandes,massage,same_city,8,3,0,3
+PL,Wrocław,koloryzacja,hair,same_city,6,3,1,1
+ES,Sevilla,masaje espalda,massage,same_city,3,3,0,0
+FR,Lyon,massage dos,massage,same_city,7,3,0,0
+GB,Birmingham,sushi,sushi,nowhere,13,3,1,2
+PL,Gdańsk,koloryzacja,hair,same_city,5,3,0,0
+GB,Glasgow,sports massage,massage,same_city,10,3,3,1
+DE,Hamburg,burger,dining_specific,cant_tell,12,3,0,2
+GB,Birmingham,back massage,massage,same_city,9,3,1,1
+DE,Hamburg,crossfit,crossfit,cant_tell,7,3,2,1
+DE,Hamburg,escape room,escaperoom,same_city,11,3,0,1
+FR,Paris,deep tissue massage,massage,same_city,4,3,3,0
+FR,Toulouse,visite guidee,citytour,same_city,6,3,1,0
+FR,Paris,facial,facial,same_city,3,3,0,0
+FR,Paris,gym,gym,same_city,3,3,1,0
+FR,Paris,haircut,hair,same_city,3,3,0,0
+GB,Manchester,go karting,karting,another_city,12,3,0,2
+DE,Hamburg,kart fahren,karting,same_city,11,3,2,0
+DE,Hamburg,rückenmassage,massage,same_city,7,3,1,0
+FR,Paris,pizza deal,dining_specific,cant_tell,3,3,1,0
+FR,Toulouse,sushi,sushi,nowhere,7,3,0,1
+ES,Barcelona,masaje espalda,massage,same_city,17,3,1,3
+PL,Kraków,rafting,adrenaline,nowhere,3,3,3,0
+DE,Köln,personal trainer,personaltrain,same_city,5,3,1,1
+ES,Barcelona,hamburguesa,dining_specific,cant_tell,6,3,0,0
+FR,Toulouse,salle de sport,gym,another_city,4,3,1,1
+DE,Köln,bowling,bowling,nowhere,7,3,1,1
+FR,Paris,yoga class,yoga,cant_tell,4,3,1,0
+GB,Glasgow,yoga class,yoga,cant_tell,7,3,0,2
+DE,Köln,italiener,dining_specific,cant_tell,6,3,0,1
+FR,Toulouse,pilates,pilates,cant_tell,7,3,1,2
+FR,Toulouse,massage sportif,massage,same_city,9,3,1,2
+PL,Gdańsk,brunch,dining_specific,cant_tell,4,3,1,0
+ES,Barcelona,arroceria,dining_specific,cant_tell,9,3,1,2
+DE,Köln,steakhaus,dining_specific,cant_tell,6,3,1,0
+GB,Glasgow,hair colour,hair,same_city,5,3,2,0
+FR,Marseille,gym,gym,same_city,3,3,2,0
+FR,Marseille,haircut,hair,another_city,4,3,1,0
+GB,Glasgow,bowling,bowling,nowhere,8,3,0,0
+DE,München,haare färben,hair,another_city,7,3,1,0
+DE,München,indian restaurant,dining_specific,cant_tell,3,3,1,0
+GB,Glasgow,brunch,dining_specific,cant_tell,6,3,1,0
+ES,Madrid,haircut,hair,same_city,3,3,0,0
+PL,Gdańsk,crossfit,crossfit,cant_tell,4,3,1,0
+PL,Gdańsk,skoki spadochronowe,adrenaline,nowhere,3,3,3,0
+GB,Glasgow,escape room,escaperoom,same_city,7,3,0,1
+FR,Toulouse,crêperie,dining_specific,cant_tell,5,3,2,0
+PL,Gdańsk,escape room,escaperoom,same_city,3,3,1,0
+DE,Köln,wimpernverlängerung,lashes,nowhere,7,3,1,1
+GB,Glasgow,personal trainer,personaltrain,same_city,5,3,1,0
+FR,Marseille,visite guidee,citytour,same_city,12,3,2,2
+GB,Birmingham,pilates,pilates,cant_tell,8,2,0,0
+ES,Valencia,sports massage,massage,same_city,2,2,0,0
+FR,Toulouse,massage dos,massage,same_city,5,2,0,0
+ES,Valencia,pizza deal,dining_specific,cant_tell,2,2,0,0
+GB,Glasgow,pizza deal,dining_specific,cant_tell,6,2,0,1
+GB,Birmingham,escape room,escaperoom,same_city,15,2,1,2
+PL,Wrocław,restauracja włoska,dining_specific,cant_tell,2,2,0,0
+GB,Glasgow,couples massage,massage,same_city,3,2,1,0
+GB,Glasgow,manicure,nails,another_city,10,2,0,2
+GB,Glasgow,sushi,sushi,nowhere,4,2,0,0
+GB,Glasgow,thai massage,massage,same_city,4,2,0,0
+PL,Wrocław,facial,facial,another_city,2,2,1,0
+ES,Valencia,bolera,bowling,nowhere,7,2,1,0
+ES,Valencia,paintball,paintball,nowhere,6,2,1,0
+ES,Valencia,manicura,nails,same_city,8,2,1,3
+FR,Toulouse,thai massage,massage,same_city,3,2,1,0
+GB,Birmingham,indian restaurant,dining_specific,cant_tell,12,2,0,1
+PL,Wrocław,masaż sportowy,massage,same_city,5,2,2,0
+ES,Valencia,masaje espalda,massage,same_city,14,2,0,3
+GB,Glasgow,crossfit,crossfit,cant_tell,9,2,0,1
+FR,Marseille,go karting,karting,another_city,2,2,0,0
+FR,Toulouse,crossfit,crossfit,cant_tell,7,2,2,1
+FR,Toulouse,coach sportif,personaltrain,same_city,4,2,0,1
+PL,Gdańsk,joga,yoga,cant_tell,4,2,0,0
+PL,Warszawa,go karting,karting,same_city,3,2,0,0
+PL,Gdańsk,masaż sportowy,massage,same_city,6,2,1,0
+FR,Marseille,sushi,sushi,nowhere,9,2,1,2
+PL,Gdańsk,paintball,paintball,nowhere,4,2,0,0
+FR,Marseille,soin visage,facial,same_city,8,2,0,0
+PL,Gdańsk,steak dinner,dining_specific,cant_tell,2,2,2,0
+FR,Marseille,personal trainer,personaltrain,same_city,2,2,1,0
+FR,Marseille,paintball,paintball,nowhere,8,2,0,0
+PL,Kraków,masaż dla par,massage,same_city,7,2,0,2
+FR,Marseille,cours de yoga,yoga,cant_tell,8,2,0,0
+FR,Marseille,massage sportif,massage,same_city,7,2,0,1
+FR,Marseille,massage duo,massage,same_city,16,2,0,2
+FR,Marseille,deep tissue massage,massage,same_city,2,2,0,0
+PL,Kraków,siłownia,gym,same_city,8,2,0,1
+PL,Kraków,masaż sportowy,massage,same_city,6,2,0,2
+PL,Kraków,restauracja włoska,dining_specific,cant_tell,3,2,0,0
+PL,Gdańsk,gokarty,karting,same_city,4,2,1,1
+PL,Gdańsk,fryzjer,hair,same_city,2,2,1,0
+PL,Gdańsk,burger,dining_specific,cant_tell,3,2,0,0
+PL,Warszawa,steak dinner,dining_specific,cant_tell,2,2,0,0
+ES,Valencia,yoga class,yoga,cant_tell,2,2,0,0
+FR,Lyon,back massage,massage,same_city,2,2,0,0
+FR,Toulouse,burger,dining_specific,cant_tell,4,2,0,1
+FR,Lyon,brunch,dining_specific,cant_tell,10,2,1,1
+FR,Paris,thai massage,massage,same_city,2,2,1,0
+FR,Paris,sports massage,massage,same_city,3,2,1,0
+FR,Lyon,cours de yoga,yoga,cant_tell,5,2,0,0
+FR,Lyon,crêperie,dining_specific,cant_tell,8,2,1,0
+FR,Paris,coloation,unmapped,cant_tell,2,2,0,0
+GB,London,susshi,sushi,nowhere,2,2,1,0
+FR,Lyon,manicure,nails,same_city,2,2,1,0
+FR,Paris,indian restaurant,dining_specific,cant_tell,2,2,0,0
+FR,Paris,hair colour,hair,same_city,2,2,1,0
+FR,Lyon,massage sportif,massage,same_city,7,2,0,0
+GB,Manchester,thai massage,massage,same_city,14,2,0,3
+FR,Lyon,pizza deal,dining_specific,cant_tell,2,2,0,0
+GB,London,sharkk diving,adrenaline,nowhere,2,2,2,0
+PL,Wrocław,zwiedzanie miasta,citytour,same_city,5,2,1,0
+ES,Madrid,bowling,bowling,nowhere,3,2,1,0
+DE,Hamburg,bowling,bowling,nowhere,9,2,0,1
+ES,Madrid,yoga class,yoga,cant_tell,2,2,0,0
+DE,Köln,paintball,paintball,nowhere,9,2,1,1
+ES,Sevilla,arroceria,dining_specific,cant_tell,5,2,2,0
+ES,Barcelona,escape room,escaperoom,same_city,12,2,0,2
+ES,Sevilla,limpieza facial,facial,same_city,9,2,0,2
+DE,Köln,nackenmassage,massage,same_city,3,2,0,0
+DE,Hamburg,sportmassage,massage,same_city,10,2,1,1
+DE,München,yoga kurs,yoga,cant_tell,6,2,1,1
+ES,Barcelona,tapas,dining_specific,cant_tell,6,2,1,1
+ES,Madrid,couples massage,massage,same_city,3,2,1,0
+DE,Köln,kart fahren,karting,same_city,5,2,1,0
+DE,Köln,escape room,escaperoom,same_city,2,2,0,0
+ES,Barcelona,entrenador personal,personaltrain,same_city,13,2,2,2
+ES,Madrid,raftng,adrenaline,nowhere,2,2,2,0
+ES,Sevilla,back massage,massage,same_city,2,2,1,0
+DE,München,paarmassage,massage,same_city,6,2,1,0
+ES,Barcelona,bolera,bowling,nowhere,5,2,2,1
+DE,Hamburg,stadtrundfahrt,citytour,same_city,4,2,0,0
+ES,Barcelona,deep tissue massage,massage,same_city,2,2,1,0
+ES,Sevilla,entrenador personal,personaltrain,same_city,2,2,0,0
+ES,Sevilla,clase de yoga,yoga,cant_tell,10,2,0,1
+DE,München,maniküre,nails,same_city,9,2,1,2
+ES,Barcelona,bowling,bowling,nowhere,2,2,0,1
+DE,München,haircut,hair,another_city,2,2,0,0
+DE,Köln,gesichtsbehandlung,facial,another_city,6,2,0,0
+ES,Madrid,hair colour,hair,same_city,2,2,2,0
+ES,Madrid,steak dinner,dining_specific,cant_tell,3,2,1,0
+DE,Berlin,go karting,karting,same_city,3,2,0,0
+DE,Berlin,hair colour,hair,same_city,2,2,0,0
+DE,Hamburg,friseur,hair,same_city,7,2,0,2
+ES,Madrid,manicure,nails,same_city,2,2,1,0
+ES,Madrid,city tour,citytour,same_city,2,2,0,0
+DE,München,burger,dining_specific,cant_tell,8,2,0,3
+DE,Hamburg,indian restaurant,dining_specific,cant_tell,2,2,1,0
+DE,München,bowling,bowling,nowhere,8,2,1,2
+ES,Sevilla,tapas,dining_specific,cant_tell,4,2,1,1
+DE,München,back massage,massage,same_city,2,2,0,0
+DE,Köln,haare färben,hair,same_city,3,2,2,0
+ES,Barcelona,gimnasio,gym,same_city,11,2,0,2
+ES,Sevilla,sushi,sushi,nowhere,3,2,1,0
+ES,Barcelona,haircut,hair,same_city,2,2,1,0
+ES,Madrid,go karting,karting,same_city,2,2,0,0
+DE,Köln,friseur,hair,same_city,6,2,0,1
+DE,München,gesichtsbehandlung,facial,same_city,14,2,0,1
+DE,Hamburg,paarmassage,massage,same_city,10,2,2,0
+PL,Kraków,gokarty,karting,another_city,6,1,0,1
+DE,München,sports massage,massage,same_city,1,1,0,0
+DE,Berlin,stadtruundfahrt,unmapped,cant_tell,1,1,1,0
+GB,Birmingham,haio colour,unmapped,cant_tell,1,1,0,0
+DE,München,pilats,unmapped,cant_tell,1,1,0,0
+PL,Kraków,joga,yoga,cant_tell,2,1,0,0
+PL,Kraków,koloryzacja,hair,same_city,1,1,1,0
+DE,München,piiates,unmapped,cant_tell,1,1,1,0
+DE,München,pizza deal,dining_specific,cant_tell,1,1,0,0
+GB,Birmingham,hot air billoon ride,unmapped,cant_tell,1,1,1,0
+GB,Birmingham,ho air balloon ride,adrenaline,nowhere,1,1,1,0
+ES,Valencia,back massage,massage,same_city,2,1,0,0
+PL,Kraków,escaape room,unmapped,cant_tell,1,1,0,0
+DE,Berlin,stakhaus,unmapped,cant_tell,1,1,0,0
+GB,Glasgow,go karuing,unmapped,cant_tell,1,1,1,0
+PL,Gdańsk,siłownia,gym,same_city,1,1,0,0
+GB,Glasgow,facial,facial,same_city,8,1,0,1
+GB,Glasgow,eyelash extensions,lashes,nowhere,3,1,0,0
+DE,München,eyelash extensions,lashes,nowhere,1,1,0,0
+DE,Berlin,steahaus,unmapped,cant_tell,1,1,0,0
+DE,Berlin,statrundfahrt,unmapped,cant_tell,1,1,0,0
+PL,Gdańsk,sushi,sushi,nowhere,3,1,0,0
+PL,Gdańsk,trener personalny,personaltrain,another_city,2,1,1,0
+DE,München,go karting,karting,same_city,1,1,0,0
+GB,Glasgow,city tour,citytour,same_city,4,1,0,2
+DE,München,gym,gym,same_city,2,1,0,0
+DE,München,heißlftballon fahrt,unmapped,cant_tell,1,1,1,0
+DE,München,manicure,nails,same_city,1,1,0,0
+ES,Valencia,city tour,citytour,same_city,2,1,0,0
+DE,München,heißluftbaelon fahrt,adrenaline,nowhere,1,1,1,0
+DE,München,heißluftballon faahrt,adrenaline,nowhere,1,1,1,0
+GB,Birmingham,supercar track dy,adrenaline,nowhere,1,1,1,0
+DE,München,heißluftballon fahit,adrenaline,nowhere,1,1,1,0
+PL,Kraków,burger,dining_specific,cant_tell,5,1,1,0
+PL,Kraków,city tour,citytour,same_city,1,1,0,0
+GB,Birmingham,steak ddinner,dining_specific,cant_tell,1,1,0,0
+DE,München,italiner,unmapped,cant_tell,1,1,0,1
+GB,Birmingham,skydivinng,adrenaline,nowhere,1,1,1,0
+DE,München,kart fahren,karting,same_city,10,1,1,3
+PL,Kraków,deep tissue massage,massage,same_city,1,1,0,0
+DE,München,hubschrauber undflug,adrenaline,nowhere,1,1,1,0
+DE,Berlin,sports massage,massage,same_city,2,1,0,0
+PL,Kraków,kręggle,unmapped,cant_tell,1,1,1,0
+FR,Toulouse,manicure,nails,another_city,1,1,1,0
+FR,Toulouse,kartang,unmapped,cant_tell,1,1,1,0
+FR,Toulouse,haircut,hair,same_city,1,1,0,0
+PL,Kraków,zwiedzanie miauta,citytour,same_city,1,1,1,0
+FR,Toulouse,escape room,escaperoom,same_city,1,1,0,0
+PL,Warszawa,bowling,bowling,nowhere,1,1,1,0
+DE,Berlin,peronal trainer,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,extensioones pestañas,lashes,nowhere,1,1,1,0
+DE,Berlin,paintballl,paintball,nowhere,1,1,0,0
+FR,Toulouse,cours de yoga,yoga,cant_tell,3,1,0,0
+FR,Toulouse,coloration,hair,same_city,3,1,0,1
+PL,Warszawa,city tour,citytour,same_city,1,1,0,0
+PL,Warszawa,couples massage,massage,same_city,2,1,0,0
+ES,Barcelona,eyelash extensions,lashes,nowhere,1,1,0,0
+FR,Toulouse,city tour,citytour,same_city,1,1,0,0
+PL,Warszawa,crosfit,unmapped,cant_tell,1,1,0,0
+DE,Berlin,paiitball,unmapped,cant_tell,1,1,0,0
+FR,Toulouse,brunch,dining_specific,cant_tell,7,1,0,1
+FR,Toulouse,brnch,unmapped,cant_tell,1,1,0,0
+FR,Toulouse,bowling,bowling,nowhere,3,1,1,0
+ES,Barcelona,gimnesio,unmapped,cant_tell,1,1,0,0
+FR,Paris,vol en montgolfiire,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,gmnasio,unmapped,cant_tell,1,1,0,0
+FR,Paris,vol en monntgolfiere,unmapped,cant_tell,1,1,1,0
+FR,Paris,vol en mntgolfiere,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,go karting,karting,same_city,2,1,0,0
+ES,Barcelona,gym,gym,same_city,1,1,0,0
+FR,Paris,tour en helicopteoe,adrenaline,nowhere,1,1,1,0
+FR,Paris,tour en heliccoptere,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,hair colour,hair,same_city,1,1,0,0
+FR,Toulouse,karting,karting,same_city,4,1,0,0
+FR,Toulouse,manucure,nails,another_city,3,1,0,0
+GB,Birmingham,go kartiing,unmapped,cant_tell,1,1,0,0
+PL,Kraków,zwiedzanie miasta,citytour,same_city,3,1,0,0
+DE,München,stadtrunfahrt,unmapped,cant_tell,1,1,0,0
+PL,Kraków,kręgle,bowling,nowhere,5,1,0,0
+DE,München,steak dinner,dining_specific,cant_tell,1,1,0,0
+GB,Birmingham,escpe room,escaperoom,same_city,1,1,0,0
+PL,Kraków,lt helikopterem,adrenaline,nowhere,1,1,1,0
+PL,Kraków,manicure,nails,same_city,6,1,0,0
+GB,Birmingham,deep tissue masssage,massage,same_city,1,1,0,0
+PL,Gdańsk,przedłużanie rzęs,lashes,nowhere,1,1,0,0
+DE,München,thi massage,massage,same_city,1,1,0,0
+DE,München,wildwasserrafting,adrenaline,nowhere,1,1,1,0
+PL,Kraków,masaż pleców,massage,same_city,5,1,1,1
+DE,Berlin,sportmasage,unmapped,cant_tell,1,1,0,0
+DE,Berlin,seeakhaus,unmapped,cant_tell,1,1,0,0
+PL,Kraków,paintball,paintball,nowhere,5,1,0,2
+PL,Kraków,pizzeia,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,arrocerea,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,arroeria,unmapped,cant_tell,1,1,0,0
+ES,Barcelona,back massage,massage,same_city,1,1,1,0
+ES,Barcelona,brunih,unmapped,cant_tell,1,1,0,0
+ES,Barcelona,city tour,citytour,same_city,1,1,0,0
+PL,Kraków,restaracja włoska,dining_specific,cant_tell,1,1,1,0
+FR,Toulouse,rfting,unmapped,cant_tell,1,1,1,0
+PL,Kraków,siłłownia,unmapped,cant_tell,1,1,0,0
+FR,Toulouse,personal trainer,personaltrain,same_city,1,1,0,0
+DE,Berlin,pizza deal,dining_specific,cant_tell,1,1,0,0
+PL,Kraków,thai massage,massage,same_city,2,1,0,0
+FR,Toulouse,mssage thai,massage,same_city,1,1,0,0
+FR,Toulouse,massage thai,massage,same_city,5,1,0,1
+ES,Barcelona,entrrenador personal,unmapped,cant_tell,1,1,1,0
+DE,Berlin,steak dinner,dining_specific,cant_tell,1,1,0,0
+GB,Glasgow,shark divong,adrenaline,nowhere,1,1,1,0
+GB,Glasgow,haircut,hair,same_city,7,1,0,1
+GB,London,skyiving,dining_generic,same_city,1,1,1,0
+GB,London,supercarutrack day,adrenaline,nowhere,1,1,1,0
+GB,London,supercartrack day,adrenaline,nowhere,1,1,1,0
+GB,London,supercar track dday,adrenaline,nowhere,1,1,1,0
+GB,Manchester,steakk dinner,dining_specific,cant_tell,1,1,0,0
+GB,London,supercar track  day,adrenaline,nowhere,1,1,1,0
+GB,London,supeercar track day,adrenaline,nowhere,1,1,1,0
+GB,Manchester,supercar  track day,adrenaline,nowhere,1,1,1,0
+GB,London,steik dinner,dining_generic,same_city,1,1,0,0
+GB,London,steeak dinner,dining_generic,same_city,1,1,1,0
+GB,Manchester,supercar tracck day,adrenaline,nowhere,1,1,1,0
+GB,London,sportts massage,massage,same_city,1,1,0,0
+DE,Hamburg,couples massage,massage,same_city,1,1,0,0
+DE,Hamburg,steak dinner,dining_specific,cant_tell,1,1,0,0
+GB,Manchester,supercar track dy,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,stadrundfahrt,unmapped,cant_tell,1,1,0,0
+GB,London,skydiiving,dining_generic,same_city,1,1,1,0
+GB,Manchester,supercr track day,adrenaline,nowhere,1,1,1,0
+GB,London,shark divinng,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,wimpernverllängerung,lashes,nowhere,1,1,1,0
+GB,London,shark diviing,adrenaline,nowhere,1,1,1,0
+GB,London,shark ddiving,adrenaline,nowhere,1,1,1,0
+GB,London,shaark diving,dining_generic,same_city,1,1,1,0
+GB,London,sark diving,dining_generic,same_city,1,1,1,0
+GB,London,prsonal trainer,unmapped,cant_tell,1,1,0,0
+GB,London,pizza del,dining_specific,cant_tell,2,1,0,0
+DE,Hamburg,city tour,citytour,same_city,1,1,0,0
+DE,Hamburg,wimpernverlängerng,lashes,nowhere,1,1,0,0
+GB,London,pilaies,unmapped,cant_tell,1,1,0,0
+DE,Hamburg,deep tissue massage,massage,same_city,2,1,0,0
+GB,Manchester,steak dinneer,dining_specific,cant_tell,1,1,0,0
+GB,Glasgow,helicopter our,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,fallschirmspringn,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,gesichtsbehandlunng,facial,same_city,1,1,1,0
+DE,Hamburg,go karting,karting,same_city,1,1,1,0
+GB,Manchester,helicopeer tour,unmapped,cant_tell,1,1,1,0
+GB,Manchester,helicopaer tour,unmapped,cant_tell,1,1,1,0
+DE,Hamburg,gym,gym,same_city,2,1,0,0
+DE,Hamburg,hair colour,hair,same_city,1,1,0,0
+DE,Hamburg,hbschrauber rundflug,unmapped,cant_tell,1,1,1,0
+GB,Manchester,go kartiug,unmapped,cant_tell,1,1,0,0
+DE,Hamburg,friser,unmapped,cant_tell,1,1,0,0
+GB,Manchester,facil,unmapped,cant_tell,1,1,1,0
+DE,Hamburg,kart ffahren,unmapped,cant_tell,1,1,0,0
+GB,Manchester,personai trainer,unmapped,cant_tell,1,1,0,0
+DE,Hamburg,fallschirmspringun,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,mniküre,unmapped,cant_tell,1,1,1,0
+GB,London,suushi,unmapped,cant_tell,1,1,0,0
+DE,Hamburg,facial,facial,same_city,1,1,0,0
+GB,Manchester,city touur,unmapped,cant_tell,1,1,0,0
+GB,Manchester,shark  diving,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,paintball,paintball,nowhere,5,1,0,0
+DE,Hamburg,paintballl,paintball,nowhere,1,1,0,0
+GB,Manchester,shark diiving,adrenaline,nowhere,1,1,1,0
+DE,Hamburg,eyelash extensions,lashes,nowhere,1,1,1,0
+GB,London,yoga closs,yoga,cant_tell,1,1,0,0
+DE,Hamburg,rückenmassuge,massage,same_city,1,1,0,0
+GB,London,yoea class,unmapped,cant_tell,1,1,0,0
+GB,Manchester,skyddiving,dining_generic,same_city,1,1,1,0
+DE,Hamburg,escape rooom,escaperoom,same_city,1,1,0,0
+GB,London,thaai massage,massage,same_city,1,1,0,0
+GB,Manchester,susshi,sushi,nowhere,1,1,1,0
+DE,Hamburg,buurger,unmapped,cant_tell,1,1,1,0
+GB,London,paontball,unmapped,cant_tell,1,1,0,0
+GB,Glasgow,superrcar track day,adrenaline,nowhere,1,1,1,0
+GB,London,couplles massage,massage,same_city,2,1,1,0
+PL,Gdańsk,lot baalonem,unmapped,cant_tell,1,1,1,0
+DE,Köln,heißluftbalon fahrt,adrenaline,nowhere,1,1,1,0
+PL,Gdańsk,lot helikopterem,adrenaline,nowhere,1,1,1,0
+DE,Köln,maniküre,nails,same_city,3,1,0,0
+PL,Gdańsk,lot helokopterem,unmapped,cant_tell,1,1,1,0
+PL,Gdańsk,manicure,nails,another_city,1,1,0,0
+PL,Gdańsk,masaż dla par,massage,same_city,5,1,1,0
+GB,London,bowlig,bowling,nowhere,1,1,1,0
+GB,London,back  massage,massage,same_city,1,1,0,0
+GB,Glasgow,yog class,unmapped,cant_tell,2,1,1,0
+PL,Gdańsk,masaż tajski,massage,same_city,2,1,0,1
+DE,Köln,rückenmassage,massage,same_city,4,1,0,1
+DE,Köln,sportmasuage,unmapped,cant_tell,1,1,0,0
+GB,London,paintballl,paintball,nowhere,1,1,0,0
+GB,Glasgow,suercar track day,adrenaline,nowhere,1,1,1,0
+DE,Köln,sports massage,massage,same_city,2,1,0,0
+DE,Köln,stadtrundfahrt,citytour,another_city,3,1,0,1
+PL,Gdańsk,oczyszczanie twary,unmapped,cant_tell,1,1,1,0
+DE,Köln,suortmassage,massage,same_city,1,1,1,0
+DE,Köln,thai massage,massage,same_city,2,1,1,0
+PL,Gdańsk,oczyszczanie twarzy,facial,same_city,2,1,0,1
+DE,München,bowlng,unmapped,cant_tell,1,1,0,0
+PL,Gdańsk,personal trainer,personaltrain,another_city,1,1,0,0
+GB,Glasgow,hot air bballoon ride,adrenaline,nowhere,1,1,1,0
+PL,Gdańsk,pilates,pilates,cant_tell,4,1,1,0
+PL,Gdańsk,pizza deal,dining_specific,cant_tell,1,1,0,0
+DE,München,city tour,citytour,same_city,3,1,0,0
+GB,London,crossfiit,crossfit,cant_tell,1,1,0,0
+DE,Köln,heißlufftballon fahrt,unmapped,cant_tell,1,1,1,0
+GB,London,deep tissue aassage,massage,same_city,1,1,1,0
+DE,Köln,heißluetballon fahrt,unmapped,cant_tell,1,1,1,0
+DE,Hamburg,yoga class,yoga,cant_tell,1,1,1,0
+GB,London,paiatball,unmapped,cant_tell,1,1,1,0
+DE,Hamburg,burgr,unmapped,cant_tell,1,1,1,0
+PL,Gdańsk,bowling,bowling,nowhere,1,1,1,0
+DE,Hamburg,bowlong,unmapped,cant_tell,1,1,0,0
+DE,Köln,burger,dining_specific,cant_tell,3,1,0,0
+GB,London,hot air bballoon ride,adrenaline,nowhere,1,1,1,0
+GB,London,hot air ballooon ride,unmapped,cant_tell,1,1,1,0
+DE,Köln,crosssfit,unmapped,cant_tell,2,1,0,0
+GB,London,hot air balloon rde,adrenaline,nowhere,1,1,1,0
+GB,London,heliccopter tour,unmapped,cant_tell,1,1,1,0
+GB,London,heliaopter tour,unmapped,cant_tell,1,1,1,0
+GB,London,haircuut,unmapped,cant_tell,2,1,1,0
+DE,Köln,eyelash extensions,lashes,nowhere,1,1,0,0
+GB,London,hair color,hair,same_city,1,1,0,0
+DE,Köln,fitnessstuduo,massage,same_city,1,1,0,0
+GB,London,go krting,unmapped,cant_tell,1,1,0,0
+GB,London,go iarting,unmapped,cant_tell,1,1,0,0
+DE,Hamburg,bowlig,bowling,nowhere,1,1,0,0
+GB,London,eyelash extesions,lashes,nowhere,1,1,0,0
+DE,Berlin,wilewasser rafting,adrenaline,nowhere,1,1,1,0
+GB,London,eyelash extensiens,lashes,nowhere,1,1,0,0
+DE,Berlin,wildwaasser rafting,adrenaline,nowhere,1,1,1,0
+PL,Gdańsk,hair colour,hair,same_city,1,1,0,0
+DE,Berlin,widwasser rafting,adrenaline,nowhere,1,1,1,0
+GB,London,deeptissue massage,massage,same_city,1,1,0,0
+GB,London,deep tissue mssage,massage,same_city,1,1,0,0
+PL,Warszawa,deep tissue massage,massage,same_city,2,1,0,0
+FR,Paris,visiae guidee,unmapped,cant_tell,1,1,0,0
+PL,Warszawa,trener personalny,personaltrain,same_city,11,1,1,0
+FR,Lyon,sushhi,unmapped,cant_tell,1,1,1,0
+DE,Berlin,fallschirspringen,unmapped,cant_tell,1,1,1,0
+ES,Madrid,pizza deal,dining_specific,cant_tell,1,1,0,0
+ES,Madrid,rafaing,unmapped,cant_tell,1,1,1,0
+PL,Wrocław,deep tissue massage,massage,same_city,2,1,0,0
+DE,Berlin,fallschirrmspringen,unmapped,cant_tell,1,1,1,0
+ES,Madrid,raffting,adrenaline,nowhere,1,1,1,0
+FR,Lyon,sale de sport,unmapped,cant_tell,1,1,1,0
+ES,Madrid,raftiing,unmapped,cant_tell,1,1,1,0
+FR,Lyon,raoting,unmapped,cant_tell,1,1,1,0
+ES,Madrid,raftinng,unmapped,cant_tell,1,1,1,0
+FR,Lyon,raating,unmapped,cant_tell,1,1,1,0
+DE,Berlin,fallschirmsspringen,adrenaline,nowhere,1,1,1,0
+ES,Madrid,rating,unmapped,cant_tell,1,1,1,0
+DE,Berlin,fallschirmsprinien,adrenaline,nowhere,1,1,1,0
+ES,Madrid,rofting,unmapped,cant_tell,1,1,1,0
+PL,Wrocław,go karting,karting,another_city,1,1,1,0
+PL,Wrocław,gokarty,karting,another_city,6,1,0,1
+PL,Wrocław,gym,gym,another_city,1,1,0,0
+PL,Wrocław,haircut,hair,same_city,1,1,1,0
+PL,Wrocław,joga,yoga,cant_tell,5,1,0,0
+ES,Madrid,susshi,sushi,nowhere,1,1,0,0
+FR,Lyon,massage do,massage,same_city,1,1,0,0
+DE,Berlin,fallsahirmspringen,unmapped,cant_tell,1,1,1,0
+FR,Lyon,masage dos,massage,same_city,1,1,0,0
+ES,Madrid,tinte  pelo,hair,same_city,1,1,1,0
+PL,Wrocław,kręgle,bowling,nowhere,2,1,0,0
+ES,Madrid,tpas,unmapped,cant_tell,1,1,0,0
+FR,Lyon,indian restaurant,dining_specific,cant_tell,1,1,1,0
+FR,Lyon,gym,gym,same_city,2,1,1,0
+FR,Lyon,steak dinner,dining_specific,cant_tell,1,1,1,0
+ES,Madrid,pilatos,unmapped,cant_tell,1,1,1,0
+DE,Berlin,eyelash extensions,lashes,nowhere,1,1,0,0
+FR,Lyon,thai massage,massage,same_city,2,1,0,0
+FR,Marseille,massage do,massage,same_city,1,1,1,0
+FR,Marseille,massage dao,massage,same_city,1,1,1,0
+FR,Marseille,masage thai,massage,same_city,1,1,0,0
+ES,Madrid,limpieza faial,unmapped,cant_tell,1,1,0,0
+PL,Warszawa,tener personalny,unmapped,cant_tell,1,1,1,0
+FR,Marseille,mancure,unmapped,cant_tell,1,1,1,0
+ES,Madrid,maaicura,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,thai massage,massage,same_city,1,1,0,0
+FR,Marseille,hair colour,hair,another_city,1,1,1,0
+ES,Madrid,maasaje en pareja,massage,same_city,2,1,1,0
+FR,Marseille,facial,facial,same_city,1,1,1,0
+ES,Madrid,masaje tailandees,massage,same_city,1,1,0,0
+ES,Madrid,masaje tailanees,massage,same_city,1,1,0,0
+FR,Marseille,crêeerie,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,treoer personalny,unmapped,cant_tell,1,1,0,0
+ES,Madrid,masajeeen pareja,massage,same_city,1,1,0,0
+PL,Warszawa,yoga class,yoga,cant_tell,2,1,0,0
+DE,Berlin,finessstudio,unmapped,cant_tell,1,1,0,0
+FR,Marseille,coiffeur,hair,another_city,8,1,0,1
+ES,Madrid,musaje descontracturante,massage,same_city,1,1,1,0
+ES,Madrid,paaracaidismo,massage,same_city,1,1,1,0
+FR,Marseille,burgeer,unmapped,cant_tell,1,1,0,0
+DE,Berlin,fallshirmspringen,unmapped,cant_tell,1,1,1,0
+ES,Madrid,paracaiismo,unmapped,cant_tell,1,1,1,0
+FR,Marseille,back massage,massage,same_city,1,1,1,0
+FR,Lyon,yoga class,yoga,cant_tell,1,1,0,0
+ES,Madrid,parcaidismo,unmapped,cant_tell,1,1,1,0
+FR,Lyon,vol en montgolfieere,unmapped,cant_tell,1,1,1,0
+DE,Berlin,fallscirmspringen,unmapped,cant_tell,1,1,1,0
+FR,Lyon,go karting,karting,same_city,1,1,0,0
+FR,Lyon,extension de cils,lashes,nowhere,9,1,0,1
+ES,Madrid,hamburrguesa,unmapped,cant_tell,1,1,0,0
+ES,Valencia,raftng,adrenaline,nowhere,1,1,1,0
+ES,Valencia,raffting,adrenaline,nowhere,1,1,1,0
+ES,Valencia,puintball,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,haircut,hair,another_city,1,1,0,0
+PL,Wrocław,personal trainer,personaltrain,same_city,2,1,1,0
+ES,Valencia,pilaates,unmapped,cant_tell,1,1,1,0
+ES,Valencia,personal trainer,personaltrain,same_city,1,1,0,0
+PL,Wrocław,pilates,pilates,cant_tell,3,1,1,0
+ES,Valencia,peauqueria,unmapped,cant_tell,1,1,0,0
+ES,Valencia,parocaidismo,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,maniccura,unmapped,cant_tell,1,1,0,0
+ES,Valencia,paeo en globo,adrenaline,nowhere,1,1,1,0
+ES,Sevilla,masaje en pareja,massage,same_city,2,1,1,1
+ES,Sevilla,paseo en gllobo,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,pizza deal,dining_specific,cant_tell,1,1,1,0
+ES,Sevilla,raafting,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,raftinng,unmapped,cant_tell,1,1,1,0
+PL,Wrocław,siłownia,gym,another_city,2,1,1,0
+ES,Sevilla,sports massage,massage,same_city,1,1,0,0
+DE,Berlin,bowlng,unmapped,cant_tell,1,1,1,0
+ES,Valencia,haircut,hair,another_city,1,1,1,0
+PL,Wrocław,sports massage,massage,same_city,1,1,0,0
+ES,Valencia,facial,facial,another_city,1,1,1,0
+ES,Sevilla,thai massage,massage,same_city,1,1,1,0
+ES,Sevilla,tour ciudad,citytour,same_city,5,1,0,0
+PL,Wrocław,thai massage,massage,same_city,1,1,1,0
+ES,Sevilla,vuelo en helioptero,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,vuelo enhelicoptero,adrenaline,nowhere,1,1,1,0
+ES,Sevilla,vuelu en helicoptero,adrenaline,nowhere,1,1,1,0
+ES,Valencia,clase  de yoga,yoga,cant_tell,1,1,0,0
+ES,Sevilla,gym,gym,same_city,1,1,0,0
+ES,Valencia,raiting,unmapped,cant_tell,1,1,1,0
+FR,Lyon,extension de cels,unmapped,cant_tell,1,1,1,0
+ES,Valencia,rfting,unmapped,cant_tell,1,1,1,0
+FR,Lyon,escape room,escaperoom,same_city,1,1,0,0
+ES,Madrid,velo en helicoptero,adrenaline,nowhere,1,1,1,0
+FR,Lyon,esape game,unmapped,cant_tell,1,1,1,0
+ES,Madrid,vuelo en helicootero,unmapped,cant_tell,1,1,1,0
+FR,Lyon,crossit,unmapped,cant_tell,1,1,0,0
+ES,Madrid,vuelo en helicopterro,adrenaline,nowhere,1,1,1,0
+ES,Madrid,vuelo en helicptero,unmapped,cant_tell,1,1,1,0
+PL,Wrocław,manicre,unmapped,cant_tell,1,1,0,0
+PL,Wrocław,manicure,nails,another_city,5,1,1,0
+DE,Berlin,crrossfit,crossfit,cant_tell,1,1,0,0
+FR,Lyon,coach spportif,unmapped,cant_tell,1,1,0,0
+FR,Lyon,coach sportiif,unmapped,cant_tell,1,1,0,0
+ES,Sevilla,arroceriia,unmapped,cant_tell,1,1,0,0
+FR,Lyon,city tour,citytour,same_city,1,1,1,0
+DE,Berlin,crosfit,unmapped,cant_tell,1,1,0,0
+ES,Sevilla,caossfit,unmapped,cant_tell,1,1,0,0
+FR,Lyon,brrunch,unmapped,cant_tell,1,1,1,0
+ES,Sevilla,couples massage,massage,same_city,1,1,0,0
+ES,Sevilla,crossfiit,crossfit,cant_tell,1,1,0,0
+ES,Sevilla,crossfit,crossfit,cant_tell,7,1,0,3
+ES,Valencia,vuelo en  helicoptero,adrenaline,nowhere,1,1,1,0
+ES,Sevilla,crossft,unmapped,cant_tell,1,1,0,0
+ES,Valencia,tour ciedad,unmapped,cant_tell,1,1,1,0
+ES,Valencia,taps,unmapped,cant_tell,2,1,0,0
+DE,Berlin,buurger,unmapped,cant_tell,1,1,1,0
+PL,Wrocław,oczyszczanie twarzy,facial,another_city,4,1,0,0
+ES,Sevilla,escaperoom,escaperoom,same_city,1,1,1,0
+ES,Valencia,steak dinner,dining_specific,cant_tell,1,1,1,0
+ES,Sevilla,extensiones pestañas,lashes,nowhere,2,1,1,0
+ES,Madrid,karrting,unmapped,cant_tell,1,1,0,0
+GB,Manchester,maniccure,unmapped,cant_tell,1,1,0,0
+ES,Madrid,gym,gym,another_city,1,1,0,0
+DE,Berlin,heeißluftballon fahrt,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,thai massage,massage,same_city,1,1,0,0
+FR,Paris,eyelash extensions,lashes,nowhere,1,1,0,0
+FR,Paris,restaurant ialien,dining_generic,same_city,1,1,0,0
+FR,Paris,exttension de cils,lashes,nowhere,1,1,0,0
+ES,Barcelona,tintee pelo,hair,same_city,1,1,1,0
+FR,Paris,escapu game,unmapped,cant_tell,1,1,0,0
+FR,Paris,restaurant iitalien,dining_specific,cant_tell,1,1,0,0
+FR,Paris,restaurant itaalien,dining_generic,same_city,1,1,1,0
+PL,Warszawa,personal trainer,personaltrain,same_city,1,1,0,0
+ES,Barcelona,vueli en helicoptero,adrenaline,nowhere,1,1,1,0
+FR,Paris,curs de yoga,yoga,cant_tell,1,1,1,0
+ES,Barcelona,masaje en paareja,massage,same_city,1,1,0,0
+FR,Paris,restaurunt italien,dining_specific,cant_tell,1,1,1,0
+ES,Barcelona,yoga class,yoga,cant_tell,1,1,1,0
+DE,Berlin,haircut,hair,same_city,1,1,0,0
+FR,Paris,crossffit,unmapped,cant_tell,1,1,1,0
+FR,Paris,crosafit,unmapped,cant_tell,1,1,0,0
+PL,Warszawa,przedłużanie rzas,unmapped,cant_tell,1,1,0,0
+PL,Warszawa,haircut,hair,same_city,1,1,1,0
+FR,Paris,coiffer,unmapped,cant_tell,1,1,0,0
+FR,Paris,coach sprtif,unmapped,cant_tell,1,1,0,0
+FR,Paris,go karting,karting,same_city,1,1,1,0
+FR,Paris,raftng,adrenaline,nowhere,1,1,1,0
+PL,Warszawa,raftung,unmapped,cant_tell,1,1,1,0
+DE,Berlin,heißluftballon eahrt,adrenaline,nowhere,1,1,1,0
+ES,Barcelona,passeo en globo,adrenaline,nowhere,1,1,1,0
+FR,Paris,massage uuo,massage,same_city,1,1,0,0
+DE,Berlin,hubsschrauber rundflug,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,raffting,adrenaline,nowhere,1,1,1,0
+PL,Warszawa,lot heikopterem,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,raftig,unmapped,cant_tell,1,1,1,0
+FR,Paris,masssage dos,massage,same_city,1,1,1,0
+DE,Berlin,hubsehrauber rundflug,unmapped,cant_tell,1,1,1,0
+DE,Berlin,italiner,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,paseo en  globo,adrenaline,nowhere,1,1,1,0
+FR,Paris,massae dos,massage,same_city,1,1,0,0
+DE,Berlin,hubschrauber rendflug,adrenaline,nowhere,1,1,1,0
+DE,Berlin,heißlutballon fahrt,unmapped,cant_tell,1,1,1,0
+DE,Berlin,heißluftballonefahrt,adrenaline,nowhere,1,1,1,0
+ES,Barcelona,paracaaidismo,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,paiacaidismo,unmapped,cant_tell,1,1,1,0
+ES,Barcelona,steak dinner,dining_specific,cant_tell,1,1,0,0
+FR,Paris,kartig,unmapped,cant_tell,2,1,1,0
+PL,Warszawa,koloryyzacja,unmapped,cant_tell,1,1,0,0
+FR,Paris,raffting,adrenaline,nowhere,1,1,1,0
+DE,Berlin,manicure,nails,same_city,2,1,0,0
+FR,Paris,salle de  sport,unmapped,cant_tell,1,1,0,0
+ES,Madrid,bunch,unmapped,cant_tell,1,1,0,0
+FR,Paris,coach sportiif,unmapped,cant_tell,1,1,0,0
+DE,Berlin,maniküe,unmapped,cant_tell,1,1,1,0
+FR,Marseille,vol en montolfiere,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,rufting,unmapped,cant_tell,1,1,1,0
+DE,Berlin,friseuur,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,raiting,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,skoki spadochronoe,adrenaline,nowhere,1,1,1,0
+ES,Madrid,entrnador personal,unmapped,cant_tell,1,1,1,0
+FR,Marseille,thai massage,massage,same_city,1,1,0,0
+FR,Marseille,steak dinner,dining_specific,cant_tell,1,1,0,0
+FR,Marseille,sports massage,massage,same_city,1,1,0,0
+DE,Berlin,fitnessstuudio,gym,same_city,1,1,0,0
+ES,Madrid,crrossfit,crossfit,cant_tell,1,1,0,0
+FR,Marseille,soiin visage,facial,same_city,1,1,0,0
+FR,Marseille,saut en paraciute,unmapped,cant_tell,1,1,1,0
+ES,Madrid,escaperoom,escaperoom,same_city,1,1,0,0
+ES,Barcelona,manicure,nails,same_city,2,1,0,0
+FR,Paris,soin vissage,unmapped,cant_tell,1,1,0,0
+ES,Madrid,extensaones pestañas,lashes,nowhere,1,1,0,0
+FR,Marseille,restaurant italien,dining_specific,cant_tell,4,1,0,0
+ES,Madrid,extensiones pestñas,unmapped,cant_tell,1,1,0,0
+FR,Marseille,pizza deal,dining_specific,cant_tell,1,1,1,0
+FR,Marseille,volen montgolfiere,adrenaline,nowhere,1,1,1,0
+FR,Paris,saut en prachute,unmapped,cant_tell,1,1,1,0
+FR,Paris,saut en parachutte,adrenaline,nowhere,1,1,1,0
+FR,Paris,salle de ssport,unmapped,cant_tell,1,1,0,0
+FR,Paris,city tour,citytour,same_city,2,1,0,0
+FR,Paris,ciffeur,unmapped,cant_tell,1,1,1,0
+PL,Warszawa,rating,unmapped,cant_tell,1,1,1,0
+FR,Paris,bruneh,unmapped,cant_tell,1,1,0,0
+FR,Paris,brrunch,unmapped,cant_tell,1,1,0,0
+FR,Paris,salle de spirt,unmapped,cant_tell,1,1,0,0
+ES,Barcelona,masaje descontraturante,massage,same_city,1,1,0,0
+FR,Paris,salle de sort,unmapped,cant_tell,1,1,1,0
+DE,Berlin,indian restaurant,dining_specific,cant_tell,1,1,0,0
+ES,Barcelona,manicuura,unmapped,cant_tell,1,1,1,0
+ES,Madrid,crosssfit,unmapped,cant_tell,2,1,0,0
+PL,Warszawa,rfting,unmapped,cant_tell,1,1,1,0
+DE,Berlin,kart ahren,unmapped,cant_tell,1,0,0,0
+DE,Berlin,paarmassge,massage,same_city,1,0,0,0
+GB,Manchester,persona trainer,unmapped,cant_tell,1,0,0,0
+DE,Berlin,neckenmassage,massage,same_city,1,0,0,0
+GB,Manchester,plates,pilates,cant_tell,1,0,0,0
+DE,Berlin,bruoch,unmapped,cant_tell,1,0,0,1
+PL,Warszawa,maaaż dla par,massage,same_city,1,0,0,0
+DE,Berlin,brnch,unmapped,cant_tell,2,0,0,1
+DE,Berlin,brrunch,unmapped,cant_tell,1,0,0,0
+PL,Wrocław,trenir personalny,unmapped,cant_tell,1,0,0,0
+GB,Manchester,sports masssage,unmapped,cant_tell,1,0,0,0
+PL,Wrocław,przedłużanieurzęs,lashes,nowhere,1,0,0,0
+GB,Manchester,pizzza deal,unmapped,cant_tell,1,0,0,1
+DE,Berlin,manikre,unmapped,cant_tell,1,0,0,0
+DE,Berlin,bowing,bowling,nowhere,1,0,0,0
+PL,Warszawa,koloryzzacja,unmapped,cant_tell,1,0,0,0
+PL,Wrocław,przedłużanie rzęs,lashes,nowhere,4,0,0,1
+DE,Berlin,kart faaren,unmapped,cant_tell,1,0,0,0
+GB,Manchester,mancure,unmapped,cant_tell,1,0,0,0
+DE,Berlin,bowlinng,unmapped,cant_tell,1,0,0,0
+PL,Wrocław,pizzeria,dining_specific,cant_tell,3,0,0,2
+PL,Warszawa,gokary,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,escaperoom,escaperoom,same_city,1,0,0,0
+PL,Kraków,pizza deal,dining_specific,cant_tell,1,0,0,0
+PL,Warszawa,manicue,unmapped,cant_tell,1,0,0,0
+DE,Berlin,haaare färben,hair,same_city,1,0,0,0
+PL,Gdańsk,kręgle,bowling,nowhere,2,0,0,0
+PL,Kraków,gokary,unmapped,cant_tell,1,0,0,0
+DE,Berlin,susi,unmapped,cant_tell,1,0,0,0
+PL,Warszawa,restauracja właska,dining_generic,same_city,1,0,0,0
+PL,Wrocław,buurger,unmapped,cant_tell,1,0,0,0
+PL,Kraków,escape room,escaperoom,another_city,1,0,0,0
+DE,Berlin,gesichtsbehndlung,facial,same_city,1,0,0,0
+PL,Warszawa,resturacja włoska,dining_specific,cant_tell,1,0,0,1
+PL,Gdańsk,masaż pleców,massage,same_city,1,0,0,0
+PL,Kraków,crossfit,crossfit,cant_tell,2,0,0,0
+DE,Berlin,steeakhaus,unmapped,cant_tell,1,0,0,0
+PL,Warszawa,zwiedzaniee miasta,citytour,same_city,1,0,0,0
+PL,Warszawa,zwiedzanie miasoa,citytour,same_city,1,0,0,0
+DE,Berlin,fitnesstudio,gym,same_city,1,0,0,1
+DE,Berlin,steakhaaus,dining_specific,cant_tell,1,0,0,0
+PL,Warszawa,trenner personalny,unmapped,cant_tell,1,0,0,0
+DE,Berlin,paarmessage,massage,same_city,1,0,0,0
+PL,Warszawa,trener peersonalny,unmapped,cant_tell,1,0,0,0
+PL,Kraków,brnch,unmapped,cant_tell,1,0,0,0
+PL,Gdańsk,zwiedzanie miasta,citytour,same_city,1,0,0,0
+PL,Gdańsk,pizzeria,dining_specific,cant_tell,1,0,0,1
+DE,Berlin,fitnessatudio,gym,same_city,1,0,0,0
+DE,Berlin,fitnessstuiio,gym,same_city,1,0,0,0
+DE,Berlin,thai masage,massage,same_city,1,0,0,0
+DE,Berlin,hare färben,hair,same_city,1,0,0,0
+DE,Berlin,persoual trainer,unmapped,cant_tell,1,0,0,0
+DE,Berlin,stadtrudfahrt,unmapped,cant_tell,1,0,0,0
+PL,Kraków,treer personalny,unmapped,cant_tell,1,0,0,0
+DE,Berlin,pilatees,unmapped,cant_tell,1,0,0,0
+PL,Warszawa,masaż aportowy,massage,same_city,1,0,0,0
+PL,Warszawa,masaż dla  par,massage,same_city,1,0,0,1
+PL,Wrocław,masaż pleców,massage,same_city,3,0,0,1
+DE,Berlin,ruckenmassage,massage,same_city,1,0,0,0
+DE,Berlin,rücienmassage,massage,same_city,1,0,0,0
+DE,Berlin,saeakhaus,unmapped,cant_tell,1,0,0,0
+PL,Warszawa,masaż tujski,massage,same_city,1,0,0,0
+GB,Manchester,yoga claos,yoga,cant_tell,1,0,0,0
+PL,Warszawa,masażtajski,massage,same_city,1,0,0,0
+DE,Berlin,esape room,unmapped,cant_tell,1,0,0,0
+PL,Kraków,przedłużanie rzęs,lashes,nowhere,2,0,0,0
+PL,Kraków,pizzeria,dining_specific,cant_tell,1,0,0,0
+PL,Warszawa,oczyszczaniie twarzy,facial,same_city,1,0,0,0
+PL,Warszawa,suihi,unmapped,cant_tell,1,0,0,0
+DE,Berlin,seakhaus,unmapped,cant_tell,1,0,0,0
+PL,Kraków,oczyszczanie twarzy,facial,another_city,3,0,0,1
+DE,Hamburg,bowlinng,unmapped,cant_tell,1,0,0,0
+PL,Gdańsk,crosifit,unmapped,cant_tell,1,0,0,0
+PL,Warszawa,paitball,unmapped,cant_tell,1,0,0,0
+PL,Wrocław,koloryzaacja,unmapped,cant_tell,1,0,0,0
+DE,Berlin,sprtmassage,massage,same_city,1,0,0,0
+DE,Berlin,paiintball,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,thaiomassage,massage,same_city,1,0,0,0
+GB,Manchester,indian restaurrant,dining_specific,cant_tell,1,0,0,0
+ES,Madrid,branch,unmapped,cant_tell,1,0,0,0
+FR,Paris,manuure,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,sports massage,massage,same_city,1,0,0,0
+FR,Paris,korting,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,susshi,sushi,nowhere,1,0,0,0
+ES,Barcelona,taaas,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,taps,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,tpas,unmapped,cant_tell,1,0,0,0
+FR,Paris,escape ame,escaperoom,same_city,1,0,0,0
+FR,Paris,crêpperie,unmapped,cant_tell,1,0,0,1
+FR,Paris,crossft,unmapped,cant_tell,1,0,0,1
+ES,Madrid,aaroceria,unmapped,cant_tell,1,0,0,0
+ES,Madrid,bruunch,unmapped,cant_tell,1,0,0,0
+FR,Paris,massaage thai,massage,same_city,1,0,0,0
+FR,Paris,coloraation,unmapped,cant_tell,1,0,0,0
+FR,Paris,coach spoutif,unmapped,cant_tell,1,0,0,0
+ES,Madrid,clse de yoga,yoga,cant_tell,1,0,0,0
+FR,Paris,buraer,unmapped,cant_tell,1,0,0,0
+ES,Madrid,crossffit,unmapped,cant_tell,1,0,0,0
+FR,Paris,bowlong,unmapped,cant_tell,1,0,0,0
+FR,Paris,bowlng,unmapped,cant_tell,1,0,0,0
+FR,Paris,bowliing,unmapped,cant_tell,1,0,0,0
+ES,Madrid,entrenadoor personal,unmapped,cant_tell,1,0,0,0
+FR,Marseille,visite guiee,unmapped,cant_tell,1,0,0,1
+ES,Madrid,entrenadorpersonal,unmapped,cant_tell,1,0,0,0
+FR,Paris,massaage dos,massage,same_city,1,0,0,0
+FR,Paris,massag duo,massage,same_city,1,0,0,0
+FR,Toulouse,crosfit,unmapped,cant_tell,1,0,0,0
+FR,Paris,salle d sport,unmapped,cant_tell,1,0,0,1
+FR,Toulouse,coiffeeur,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,bureer,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,bunch,unmapped,cant_tell,1,0,0,0
+FR,Paris,susshi,sushi,nowhere,1,0,0,0
+FR,Paris,sushhi,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,indian restaurant,dining_specific,cant_tell,1,0,0,0
+ES,Barcelona,limpieza faciaal,unmapped,cant_tell,1,0,0,1
+FR,Paris,son visage,facial,same_city,1,0,0,0
+FR,Paris,soin viage,unmapped,cant_tell,1,0,0,0
+FR,Paris,soin isage,unmapped,cant_tell,1,0,0,0
+FR,Paris,salle de port,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,masaje espallda,massage,same_city,1,0,0,0
+FR,Paris,massag sportif,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,masaje tailanddes,massage,same_city,1,0,0,0
+FR,Paris,pieates,unmapped,cant_tell,1,0,0,0
+FR,Paris,peintball,unmapped,cant_tell,1,0,0,0
+FR,Paris,paintbull,unmapped,cant_tell,1,0,0,0
+FR,Paris,masuage dos,massage,same_city,1,0,0,0
+FR,Paris,massagee duo,massage,same_city,1,0,0,0
+FR,Paris,massage sportiif,massage,same_city,1,0,0,0
+ES,Barcelona,peloqueria,hair,same_city,1,0,0,0
+FR,Paris,massage siortif,massage,same_city,1,0,0,0
+FR,Paris,massage os,massage,same_city,1,0,0,1
+FR,Paris,massage ds,massage,same_city,1,0,0,0
+ES,Madrid,escape reom,escaperoom,same_city,1,0,0,0
+ES,Madrid,escapee room,escaperoom,same_city,1,0,0,0
+ES,Madrid,gimnaoio,unmapped,cant_tell,1,0,0,1
+ES,Valencia,peluqueeria,unmapped,cant_tell,1,0,0,0
+FR,Lyon,eyelash extensions,lashes,nowhere,2,0,0,0
+FR,Lyon,escaie game,unmapped,cant_tell,1,0,0,0
+FR,Lyon,couples massage,massage,same_city,1,0,0,1
+FR,Lyon,coifffeur,unmapped,cant_tell,1,0,0,0
+FR,Lyon,coiefeur,unmapped,cant_tell,1,0,0,0
+FR,Lyon,coach spartif,massage,same_city,1,0,0,1
+FR,Lyon,burrger,unmapped,cant_tell,1,0,0,0
+ES,Valencia,tappas,unmapped,cant_tell,1,0,0,0
+ES,Sevilla,escape room,escaperoom,same_city,5,0,0,1
+ES,Valencia,sshi,unmapped,cant_tell,1,0,0,0
+ES,Sevilla,hambuoguesa,unmapped,cant_tell,1,0,0,1
+ES,Valencia,peluqeria,unmapped,cant_tell,1,0,0,0
+ES,Madrid,kartinng,unmapped,cant_tell,1,0,0,0
+ES,Sevilla,limpieza facual,unmapped,cant_tell,1,0,0,0
+ES,Sevilla,manicura,nails,another_city,2,0,0,0
+ES,Sevilla,masaje esoalda,massage,same_city,1,0,0,0
+ES,Valencia,manicure,nails,same_city,1,0,0,0
+ES,Valencia,limpieeza facial,facial,another_city,1,0,0,0
+ES,Valencia,hambuguesa,unmapped,cant_tell,1,0,0,0
+ES,Valencia,go karting,karting,same_city,1,0,0,0
+ES,Sevilla,tinte elo,hair,another_city,1,0,0,0
+ES,Valencia,deep tissue massage,massage,same_city,1,0,0,0
+ES,Valencia,crssfit,unmapped,cant_tell,1,0,0,1
+ES,Valencia,crossft,unmapped,cant_tell,1,0,0,0
+ES,Madrid,tourciudad,unmapped,cant_tell,1,0,0,1
+FR,Lyon,massage dis,massage,same_city,1,0,0,0
+ES,Madrid,susi,unmapped,cant_tell,1,0,0,0
+ES,Madrid,susai,unmapped,cant_tell,1,0,0,0
+FR,Marseille,maosage sportif,unmapped,cant_tell,1,0,0,0
+FR,Marseille,manicure,nails,another_city,1,0,0,0
+ES,Madrid,maaje descontracturante,massage,same_city,1,0,0,0
+ES,Madrid,maniura,unmapped,cant_tell,1,0,0,0
+ES,Madrid,masaje en  pareja,massage,same_city,1,0,0,0
+ES,Madrid,masaje enn pareja,massage,same_city,1,0,0,0
+DE,Berlin,boowling,unmapped,cant_tell,1,0,0,0
+FR,Marseille,cours de  yoga,yoga,cant_tell,1,0,0,1
+FR,Marseille,couples massage,massage,same_city,1,0,0,0
+ES,Madrid,masajje espalda,massage,same_city,1,0,0,0
+FR,Marseille,brunh,unmapped,cant_tell,1,0,0,0
+ES,Madrid,paintbell,unmapped,cant_tell,1,0,0,0
+ES,Madrid,peluqueia,unmapped,cant_tell,1,0,0,0
+ES,Madrid,pilatis,unmapped,cant_tell,1,0,0,0
+FR,Lyon,soin visege,unmapped,cant_tell,1,0,0,0
+FR,Lyon,sallee de sport,unmapped,cant_tell,1,0,0,0
+FR,Lyon,salle e sport,unmapped,cant_tell,1,0,0,0
+FR,Lyon,plates,pilates,cant_tell,1,0,0,0
+FR,Lyon,personal trainer,personaltrain,same_city,1,0,0,0
+FR,Lyon,paintbael,unmapped,cant_tell,1,0,0,0
+FR,Lyon,paentball,unmapped,cant_tell,1,0,0,0
+FR,Lyon,massge duo,massage,same_city,1,0,0,0
+FR,Lyon,massagge sportif,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,coiffeur,hair,same_city,3,0,0,0
+ES,Barcelona,extensiones peutañas,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,frisseur,unmapped,cant_tell,1,0,0,1
+GB,London,escape rom,escaperoom,same_city,1,0,0,0
+GB,London,maniure,unmapped,cant_tell,1,0,0,0
+GB,London,manicurre,unmapped,cant_tell,1,0,0,0
+DE,Köln,burgeer,unmapped,cant_tell,1,0,0,0
+GB,London,hairut,unmapped,cant_tell,1,0,0,0
+DE,Köln,fitnessstudio,gym,same_city,1,0,0,0
+GB,London,fcial,unmapped,cant_tell,1,0,0,0
+GB,London,eyelashextensions,lashes,nowhere,1,0,0,0
+DE,Köln,gym,gym,same_city,1,0,0,0
+GB,London,eyelasa extensions,unmapped,cant_tell,1,0,0,0
+GB,London,escpe room,escaperoom,same_city,1,0,0,1
+GB,London,escape rroom,escaperoom,same_city,1,0,0,0
+GB,London,deep tissuue massage,massage,same_city,1,0,0,0
+GB,London,personal traainer,unmapped,cant_tell,1,0,0,0
+GB,London,couples massagge,unmapped,cant_tell,1,0,0,0
+GB,London,cityitour,unmapped,cant_tell,1,0,0,1
+GB,London,city toour,unmapped,cant_tell,1,0,0,0
+GB,London,brunah,unmapped,cant_tell,1,0,0,0
+GB,London,brnch,unmapped,cant_tell,1,0,0,0
+GB,London,bowuing,unmapped,cant_tell,1,0,0,0
+DE,Köln,paarmassage,massage,same_city,1,0,0,0
+DE,Köln,pilates,pilates,cant_tell,2,0,0,0
+GB,Glasgow,susshi,sushi,nowhere,1,0,0,0
+GB,Glasgow,sports assage,unmapped,cant_tell,1,0,0,0
+DE,Köln,yoga kkurs,yoga,cant_tell,1,0,0,1
+GB,London,personal tainer,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,wimpernvorlängerung,lashes,nowhere,1,0,0,0
+ES,Barcelona,escpe room,escaperoom,same_city,1,0,0,0
+GB,Manchester,bacck massage,massage,same_city,1,0,0,0
+GB,Manchester,haircuut,unmapped,cant_tell,1,0,0,0
+GB,Manchester,go karoing,unmapped,cant_tell,1,0,0,1
+GB,Manchester,eyelash extesions,lashes,nowhere,1,0,0,0
+DE,Hamburg,kart fohren,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,maniküue,unmapped,cant_tell,1,0,0,0
+GB,Manchester,eaelash extensions,lashes,nowhere,1,0,0,0
+GB,Manchester,crrossfit,crossfit,cant_tell,1,0,0,0
+DE,Hamburg,nackkenmassage,massage,same_city,1,0,0,0
+DE,Hamburg,paintbaal,unmapped,cant_tell,1,0,0,0
+GB,Manchester,city tor,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,pizza deal,dining_specific,cant_tell,1,0,0,0
+GB,London,yoa class,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,wimpernverlngerung,lashes,nowhere,1,0,0,0
+GB,London,thii massage,massage,same_city,1,0,0,0
+DE,Hamburg,sporimassage,massage,same_city,1,0,0,0
+GB,London,thai  massage,massage,same_city,1,0,0,0
+GB,London,susui,unmapped,cant_tell,1,0,0,0
+GB,London,susei,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,stadtrandfahrt,unmapped,cant_tell,1,0,0,0
+GB,London,suhi,unmapped,cant_tell,1,0,0,0
+GB,London,steak inner,dining_specific,cant_tell,1,0,0,0
+GB,London,sports massagge,unmapped,cant_tell,1,0,0,1
+DE,Hamburg,stteakhaus,unmapped,cant_tell,1,0,0,0
+DE,Hamburg,thai massage,massage,same_city,3,0,0,0
+DE,München,bowliing,unmapped,cant_tell,1,0,0,0
+GB,Glasgow,inddian restaurant,dining_generic,same_city,1,0,0,0
+DE,München,buurger,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,arrocerria,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,deep tissuo massage,massage,same_city,1,0,0,0
+DE,München,sushhi,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,city tuur,unmapped,cant_tell,1,0,0,0
+DE,München,wimmpernverlängerung,unmapped,cant_tell,1,0,0,1
+DE,München,wimpernverlängeerung,lashes,nowhere,1,0,0,0
+GB,Birmingham,bowing,bowling,nowhere,1,0,0,0
+GB,Birmingham,boeling,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,bick massage,massage,same_city,1,0,0,0
+GB,Birmingham,baek massage,massage,same_city,1,0,0,0
+GB,Birmingham,backk massage,massage,same_city,1,0,0,0
+GB,Birmingham,back masoage,unmapped,cant_tell,1,0,0,1
+FR,Toulouse,steak dinner,dining_specific,cant_tell,1,0,0,0
+GB,Glasgow,hircut,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,clae de yoga,yoga,cant_tell,1,0,0,0
+FR,Toulouse,restauranteitalien,dining_specific,cant_tell,1,0,0,1
+FR,Toulouse,restaurant italien,dining_specific,cant_tell,2,0,0,0
+ES,Barcelona,couples massage,massage,same_city,1,0,0,0
+FR,Toulouse,pantball,unmapped,cant_tell,1,0,0,0
+ES,Barcelona,entrenadoor personal,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,painntball,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,massaue duo,massage,same_city,1,0,0,0
+FR,Toulouse,massagethai,massage,same_city,1,0,0,0
+ES,Barcelona,escae room,unmapped,cant_tell,1,0,0,0
+FR,Toulouse,eyelash extensions,lashes,nowhere,2,0,0,0
+GB,Birmingham,escape rom,escaperoom,same_city,1,0,0,0
+DE,München,steauhaus,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,escape rooom,escaperoom,same_city,1,0,0,0
+GB,Birmingham,faccial,unmapped,cant_tell,1,0,0,0
+GB,Glasgow,hairut,unmapped,cant_tell,1,0,0,0
+DE,München,crossoit,unmapped,cant_tell,1,0,0,0
+DE,München,deep tissue massage,massage,same_city,1,0,0,0
+GB,Glasgow,go karting,karting,another_city,3,0,0,1
+GB,Glasgow,eelash extensions,lashes,nowhere,1,0,0,0
+GB,Glasgow,dep tissue massage,massage,same_city,1,0,0,0
+DE,München,fitnessstodio,gym,same_city,1,0,0,0
+GB,Glasgow,couplesmassage,massage,same_city,1,0,0,0
+GB,Glasgow,city tor,unmapped,cant_tell,1,0,0,0
+GB,Glasgow,bruuch,unmapped,cant_tell,1,0,0,0
+GB,Glasgow,back massage,massage,same_city,4,0,0,1
+GB,Birmingham,steakidinner,dining_specific,cant_tell,1,0,0,0
+GB,Birmingham,steak inner,dining_specific,cant_tell,1,0,0,0
+DE,München,karrt fahren,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,pizza deel,dining_specific,cant_tell,1,0,0,0
+GB,Birmingham,pilaees,unmapped,cant_tell,1,0,0,0
+GB,Birmingham,piilates,unmapped,cant_tell,1,0,0,0
+DE,München,nackenmasage,massage,same_city,1,0,0,0
+DE,München,pioates,unmapped,cant_tell,1,0,0,0
+DE,München,spirtmassage,massage,same_city,1,0,0,0
+GB,Birmingham,hair couour,unmapped,cant_tell,1,0,0,0
+DE,München,sportmaassage,unmapped,cant_tell,1,0,0,0
+DE,München,stadtrundffahrt,unmapped,cant_tell,1,0,0,0
+DE,Berlin,boling,unmapped,cant_tell,1,0,0,0

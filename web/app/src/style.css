@@ -1,0 +1,28 @@
+/* App shell only. Everything visual comes from the design tokens imported ahead
+ * of this file in main.ts — no colour, font or radius is retyped here.
+ * Component styles live in their own <style scoped> blocks. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0 1rem;
+  font-family: var(--gp-font);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--gp-text);
+  background: var(--gp-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--gp-link);
+}
