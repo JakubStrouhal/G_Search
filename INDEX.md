@@ -16,29 +16,29 @@ injected into every new session by the `SessionStart` hook.
 ## Now / Next
 
 <!-- state:start -->
-- **Phase:** Part A is done, **validated against live production** (P1–P6) and **re-spined**
-  (2026-08-06) around one question — *when a search failed, where was the answer?* Its artifact is
-  `004-data-story/outputs/explainer.html`. Part B has an approved spec (`001-part-b/SPEC.md`) and an
-  empty stack (`005-stack-init/`: local Supabase boots, **zero migrations, zero tables**). Part C not
-  started. **B and C are the whole remaining risk.**
+- **Phase:** Part A done and live-validated. **Part B steps 1–3 of 10 are built** (`001-part-b/SPEC.md`
+  §10): schema + seeds + 75 descriptions + embeddings, all local. **Part C not started, and it is now
+  the larger risk of the two.**
+- **Immediately next: step 4, the threshold sweep** (`INDEX` 4.2). Nothing about it is blocked. It
+  gates every screen, and it is the one step whose result can invalidate the plan.
+  **What it faces, measured 2026-08-07** — max cosine per (market, q): `absent` (437, should abstain)
+  p10 .181 / p50 .312 / **p90 .503**; `stocked+plausible` (314) **p10 .276** / p50 .536 / p90 .690.
+  Separation is real and the overlap is real. Report **two error rates**, never one accuracy number.
 - **The spine, and it is what Part C should open with.** Over all 4,720 dead ends:
   **nowhere in the market 43.2% · the user's own city 32.2% · another city 3.1% · can't tell 21.5%**.
   Four buckets, four owners; F1–F6 nests inside (`nowhere` **is** F1 ∪ F4, asserted in code).
   **Quote the `nowhere` band [43.2%, 64.7%], never one end.** `FINDINGS.md` §5f is the source for
   these and for the permutation test that gated them — if a number here disagrees with §5f, §5f wins.
-- **Top next actions (ranked):**
-  1. **Build Part B** from `001-part-b/SPEC.md` — §6 architecture, §10 build order. Step 1 is
-     Supabase migrations + seeds; **step 4 (threshold sweep) gates all UI work**. Budget tension is
-     real and stated in §6: log the real hours.
-  2. **Part C.** Draft after B exists. Open with the bucket split, then the language test; the 52.5%
-     is support, not the headline. Ready-made "what the AI tools got wrong" examples are in
-     `FINDINGS.md` § Corrections — use one of those, not a generic line.
-  3. Remaining notebook angles: demand–supply divergence (6.2), top-50 stat into FINDINGS (6.4).
-- **Two things Part C must carry:** the **language test** (`FINDINGS.md` §5b) and the
+- **Three things Part C must carry:** the **language test** (`FINDINGS.md` §5b), the
   **recoverability split** (§5e) — search work is a *minority* of the recoverable opportunity, well
-  behind the supply void. **The old ~18% / 59-purchases figures are dead.** Every way of tightening
-  the search side lowers it further; publish the most generous and say the others exist.
-- **Deliberately not doing:** any more Part A hardening. B is still empty.
+  behind the supply void; **the old ~18% / 59-purchases figures are dead, quote ~12%** — and now a
+  **qualification of §5b**: `007-embeddings/RESULT.md` shows the multilingual fix bridges *phrasing*
+  (FR `thai massage`↔`massage thai` = .990) but **not vocabulary divergence** (ES `sports massage`↔
+  `masaje descontracturante` = .119). "Language stops mattering" is too strong.
+- **Remote drift is real and recurring — check it, do not assume it.** `supabase/` migration 3
+  (`query_embeddings`) is **NOT APPLIED** on `ewknlggenhrlftdukwme`, and the remote carries the *old*
+  seed: 0 descriptions, 0 embeddings. Remote writes belong to the owner, so they lag by design.
+- **Deliberately not doing:** any more Part A hardening.
 <!-- state:end -->
 
 ## Decisions — last 6, newest first, oldest row deleted on write
@@ -66,8 +66,8 @@ the top three into every session, so keep Decision ≤15 words and Why ≤20 —
 | **A′** | Live production reconnaissance | ✅ done | `docs/analysis/PLAN.md` §4, `live_probe.js` |
 | **A″** | Live validation of P1–P6 (pre-registered) | ✅ done 2026-08-06 | `003-live-validation/RESULT.md` |
 | **A‴** | Data story — business-readable Part A + interactive explainer | ✅ done 2026-08-06 | `004-data-story/`, deliverable is `outputs/explainer.html` |
-| **B** | Working clickable prototype | 🟡 spec approved; **stack init 4/11 done** (local Supabase boots, empty by design) | `docs/analysis/001-part-b/SPEC.md`, `005-stack-init/BRIEF.md` |
-| **C** | Writeup, 2 pages + tools log | ⬜ not started | — |
+| **B** | Working clickable prototype | 🟡 **steps 1–3 of 10 built, local**: schema+RLS, seeds, 75 descriptions, embeddings. **Step 4 (sweep) next and gates all UI.** No RPC and no UI yet | `001-part-b/SPEC.md` §10, `006-one-page/SPEC.md`, `007-embeddings/`, `supabase/` |
+| **C** | Writeup, 2 pages + tools log | ⬜ not started — **now the larger of the two risks** | Corrections register has 4 ready entries: adrenaline misclassification, F5 withdrawal, local-vs-remote grants, the vacuous cross-lingual check |
 
 ## Pending
 
