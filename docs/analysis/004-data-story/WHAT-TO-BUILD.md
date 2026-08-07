@@ -1,22 +1,34 @@
 ---
 created: 2026-08-07
 updated: 2026-08-07
-note: Build spec for the two things the explainer still needs — a contents list that carries the argument and Chapter 5 — written as what and why only, because the visual design already exists and is supplied separately.
+note: Tells the design agent what to produce for the two things its design predates — a contents list and Chapter 5 — and to leave the already-designed chapters alone; carries the argument as one causal chain so the work serves it.
 ---
 
 # What to build in the explainer, and why
 
-**The visual design already exists and is supplied with this document. Nothing here describes how
-anything should look** — no colour, type, spacing, layout or component decisions. Where this
-document and the design disagree about appearance, **the design wins**.
+## Read this first — what is designed and what is not
 
-This document exists to tell you **what has to be on the page and why it has to be there**, so the
-implementation carries the argument rather than just the markup.
+**The supplied design covers the page as it was: four analysis chapters, the replay chapter, and the
+limits section. Do not re-open any of them.** Where this document and that design disagree about
+appearance, **the design wins**.
 
-Two things are missing from the page today:
+**Two things are not in it, and both need you to produce them:**
 
-1. **A contents list** — the page is six chapters long and has no navigation.
-2. **Chapter 5** — it exists in the built HTML but is the newest and least settled part.
+| | | |
+|---|---|---|
+| **A contents list** | does not exist at all | the page has six chapters and no navigation |
+| **Chapter 5 — "Could a system have known?"** | **written after your design was made** | it is a whole new chapter with components your design has never had to solve |
+
+**Chapter 5 is the real ask.** It is not a copy change to an existing chapter — it is a new section
+carrying a result, a two-sided cost, a small evidence table and a three-band split. §4 says exactly
+what it must contain and what each part has to do. **Design those elements in the system you have
+already built**, so the chapter reads as part of the same document rather than an appendix.
+
+**One consequence to catch:** the chapter formerly labelled *Chapter 5 · try it* is now
+**Chapter 6**. If your design shows "Chapter 5" against the replay section, that number is stale.
+
+Everything else here is **what has to be on the page and why** — so the implementation carries the
+argument rather than just the markup.
 
 ---
 
@@ -142,13 +154,34 @@ should still leave with the argument. Treat it as the page's abstract that happe
 
 ---
 
-## 4. Build: Chapter 5
+## 4. Design and build: Chapter 5 — the new chapter
 
-It sits after the language chapter and before *Replay any real query*. Its label reads
-**`Chapter 5 · what we built`** — deliberately not *"the supplied data"*, because it is the one
-chapter that is not.
+**This is the section your design does not cover.** It sits after the language chapter and before
+*Replay any real query*. Its label reads **`Chapter 5 · what we built`** — deliberately not *"the
+supplied data"*, because it is the one chapter that is not.
 
-Four blocks, in this order.
+### What it needs, as components
+
+Four blocks. Three of them need something the page already does; one is genuinely new.
+
+| Block | What it is | Precedent on the page |
+|---|---|---|
+| 1 | Two paragraphs of setup | ordinary body copy — nothing new |
+| 2 | **Two headline figures**, then a **two-sided cost callout** | Chapter 1 already shows paired headline figures; the callout is the same device as the page's existing notes |
+| 3 | **A three-row evidence table**, three columns | the page already has tables in Chapters 3 and 4 |
+| 4 | **A three-band proportional split** | Chapter 1's result bands are the same shape — three parts of one whole |
+
+**Nothing here demands a new visual language.** If Blocks 2–4 reuse the treatments you have already
+designed for headline figures, notes, tables and bands, the chapter will read as part of the
+document. That is the goal — this chapter must not look like a bolted-on result section.
+
+**The one thing to solve deliberately:** this chapter holds the page's **only good news**. Everything
+before it reports a failure. It should not be suppressed, but it must not read as a product pitch
+either — the page is a report, and a triumphant panel here would undermine the credibility of the
+four chapters above it. The good news is also conditional, and the chapter says so twice: once in
+Block 2's costs, once in Block 4's narrowing.
+
+### The four blocks, in order
 
 **Block 1 — the question, and why the data cannot answer it.**
 Establish that this chapter exists because of the gap in §2: the log holds counts, not deals, so
@@ -225,7 +258,8 @@ Two further build rules, both already enforced:
 
 ## 6. Acceptance
 
-Functional only. Appearance is the design's to judge.
+Chapters 1–4 and 6 are judged against the supplied design. **Chapter 5 and the contents list are
+judged against this list**, plus whether they read as part of the same document.
 
 1. `python3 docs/analysis/004-data-story/build_explainer.py` **exits 0.** If it reports hand-typed
    numbers, the deliverable has failed — that is not a warning.
@@ -238,6 +272,9 @@ Functional only. Appearance is the design's to judge.
 7. Blocks 2 and 4 present **two rates and three bands** — not one combined figure.
 8. The page opens from `file://` with no network and no console errors.
 9. No horizontal scroll at any width; wide tables scroll inside their own container.
+10. The replay chapter is labelled **Chapter 6**, not Chapter 5.
+11. Chapter 5 uses the page's existing treatments for figures, notes, tables and bands — it does not
+    introduce a visual language the other chapters do not have.
 
 ---
 
