@@ -1,7 +1,7 @@
 ---
 description: Turn a BRIEF.md into a buildable SPEC.md in the same folder. Refuses to run without a brief.
 argument-hint: [<nnn>-<slug>]  (optional — defaults to the highest-numbered folder with a BRIEF.md and no SPEC.md)
-allowed-tools: Bash(ls:*), Bash(python3:*), Bash(git:*), Read, Grep, Glob, Write, Edit
+allowed-tools: Bash(ls:*), Bash(python3:*), Bash(git:*), Bash(bash .claude/hooks/codex-interview.sh:*), Read, Grep, Glob, Write, Edit
 disable-model-invocation: true
 ---
 
@@ -79,12 +79,43 @@ Both dates are today's, and `note` says in one sentence what this spec settles a
   score. If the stack is a 3× overrun on the budget in the brief, that is a finding about the spec.
 - **Name what would make the spec wrong.** A spec that cannot fail was not specific.
 
-## 5. Decision row
+## 5. The document gate — an independent read before this is built from
+
+Last step before the decision row, and it is not optional. `/execute:implement` §8 validates a
+finished build against its spec; this validates the **spec against the brief it answers**, while
+changing it is still cheap. Shell out to the same reviewer, in its document mode:
+
+```bash
+bash .claude/hooks/codex-interview.sh refine docs/analysis/<nnn>-<slug>/SPEC.md docs/analysis/<nnn>-<slug>/BRIEF.md
+```
+
+First argument is the document under review, second is the source it must answer. Codex is read-only
+and ephemeral: it judges, it does not rewrite. It reads both files itself — pass paths, never a
+summary. Its last line is `VERDICT: READY TO BUILD | GAPS | NOT READY`.
+
+| Exit | Meaning | What to do |
+|---|---|---|
+| 0 | Codex ran; the report is its verdict | Check every material finding against the spec and the repo yourself. **Codex saying it is not evidence.** |
+| 2 | A path is wrong, or one of the two files is not there | Fix it and re-run. Do not skip. |
+| 3 | Codex did not complete, or the operator kill switch is set | Report **"spec unreviewed — reviewer unavailable"**. Never a pass. |
+
+Act on the verdict, do not merely print it:
+
+- **READY TO BUILD** — say so, and name anything you checked and rejected.
+- **GAPS** — fix what you accept **in `SPEC.md` now**, before the report. A gap left for the builder
+  to discover is the failure this gate exists to prevent. Say which findings you rejected and why.
+- **NOT READY** — **do not present the spec as approved.** Name the unresolved decision or the
+  unsupported claim, and say whether it goes back to `/brief` or needs the owner.
+
+An unavailable reviewer is unknown, never approval.
+
+## 6. Decision row
 
 Append one row per `.claude/decision-row.md` — the single resolution that would most change what
 the builder does. The rest live in the spec's own decision log.
 
-## 6. Report, ≤5 lines
+## 7. Report, ≤6 lines
 
 Spec path · the thesis · the decisions resolved · the one thing in the build order that gates the
-rest · anything the brief asked for that you cut, and why.
+rest · anything the brief asked for that you cut, and why · **Codex's verdict, what you changed in
+response, or that the reviewer was unavailable**.

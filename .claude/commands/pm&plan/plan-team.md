@@ -1,7 +1,7 @@
 ---
 description: Decompose an approved SPEC into a reviewable team plan — lanes, phases, dependency graph, owner tasks — and stop. Writes PLAN-TEAM.md, spawns nobody, builds nothing.
 argument-hint: [<nnn>-<slug>]  (optional — defaults to the highest-numbered folder with a SPEC.md and no PLAN-TEAM.md)
-allowed-tools: Read, Grep, Glob, Write, Edit, Bash(ls:*), Bash(git:*), Bash(wc:*)
+allowed-tools: Read, Grep, Glob, Write, Edit, Bash(ls:*), Bash(git:*), Bash(wc:*), Bash(bash .claude/hooks/codex-interview.sh:*)
 disable-model-invocation: true
 ---
 
@@ -116,8 +116,9 @@ Two or three sentences: what this build produces and which spec thesis it proves
 Only the teammates this build needs, each with the paths it owns and the paths it must not touch.
 Name the owner tasks here too, with no assignee.
 
-## Gate
+## Build gate
 The spec's build-order step 1, what it would invalidate, and its result if it has been run.
+(Not the document gate — that one is Codex reading this plan, and it leaves no section here.)
 
 ## Dependency graph
 ```mermaid
@@ -152,7 +153,39 @@ the plan could not sequence and why.
 Both dates are today's, and `note` says in one sentence what this plan settles.
 `.claude/hooks/unit-frontmatter.sh` maintains `updated` afterwards; it cannot author `note`.
 
-## 6. Rules
+## 6. The document gate — an independent read before anyone is spawned
+
+Last step before the report, and it is not optional. It is the same reviewer `/execute:team` §6 runs
+after the build, pointed at the plan instead of the diff — a second reader who has the spec and the
+plan and no stake in the plan being good:
+
+```bash
+bash .claude/hooks/codex-interview.sh refine docs/analysis/<nnn>-<slug>/PLAN-TEAM.md docs/analysis/<nnn>-<slug>/SPEC.md
+```
+
+First argument is the plan, second is the spec it must decompose without adding to. Codex is
+read-only and ephemeral: it judges, it does not re-plan. Its last line is
+`VERDICT: READY TO BUILD | GAPS | NOT READY`.
+
+| Exit | Meaning | What to do |
+|---|---|---|
+| 0 | Codex ran; the report is its verdict | Check every material finding against the plan and the spec yourself. **Codex saying it is not evidence.** |
+| 2 | A path is wrong, or one of the two files is not there | Fix it and re-run. Do not skip. |
+| 3 | Codex did not complete, or the operator kill switch is set | Report **"plan unreviewed — reviewer unavailable"**. Never a pass. |
+
+Act on the verdict:
+
+- **READY TO BUILD** — say so, and name what you checked and rejected.
+- **GAPS** — fix what you accept **in `PLAN-TEAM.md` now**. A dependency Codex says will deadlock is
+  cheaper to fix here than at the point two teammates are already running. If the gap is in the
+  *spec* rather than the plan, say so and route it back — do not paper over a spec hole with a
+  planning workaround.
+- **NOT READY** — **do not tell the owner to run `/execute:team`.** Name what has to change first.
+
+An unavailable reviewer is unknown, never approval. **A spec still awaiting owner approval is not
+made approved by a `READY TO BUILD`** — Codex reviews documents, it does not approve scope.
+
+## 7. Rules
 
 - **Acceptance criteria come from the spec.** If a task needs a criterion the spec does not carry,
   the spec is incomplete — say so in the report rather than inventing one here.
@@ -167,8 +200,9 @@ Both dates are today's, and `note` says in one sentence what this plan settles.
   finding about the spec: name it in the report and let the owner amend the spec.
 - **A plan that cannot fail was not specific.** Name what would make it wrong.
 
-## 7. Report, ≤6 lines
+## 8. Report, ≤7 lines
 
-Plan path · the gate and what it blocks · lanes and task counts · **what is strictly sequential and
-therefore the critical path** · owner tasks nobody can be assigned · the next command
+Plan path · the build gate and what it blocks · lanes and task counts · **what is strictly
+sequential and therefore the critical path** · owner tasks nobody can be assigned · **Codex's
+verdict, what you changed in response, or that the reviewer was unavailable** · the next command
 (`/execute:team <nnn>-<slug>`, or `/execute:implement` if the plan collapsed to one lane).

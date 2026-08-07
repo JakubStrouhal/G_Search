@@ -89,9 +89,11 @@ not**. Executing an approved spec is not a decision; that is what `git log` reco
 
 ## 8. Independent validation against the spec
 
-Last step, and it is not optional. `/review` is a *decision* gate before work; this is a
-*conformance* check after it — a second reader who has the spec and the diff and no stake in the
-build having gone well. Shell out to the same reviewer the `/review` hook uses, in its fourth mode:
+Last step, and it is not optional. This is the **build gate**: a second reader who has the spec and
+the diff and no stake in the build having gone well. Its counterpart is the **document gate** —
+`/spec` §5 and `/plan-team` §6 run the same script as `refine <doc> <source>` *before* anything is
+built, so the spec you are being judged against was itself read by someone independent. Shell out to
+the same reviewer the `/review` hook uses, in its build mode:
 
 ```bash
 bash .claude/hooks/codex-interview.sh implement docs/analysis/<nnn>-<slug>/SPEC.md

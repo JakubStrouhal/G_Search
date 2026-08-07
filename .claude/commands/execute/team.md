@@ -111,7 +111,9 @@ approved; a plan that tunes thresholds until they look right does not.
 ## 6. Independent validation — not the reviewer teammate
 
 The `reviewer` teammate is an in-team conformance check. It is **not** the gate `CLAUDE.md`
-requires. Before presenting the build as working, run the same Codex pass `/execute:implement` uses:
+requires. Before presenting the build as working, run the same Codex pass `/execute:implement` §8
+uses — the **build gate**, whose counterpart is the **document gate** `/plan-team` §6 ran on the
+plan before any of this was spawned:
 
 ```bash
 bash .claude/hooks/codex-interview.sh implement docs/analysis/<nnn>-<slug>/SPEC.md
