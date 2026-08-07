@@ -167,3 +167,63 @@ for r in fa.head(6).itertuples(index=False):
 
 df.to_csv(OUT / "pair_similarities.csv", index=False)
 print(f"\nwrote {OUT.relative_to(ROOT)}/ — sweep_plausible_*.csv, failures_*.csv, pair_similarities.csv")
+
+
+# ---------------------------------------------------------------- 6. summary for the explainer
+# The data story's page may not hand-type a number (004 RESULT.md), so anything it
+# quotes from this unit has to arrive as a generated artifact. Emitted here rather
+# than in a second script so it cannot drift from the sweep that produced it.
+import json  # noqa: E402
+
+lp = pd.read_csv(ROOT / "docs" / "analysis" / "outputs" / "language_pairs.csv")
+with psycopg.connect(DB) as conn:
+    qe = {r[0]: np.array(json.loads(r[1])) for r in
+          conn.execute("select q, embedding::text from query_embeddings").fetchall()}
+
+lp = lp[lp.en_query.isin(qe) & lp.local_query.isin(qe)].copy()
+lp["cos"] = [float(qe[a] @ qe[b]) for a, b in zip(lp.en_query, lp.local_query)]
+lp["en_deads"] = (lp.en_n * lp.en_dead).round()          # what F2's fix is meant to recover
+tot = lp.en_deads.sum()
+
+# Three bands, because "does the multilingual fix reach this pair" is not binary and
+# reporting it as binary would overstate whichever side we picked.
+bands = []
+for lo, hi, label in ((0.70, 1.01, "bridges"), (0.50, 0.70, "partial"), (0.00, 0.50, "fails")):
+    sub = lp[(lp.cos >= lo) & (lp.cos < hi)]
+    bands.append(dict(band=label, lo=lo, pairs=len(sub),
+                      en_deads=int(sub.en_deads.sum()), share=float(sub.en_deads.sum() / tot)))
+
+LOW_SHIPPED = 0.40
+row = results["stocked"][results["stocked"].low == LOW_SHIPPED].iloc[0]
+conf = results["confident_only"]
+a_all = df[df.coverage == "absent"].max_sim.values
+b_all = df[df.coverage != "absent"].max_sim.values
+c = df[~df.thin_n]
+a_c, b_c = c[c.coverage == "absent"].max_sim.values, c[c.coverage != "absent"].max_sim.values
+
+summary = dict(
+    model=MODEL if (MODEL := "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2") else "",
+    n_pairs=len(df), n_absent=int((df.coverage == "absent").sum()),
+    n_stocked=int((df.coverage != "absent").sum()),
+    auc_all=float(np.mean([(x < y) + 0.5 * (x == y) for x in a_all for y in b_all])),
+    auc_confident=float(np.mean([(x < y) + 0.5 * (x == y) for x in a_c for y in b_c])),
+    confident_pairs=int(len(c)),
+    confident_volume_share=float(c.searches.sum() / df.searches.sum()),
+    low=LOW_SHIPPED,
+    false_confident=float(row.false_confident), false_abstain=float(row.false_abstain),
+    fc_searches=float(row.fc_searches), fa_searches=float(row.fa_searches),
+    # 99% of the expensive error sits on labels classify.py itself flags as weak.
+    fc_total=int((df[(df.coverage == "absent") & (df.max_sim >= 0.44)]).shape[0]),
+    fc_on_thin=int(df[(df.coverage == "absent") & (df.max_sim >= 0.44) & df.thin_n].shape[0]),
+    # One per matched document. Four spellings of "salle de sport" is one piece of
+    # evidence shown four times; three different concepts in three markets is three.
+    typo_examples=[dict(market=r.market, q=r.q, sim=round(r.max_sim, 3), matched=r.nearest_title)
+                   for r in (df[(df.coverage == "absent") & (df.max_sim >= 0.70)]
+                             .sort_values("max_sim", ascending=False)
+                             .drop_duplicates("nearest_title").head(3).itertuples(index=False))],
+    language_bridging=dict(pairs=len(lp), en_deads=int(tot), bands=bands),
+)
+(OUT / "summary.json").write_text(json.dumps(summary, indent=2))
+print(f"\nwrote {(OUT / 'summary.json').relative_to(ROOT)}")
+print(f"  AUC {summary['auc_all']:.3f} all / {summary['auc_confident']:.3f} confident")
+print(f"  language fix reaches: " + " · ".join(f"{b['band']} {b['share']:.1%}" for b in bands))

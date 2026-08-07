@@ -33,7 +33,7 @@ without them.
 | Tagged findings handoff — every claim VERIFIED / INFERRED / CANNOT VERIFY | `docs/analysis/FINDINGS.md` |
 | Recoverability simulation with a sensitivity cell | `docs/analysis/002-recoverability/` |
 | Pre-registered live probe against production Groupon (P1–P6) | `docs/analysis/003-live-validation/` |
-| Business-readable interactive explainer | `docs/analysis/004-data-story/outputs/explainer.html` |
+| Business-readable interactive explainer — **now carries chapter 5, the prototype's own result** | `docs/analysis/004-data-story/outputs/explainer.html` |
 
 ### What it found
 

@@ -611,10 +611,75 @@ figure g.sl:hover .sl-line{opacity:1;stroke-width:2.5}
     inventory. No search quality recovers a deal that does not exist.</div>
 </div></section>
 
-<!-- ===================== CH 5 ===================== -->
+<!-- ===================== CH 5 · THE PROTOTYPE ===================== -->
 <section class="ch"><div class="wrap stack">
   <div>
-    <span class="chno">Chapter 5 · try it</span>
+    <span class="chno">Chapter 5 · what we built</span>
+    <h2>Could a system have known?</h2>
+  </div>
+
+  <p>Everything above stops at a diagnosis. Chapter 3 can say <em>where</em> the answer was; it
+    cannot say whether a system could ever have <em>known</em> — the log records a result count and
+    nothing else, so there is nothing in it to test that against. This chapter is the one place the
+    prototype answers a question the data cannot.</p>
+
+  <p>The test: score all <span id="pt-pairs"></span> of Part A's labelled query–market pairs against
+    the catalogue by meaning, then ask how well that separates <em>we stock nothing for this</em>
+    from <em>we stock something</em>. The labels come from the analysis; the scores come from the
+    build. Neither saw the other.</p>
+
+  <div class="nums">
+    <div><span class="big right" id="pt-auc"></span>
+      <span class="lab">separability across all <span id="pt-pairs-2"></span> pairs<br>
+        <span class="sub">a coin flip would score no better than chance</span></span></div>
+    <div><span class="big right" id="pt-auc-conf"></span>
+      <span class="lab">on the <span id="pt-conf-n"></span> labels the analysis is confident about
+        <br><span class="sub">which carry <span id="pt-conf-vol"></span> of all search volume</span></span></div>
+  </div>
+
+  <p>So the failure in Chapter 3 is <strong>detectable</strong>, not merely diagnosable. That is the
+    single thing this build establishes that the analysis could not.</p>
+
+  <div class="note"><span class="t">And what it costs, in both directions</span>
+    At the shipped threshold, by search volume: <strong id="pt-fc"></strong> of searches for things
+    the catalogue does not stock would still be shown results — that is the invisible failure of
+    Chapter 1, surviving. And <strong id="pt-fa"></strong> of searches for things it <em>does</em>
+    stock would be told we have nothing. Two rates, never averaged into one: they are not the same
+    mistake, and a single accuracy number would hide which one is being made.</div>
+
+  <h3 style="margin-top:2.4rem">The build found a fault in the analysis</h3>
+
+  <p><span id="pt-thin"></span> of the expensive errors above are not retrieval failures at all.
+    They are typos — where the meaning-based match was <em>right</em> and Part A's hand-built
+    concept map could not follow:</p>
+
+  <div class="tablewrap"><table id="pt-typos"></table></div>
+
+  <p>Each is scored as a mistake because the concept map could not resolve the typo, so the row was
+    labelled <em>stocked nowhere</em>. The match was correct. These rows are a small share of search
+    volume, so no figure in Chapters 1–4 moves — but the direction is worth stating plainly:
+    <strong>the prototype repairs a weakness in the analysis that produced it.</strong></p>
+
+  <h3 style="margin-top:2.4rem">And it narrows Chapter 4's fix</h3>
+
+  <p>Chapter 4 shows the language gap is real. It does not show that a multilingual model closes it.
+    Measured against the same matched pairs, weighted by the English-side dead ends the fix is meant
+    to recover:</p>
+
+  <div class="bands" id="pt-bridge"></div>
+  <p class="legend">how far a multilingual model gets on Chapter 4's own pairs</p>
+
+  <p>Where the local term is a near-translation it bridges almost perfectly. Where it is a
+    <em>different word</em> — <code>sports massage</code> against
+    <code>masaje descontracturante</code> — it does not, and no embedding would. So the gap is real
+    and the fix is <strong>partial</strong>: the figure in Chapter 4 is an upper bound on what this
+    approach delivers, not a forecast of it.</p>
+</div></section>
+
+<!-- ===================== CH 6 ===================== -->
+<section class="ch"><div class="wrap stack">
+  <div>
+    <span class="chno">Chapter 6 · try it</span>
     <h2>Replay any real query</h2>
   </div>
   <p>Every market + query pair the analysis classified, with its real counts and what a system built
@@ -653,7 +718,12 @@ figure g.sl:hover .sl-line{opacity:1;stroke-width:2.5}
       stated rather than netted against each other. The one above inflates the search problem;
       the <span id="lim-seam"></span> can't-tell dead ends inflate the supply problem. Neither is
       quietly resolved in our own favour.</div>
-    <div class="limit"><b>The size of silent substitution is inferred, not observed.</b>
+    <div class="limit"><b>Chapter 4 measures a gap; it does not measure a fix.</b> Tested against
+  the same matched pairs, a multilingual model reaches <span id="lim-bridge"></span> of the
+  English-side dead ends well and <span id="lim-fails"></span> not at all — the failures are
+  vocabulary divergence, not phrasing. The recoverability figure is an <em>upper bound</em> on what
+  this approach delivers. Chapter 5 carries the numbers.</div>
+  <div class="limit"><b>The size of silent substitution is inferred, not observed.</b>
       The supplied log has no query→deal mapping, so "these users saw the wrong thing" is read off
       the catalogue. Chapter 2 shows the mechanism is real in production; it does not size it here.</div>
     <div class="limit"><b>One class's stated basis was falsified by our own Chapter 3.</b> The
@@ -1472,4 +1542,41 @@ el('q').value = 'paintball'; render();
 
 el('foot-src').textContent = `Built from ${D.meta.built_from} · ${D.meta.pairs} classified `
   + `market+query pairs · ${D.meta.note}`;
+
+/* ---------- chapter 5: the prototype -----------------------------------
+   Everything here comes from 008-threshold-sweep/outputs/summary.json via the
+   notebook. No literal is typed into this file -- same invariant as chapters 1-4. */
+(function () {
+  const P = D.prototype; if (!P) return;
+  const set = (id, v) => { const n = el(id); if (n) n.textContent = v; };
+  set('pt-pairs', P.n_pairs); set('pt-pairs-2', P.n_pairs);
+  set('pt-auc', P.auc_all.toFixed(3));
+  set('pt-auc-conf', P.auc_confident.toFixed(3));
+  set('pt-conf-n', P.confident_pairs);
+  set('pt-conf-vol', pc(P.confident_volume_share));
+  set('pt-fc', pc(P.fc_searches)); set('pt-fa', pc(P.fa_searches));
+  set('pt-thin', P.fc_on_thin + ' of ' + P.fc_total);
+
+  const t = el('pt-typos');
+  if (t) t.innerHTML = '<thead><tr><th>score</th><th>what was typed</th>'
+    + '<th>what it matched</th></tr></thead><tbody>'
+    + P.typo_examples.map(r => '<tr><td>' + r.sim.toFixed(3) + '</td><td><code>'
+        + esc(r.market) + ' ' + esc(r.q) + '</code></td><td>' + esc(r.matched)
+        + '</td></tr>').join('') + '</tbody>';
+
+  const B = P.language_bridging, LAB = {
+    bridges: 'bridges well', partial: 'partial', fails: 'does not bridge'
+  };
+  const b = el('pt-bridge');
+  if (b) b.innerHTML = B.bands.map(x =>
+    '<div class="band" style="flex:' + Math.max(x.share, 0.06) + '">'
+    + '<span class="bn">' + pc(x.share) + '</span>'
+    + '<span class="bl">' + LAB[x.band] + '<br><span class="sub">' + x.en_deads
+    + ' dead ends &middot; ' + x.pairs + ' pairs</span></span></div>').join('');
+
+  const br = B.bands.find(x => x.band === 'bridges');
+  const fl = B.bands.find(x => x.band === 'fails');
+  if (el('lim-bridge')) el('lim-bridge').textContent = pc(br.share);
+  if (el('lim-fails')) el('lim-fails').textContent = pc(fl.share);
+})();
 </script>
