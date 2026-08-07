@@ -1,0 +1,270 @@
+# The 75 service descriptions — SPEC §6 / §10 step 2, decision D2.
+#
+# WHY THIS FILE EXISTS AND WHY IT IS NOT GENERATED.
+# 568 deals share only 75 titles, and the titles are generic ("Sesja Wellness",
+# "Wellness-Massage Paket"). Embedding those gets you nothing, so each service
+# needs a short description that says what it actually is.
+#
+# D2 forbids LLM-*enriching* these, and the reason is specific: if generated text
+# writes "outdoor adventure, adrenaline, thrills" onto the activities deals, then
+# skydiving clears the similarity floor, F4 collapses into F1, and the central
+# finding of the whole analysis becomes an artifact of generated text.
+#
+# THE RULE EVERY LINE OBEYS: say only what the title and category already entail.
+# No aspirational vocabulary, no category words the catalogue cannot back, no
+# naming of a concept the analysis has NOT established as stocked. Where a title
+# is vague, the description stays vague — vagueness is the honest answer.
+#
+# ENFORCED, NOT PROMISED. `check_descriptions.py` derives a forbidden-token list
+# from classify.py's own CONCEPTS map and fails if any description contains one.
+# It covers the five ABSENT concepts (adrenaline, bowling, lashes, paintball,
+# sushi) and — just as important — the four PLAUSIBLE ones (yoga, pilates,
+# crossfit, dining_specific), because naming those would silently promote a
+# deliberate "plausible" to "stocked" and make a judgement call disappear.
+#
+# LANGUAGE: each description is in its own market's language, matching its title.
+# This is deliberate and load-bearing. If every doc also carried English, English
+# queries would match better because of the document rather than because of the
+# multilingual model — which would make FINDINGS §5b's language test unmeasurable
+# on this prototype. `gloss_en` exists ONLY for human review; it is never embedded
+# and never reaches the database.
+#
+# REVIEW: read `title` against `description` and ask one question — does the
+# description claim anything the title does not already say? If yes, cut it.
+
+services:
+
+  # ---------------------------------------------------------------- DE
+  - {market: DE, title: "Escape Room Erlebnis",
+     description: "Ein Rätselraum für eine kleine Gruppe. Gemeinsam Hinweise finden und den Raum verlassen.",
+     gloss_en: "A puzzle room for a small group. Find the clues together and leave the room."}
+  - {market: DE, title: "Kartbahn Rennen",
+     description: "Rennen mit dem Kart auf einer Kartbahn, mit Zeitmessung.",
+     gloss_en: "Kart racing on a kart track, timed."}
+  - {market: DE, title: "Stadtführung",
+     description: "Eine geführte Tour zu den wichtigsten Sehenswürdigkeiten der Stadt.",
+     gloss_en: "A guided tour of the city's main sights."}
+  - {market: DE, title: "Gesichtsbehandlung",
+     description: "Eine Behandlung für die Gesichtshaut: Reinigung und Pflege im Kosmetikstudio.",
+     gloss_en: "A treatment for facial skin: cleansing and care at a beauty salon."}
+  - {market: DE, title: "Haarschnitt & Styling",
+     description: "Haareschneiden mit Waschen und Styling im Friseursalon.",
+     gloss_en: "Haircut with washing and styling at a hair salon."}
+  - {market: DE, title: "Maniküre & Pediküre",
+     description: "Nagelpflege für Hände und Füße: Formen, Nagelhaut und Lack.",
+     gloss_en: "Nail care for hands and feet: shaping, cuticles and polish."}
+  - {market: DE, title: "3-Gänge-Menü für Zwei",
+     description: "Ein Drei-Gänge-Menü für zwei Personen im Restaurant.",
+     gloss_en: "A three-course menu for two people at a restaurant."}
+  - {market: DE, title: "Degustationsmenü",
+     description: "Ein mehrgängiges Degustationsmenü, zusammengestellt von der Küche.",
+     gloss_en: "A multi-course tasting menu put together by the kitchen."}
+  - {market: DE, title: "Dinner mit Weinbegleitung",
+     description: "Ein Abendessen im Restaurant, serviert mit passender Weinbegleitung.",
+     gloss_en: "A dinner at a restaurant, served with matched wine."}
+  - {market: DE, title: "Fitnessstudio Mitgliedschaft",
+     description: "Eine Mitgliedschaft mit Zugang zum Fitnessstudio und seinen Geräten.",
+     gloss_en: "A membership with access to the gym and its equipment."}
+  - {market: DE, title: "Personal Training Paket",
+     description: "Einzeltraining mit einem persönlichen Trainer, als Paket mehrerer Einheiten.",
+     gloss_en: "One-to-one training with a personal trainer, as a package of several sessions."}
+  - {market: DE, title: "Unbegrenzte Kurse",
+     description: "Unbegrenzter Zutritt zu den Gruppenkursen des Studios.",
+     gloss_en: "Unlimited entry to the studio's group classes. (Which classes is NOT stated — the catalogue does not say.)"}
+  - {market: DE, title: "Entspannungs-Behandlung im Spa",
+     description: "Eine entspannende Behandlung im Spa.",
+     gloss_en: "A relaxing treatment at a spa."}
+  - {market: DE, title: "Wellness-Massage Paket",
+     description: "Ein Paket mit mehreren Wellness-Massagen.",
+     gloss_en: "A package of several wellness massages."}
+  - {market: DE, title: "Wohlfühl-Massage",
+     description: "Eine Massage zum Wohlfühlen und Entspannen.",
+     gloss_en: "A massage for well-being and relaxation."}
+
+  # ---------------------------------------------------------------- ES
+  - {market: ES, title: "Experiencia Escape Room",
+     description: "Una sala de enigmas para un grupo pequeño. Encontrar las pistas juntos y salir de la sala.",
+     gloss_en: "A puzzle room for a small group. Find the clues together and leave the room."}
+  - {market: ES, title: "Sesión de Karting",
+     description: "Vueltas cronometradas en kart sobre un circuito.",
+     gloss_en: "Timed laps in a kart on a circuit."}
+  - {market: ES, title: "Tour Guiado",
+     description: "Una visita guiada a los principales lugares de interés de la ciudad.",
+     gloss_en: "A guided visit to the city's main points of interest."}
+  - {market: ES, title: "Tratamiento Facial",
+     description: "Un tratamiento para la piel del rostro: limpieza y cuidado en un centro de estética.",
+     gloss_en: "A treatment for facial skin: cleansing and care at a beauty centre."}
+  - {market: ES, title: "Corte y Peinado",
+     description: "Corte de pelo con lavado y peinado en la peluquería.",
+     gloss_en: "Haircut with washing and styling at the hair salon."}
+  - {market: ES, title: "Manicura y Pedicura",
+     description: "Cuidado de uñas de manos y pies: limado, cutículas y esmalte.",
+     gloss_en: "Nail care for hands and feet: filing, cuticles and polish."}
+  - {market: ES, title: "Menú de 3 Platos para Dos",
+     description: "Un menú de tres platos para dos personas en un restaurante.",
+     gloss_en: "A three-course menu for two people at a restaurant."}
+  - {market: ES, title: "Menú Degustación",
+     description: "Un menú degustación de varios platos elegido por la cocina.",
+     gloss_en: "A multi-course tasting menu chosen by the kitchen."}
+  - {market: ES, title: "Cena con Maridaje",
+     description: "Una cena en restaurante servida con maridaje de vinos.",
+     gloss_en: "A restaurant dinner served with a wine pairing."}
+  - {market: ES, title: "Pase de Gimnasio",
+     description: "Un pase con acceso al gimnasio y a sus máquinas.",
+     gloss_en: "A pass with access to the gym and its machines."}
+  - {market: ES, title: "Entrenamiento Personal",
+     description: "Entrenamiento individual con un entrenador personal, en sesiones.",
+     gloss_en: "Individual training with a personal trainer, in sessions."}
+  - {market: ES, title: "Clases Ilimitadas",
+     description: "Acceso ilimitado a las clases colectivas del centro.",
+     gloss_en: "Unlimited access to the centre's group classes. (Which classes is NOT stated.)"}
+  - {market: ES, title: "Circuito Spa con Masaje",
+     description: "Un circuito de spa acompañado de un masaje.",
+     gloss_en: "A spa circuit accompanied by a massage."}
+  - {market: ES, title: "Sesión de Masaje y Spa",
+     description: "Una sesión de masaje dentro de un spa.",
+     gloss_en: "A massage session within a spa."}
+  - {market: ES, title: "Tratamiento de Bienestar",
+     description: "Un tratamiento de bienestar para relajarse.",
+     gloss_en: "A wellness treatment for relaxation."}
+
+  # ---------------------------------------------------------------- FR
+  - {market: FR, title: "Expérience Escape Game",
+     description: "Une salle d'énigmes pour un petit groupe. Trouver les indices ensemble et sortir de la salle.",
+     gloss_en: "A puzzle room for a small group. Find the clues together and leave the room."}
+  - {market: FR, title: "Session Karting",
+     description: "Des tours chronométrés en kart sur un circuit.",
+     gloss_en: "Timed laps in a kart on a circuit."}
+  - {market: FR, title: "Visite Guidée",
+     description: "Une visite guidée des principaux sites de la ville.",
+     gloss_en: "A guided visit to the city's main sites."}
+  - {market: FR, title: "Soin du Visage",
+     description: "Un soin pour la peau du visage : nettoyage et soin en institut.",
+     gloss_en: "A treatment for facial skin: cleansing and care at a salon."}
+  - {market: FR, title: "Coupe & Coiffage",
+     description: "Une coupe de cheveux avec shampooing et coiffage en salon.",
+     gloss_en: "A haircut with shampoo and styling at a salon."}
+  - {market: FR, title: "Manucure & Pédicure",
+     description: "Soin des ongles des mains et des pieds : limage, cuticules et vernis.",
+     gloss_en: "Nail care for hands and feet: filing, cuticles and polish."}
+  - {market: FR, title: "Menu 3 Plats pour Deux",
+     description: "Un menu de trois plats pour deux personnes au restaurant.",
+     gloss_en: "A three-course menu for two people at a restaurant."}
+  - {market: FR, title: "Menu Dégustation",
+     description: "Un menu dégustation en plusieurs plats composé par la cuisine.",
+     gloss_en: "A multi-course tasting menu composed by the kitchen."}
+  - {market: FR, title: "Dîner avec Vin",
+     description: "Un dîner au restaurant servi avec du vin.",
+     gloss_en: "A restaurant dinner served with wine."}
+  - {market: FR, title: "Abonnement Salle de Sport",
+     description: "Un abonnement donnant accès à la salle de sport et à ses appareils.",
+     gloss_en: "A membership giving access to the gym and its equipment."}
+  - {market: FR, title: "Coaching Personnel",
+     description: "Un coaching individuel avec un entraîneur personnel, en séances.",
+     gloss_en: "Individual coaching with a personal trainer, in sessions."}
+  - {market: FR, title: "Cours Illimités",
+     description: "Accès illimité aux cours collectifs du club.",
+     gloss_en: "Unlimited access to the club's group classes. (Which classes is NOT stated.)"}
+  - {market: FR, title: "Forfait Massage Bien-être",
+     description: "Un forfait de plusieurs massages bien-être.",
+     gloss_en: "A package of several well-being massages."}
+  - {market: FR, title: "Modelage Détente",
+     description: "Un modelage relaxant du corps.",
+     gloss_en: "A relaxing body massage."}
+  - {market: FR, title: "Séance Spa Relaxante",
+     description: "Une séance de spa relaxante.",
+     gloss_en: "A relaxing spa session."}
+
+  # ---------------------------------------------------------------- GB
+  - {market: GB, title: "Escape Room Experience",
+     description: "A puzzle room for a small group. Find the clues together and get out of the room.",
+     gloss_en: "(same — GB descriptions are already English)"}
+  - {market: GB, title: "Go-Karting Session",
+     description: "Timed laps in a go-kart on a circuit.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Guided City Tour",
+     description: "A guided tour of the city's main sights, led by a guide.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Facial Treatment",
+     description: "A treatment for the skin of the face: cleansing and care at a salon.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Hair Styling & Cut",
+     description: "A haircut with washing and styling at a hair salon.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Manicure & Pedicure Package",
+     description: "Nail care for hands and feet: shaping, cuticles and polish.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Three-Course Meal for Two",
+     description: "A three-course meal for two people at a restaurant.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Tasting Menu for Two",
+     description: "A multi-course tasting menu for two, chosen by the kitchen.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Dinner & Wine Experience",
+     description: "Dinner at a restaurant served with wine.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Gym Membership Pass",
+     description: "A pass giving access to the gym and its equipment.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Personal Training Package",
+     description: "One-to-one sessions with a personal trainer, as a package.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Unlimited Fitness Classes",
+     description: "Unlimited entry to the club's group exercise classes.",
+     gloss_en: "(same — which classes is NOT stated, deliberately)"}
+  - {market: GB, title: "Full Body Massage Package",
+     description: "A package of full-body massage sessions.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Relaxing Wellness Session",
+     description: "A relaxing wellness session.",
+     gloss_en: "(same)"}
+  - {market: GB, title: "Spa & Massage Treatment",
+     description: "A spa treatment combined with a massage.",
+     gloss_en: "(same)"}
+
+  # ---------------------------------------------------------------- PL
+  - {market: PL, title: "Escape Room Przygoda",
+     description: "Pokój zagadek dla małej grupy. Wspólne szukanie wskazówek i wyjście z pokoju.",
+     gloss_en: "A puzzle room for a small group. Searching for clues together and leaving the room."}
+  - {market: PL, title: "Tor Kartingowy",
+     description: "Przejazdy gokartem na torze kartingowym, na czas.",
+     gloss_en: "Go-kart runs on a karting track, timed."}
+  - {market: PL, title: "Zwiedzanie z Przewodnikiem",
+     description: "Zwiedzanie najważniejszych miejsc w mieście z przewodnikiem.",
+     gloss_en: "Sightseeing of the city's main places with a guide."}
+  - {market: PL, title: "Zabieg na Twarz",
+     description: "Zabieg pielęgnacyjny na skórę twarzy: oczyszczanie i pielęgnacja w gabinecie.",
+     gloss_en: "A care treatment for facial skin: cleansing and care at a salon."}
+  - {market: PL, title: "Strzyżenie i Stylizacja",
+     description: "Strzyżenie włosów z myciem i stylizacją w salonie fryzjerskim.",
+     gloss_en: "Haircut with washing and styling at a hair salon."}
+  - {market: PL, title: "Manicure i Pedicure",
+     description: "Pielęgnacja paznokci dłoni i stóp: opiłowanie, skórki i lakier.",
+     gloss_en: "Nail care for hands and feet: filing, cuticles and polish."}
+  - {market: PL, title: "Menu 3-Daniowe dla Dwojga",
+     description: "Menu z trzech dań dla dwóch osób w restauracji.",
+     gloss_en: "A three-course menu for two people at a restaurant."}
+  - {market: PL, title: "Menu Degustacyjne",
+     description: "Wielodaniowe menu degustacyjne skomponowane przez kuchnię.",
+     gloss_en: "A multi-course tasting menu composed by the kitchen."}
+  - {market: PL, title: "Kolacja z Winem",
+     description: "Kolacja w restauracji serwowana z winem.",
+     gloss_en: "A restaurant dinner served with wine."}
+  - {market: PL, title: "Karnet na Siłownię",
+     description: "Karnet z dostępem do siłowni i jej sprzętu.",
+     gloss_en: "A pass with access to the gym and its equipment."}
+  - {market: PL, title: "Trening Personalny",
+     description: "Trening indywidualny z trenerem personalnym, w formie sesji.",
+     gloss_en: "Individual training with a personal trainer, in sessions."}
+  - {market: PL, title: "Zajęcia bez Limitu",
+     description: "Nieograniczony dostęp do zajęć grupowych w klubie.",
+     gloss_en: "Unlimited access to the club's group classes. (Which classes is NOT stated.)"}
+  - {market: PL, title: "Masaż Relaksacyjny Pakiet",
+     description: "Pakiet kilku masaży relaksacyjnych.",
+     gloss_en: "A package of several relaxing massages."}
+  - {market: PL, title: "Sesja Wellness",
+     description: "Sesja wellness z zabiegiem relaksacyjnym.",
+     gloss_en: "A wellness session with a relaxing treatment."}
+  - {market: PL, title: "Zabieg Spa i Masaż",
+     description: "Zabieg spa połączony z masażem.",
+     gloss_en: "A spa treatment combined with a massage."}

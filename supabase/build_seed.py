@@ -12,13 +12,11 @@ figure living inside a derived one (the 11.5 -> 11.4 -> 299 episode). A generate
 seed cannot drift from the analysis; a typed one silently can.
 
 WHAT THIS DOES *NOT* SEED, deliberately:
-  services.description   Hand-written, 75 lines, D2. LLM enrichment could write
-                         "adrenaline, thrills" onto the activities deals, collapse
-                         F4 into F1, and make the central finding an artifact of
-                         generated text. A separate committed file fills these.
-  services.doc           Built from title + categories + description, so it waits
-                         on the descriptions.
   service_embeddings     Precomputed offline (SPEC §6). Loaded by its own step.
+
+Descriptions come from supabase/service_descriptions.yaml (hand-written, D2) and
+are GATED: this script aborts if check_descriptions.py fails, so a description
+naming an absent or plausible concept can never reach the database.
 
 Sources, all of them already in the repo:
   docs/brief/deals.csv                            -> cities, deals, services
@@ -29,9 +27,12 @@ Sources, all of them already in the repo:
 import contextlib
 import importlib.util
 import io
+import subprocess
+import sys
 from pathlib import Path
 
 import pandas as pd
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 BRIEF = ROOT / "docs" / "brief"
@@ -96,13 +97,31 @@ dcols = ["deal_id", "market", "city", "title", "category_l1", "category_l2",
          "price_usd", "rating", "num_ratings", "is_bookable"]
 emit("deals", dcols, deals[dcols].itertuples(index=False))
 
-# -- services: the 75 distinct (market, title). description/doc stay null. ----
+# -- services: the 75 distinct (market, title), with descriptions and docs ----
 # Verified against deals.csv: no title crosses a market and title -> category is
 # 1:1, so this drop_duplicates cannot silently merge two different meanings.
 svc = (deals[["market", "title", "category_l1", "category_l2"]]
        .drop_duplicates().sort_values(["market", "title"]))
 assert svc.groupby(["market", "title"]).ngroups == len(svc), "title -> category is not 1:1"
-emit("services", ["market", "title", "category_l1", "category_l2"], svc.itertuples(index=False))
+
+# D2 IS ENFORCED HERE, NOT ASSUMED. check_descriptions.py derives its forbidden
+# list from classify.py's CONCEPTS and fails on any description naming an ABSENT
+# or PLAUSIBLE concept. Running it as a hard gate means a bad description cannot
+# reach the database even if someone edits the YAML and forgets to check.
+_check = subprocess.run([sys.executable, str(ROOT / "supabase" / "check_descriptions.py")],
+                        capture_output=True, text=True)
+if _check.returncode != 0:
+    sys.exit("ABORT — check_descriptions.py failed, so no seed was written:\n" + _check.stdout)
+
+desc = {(r["market"], r["title"]): r["description"]
+        for r in yaml.safe_load((ROOT / "supabase" / "service_descriptions.yaml").read_text())["services"]}
+
+# THE EMBEDDED STRING. D-A: no city, no market token — those are structured
+# filters and belong in a WHERE clause, not in the vector. `doc` is stored
+# verbatim so the staff panel can show exactly what was matched.
+svc_rows = [(m, t, l1, l2, desc[(m, t)], f"{t} · {l1} · {l2} · {desc[(m, t)]}")
+            for m, t, l1, l2 in svc.itertuples(index=False)]
+emit("services", ["market", "title", "category_l1", "category_l2", "description", "doc"], svc_rows)
 
 # -- service_concepts: THE JOIN PATH the cross-city gate needs ----------------
 # Derived by RUNNING STOCK_TITLE's regexes, not by retyping them.
