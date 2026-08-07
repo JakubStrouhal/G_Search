@@ -57,7 +57,7 @@ for bad in ("http://", "https://", "cdn.", "<link "):
 # on anything not explicitly allowed.
 # ---------------------------------------------------------------------------
 ALLOWED_NUMERIC = {
-    "1", "2", "3", "4", "5",          # chapter numbers, in headings and cross-references
+    "1", "2", "3", "4", "5", "6", "1–4",   # chapter numbers, in headings and cross-references
     "1–2", "4+",                      # the result bands, which are names rather than measurements
     "0%",                             # the "converts at 0%" floor, definitionally exact
     "29944",                          # the requisition ID in the eyebrow

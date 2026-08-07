@@ -20,9 +20,13 @@ jobs:
         with:
           node-version: '22.16'
           cache: npm
-          cache-dependency-path: web/app/package-lock.json
+          cache-dependency-path: |
+            package-lock.json
+            web/app/package-lock.json
 
-      # `npm ci` hard-fails if package-lock.json is out of sync with package.json.
+      # `npm ci` hard-fails if either package-lock.json is out of sync. The root one
+      # carries middleware.ts's dependency; Vercel installs both the same way.
+      - run: npm ci
       - run: npm --prefix web/app ci
 
       # `prebuild` runs web/app/scripts/copy-explainer.mjs, which reads

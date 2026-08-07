@@ -813,6 +813,32 @@ rows = idx[cols].replace({np.nan: None}).to_dict("records")
 for r in rows:  # trim float noise; the explainer formats to 1dp anyway
     r["dead_rate"] = round(float(r["dead_rate"]), 4)
     r["zero_rate"] = round(float(r["zero_rate"]), 4)
+# %% [markdown]
+# ## Chapter 5 — we built it, and it answered a question the data could not
+#
+# Chapters 1–4 are the supplied CSVs and they stop at a diagnosis. §5f can say *where* the answer
+# was; it cannot say whether a system could ever have **known**. The log records `results_shown` as
+# a bare count with no query→deal mapping, so nothing in it tests detectability.
+#
+# The prototype does. These figures come from `008-threshold-sweep/outputs/summary.json`, generated
+# by `sweep.py` against the same 751 labelled pairs Part A produced — not re-derived here.
+
+# %%
+import json as _json
+_sum = _json.loads((ROOT / "docs" / "analysis" / "008-threshold-sweep" /
+                    "outputs" / "summary.json").read_text())
+STORY["prototype"] = _sum
+
+print("CHAPTER 5 — the prototype's own result")
+print(f"  separability AUC : {_sum['auc_all']:.3f} over all {_sum['n_pairs']} labelled pairs")
+print(f"                     {_sum['auc_confident']:.3f} over the {_sum['confident_pairs']} confident "
+      f"labels ({_sum['confident_volume_share']:.1%} of search volume)")
+print(f"  at LOW={_sum['low']}: false-confident {_sum['fc_searches']:.1%} / "
+      f"false-abstain {_sum['fa_searches']:.1%}, by search volume")
+print(f"  {_sum['fc_on_thin']} of {_sum['fc_total']} false-confidents sit on weak labels")
+for b in _sum["language_bridging"]["bands"]:
+    print(f"  language fix {b['band']:8}: {b['share']:.1%} of English-side dead ends")
+
 STORY["queries"] = rows
 # The result-count gap, computed rather than described as "0, 1, 2 then jumps to 4".
 _seen = set(searches.results_shown.unique())

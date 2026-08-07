@@ -1,0 +1,99 @@
+market,q,coverage,failure_class,searches,deads,thin_n,max_sim,nearest_title
+GB,indian restaurrant,plausible,BASELINE_still_40pct_dead,1,0,True,0.138515738116129,Facial Treatment
+GB,sark diving,stocked,F5_ranking,1,1,True,0.165774365159823,Escape Room Experience
+GB,skyiving,stocked,F5_ranking,1,1,True,0.165961211599148,Guided City Tour
+GB,crrossfit,plausible,BASELINE_still_40pct_dead,1,0,True,0.168379584284613,Go-Karting Session
+GB,deep tissue masssage,stocked,F5_ranking,1,1,True,0.169391274452209,Full Body Massage Package
+GB,skydiiving,stocked,F5_ranking,1,1,True,0.177463045507114,Guided City Tour
+DE,thai masage,stocked,BASELINE_still_40pct_dead,1,0,True,0.192025838124374,Stadtführung
+DE,hare färben,stocked,BASELINE_still_40pct_dead,1,0,True,0.1938356854328,Maniküre & Pediküre
+GB,shaark diving,stocked,F5_ranking,1,1,True,0.194997775404254,Escape Room Experience
+GB,deep tissue mssage,stocked,F5_ranking,1,1,True,0.19985423982144,Facial Treatment
+FR,massge duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.213474423031759,Menu 3 Plats pour Deux
+GB,deep tissue aassage,stocked,F5_ranking,1,1,True,0.223041556919746,Facial Treatment
+ES,crrossfit,plausible,F2_language,1,1,True,0.238254319902115,Sesión de Karting
+ES,masaje tailanddes,stocked,BASELINE_still_40pct_dead,1,0,True,0.240387994224429,Tour Guiado
+GB,skyddiving,stocked,F5_ranking,1,1,True,0.245585233499382,Facial Treatment
+FR,crossfit,plausible,F3_geographic,59,27,False,0.246733970064127,Session Karting
+DE,italiener,plausible,BASELINE_still_40pct_dead,53,18,False,0.247126045241082,Stadtführung
+FR,massag duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.251926466707852,Menu 3 Plats pour Deux
+GB,pilates,plausible,BASELINE_still_40pct_dead,72,27,False,0.251929521790714,Three-Course Meal for Two
+DE,crrossfit,plausible,F2_language,1,1,True,0.253716408320394,Maniküre & Pediküre
+FR,massaage thai,stocked,BASELINE_still_40pct_dead,1,0,True,0.253955567632926,Visite Guidée
+DE,crossfit,plausible,F5_ranking,62,28,False,0.254326383496944,Maniküre & Pediküre
+ES,masaje tailandees,stocked,F5_ranking,1,1,True,0.256507457854149,Cena con Maridaje
+PL,gokarty,stocked,BASELINE_still_40pct_dead,29,10,False,0.261386378920891,Tor Kartingowy
+FR,pizza deal,plausible,F2_language,6,6,True,0.267262184673233,Menu 3 Plats pour Deux
+FR,mssage thai,stocked,F5_ranking,1,1,True,0.268018449682313,Visite Guidée
+FR,masage thai,stocked,F5_ranking,1,1,True,0.268452931568501,Visite Guidée
+GB,crossfit,plausible,BASELINE_still_40pct_dead,84,30,False,0.26975549209381,Go-Karting Session
+ES,maaje descontracturante,stocked,BASELINE_still_40pct_dead,1,0,True,0.27068780912292,Tour Guiado
+GB,pizza deal,plausible,BASELINE_still_40pct_dead,86,34,False,0.272769535161211,Three-Course Meal for Two
+PL,resturacja włoska,plausible,BASELINE_still_40pct_dead,1,0,True,0.272895514909924,Kolacja z Winem
+FR,massaue duo,stocked,BASELINE_still_40pct_dead,1,0,True,0.274843449131648,Menu 3 Plats pour Deux
+ES,pizza deal,plausible,F2_language,4,4,True,0.278204737527232,Menú de 3 Platos para Dos
+GB,crossfiit,plausible,F5_ranking,1,1,True,0.278243245502585,Go-Karting Session
+ES,masaje tailandes,stocked,F5_ranking,73,35,False,0.279066048387373,Cena con Maridaje
+GB,steakidinner,plausible,BASELINE_still_40pct_dead,1,0,True,0.280425012898451,Dinner & Wine Experience
+PL,restaracja włoska,plausible,F5_ranking,1,1,True,0.283024941412368,Kolacja z Winem
+ES,masaje espalda,stocked,BASELINE_still_40pct_dead,67,19,False,0.286651048671457,Manicura y Pedicura
+ES,crossfiit,plausible,F2_language,1,1,True,0.300051438796254,Sesión de Karting
+PL,crossfit,plausible,F5_ranking,22,13,False,0.301542970860077,Karnet na Siłownię
+FR,masage dos,stocked,F5_ranking,1,1,True,0.306417202790069,Dîner avec Vin
+DE,steakhaaus,plausible,BASELINE_still_40pct_dead,1,0,True,0.307302236557042,Maniküre & Pediküre
+ES,paaracaidismo,stocked,F5_ranking,1,1,True,0.310029484037102,Clases Ilimitadas
+FR,massae dos,stocked,F5_ranking,1,1,True,0.310344677547004,Menu 3 Plats pour Deux
+ES,crossfit,plausible,BASELINE_still_40pct_dead,72,31,False,0.311953823785609,Pase de Gimnasio
+ES,masaje descontracturante,stocked,BASELINE_still_40pct_dead,69,25,False,0.312065579152552,Sesión de Karting
+DE,pizza deal,plausible,F2_language,3,2,True,0.317002917916427,3-Gänge-Menü für Zwei
+FR,massaage dos,stocked,BASELINE_still_40pct_dead,1,0,True,0.319203991172321,Menu 3 Plats pour Deux
+ES,tapas,plausible,F3_geographic,40,20,False,0.32288234248934,Sesión de Karting
+FR,masssage dos,stocked,F5_ranking,1,1,True,0.323593679573433,Menu 3 Plats pour Deux
+PL,joga,plausible,BASELINE_still_40pct_dead,23,9,False,0.326239180269439,Tor Kartingowy
+GB,pizza del,plausible,F5_ranking,2,1,True,0.329274793224072,Three-Course Meal for Two
+GB,steak inner,plausible,BASELINE_still_40pct_dead,2,0,True,0.330908903100168,Three-Course Meal for Two
+FR,masuage dos,stocked,BASELINE_still_40pct_dead,1,0,True,0.332008539801263,Manucure & Pédicure
+ES,manicura,stocked,F3_geographic,45,21,False,0.33377177506167,Manicura y Pedicura
+PL,pizza deal,plausible,F2_language,5,4,True,0.336749583788288,Menu 3-Daniowe dla Dwojga
+FR,burger,plausible,F3_geographic,39,19,False,0.343675917970114,Menu 3 Plats pour Deux
+GB,steak ddinner,plausible,F5_ranking,1,1,True,0.347082805285828,Three-Course Meal for Two
+FR,pilates,plausible,BASELINE_still_40pct_dead,56,19,False,0.348804453757381,Visite Guidée
+ES,masaje esoalda,stocked,BASELINE_still_40pct_dead,1,0,True,0.34991489491442,Cena con Maridaje
+GB,pizza deel,plausible,BASELINE_still_40pct_dead,1,0,True,0.352562387019344,Three-Course Meal for Two
+FR,coloration,stocked,BASELINE_still_40pct_dead,53,22,False,0.353570748440228,Soin du Visage
+ES,pilates,plausible,F5_ranking,70,32,False,0.355414813186963,Sesión de Karting
+PL,burger,plausible,BASELINE_still_40pct_dead,25,11,False,0.355635943651364,Menu 3-Daniowe dla Dwojga
+FR,restaurunt italien,plausible,F5_ranking,1,1,True,0.355719873561983,Dîner avec Vin
+ES,tinte elo,stocked,BASELINE_still_40pct_dead,1,0,True,0.358309150228765,Corte y Peinado
+DE,haaare färben,stocked,BASELINE_still_40pct_dead,1,0,True,0.361710433634441,Maniküre & Pediküre
+ES,hamburguesa,plausible,BASELINE_still_40pct_dead,52,20,False,0.361977556721538,Menú de 3 Platos para Dos
+PL,masażtajski,stocked,BASELINE_still_40pct_dead,1,0,True,0.362562564030346,Zabieg Spa i Masaż
+DE,paarmassge,stocked,BASELINE_still_40pct_dead,1,0,True,0.368025823596242,Maniküre & Pediküre
+DE,nackenmasage,stocked,BASELINE_still_40pct_dead,1,0,True,0.368655414901967,Maniküre & Pediküre
+DE,paarmessage,stocked,BASELINE_still_40pct_dead,1,0,True,0.369233368912369,Kartbahn Rennen
+ES,peloqueria,stocked,BASELINE_still_40pct_dead,1,0,True,0.376418486068496,Cena con Maridaje
+ES,masaje enn pareja,stocked,BASELINE_still_40pct_dead,1,0,True,0.37735993288526,Sesión de Masaje y Spa
+DE,rückenmassuge,stocked,F5_ranking,1,1,True,0.380495427442826,Kartbahn Rennen
+DE,pilates,plausible,F5_ranking,51,23,False,0.380629740991014,Maniküre & Pediküre
+ES,arroceria,plausible,BASELINE_still_40pct_dead,54,23,False,0.38284197380977,Cena con Maridaje
+ES,escape reom,stocked,BASELINE_still_40pct_dead,1,0,True,0.387545260797845,Experiencia Escape Room
+GB,escpe room,stocked,F5_ranking,2,1,True,0.389240933747316,Escape Room Experience
+DE,go karting,stocked,F2_language,5,4,True,0.390143169024534,Kartbahn Rennen
+ES,musaje descontracturante,stocked,F5_ranking,1,1,True,0.392860675496403,Experiencia Escape Room
+DE,gesichtsbehndlung,stocked,BASELINE_still_40pct_dead,1,0,True,0.395191731934732,Wohlfühl-Massage
+DE,burger,plausible,BASELINE_still_40pct_dead,53,15,False,0.397334695259536,3-Gänge-Menü für Zwei
+PL,koloryzacja,stocked,F5_ranking,29,14,False,0.400016134983596,Strzyżenie i Stylizacja
+DE,gesichtsbehandlunng,stocked,F5_ranking,1,1,True,0.401077627172208,Wohlfühl-Massage
+GB,brunch,plausible,BASELINE_still_40pct_dead,76,31,False,0.402761971785991,Three-Course Meal for Two
+PL,pizzeria,plausible,BASELINE_still_40pct_dead,22,7,False,0.404881160869532,Menu 3-Daniowe dla Dwojga
+DE,steakhaus,plausible,BASELINE_still_40pct_dead,45,20,False,0.406380293852004,Dinner mit Weinbegleitung
+PL,pilates,plausible,BASELINE_still_40pct_dead,34,14,False,0.408801338958424,Tor Kartingowy
+FR,brunch,plausible,BASELINE_still_40pct_dead,57,21,False,0.410756711418597,Menu 3 Plats pour Deux
+ES,masajeeen pareja,stocked,F5_ranking,1,1,True,0.415938528767009,Circuito Spa con Masaje
+ES,masaje espallda,stocked,BASELINE_still_40pct_dead,1,0,True,0.416079645180603,Circuito Spa con Masaje
+FR,karting,stocked,BASELINE_still_40pct_dead,60,25,False,0.417394255294819,Session Karting
+ES,masaje tailanees,stocked,F5_ranking,1,1,True,0.42836183719064,Cena con Maridaje
+ES,masaje en paareja,stocked,F5_ranking,1,1,True,0.431937055828203,Corte y Peinado
+GB,inddian restaurant,stocked,BASELINE_still_40pct_dead,1,0,True,0.432707947604557,Three-Course Meal for Two
+ES,brunch,plausible,F3_geographic,64,32,False,0.436150254106292,Menú Degustación
+GB,steak dinneer,plausible,F5_ranking,1,1,True,0.436338197093684,Three-Course Meal for Two

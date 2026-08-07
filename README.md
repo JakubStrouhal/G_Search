@@ -61,6 +61,11 @@ web/app/          Vue 3 + Vite + TS front end. web/mock/ is the static state gal
                   that settled the design decisions — not the app.
 INDEX.md          Status, queue, defects, decisions.
 CLAUDE.md         Operating instructions for the AI agents used to build this.
+middleware.ts     The deployment's password gate. Runs on Vercel before the CDN, on
+                  every route, so the static explainer is covered too. Not run locally.
+package.json      Repo root, and it holds one dependency only: @vercel/functions, for
+                  middleware.ts. Vercel resolves middleware next to it. The app's own
+                  package.json is web/app/package.json and is unrelated.
 ```
 
 Parts A/B/C map to `docs/analysis/FINDINGS.md`, the prototype (`supabase/` +
@@ -76,7 +81,9 @@ branch → PR to main → GitHub Actions build gate → merge → Vercel builds 
 ```
 
 **What is automated.** `.github/workflows/ci.yml` runs on every PR to `main` and every
-push to `main`: `npm --prefix web/app ci` then `npm --prefix web/app run build`. That
+push to `main`: `npm ci` at the root (middleware's one dependency), `npm --prefix web/app ci`,
+then `npm --prefix web/app run build` — the same two-part install `vercel.json` runs, so CI
+cannot pass on a tree Vercel fails to build. That
 build is `vue-tsc -b && vite build`, so type errors fail the gate; there is no separate
 typecheck job and no test job, because there are no tests. Vercel deploys the front end
 through its own Git integration — a preview per PR, production on `main`. The only
@@ -84,6 +91,35 @@ repo-side Vercel config is `vercel.json`, and it builds **from the repo root**, 
 `web/app`: `prebuild` runs `web/app/scripts/copy-explainer.mjs`, which reads
 `docs/analysis/004-data-story/outputs/explainer.html` from outside the app folder. Setting
 Vercel's Root Directory to `web/app` breaks that silently — leave it at the repo root.
+
+**Password-gated.** The deployment is private: `middleware.ts` at the repo root returns **401
+and a login form on every path** — the app shell, the hashed assets, and `explainer.html` alike
+— until a cookie signed with the password is presented. It runs on Vercel's edge, ahead of the
+CDN, which is the only place a request for a cached static file is visible at all; a gate inside
+the Vue app would leave `explainer.html` served straight off the CDN beside it.
+
+`SITE_PASSWORD` **must be set per environment** — preview and production are separate scopes, and
+a variable set on one is not set on the other. It carries **no `VITE_` prefix**, deliberately:
+anything `VITE_`-prefixed is inlined into the browser bundle. **With the variable unset the
+deployment serves 503 on every path** and never falls through to the site — a gate that opens when
+misconfigured is not a gate. Rotating the password invalidates every cookie already handed out,
+because the cookie's signing key is derived from it. `npm run dev` is ungated: Vite does not run
+Vercel middleware, so the gate is a property of the deployment, not of the code under it.
+
+```bash
+npx vercel env add SITE_PASSWORD preview
+npx vercel env add SITE_PASSWORD production
+```
+
+**Write the passphrase down before you type it.** The Vercel CLI marks new variables **sensitive by
+default on Production and Preview** (`vercel env add --no-sensitive` is the opt-out, and its own
+help says that flag is what keeps the "value remains readable later"). A sensitive variable cannot
+be read back — if it is lost, the only route is `vercel env update`, which rotates it and, by
+design, logs everyone out.
+
+Design and limits: `docs/analysis/009-access-gate/SPEC.md`. There is no rate limiting and no
+audit trail — one shared password, so **use a four-word passphrase**; entropy is the only
+brute-force control this design has.
 
 **Not indexed.** `vercel.json` serves `X-Robots-Tag: noindex, nofollow` on every path. This is a
 hiring deliverable carrying Groupon's name and a critique of Groupon's search, sitting on a
@@ -106,7 +142,7 @@ npx supabase db push                    # review the diff it prints before confi
 
 | Where | What |
 |---|---|
-| Vercel | connect `JakubStrouhal/G_Search`; Root Directory = repo root; env `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY` |
+| Vercel | connect `JakubStrouhal/G_Search`; Root Directory = repo root; env `VITE_SUPABASE_URL` + `VITE_SUPABASE_PUBLISHABLE_KEY`, and `SITE_PASSWORD` **on preview and production separately** |
 | Supabase | create the remote project; take the ref and the **publishable** key from its API settings |
 
 The browser gets the publishable key only — never the legacy anon key, never the secret
