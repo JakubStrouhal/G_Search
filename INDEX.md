@@ -40,12 +40,15 @@ injected into every new session by the `SessionStart` hook.
 - **Remote drift is real and recurring — check it, do not assume it.** `supabase/` migration 3
   (`query_embeddings`) is **NOT APPLIED** on `ewknlggenhrlftdukwme`, and the remote carries the *old*
   seed: 0 descriptions, 0 embeddings. Remote writes belong to the owner, so they lag by design.
-- **The access gate is written but the deployment is unguarded until the owner acts** (item 9.0,
-  `009-access-gate/RESULT.md`). `middleware.ts` and the two-part install are committed and the four
-  local criteria pass, but **nothing has been deployed, so the gate is unproven** — and until
-  `SITE_PASSWORD` is set on **both** preview and production, the first deploy that picks the
-  middleware up serves **503 on every path**, by design. Owner: preview with no variable (criterion
-  14), then set it, redeploy, run 4–13 and 16, promote, run 15.
+- **The access gate is written, the password is set, and the site is still WIDE OPEN** (item 9.0,
+  `009-access-gate/RESULT.md`). `SITE_PASSWORD` was added on preview and production 2026-08-07, but
+  **`middleware.ts`, `package.json` and `package-lock.json` are still untracked** — commit 960b328
+  swept in the 009 docs and left the code. Vercel builds what is *pushed*, so the running deployment
+  contains no gate and the variable is inert. **Nothing protects anything until those three files
+  are committed, pushed and deployed.** Then: preview → criteria 4–13 and 16 → promote → 15.
+  **Criterion 14 has been made awkward** — it needs a preview with the variable *unset*, which now
+  costs a `vercel env rm` on preview and one extra deploy. The 503 branch is verified locally
+  (unset *and* empty) but never on a deployment.
 - **Deliberately not doing:** any more Part A hardening.
 <!-- state:end -->
 

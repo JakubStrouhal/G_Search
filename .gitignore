@@ -46,3 +46,4 @@ web/app/public/explainer.html
 # everyone permanently. `.claude/hooks/codex-interview.sh` reads it.
 .claude/codex-review.disabled
 .vercel
+.env*

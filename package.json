@@ -1,0 +1,9 @@
+{
+  "name": "g-demo",
+  "private": true,
+  "type": "module",
+  "description": "Repo root. Exists so Vercel resolves middleware.ts and its one dependency; the application lives in web/app.",
+  "dependencies": {
+    "@vercel/functions": "^3.8.0"
+  }
+}
