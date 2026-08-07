@@ -1,7 +1,7 @@
 ---
 created: 2026-08-06
 updated: 2026-08-06
-note: Corrected the query_classes.csv pair count (755 → 751, which the §5d class table had always summed to) and consolidated twelve scattered retraction narratives — three moved out of PLAN.md — into one dated Corrections register (§9); deleted §6 and §7 and rebuilt §8 from a table of copied numbers into a table of quoting rules, since copying is what produced the 755 drift.
+note: Split §1's missing-3s entry so F5's withdrawal rests on this file alone and only the generator diagnosis stays live-tagged; added the §5f price-gate test (a >$100 cross-city gate reaches 2.88% generously, 0.38% strictly, because the concepts worth travelling for have zero deals). Earlier: corrected the query_classes.csv pair count (755 → 751, which the §5d class table had always summed to) and consolidated twelve scattered retraction narratives — three moved out of PLAN.md — into one dated Corrections register (§9); deleted §6 and §7 and rebuilt §8 from a table of copied numbers into a table of quoting rules, since copying is what produced the 755 drift.
 ---
 
 # Groupon case study R29944 — verified findings handoff
@@ -567,6 +567,26 @@ search. Do not present it as evidence that cross-city inventory is a small probl
 at real Groupon. Its composition is also *not* a travel story: hair 62, karting 21,
 gym 18, personaltrain 17, facial 13, nails 10. Nobody drives to the next city for a
 haircut.
+
+VERIFIED 2026-08-06 — **price-gating the cross-city offer does not rescue it.** The
+proposal was to show the trip only when the answering deal is expensive enough to
+justify it (>$100). Script: `006-one-page/price_gate.py`, which imports
+`classify.py`'s `STOCK_TITLE` rather than restating it.
+
+| gate | dead ends | share of all 4,720 |
+|---|---|---|
+| `another_city` at all | 145 | 3.07% |
+| ≥1 answering deal > $100 (generous) | **136** | **2.88%** |
+| median answering deal > $100 (strict) | **18** | **0.38%** |
+
+Composition is unchanged by the gate — the generous 136 are largely $100+ hair
+packages and gym memberships. **The reason the rule cannot pay off here is itself
+the finding: the catalogue's price ceiling is $179.46, and the concepts whose price
+would justify a trip — skydiving, helicopter, ballooning — have zero deals.** The
+things worth travelling for are exactly the things this catalogue does not stock.
+INFERRED, for Part C: the rule is sound *in production*, where live Groupon stocks
+helicopter tours at 10–18 per city (§5e) — so it ships as a recommendation with the
+threshold named, never as a prototype screen sized from this data.
 
 **Two errors of opposite sign, stated rather than netted.** Concept-granularity
 title matching **inflates `same_city`** (a "Spa & Massage Treatment" counts as the
