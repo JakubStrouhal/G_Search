@@ -49,6 +49,12 @@ injected into every new session by the `SessionStart` hook.
   **Criterion 14 has been made awkward** — it needs a preview with the variable *unset*, which now
   costs a `vercel env rm` on preview and one extra deploy. The 503 branch is verified locally
   (unset *and* empty) but never on a deployment.
+- **G8 is blocked, and it is the owner's next action.** PR #2's preview returns **302 to
+  `vercel.com/sso-api` on every path** — Vercel Authentication is on by default for previews and
+  intercepts *ahead of* middleware, so the gate never runs and criteria 4–13/16 cannot be executed
+  there. **Turn it off for Preview** (Project Settings → Deployment Protection) or the only place
+  the gate can be verified is production, which is what G8 exists to avoid. Measured 2026-08-07:
+  **production is public — `/explainer.html` → 200, `x-vercel-cache: HIT`, 354,528 bytes.**
 - **Deliberately not doing:** any more Part A hardening.
 <!-- state:end -->
 

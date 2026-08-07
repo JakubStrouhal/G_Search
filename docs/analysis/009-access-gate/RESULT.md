@@ -155,6 +155,29 @@ default on Production and Preview", where the non-sensitive value "remains reada
 rotates it — and under G4 that logs out everyone already holding a cookie. Recorded in README
 § Deploy.
 
+**G8 is blocked: the preview cannot be used to verify the gate.** Measured on the PR #2 preview
+(`g-demo-kk1fpxbmz-…`) once CI went green: every path — `/`, `/explainer.html`,
+`/assets/index-D0lzT80O.js`, `/favicon.svg`, `/icons.svg` — returns **302 to
+`vercel.com/sso-api`**, not 401. **Vercel Authentication is on by default for preview
+deployments and intercepts ahead of middleware**, so `middleware.ts` never runs and criteria 4–13
+and 16 cannot be executed there. The spec's whole verification plan rests on G8 — "preview, then
+re-verify production" — and this is the thing that breaks it. **The owner must turn Vercel
+Authentication off for Preview** (Project Settings → Deployment Protection) or use a protection
+bypass token; otherwise the only place the gate can be verified is production, which is exactly
+what G8 was written to avoid. Worth noting the irony: this is `BRIEF.md` option 2, the one rejected
+for producing a token in a URL — it is switched on, and it is what stands in the way.
+
+**Production is public right now, and that is the finding the gate exists for, measured rather than
+asserted.** `curl https://g-demo-six.vercel.app/explainer.html` → **200**, `x-vercel-cache: HIT`,
+`content-length: 354528`. A logged-out request gets the deliverable straight off the CDN. The
+`HIT` is the proof that no application-layer check could have stopped it.
+
+That `354528` also confirms the criterion 11 correction from the other direction: production is
+still serving the **old** build, which is where the spec's constant came from. The merge rebuilds
+it from 004's regenerated output and it becomes **361,602**. So criterion 11 would have failed on
+the first gated production deploy, and the cause would have looked like the gate transforming the
+deliverable.
+
 **A second gap in criterion 13, in the same category as `GET /__gate`.** `safeNext` rejects
 `//example.com` but accepts **`/\example.com`**: browsers normalise `\` to `/` in the path of a
 special scheme, so that `Location` resolves off-origin. Criterion 13's three values do not cover it.
