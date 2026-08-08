@@ -895,6 +895,15 @@ input,select,button{font-family:inherit}
     <h2 style="font-size:32px;line-height:38px;letter-spacing:-.015em">Try the working version</h2>
     <p>Chapter 4 replays the logged set from this file with the network off. That constraint is deliberate — this page has to open from a laptop with the wifi down — and it is why the replay is a lookup rather than a search.</p>
     <p>The prototype is the other one. Same argument, real retrieval, its own page: it handles every query class this analysis found, <strong style="font-weight:800">including the ones nothing can fix</strong>, which is the part Groupon&rsquo;s current UI has no design for.</p>
+
+    <!-- The doors sit directly under the heading, not at the foot of the card below. The hero
+         button lands a reader here; anything between that landing and the thing it promised is
+         a reader deciding whether to keep scrolling for a link they were already sent to find. -->
+    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
+      <a href="/app#prototype" style="height:38px;display:inline-flex;align-items:center;padding:0 24px;border-radius:999px;background:#017c1f;border:1px solid #017c1f;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none" class="hv3">Open the prototype</a>
+      <a href="/api" style="height:38px;display:inline-flex;align-items:center;padding:0 22px;border-radius:999px;border:1px solid #111827;color:#111827;font-size:13px;font-weight:700;text-decoration:none" class="hv1">The API, live &rarr;</a>
+    </div>
+    <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:19px;color:#70747d">opens /app#prototype — the same page the Part B card on <a href="/app">the index</a> links to; /api is the same backend, documented by its own schema. both need a network and a migrated database; this page needs neither.</span>
   </div>
 
   <div style="max-width:900px;margin:32px auto 0;border:1px solid #c0c5cf;border-radius:16px;padding:32px 28px;display:flex;flex-direction:column;gap:28px;position:relative">
@@ -923,12 +932,6 @@ input,select,button{font-family:inherit}
       <span style="font-size:16px;line-height:25px;color:#414652"><!-- HAND-MAINTAINED. Owner task O-one landed: the hosted database carries every migration,
      the seeds and the embeddings, verified by direct query before this paragraph was rewritten.
      If the hosted stack ever breaks, the honest move is to say so here, not to soften it. --><span id="demo-status">The prototype is built and it runs — hosted, behind this button. It handles every query class this analysis found — <strong style="font-weight:800">including the ones search cannot fix</strong> — plus two the classification never named: a city that stocks none of what the market matched, and a query from outside the logged set, which it refuses by name rather than guessing. Every abstention and every city-empty dead end writes itself to the demand table; notify-me writes a second, separate row, because &ldquo;we had nothing&rdquo; and &ldquo;tell me&rdquo; are different facts. The hosted database has been migrated and seeded — schema, seeds and embeddings, all of them the analysis's own — so the search behind this button answers from the same data the chapters above were computed from. <a href="/app">The rest of the package is here.</a></span> A demo that overstates itself undoes the honesty the six chapters above it are built on, and it is the one claim on this page a reader can check in ten seconds.</span>
-    </div>
-
-    <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap">
-      <a href="/app#prototype" style="height:38px;display:inline-flex;align-items:center;padding:0 24px;border-radius:999px;background:#017c1f;border:1px solid #017c1f;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none" class="hv3">Open the prototype</a>
-      <a href="/api" style="height:38px;display:inline-flex;align-items:center;padding:0 22px;border-radius:999px;border:1px solid #111827;color:#111827;font-size:13px;font-weight:700;text-decoration:none" class="hv1">The API, live &rarr;</a>
-      <span style="font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:13px;line-height:19px;color:#70747d">opens /app#prototype — the same page the Part B card on <a href="/app">the index</a> links to; /api is the same backend,<br>documented by its own schema. both need a network and a migrated database; this page needs neither.</span>
     </div>
   </div>
 </section>
