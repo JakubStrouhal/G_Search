@@ -23,30 +23,26 @@ injected into every new session by the `SessionStart` hook.
   owner's rm/re-add churn was unnecessary. Production `/app` was re-verified working in a browser
   2026-08-07 ~21:45 UTC (`gym` GB·London → band confident, staff panel live). Never diagnose Vercel
   env state from `pull` output — test the behaviour instead.
-- **Hosted Supabase closed the OpenAPI root to publishable keys** (`GET /rest/v1/` → 401 "Secret
-  API key required", observed 2026-08-07; data endpoints unaffected), so `/api`'s browser-side spec
-  fetch is dead permanently, not intermittently. PR #7 (merged) moves the fetch to a middleware
-  proxy at `/__spec` holding `SUPABASE_SECRET_KEY` server-side (unauthenticated → the uniform 401
-  form, SPEC §B1 preserved). **Re-verified in a browser 2026-08-08 ~00:35 UTC and the diagnosis
-  now has no escape hatch: `/__spec` answers `{"error":"Upstream spec fetch failed: 401"}` and
-  `/api` renders `HTTP 502.`** The stale-bake excuse is dead — `SUPABASE_SECRET_KEY` was re-added
-  to Production and a production deployment ran *after* it, so the baked value is current and
-  still rejected. The value on Vercel is not a valid secret key for project `ewknlggenhrlftdukwme`.
-  Owner: re-add it (verify FIRST with `curl -H "apikey: <secret>" <url>/rest/v1/` → JSON, not 401),
-  then redeploy — middleware env is baked per deployment.
-  Two defects found the same way and **both now fixed** on branch `align-design`, *not yet
-  deployed* — the live page shows the old bare sentence until the next production build: the
-  designed failure sentence was a bare unstyled paragraph under a tall header, so the page *read
-  as blank* — it is now an alert panel in the page's own column, which is how the live 502 was
-  first reported as "no Swagger". And `/__spec` discarded the upstream body, so `502` alone could
-  not distinguish a wrong key from a missing one — the proxy now forwards Supabase's own
-  `message` (capped, `message` only, never headers) as `{upstream, upstreamStatus}`, and `/api`
-  names the cause instead of printing a status code. Evidence, split honestly: the page side is
-  **VERIFIED** — built `dist` served against a stub returning the exact live 502 body, panel
-  renders, upstream sentence shown, `vue-tsc` build clean. The proxy side is **CANNOT VERIFY**
-  yet: the stub supplied that body, so middleware's new `message`-forwarding never executed. It
-  type-checks and nothing more. Note the wrinkle — once the correct key is added, the 502 branch
-  stops firing, so that path stays unexercised in production rather than becoming verified.
+- **`/api` renders Swagger again — RESOLVED 2026-08-08 ~08:50 UTC**, verified in a browser on
+  production: `/__spec` returns the OpenAPI JSON and the page renders the full spec, clean console.
+  The cause was never code. Hosted Supabase serves the OpenAPI root to **secret keys only**
+  (`GET /rest/v1/` with a publishable key → 401 "Secret API key required"; data endpoints
+  unaffected), which is why PR #7 moved the fetch into the `/__spec` middleware proxy — and the
+  `SUPABASE_SECRET_KEY` value on Vercel Production simply was not a valid secret key. The owner
+  replaced it and redeployed. **The redeploy is not optional: middleware env is baked per
+  deployment.** Verify any candidate key *before* setting it: `curl -H "apikey: <secret>"
+  <url>/rest/v1/` must return JSON, not 401.
+  Two defects fixed on the way, on main as `a481617`. `/api`'s failure sentence was an unstyled
+  paragraph under a tall header and **read as a blank page** — which is exactly how the live 502
+  went unread for hours, and it was reported as "no Swagger" rather than as the message it was;
+  it is now an alert panel in the page's own column. And `/__spec` discarded the upstream body, so
+  `502` alone could not tell a wrong key from a missing one — the proxy now forwards Supabase's
+  own `message` (capped, `message` only, never headers) as `{upstream, upstreamStatus}`. Page side
+  **VERIFIED** against a stub serving the exact live 502 body; proxy side **CANNOT VERIFY**, and
+  it will stay that way — with a correct key the 502 branch never fires in production.
+  **Standing lesson, and it cost real hours twice on this same page: diagnose from the page and
+  its console, not from this file.** The first diagnosis went to the wrong cause because a status
+  code was all the page was willing to say.
 - **Grader orientation shipped (PR #7): every surface now answers "where am I" in the brief's own
   letters.** The explainer opens with a Part A/B/C deliverables bar (A = this page, B =
   `/app#prototype`, C = the package at `/app`); the sources box dropped its A/B/C letters for 1/2/3
