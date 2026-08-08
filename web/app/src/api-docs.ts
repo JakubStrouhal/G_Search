@@ -28,32 +28,71 @@ if (!url || !publishableKey) {
 // deployment's own middleware at /__spec, which holds the secret server-side
 // and sits behind the same access gate as this page. The local stack has no
 // middleware and no such restriction, so dev fetches PostgREST directly.
-// A thrown error alone renders as a blank page. Say what failed where the
-// spec was meant to appear — this page's whole claim is honesty about state.
-function fail(reason: string): never {
+const escapeHtml = (s: string) => s.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`)
+
+// A thrown error alone renders as a blank page — and so, in practice, did the bare
+// paragraph that used to live here: under a full-height header it read as nothing at
+// all, and a live 502 on this page went unnoticed because of it. So the failure gets
+// the same weight as the content it replaces: an alert panel, in the page's own
+// column, naming the cause. This page's whole claim is honesty about state, which is
+// worth least at the moment there is no state to show.
+//
+// `detail` is upstream text, so it is escaped before it reaches innerHTML.
+function fail(reason: string, detail?: string): never {
   document.querySelector('#swagger-ui')!.innerHTML =
-    `<p style="max-width:60ch;margin:2rem auto;font:15px/1.5 sans-serif">` +
-    `The live OpenAPI spec could not be fetched. ${reason} ` +
-    `The API itself is unaffected — the prototype at <a href="/app">/app</a> talks to it directly.</p>`
-  throw new Error(`Spec fetch failed: ${reason}`)
+    `<div class="spec-failure" role="alert">` +
+    `<h2>The live OpenAPI spec could not be fetched</h2>` +
+    `<p>${escapeHtml(reason)}</p>` +
+    (detail ? `<p class="detail">Supabase said: <code>${escapeHtml(detail)}</code></p>` : '') +
+    // Label and href must agree. The old link said `/app` and went to `/app` — the
+    // package index, not the prototype — which is the same mis-aim api.html's
+    // deliverables bar was rewritten to remove. Pointing it at /app#prototype while
+    // still *reading* `/app` would only invert the lie.
+    `<p>The API itself is unaffected — the prototype at ` +
+    `<a href="/app#prototype">/app#prototype</a> talks to it directly. ` +
+    `Only this documentation page needs the spec.</p>` +
+    `</div>`
+  throw new Error(`Spec fetch failed: ${reason}${detail ? ` — ${detail}` : ''}`)
 }
 
 const specResponse = import.meta.env.DEV
   ? await fetch(`${url}/rest/v1/`, { headers: { apikey: publishableKey } })
   : await fetch('/__spec')
+// Read once: the body is the error detail on a failure and the spec on success.
+const body = await specResponse.text()
+
 if (!specResponse.ok) {
-  fail(
-    `HTTP ${specResponse.status}.` +
-      (specResponse.status === 503
-        ? ' The deployment is missing its server-side SUPABASE_SECRET_KEY, which the hosted spec endpoint requires.'
-        : ''),
-  )
+  // Both error shapes are JSON: `{upstream, upstreamStatus}` from this deployment's
+  // proxy, `{message}` straight from Supabase's gateway on the dev path.
+  let detail: string | undefined
+  let upstreamStatus: number | undefined
+  try {
+    const parsed = JSON.parse(body)
+    detail = typeof parsed?.upstream === 'string' ? parsed.upstream
+      : typeof parsed?.message === 'string' ? parsed.message
+      : undefined
+    upstreamStatus = typeof parsed?.upstreamStatus === 'number' ? parsed.upstreamStatus : undefined
+  } catch {
+    // Non-JSON error body — the status is all there is.
+  }
+  if (specResponse.status === 503) {
+    fail('This deployment has no server-side SUPABASE_SECRET_KEY set, and the hosted spec endpoint accepts nothing else.', detail)
+  }
+  if (specResponse.status === 502) {
+    fail(
+      upstreamStatus === 401 || upstreamStatus === 403
+        ? 'Supabase rejected this deployment’s SUPABASE_SECRET_KEY: the value configured here is not a valid secret key for this project. Re-adding it and redeploying fixes the page — middleware environment is baked per deployment.'
+        : `This deployment reached Supabase, which answered HTTP ${upstreamStatus ?? 'an error'} instead of the spec.`,
+      detail,
+    )
+  }
+  fail(`The spec endpoint answered HTTP ${specResponse.status}.`, detail)
 }
 // Parse defensively: a server that answers /__spec with an HTML fallback (any
 // static host without the middleware, e.g. `vite preview`) returns 200 + HTML.
 let spec
 try {
-  spec = JSON.parse(await specResponse.text())
+  spec = JSON.parse(body)
 } catch {
   fail('The spec endpoint answered with something that is not JSON — likely a static host serving this page without the middleware that proxies the spec.')
 }
