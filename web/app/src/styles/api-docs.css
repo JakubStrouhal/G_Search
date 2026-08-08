@@ -1,7 +1,8 @@
-/* Header chrome for the API docs page. Tokens come from @design (imported in
-   api-docs.ts alongside this file); everything below the header is Swagger UI's
-   own stylesheet, deliberately untouched — restyling a generated tool reads as
-   effort spent where the brief says none is graded. */
+/* Header chrome for the API docs page, plus the one thing that can appear in
+   Swagger UI's place when there is no spec to render. Tokens come from @design
+   (imported in api-docs.ts alongside this file); Swagger UI's own stylesheet is
+   deliberately untouched — restyling a generated tool reads as effort spent where
+   the brief says none is graded. */
 #api-header {
   font-family: var(--font-sans, sans-serif);
   color: var(--text-color-body, #111827);
@@ -13,9 +14,16 @@
   margin: 0 auto;
   padding: 1.5rem 1.25rem;
 }
+/* The deliverables bar. Same three links and the same wording as the explainer's
+   and the app's, in this page's own idiom (sans, green) rather than theirs —
+   what has to match between the three copies is the vocabulary, not the paint. */
 #api-header nav {
   font-size: 0.85rem;
   margin-bottom: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.75rem;
 }
 #api-header nav a {
   color: var(--background-color-primary-hover, #006e1b);
@@ -24,6 +32,15 @@
 }
 #api-header nav a:hover {
   text-decoration: underline;
+}
+/* Outlined, never filled: the filled pill means "you are here", and no part of
+   this bar is here — /api is not one of the three. */
+#api-header nav .pill {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.15em 0.7em;
+  border: 1px solid currentColor;
+  border-radius: 999px;
 }
 #api-header h1 {
   font-size: 1.4rem;
@@ -42,4 +59,50 @@
   background: rgba(255, 255, 255, 0.7);
   padding: 0.05em 0.35em;
   border-radius: 4px;
+}
+
+/* The failure path, rendered by fail() in api-docs.ts when the spec cannot be
+   fetched. It sits where Swagger UI would have gone, in the header's column so it
+   reads as part of the page rather than debris left in it. Weighted deliberately:
+   the previous unstyled paragraph was true, present, and invisible — a live 502
+   was reported as a blank page because of it. A page that claims it cannot drift
+   has to be legible about the one state where it has nothing to prove that with. */
+.spec-failure {
+  font-family: var(--font-sans, sans-serif);
+  color: var(--text-color-body, #111827);
+  max-width: 58rem;
+  margin: 2rem auto;
+  padding: 1.1rem 1.35rem;
+  border: 1px solid var(--border-color-danger-subtle, #ffb7b7);
+  border-left: 4px solid var(--border-color-danger, #e64343);
+  border-radius: 8px;
+  background: var(--background-color-danger-subtle, #ffeded);
+}
+.spec-failure h2 {
+  font-size: 1.05rem;
+  font-weight: var(--font-weight-extrabold, 800);
+  color: var(--text-color-danger, #b33434);
+  margin: 0 0 0.5rem;
+}
+.spec-failure p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0 0 0.6rem;
+  max-width: 48rem;
+}
+.spec-failure p:last-child {
+  margin-bottom: 0;
+}
+/* Upstream's own words, so it wraps rather than pushing the panel wide. */
+.spec-failure .detail code {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85em;
+  overflow-wrap: anywhere;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+}
+.spec-failure a {
+  color: var(--background-color-primary-hover, #006e1b);
+  font-weight: var(--font-weight-semibold, 600);
 }

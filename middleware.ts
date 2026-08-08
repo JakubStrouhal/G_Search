@@ -191,8 +191,25 @@ export default async function middleware(request: Request): Promise<Response> {
         headers: { apikey: secretKey, Authorization: `Bearer ${secretKey}` },
       })
       if (!upstream.ok) {
+        // The status alone is not a diagnosis. A WRONG secret key and a key belonging
+        // to another project are both 401 here, and 502 at the browser — which is
+        // exactly how the first live diagnosis of this page went to the wrong cause.
+        // Supabase names it ("Secret API key required" vs "Invalid API key"), so pass
+        // its own sentence through. Only `message` is forwarded, capped, and never the
+        // request headers, so the key itself cannot ride out on the error path.
+        let message: string | undefined
+        try {
+          const parsed = JSON.parse(await upstream.text())
+          if (typeof parsed?.message === 'string') message = parsed.message.slice(0, 200)
+        } catch {
+          // Non-JSON upstream body — the status is all there is to report.
+        }
         return new Response(
-          JSON.stringify({ error: `Upstream spec fetch failed: ${upstream.status}` }),
+          JSON.stringify({
+            error: `Upstream spec fetch failed: ${upstream.status}`,
+            upstreamStatus: upstream.status,
+            upstream: message,
+          }),
           { status: 502, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } },
         )
       }
